@@ -1,0 +1,56 @@
+*{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#nav {
+    background-color: #A9BCD0;
+    display: flex;
+    justify-content: flex-end;
+    
+}
+
+#nav a {
+    padding: 18px 18px;
+    color: white;
+    text-decoration: none;
+}
+
+#nav a:hover {
+    color: #373f51;
+}
+
+
+main {
+    background-color:#E8E8E8;
+    height: 500px;
+}
+
+h1 {
+    text-align: center;
+    color:#fc6471;
+}
+
+#formulario {
+    display: flex;
+    justify-content: center;
+}
+
+
+
+footer {
+    background-color: #A9BCD0;
+    height: 200px;
+}
+
+#mesiga {
+    text-align: center;
+    padding: 20px;
+    color: white;
+}
+.social {
+    max-width: 2%;
+    display: inline;
+    padding: 10px;
+
+}
