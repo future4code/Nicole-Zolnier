@@ -1,0 +1,112 @@
+
+/* aplicado para todos */
+*{
+    font-family: helvetica;
+    margin: 0px;
+}
+
+#nav {
+    background-color: #fadbe3;
+    display: flex;
+    justify-content: flex-end;
+    
+}
+
+#nav a {
+    padding: 18px 18px;
+    color: white;
+    text-decoration: none;
+}
+
+#nav a:hover {
+    color: #858585;
+}
+#logo {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 5%;
+}
+
+.abertura {
+    text-align: center;
+    color: #858585;
+}
+
+#lumiere {
+    text-align: center;
+    color: #858585;
+    padding: 1px;
+}
+
+#titulo {
+    text-align: center;
+    padding: 2px;
+}
+/* INDEX */
+
+#bem-vindo {
+    font-size: 15px;
+}
+
+#frase {
+    font-size: 10px;
+}
+
+#about {
+    height: 250px;
+    width: auto;
+    background-color: #E8E8E8;
+}
+.vela {
+    width: 30%;
+    display: none;
+}
+
+.info {
+
+    padding: 30px;
+    text-align: center; 
+}
+#social {
+    text-align: center;
+    height: 200px;
+    width: auto;
+    background-color: #459676;
+}
+.icons {
+    display: inline-flex;
+    width: 10%;
+
+}
+/* FUNC */
+#func-main {
+    height: 450px;
+    background-color: #E8E8E8;
+}
+
+/* ESTOQUE */
+#ctrl-main {
+    background-color: #E8E8E8;
+}
+
+
+/* PRODUTO */
+#add-main {
+    background-color: #E8E8E8;
+    height: 450px;
+}
+
+
+
+
+
+/* footer de todos */
+footer {
+    background-color: #fadbe3;
+    color: white;
+    text-align: center;
+    height: 100px;
+    padding: 10px;
+    padding-top: 10px;
+}
