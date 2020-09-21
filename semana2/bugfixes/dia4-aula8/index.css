@@ -120,8 +120,16 @@ td button {
     background-color: #fadf63;
     width: 150px;
     height: 30px;
-    border-radius: 5px;
+    border-radius: 5 rs4eepx;
     color: black;
+}
+
+td button:hover {
+    color: white;
+}
+
+td button:active {
+    background-color: #fcce00;
 }
 
 td img {
