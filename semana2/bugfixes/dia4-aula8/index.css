@@ -53,7 +53,7 @@ div img {
 }
 
 #botao-espaçado {
-    padding: 100px;
+    padding: 50px;
 }
 
 .botao-amarelo:hover {
@@ -90,14 +90,20 @@ div img {
 
 #container-para-comprar {
     background-color: #e7eb90;
+    width: 100%;
 }
 
 #container-para-comprar>p {
+    
+
+}
+
+
+#bora {
     color: #c44f00;
     padding: 100px 0;
     font-size: 60px;
 }
-
 
 /**
   *
@@ -112,6 +118,8 @@ div:last-child {
 
 table {
     width: 60%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 tr {
@@ -152,6 +160,10 @@ td img {
 
 .container-do-search img {
 
+}
+#nice-button {
+    padding: 200px;
+    text-align: center;
 }
 
 #back-button {
