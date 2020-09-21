@@ -49,6 +49,10 @@ div img {
     display: block;
     margin-left: auto;
     margin-right: auto;
+   
+}
+
+a {
     text-decoration: none;
 }
 
@@ -71,6 +75,14 @@ div img {
     background-color: white;
 }
 
+input {
+    outline: none;
+}
+
+button {
+    outline: none;
+}
+
 
 /** 
   *
@@ -82,7 +94,9 @@ div img {
     background-color: #2274a5;
     color: white;
     padding: 100px;
+    height: 300px;
 }
+
 
 #container-de-descricao>ol {
     padding: 15px 0px;
@@ -91,12 +105,7 @@ div img {
 
 #container-para-comprar {
     background-color: #e7eb90;
-    width: 100%;
-}
-
-#container-para-comprar>p {
-    
-
+   
 }
 
 
