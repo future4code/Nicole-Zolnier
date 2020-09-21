@@ -143,6 +143,11 @@ td img {
     height: 100px;
 }
 
+.container-do-search input {
+    border: none;
+    border-bottom: 2px solid black;
+}
+
 .container-do-search img {
 
 }
