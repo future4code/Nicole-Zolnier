@@ -44,6 +44,14 @@ div img {
     border-radius: 5px;
     font-size: 20px;
     color: white;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none;
+}
+
+#botao-espaçado {
+    padding: 100px;
 }
 
 .botao-amarelo:hover {
