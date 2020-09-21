@@ -86,6 +86,7 @@ div img {
 
 #container-de-descricao>ol {
     padding: 15px 0px;
+    list-style-position: inside;
 }
 
 #container-para-comprar {
