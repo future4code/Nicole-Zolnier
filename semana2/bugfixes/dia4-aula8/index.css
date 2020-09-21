@@ -65,6 +65,8 @@ div img {
 
 .icone {
     height: 15px;
+    width: auto;
+    background-color: white;
 }
 
 
@@ -122,11 +124,20 @@ td button {
     color: black;
 }
 
+td img {
+    width: 3vw;
+    height: auto;
+    background-color: white;
+}
+
 .container-do-search {
     margin-top: 20px;
     height: 100px;
 }
 
+.container-do-search img {
+
+}
 
 #back-button {
     background-color: white;
