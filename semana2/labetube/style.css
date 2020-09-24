@@ -1,0 +1,155 @@
+/* geral */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+*{
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 0;
+}
+
+.logo {
+    height: 5vh;
+}
+
+.lupa {
+    height: 15px;
+    width: auto;
+    background-color: lightblue;
+}
+
+.pesquisa {
+    border: none;
+    border-bottom: 2px solid black;
+    background-color: lightblue;
+}
+
+.logo-titulo {
+    background-color: lightblue;
+    width: 30vw;
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.busca {
+    background-color: lightblue;
+    width: 70vw;
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    background-color: lightblue;
+    height: 8vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    position: fixed;
+    margin-top: 6em;
+    width: 100vw;
+    height: 84vh;
+}
+
+
+
+/* index */
+
+
+#container-grande {
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0.5em;
+    padding-left: 0.5em;
+    justify-items: center;
+    align-items: center;
+    
+}
+
+.thumb {
+    border: 1px solid black;
+    display: grid;
+    width: 20vw;
+    height: 30vh;
+    margin: 5px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+
+
+#thumbnail>a>h2 {
+    font-size: 13px;
+    text-align: center;
+}
+
+/* videos */
+
+article {
+    display: flex;
+}
+
+.menu-lateral {
+    justify-content: flex-end;
+}
+
+#video-grande {
+    padding-left: 2em;
+    
+}
+
+video {
+    width: 710px;
+    height: 465px;
+    margin-right: 25em;
+}
+
+#back-button {
+    background-color: lightsalmon;
+    width: 100px;
+    height: 20px;
+    border: 1px solid black;
+    font-size: 10px;
+    color: black;
+    
+}
+
+#botao-que-me-odeia {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    padding: 2em;
+    padding-top: 3em;
+    
+}
+
+
+
+
+
