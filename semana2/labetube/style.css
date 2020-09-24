@@ -31,6 +31,7 @@ header {
 }
 
 .pesquisa {
+    width: 30vw;
     border: none;
     border-bottom: 2px solid black;
     background-color: lightblue;
@@ -38,7 +39,7 @@ header {
 
 .logo-titulo {
     background-color: lightblue;
-    width: 30vw;
+    width: 50vw;
     height: 8vh;
     display: flex;
     justify-content: center;
@@ -47,7 +48,7 @@ header {
 
 .busca {
     background-color: lightblue;
-    width: 70vw;
+    width: 50vw;
     height: 8vh;
     display: flex;
     justify-content: center;
@@ -78,7 +79,6 @@ main {
 
 
 #container-grande {
-    
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
@@ -149,7 +149,43 @@ video {
     
 }
 
+/* responsividade */
 
+@media screen and (min-device-width : 320px) and (max-device-width : 420px) {
+    .logo {
+        height: 3vh;
+    }
+    h1 {
+        font-size: 16px;
+    }
 
+    #container-grande {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.5em;
+        padding-left: 0.5em;
+        justify-items: center;
+        align-items: center;
+        
+    }
+    
+    .thumb {
+        border: 1px solid black;
+        display: grid;
+        width: 45vh;
+        height: 30vh;
+        margin: 5px;
+    }
+
+    video {
+        width: 450px;
+        height: 250px;
+    }
+    #video-grande {
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+        
+    }
+}
 
 
