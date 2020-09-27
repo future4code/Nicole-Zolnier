@@ -12,27 +12,29 @@
 header {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    background-color: #e83151;
-    height: 8vh;
+    justify-content: space-evenly;
+    background-color: #8C0303;
+    height: 12vh;
 }
 
 nav {
-    width: 30vw;
+    width: 20vw;
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 a {
     text-decoration: none;
     color: white;
-    font-size: 1.5em;
+    font-size: 1.2em;
+    padding: 1em;
 }
 
 
 #logo-titulo {
-    width: 40vw;
+    width: 20vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,56 +43,67 @@ a {
 }
 
 .logo-massa {
-    width: 4vw;
-   
+    width: 5vw;
 }
 
 /* FIRST SECTION */
 
 #first-container {
+    height: 90vh;
+    background-image: url(./img/geladeira-cozinha-2.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
+    background-size: cover;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    background-color: #FFDAB9;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
 }
 
 
-h3 {
-    display: grid;
-    align-items: center;
-    justify-items: center;
-    font-size: 1.8em;
-    color: #592C1C;
+#f1 {
+    grid-row: 2;
+    font-size: 3em;
+    color: #F2F2F2;
     padding: 1em;
-
+    text-shadow: 3px 2px 0px  #592C1C,  9px 2px 9px black,
+     15px 2px 30px grey, 2px 2px 2px black;
+    padding-bottom: 4em;
 }
 
-.geladeira {
-    width: 40vw;
-    display: grid;
-    align-items: center;
-    justify-items: center;
+#f2 {
+    grid-row: 3;
+    font-size: 3em;
+    color: #F2F2F2;
+    padding-top: 0;
+    padding: 1em;
+    text-shadow: 3px 2px 0px  #592C1C,  9px 2px 9px black,
+    15px 2px 30px grey, 2px 2px 2px black;
+    
 }
 
 #f3 {
     display: grid;
-    grid-column: 2;
-    align-items: center;
     justify-items: center;
+    align-items: center;
     font-size: 3em;
+    padding-top: 1em;
     padding: 0.5em;
-    color: #592C1C;
+    color:#F2F2F2;
+    grid-row: 4;
+    text-shadow: 3px 2px 0px #592C1C,  9px 2px 9px black,
+     15px 2px 30px grey, 2px 2px 2px black;
+
 }
 
 /* SECOND & THIRD SECTION */
 .section-title {
-    background-color: #267c71;
+    background-color: #595302;
     padding: 0.5em;
     font-size: 3em;
     color: white;
 }
 
 #quem-somos {
-    background-color: #edac4a;
+    background-color: #A6918A;
 }
 
 #quem-somos> p {
@@ -101,12 +114,12 @@ h3 {
 
 /* THIRD SECTION ADD-ONS */
 
-.special {
+#special {
     text-align: end;
 }
 
 #servico {
-    background-color: #edac4a;
+    background-color: #A6918A;
 }
     
 #servico> p {
@@ -121,16 +134,18 @@ h3 {
     flex-direction: row;
     justify-content: space-evenly;
     align-items: flex-end;
+    padding-bottom: 2em;
 }
 
 .icons {
-    width: 20vw;
+    width: 40vw;
+    border: 2px solid #592C1C;
 
 }
 
 /* FOURTH SECTION  */
 #onde {
-    background-color: #edac4a;
+    background-color: #A6918A;
 }
 
 #onde> p {
@@ -149,10 +164,8 @@ iframe {
 /* FOOTER */
 
 footer {
-    position: relative;
-    bottom: 0;
-    background-color: #e83151;
-    height: 13vh;
+    background-color: #8C0303;
+    height: 18vh;
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -166,6 +179,7 @@ footer>p {
     color: white;
     font-size: 1.5em;
     padding: 0.2em;
+    padding-top: 0.5em;
 
 }
 
@@ -185,22 +199,22 @@ footer>p {
 }
 
 @media screen and (min-device-width : 320px) and (max-device-width : 420px) {
-    #first-container {
-        display: grid;
-        grid-template-rows: 1fr 1fr 1fr 1fr;
-        grid-template-columns: 1fr;
-        background-color: ivory;
-        height: 80vh;
+    header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        background-color: #8C0303;
+        height: 10vh;
+    }
+
+    a {
+        text-decoration: none;
+        color: white;
+        font-size: 1em;
+        padding: 0.5em;
     }
     
-    .geladeira {
-        width: 90vw;
-        display: grid;
-        align-items: center;
-        justify-items: center;
-        grid-row: 1;
-        padding: 0;
-    }
+    
 
     #f1 {
         display: grid;
