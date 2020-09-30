@@ -79,100 +79,103 @@
 // }
 
 // desafio 2
-// let nome = prompt("Digite seu nome completo")
-// let tipo = prompt("Qual o tipo de jogo? Digite IN para internacional e DO para doméstico").toLowerCase()
-// let etapaJogo = prompt("Qual a etapa do jogo? Digite SF para semi-final, DT para terceiro lugar e FI para final").toLowerCase()
-// let categoria = Number(prompt("Qual a categoria? Digite 1, 2, 3 ou 4"))
-// let quantidade = Number(prompt("Digite a quantidade de ingressos"))
+let nome = prompt("Digite seu nome completo")
+let tipo = prompt("Qual o tipo de jogo? Digite IN para internacional e DO para doméstico").toLowerCase()
+let etapaJogo = prompt("Qual a etapa do jogo? Digite SF para semi-final, DT para terceiro lugar e FI para final").toLowerCase()
+let categoria = Number(prompt("Qual a categoria? Digite 1, 2, 3 ou 4"))
+let quantidade = Number(prompt("Digite a quantidade de ingressos"))
+let moeda
 
-// let valorDoIngresso
-// let valorTotal
+let valorDoIngresso
+let valorTotal
 
-// if ( etapaJogo === 'sf' ) {
-//     etapaJogo = "Etapa Semi-final"
-//     switch( categoria ) {
-//         case 1:
-//             valorDoIngresso = 1320
-//             break;
-//         case 2:
-//             valorDoIngresso = 880
-//             break;
-//         case 3:
-//             valorDoIngresso = 550
-//             break;
-//         case 4:
-//             valorDoIngresso = 220
-//             break;
-//         default:
-//             console.log("Essa categoria não existe")
-//             break;
-//     }
-// }
-// else if ( etapaJogo === 'dt' ) {
-//     etapaJogo = "Decisão do Terceiro Lugar"
-//     switch( categoria ){
-//         case 1:
-//             valorDoIngresso = 660
-//             break;
-//         case 2:
-//             valorDoIngresso = 440
-//             break;
-//         case 3:
-//             valorDoIngresso = 330
-//             break;
-//         case 4:
-//             valorDoIngresso = 170
-//             break;
-//         default:
-//             console.log("Essa categoria não existe")
-//             break;
+if ( etapaJogo === 'sf' ) {
+    etapaJogo = "Etapa Semi-final"
+    switch( categoria ) {
+        case 1:
+            valorDoIngresso = 1320
+            break;
+        case 2:
+            valorDoIngresso = 880
+            break;
+        case 3:
+            valorDoIngresso = 550
+            break;
+        case 4:
+            valorDoIngresso = 220
+            break;
+        default:
+            console.log("Essa categoria não existe")
+            break;
+    }
+}
+else if ( etapaJogo === 'dt' ) {
+    etapaJogo = "Decisão do Terceiro Lugar"
+    switch( categoria ){
+        case 1:
+            valorDoIngresso = 660
+            break;
+        case 2:
+            valorDoIngresso = 440
+            break;
+        case 3:
+            valorDoIngresso = 330
+            break;
+        case 4:
+            valorDoIngresso = 170
+            break;
+        default:
+            console.log("Essa categoria não existe")
+            break;
 
-//     }
-// }
-// else if ( etapaJogo === 'fi' ) {
-//     etapaJogo = "Etapa Final"
-//     switch( categoria ){
-//         case 1:
-//             valorDoIngresso = 1980
-//             break;
-//         case 2:
-//             valorDoIngresso = 1320
-//             break;
-//         case 3:
-//             valorDoIngresso = 880
-//             break;
-//         case 4:
-//             valorDoIngresso = 330
-//             break;
-//         default:
-//             console.log("Essa categoria não existe")
-//             break;
-//     }
-// }
-// else {
-//     etapaJogo = "Inválida"
-// }
+    }
+}
+else if ( etapaJogo === 'fi' ) {
+    etapaJogo = "Etapa Final"
+    switch( categoria ){
+        case 1:
+            valorDoIngresso = 1980
+            break;
+        case 2:
+            valorDoIngresso = 1320
+            break;
+        case 3:
+            valorDoIngresso = 880
+            break;
+        case 4:
+            valorDoIngresso = 330
+            break;
+        default:
+            console.log("Essa categoria não existe")
+            break;
+    }
+}
+else {
+    etapaJogo = "Inválida"
+}
 
 
-// if ( tipo === 'do' ) {
-//     tipo = "Nacional"
-// }
-// else if ( tipo === 'in' ){
-//     tipo = "Internacional"
-//     valorDoIngresso = valorDoIngresso *4.1
-// }
-// else {
-//     tipo = "Inválido"
-// }
+if ( tipo === 'do' ) {
+    tipo = "Nacional"
+    moeda = "R$"
+}
+else if ( tipo === 'in' ){
+    tipo = "Internacional"
+    valorDoIngresso = valorDoIngresso *4.1
+    moeda = "U$"
+}
+else {
+    tipo = "Inválido"
+}
 
-// valorTotal = valorDoIngresso * quantidade
+valorTotal = valorDoIngresso * quantidade
 
-// console.log("----Dados da Compra----")
-// console.log(`Nome do cliente: ${nome}`)
-// console.log(`Tipo de jogo: ${tipo}`)
-// console.log(`Etapa do Jogo: ${etapaJogo}`)
-// console.log(`Categoria: ${categoria}`)
-// console.log(`Quantidade de Ingressos: ${quantidade} ingressos`)
-// console.log("----Valores----")
-// console.log(`Valor do ingresso: ${valorDoIngresso}`)
-// console.log(`Valor total: ${valorTotal}`)
+console.log("----Dados da Compra----")
+console.log(`Nome do cliente: ${nome}`)
+console.log(`Tipo de jogo: ${tipo}`)
+console.log(`Etapa do Jogo: ${etapaJogo}`)
+console.log(`Categoria: ${categoria}`)
+console.log(`Quantidade de Ingressos: ${quantidade} ingressos`)
+console.log("----Valores----")
+console.log(`Valor do ingresso: ${moeda}${valorDoIngresso}`)
+console.log(`Valor total: ${moeda}${valorTotal}`)
