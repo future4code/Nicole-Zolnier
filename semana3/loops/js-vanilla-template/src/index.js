@@ -148,7 +148,6 @@
 
 
 // ----- desafio 3 -----
-
 // let numeroEscolhido = Math.floor(Math.random( ) * 100);
 // console.log("Vamos jogar")
 // let numeroChute = Number((prompt("Chute um número")))
@@ -171,7 +170,6 @@
 
 //     numeroChute = Number((prompt("Chute de novo um número")))
 //     console.log(`O numero chutado foi ${numeroChute}`)
-    
 // }
 
 // console.log("Acertou!!")
