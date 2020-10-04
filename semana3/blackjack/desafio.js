@@ -90,7 +90,7 @@ if (inicioJogo) {
          let comprarMais = confirm(`Suas cartas são ${printCartasUser}. A carta revelada do computador é ${printCartasPc[0]}${printCartasPc[1]}
          Deseja comprar mais uma carta?`)
 
-         if (comprarMais) {
+         if (comprarMais && printPontosUser < 21) {
             let carta = comprarCarta()
             cartasUser.push(carta.texto)
             pontosUser.push(carta.valor)
@@ -103,7 +103,7 @@ if (inicioJogo) {
             let vezDoPc = true
 
             while (vezDoPc) {
-               if (printPontosPc < printPontosUser) {
+               if ((printPontosPc < printPontosUser) && (printPontosPc < 21)) {
                   let carta = comprarCarta()
                   cartasPc.push(carta.texto)
                   pontosPc.push(carta.valor)
@@ -115,17 +115,37 @@ if (inicioJogo) {
                   console.log(`Suas cartas são ${printCartasUser} e as do computador ${printCartasPc}`)
                   console.log("A pontuação do usuário é", printPontosUser, "e a do computador é", printPontosPc)
 
-                  if ((printPontosPc === printPontosUser) || (printPontosUser > 21 && printPontosPc > 21)) {
-                     console.log("Empate! Os dois perderam")
-                  }
-                  else if ((printPontosUser <= 21) || (printPontosPc > 21) || (printPontosUser > printPontosPc)) {
+                  
+                  if ((printPontosUser > printPontosPc) && (printCartasUser <= 21)) {
                      console.log("O usuário ganhou!")
                   }
-                  else if ((printPontosPc <= 21) || (printPontosUser > 21) || (printPontosPc > printPontosUser)) {
+                  else if ((printPontosUser < printPontosPc) && (printCartasPc <= 21)) {
                      console.log("O computador ganhou!")
                   }
-
-
+                  else if ((printPontosPc === printPontosUser)) {
+                     console.log("Empate!")
+                  }
+                  else if((printPontosUser > 21 && printPontosPc > 21)) {
+                     console.log("Os dois perderam!")
+                  }
+                  else if((printPontosUser < printPontosPc) && (printPontosPc > 21)) {
+                     console.log("O usuário ganhou!")
+                  }
+                  else if((printPontosUser > printPontosPc) && (printPontosPc < 21)) {
+                     console.log("O computador ganhou!")
+                  }
+                  else if((printPontosPc < 21) && (printPontosUser < 21) && (printPontosUser > printPontosPc)){
+                     console.log("O usuário ganhou!")
+                  }
+                  else if((printPontosPc < 21) && (printPontosUser < 21) && (printPontosPc > printPontosUser)){
+                     console.log("O computador ganhou!")
+                  }
+                  else if (printPontosUser = 21) {
+                     console.log("O usuário ganhou!")
+                  }
+                  else if (printPontosPc = 21) {
+                     console.log("O computador ganhou!")
+                  }
                }
             }
 
