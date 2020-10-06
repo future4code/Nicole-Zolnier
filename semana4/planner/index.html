@@ -22,52 +22,70 @@
                 <option value="sexta">Sexta-feira</option>
                 <option value="sabado">Sábado</option>
             </select>
-            
+        </form>
+
+        <form action="">
+            <label for="horario">Horário:</label>
+            <input type="time" id="horario">
         </form>
 
         <button onclick = "criarTarefa()">Criar tarefa</button>
 
-        <button id="botao-provisorio" onclick="apagarTudo()">Apagar todas as tarefas</button>
+        <button id="especial" onclick="apagarTudo()">Apagar tudo</button>
         
     </header>
     <section>
         <div class="semana">
             <h3>Domingo</h3>
-            <div id="domingo"></div>
+            <div>
+                <ul class="lista" id="domingo"></ul>
+            </div>
         </div>
 
         <div class="semana">
             <h3>Segunda-feira</h3>
-            <div id="segunda"></div>
+            <div>
+                <ul class="lista" id="segunda"></ul>
+            </div>
             
         </div>
 
         <div class="semana">
             <h3>Terça-feira</h3>
-            <div id="terca"></div>
+            <div >
+                <ul class="lista" id="terca"></ul>
+            </div>
         </div>
     
         <div class="semana">
             <h3>Quarta-feira</h3>
-            <div id="quarta"></div>
+            <div >
+                <ul class="lista" id="quarta"></ul>
+            </div>
     
         </div>
     
         <div class="semana">
             <h3>Quinta-feira</h3>
-            <div id="quinta"></div>
+            <div >
+                <ul class="lista" id="quinta"></ul>
+            </div>
         
         </div>
 
         <div class="semana">                    
             <h3>Sexta-feira</h3>               
-            <div id="sexta"></div>
+            <div>
+                <ul class="lista" id="sexta"></ul>
+            </div>
            
         </div>
 
         <div class="semana">
             <h3>Sábado</h3>
-            <div id="sabado"></div>
+            <div>
+                <ul class="lista" id="sabado"></ul>
+            </div>
            
         </div>
     </section>

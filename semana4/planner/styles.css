@@ -8,9 +8,33 @@
 header {
     height: 10vh;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+    background-color: #AFEEEE;
 }
+
+label {
+    ;
+}
+
+input {
+    border: 1px solid black;
+    color: black;
+}
+
+select {
+    border: 1px solid black;
+    color: black;
+    margin-left: 3em
+}
+
+button {
+    border: 1px solid black;
+    color: black;
+    padding: 0.3em;
+    margin-left: 2.5em;
+}
+
 
 section {
     display: flex;
@@ -24,6 +48,32 @@ section {
     padding: 5px;
 }
 
-#botao-provisorio {
-    display: none;
+ul {
+    margin-left: 1.5em;
+}
+
+@media screen and (min-device-width : 320px) and (max-device-width : 420px) {
+    header {
+        flex-wrap: wrap;
+    }
+
+    section {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        height: 100vh;
+    }
+
+    button {
+        padding: 0.3em;
+        margin-left: 1em;
+    }
+    label, select {
+        margin-left: 0em;
+    }
+
+    .semana {
+        width: 100%;
+        height: 100%;
+    }
 }
