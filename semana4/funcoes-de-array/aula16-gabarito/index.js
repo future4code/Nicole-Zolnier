@@ -81,26 +81,42 @@ function adicionarDespesa(){
 
 // TERCEIRO
 function filtrarDespesas(){
+
     let tipoFiltro = document.getElementById('tipoFiltro').value
-    let valorMin = parseInt(document.getElementById('valorFiltroMin'))
-    let valorMax = parseInt(document.getElementById('valorFiltroMax'))
-
-
-    if(validarValores(valorMin) && validarValores(valorMin) && validarTipo(tipoFiltro) && valorMin < valorMax){
-        let despesasFiltradas = arrDespesas.filter((despesa) => {
-            if((tipoFiltro === despesa.tipo || tipoFiltro === 'todos') && despesa.valor >= valorMin.value && despesa.valor <= valorMax.value ){
-                return true
-            }
-        })
+    let valorMin = Number(document.getElementById('valorFiltroMin').value)
+    let valorMax = Number(document.getElementById('valorFiltroMax').value)
     
-        imprimirDespesas(despesasFiltradas)
+
+    if(camposPreenchidos(tipoFiltro, valorMin, valorMax)){
+        if(validarValores(valorMin, valorMax)){
+
+            let despesasFiltradas = arrDespesas.filter((despesa) => {
+                if((tipoFiltro === despesa.tipo || tipoFiltro === 'todos') && despesa.valor >= valorMin && despesa.valor <= valorMax ){
+                    return true
+                }
+            })
+        
+            imprimirDespesas(despesasFiltradas)
+        }
+        else{
+            alert("Opa! Insira numeros positivos e o valor minimo não pode ser maior que o valor maximo")
+        }
     }
     else{
-        alert("Opa! Algo deu errado, escreva um numero inteiro e preencha todos os campos! Ah, e o valor minimo não pode ser maior que o maximo!")
+        alert("Opa! Algo deu errado, preencha todos os campos!")
     }
+    
     
 }
 
+// funçao de organizar - desafio 2
+function organizarDespesas () {
+    arrDespesas.sort((a,b) => {
+        return b.valor - a.valor
+    })
+
+    imprimirDespesas(arrDespesas)
+}
 
 
 // FunÇoes que fazem validaÇoes dos inputs de criaÇao de despesas 
@@ -128,9 +144,25 @@ function validarDescricao(texto){
     return false
 }
 
-function validarValores(valor){
-    if(valor.value > 0 && parseInt(valor.value) > 0){
+// funções criadas para o desafio 1
+
+// verifica se tudo foi preenchido
+function camposPreenchidos(input, input2, input3){
+    if((input !== "") && (input2 !== "") && (input3 !== "")) {
         return true
     }
-    return false
+    else {h
+        return false
+    }
 }
+
+// verifica se o valor minimo e negativos são positivos e se o minimo é menor que o maximo
+function validarValores(minimo, maximo){
+    if((minimo >= 0) && (maximo > 0) && (minimo < maximo)){
+        return true
+    }
+    else{
+        return false
+    }
+}
+
