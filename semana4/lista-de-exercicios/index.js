@@ -295,3 +295,22 @@ podemos filtrar as informações de uma maneira melhor! Ele é melhor quando vc 
 
 
 *\
+
+// ----- 2
+/*
+const criaRetangulo = (lado1, lado2) => {
+    const retangulo = {
+        largura: lado1,
+        altura: lado2,
+        perimetro: 2*(lado1 + lado2),
+        área: (lado1 * lado2)
+    }
+
+    return retangulo
+}
+
+const meuRetangulo = (criaRetangulo(5, 9))
+console.log(meuRetangulo)
+
+*/
+
