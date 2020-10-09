@@ -275,7 +275,7 @@ segundoMaiorMenor(numeros)
 // ----- 2
 /*
 const hello = () => {
-	alert("Hello Future4")
+    alert("Hello Future4")
 }
 hello()
 
@@ -354,4 +354,31 @@ console.log(anonimizou)
 
 */
 
+// -------- ex de funções do array --------
+// ----- 1
+/*
+const pessoas = [
+    { nome: "Pedro", idade: 20 },
+    { nome: "João", idade: 10 },
+    { nome: "Paula", idade: 12 },
+    { nome: "Artur", idade: 89 }
+]
 
+
+const adultos = pessoas.filter((ser) => {
+    if (Number(ser.idade) >= 20) {
+        return true
+    }
+})
+
+
+console.log(adultos)
+
+const criancas = pessoas.filter((kid) => {
+    if(kid.idade < 20){
+        return true
+    }
+})
+
+console.log(criancas)
+*\
