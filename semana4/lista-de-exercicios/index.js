@@ -80,8 +80,41 @@ se o numero for maior que 0 (variavel numero2) ele é igual ao numero2 (ou seja 
 como está em um looping, o codigo vai rodar até encontrar esses dois numeros e dai vai ter um console para cada
 
 entãoooooo
-o primeiro console vai ser: -10
-e o segundo: 1590
+o primeiro console vai ser: -10 (pq infinito é todos os numeros positivos entao até o 1 tá no conjunto, só o -10 que nao)
+e o segundo: 1590 (pq ele é o maior mesmo hehe)
 
 
 */
+
+// -------- ex de logica de programaçao --------
+
+// ----- 1
+/*
+pode ser por while, for e for of
+
+-- array para todos
+const frutasFavs = ["goiaba", "manga", "morango", "melão", "melancia", "uva"]
+
+-- while
+let i = 0
+while(i < frutasFavs.length){
+    console.log(frutasFavs[i])
+
+    i++
+}
+
+-- for
+for(let i = 0; i < frutasFavs.length; i++){
+    console.log(frutasFavs[i])
+}
+
+-- for of
+for(let fruta of frutasFavs){
+    console.log(fruta)
+}
+
+*/
+
+
+
+
