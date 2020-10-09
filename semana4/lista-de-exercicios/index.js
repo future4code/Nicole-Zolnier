@@ -91,30 +91,37 @@ e o segundo: 1590 (pq ele é o maior mesmo hehe)
 // ----- 1
 /*
 pode ser por while, for e for of
-
 -- array para todos
 const frutasFavs = ["goiaba", "manga", "morango", "melão", "melancia", "uva"]
 
 -- while
-let i = 0
-while(i < frutasFavs.length){
-    console.log(frutasFavs[i])
+const whileFunction = (array) => {
+    let i = 0
+    while (i < array.length) {
+        console.log(array[i])
 
-    i++
+        i++
+    }
 }
+whileFunction(frutasFavs)
 
 -- for
-for(let i = 0; i < frutasFavs.length; i++){
-    console.log(frutasFavs[i])
+const forFunction = (array) => {
+    for (let i = 0; i < array.length; i++) {
+        console.log(array[i])
+    }
+
 }
 
--- for of
-for(let fruta of frutasFavs){
-    console.log(fruta)
-}
+forFunction(frutasFavs)
 
+-- for of 
+const forOfFunction = (array) => {
+    for (let fruta of array) {
+        console.log(fruta)
+    }
+}
+forOfFunction(frutasFavs)
 */
-
-
 
 
