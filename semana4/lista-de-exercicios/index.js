@@ -156,11 +156,6 @@ quantidadeDeNumerosPares(3)
 
 // ----- 4
 /*
-
-
-
-*/
-
 const verificaTriangulo = (a, b, c) => { 
     if (a === b && c === b) {
         return "Triangulo equilátero"
@@ -180,3 +175,48 @@ const triangulo3 = verificaTriangulo(10, 10, 10)
 console.log(triangulo)
 console.log(triangulo2)
 console.log(triangulo3)
+
+
+*/
+
+// ----- 5
+/*
+const compararNumeros = (a, b) => {
+    if (a > b) {
+        console.log(`O maior é ${a}`)
+    }
+    else {
+        console.log(`O maior é ${b}`)
+    }
+
+
+    if (a % b === 0) {
+        console.log(`${a} é divisível por ${b}`)
+    }
+    else {
+        console.log(`${a} não é divisível por ${b}`)
+    }
+
+
+    if (b % a === 0) {
+        console.log(`${b} é divisível por ${a}`)
+    }
+    else {
+        console.log(`${b} não é divisível por ${a}`)
+    }
+
+    let diferenca = a - b
+
+    if (diferenca < 0) {
+        diferenca = diferenca * (-1)
+    }
+    console.log(`A diferença entre eles é ${diferenca}`)
+
+}
+
+compararNumeros(10, 20)
+compararNumeros(30, 10)
+
+*/
+
+
