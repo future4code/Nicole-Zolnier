@@ -124,4 +124,18 @@ const forOfFunction = (array) => {
 forOfFunction(frutasFavs)
 */
 
+// ----- 2
+/*
+const booleano1 = true 
+const booleano2 = false
+const booleano3 = !booleano2 -> true
+const booleano4 = !booleano3 -> false
+
+a. true e false e false = FALSE
+b. (true e false) - false  (false ou false) = FALSE
+c. (false ou true) - true (false ou true) - true (true e true) = TRUE
+d. (false e true) - !false - true    (true e true) - !true - false  --- (true ou false) = TRUE
+e. (true e true e true) - true     false e false (false) ou true = TRUE
+
+*/
 
