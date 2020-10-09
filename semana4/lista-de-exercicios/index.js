@@ -63,3 +63,25 @@ o segundo: 6
 o terceiro: 8
 
 */
+
+// ----- 4
+/*
+o codigo imprime o maior numero e o menor(incluindo os numeros negativos)
+
+primeiros temos um array numeros com vaaarios numeros
+e uma variavel chamada numero1 que é igual a infinito
+dai uma variavel chamada numero2 que é igual a 0
+
+dai entra em um for of com if para analizar os numeros
+ele diz que para cada numero do array numeros faça isso:
+se o numero for menor que a variavel numero1 (que é igual a infinito), ele é igual a numero1 (ou seja vai ser o menor numero)
+se o numero for maior que 0 (variavel numero2) ele é igual ao numero2 (ou seja é o maior numero da array)
+
+como está em um looping, o codigo vai rodar até encontrar esses dois numeros e dai vai ter um console para cada
+
+entãoooooo
+o primeiro console vai ser: -10
+e o segundo: 1590
+
+
+*/
