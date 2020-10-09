@@ -5,8 +5,8 @@
 a função converte o dinheiro de dolar pra real
 
 ela espera receber o valor em dolar (esse é o parametro)
-dai ela manda um prompt pro usuario e pede pra ele informar o valor da cotação do dolar, ele transforma o que ele digitou em numero e guarda na variavel cotacao
-dai ele faz um return com o R$ e a multiplicação do valor em dolar com a cotacao
+dai ela pede pro usuario informar o valor da cotação do dolar, ele transforma o que ele digitou em numero e guarda na variavel cotacao
+dai ele retorna com o R$ e a multiplicação do valor em dolar com a cotacao
 
 pra essa função funcionar, ela foi jogada em outra const (meuDinheiro) e tá recebendo o valor 100
 dai dá um console.log nessa const de meuDinheiro
@@ -30,7 +30,7 @@ logo abaixo desse calculo tem um break para parar o case e ir pro outro (pq se n
 tem 4 cases de investimento com suas respectivas taxas dentro da multiplicação dentro da variavel (dentro do case)
 e o default, que é caso o tipo de investimento nao se adeque as opçoes, é um alert! dizendo que o tipo informado tá incorreto
 
-e entao, depois desse switch tem um return da variavel valorAposInvestimento porque depois qe roda o switch, ela vai ficar com um novo valor
+e entao, depois desse switch a variavel valorAposInvestimento retorna porque depois qe roda o switch, ela vai ficar com um novo valor
 
 fora da função, tem duas variaveis chamando a função com os parametros desejados e um console.log das duas variaveis
 
@@ -43,3 +43,23 @@ vai aparecer um alert de TIPO DE INVESTIMENTO INFORMADO INCORRETO porque o tipo 
 
 */
 
+// ----- 3
+/*
+esse codigo cria um array de pares e um array de impares com base no array array original chamado numeros e imprime a quantidade de cada array criado
+
+primeiro tem array numeros com um monte de numeros
+dai tem o array1 e o array2 que estao vazios
+
+entao entra um for of
+para cada numero do array numeros ele faz:
+se o numero tiver resto 0 numa divisao por 2, adicione o numero para o array1 com o push
+se nao, adicione para o array2 com o push
+
+dai tem 3 console.logs para cada length (tamanho) dos arrays
+
+entãoooooo
+o primeiro console vai ser: Quantidade total de números 14
+o segundo: 6
+o terceiro: 8
+
+*/
