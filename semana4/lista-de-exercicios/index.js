@@ -331,3 +331,27 @@ filmeFav()
 
 
 */
+// ----- 4
+/*
+const infoPessoal = {
+    nome: 'Adam Driver',
+    idade: 36,
+    email: 'stopsendingmestarwarsstuff@gmail.com',
+    endereco: 'Empire State Building, NY'
+}
+
+
+const anonimizarPessoa = () => {
+    let novoUsuario = {
+        ...infoPessoal,
+        nome: 'ANÔNIMO'
+    }
+    return novoUsuario
+}
+
+const anonimizou = anonimizarPessoa()
+console.log(anonimizou)
+
+*/
+
+
