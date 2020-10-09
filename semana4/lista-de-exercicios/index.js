@@ -168,13 +168,13 @@ const verificaTriangulo = (a, b, c) => {
     }
 }
 
-const triangulo = verificaTriangulo(10, 10, 8)
-const triangulo2 = verificaTriangulo(3, 4, 5)
-const triangulo3 = verificaTriangulo(10, 10, 10)
+const trianguloIso = verificaTriangulo(10, 10, 8)
+const trianguloEsc = verificaTriangulo(3, 4, 5)
+const trianguloEqu = verificaTriangulo(10, 10, 10)
 
-console.log(triangulo)
-console.log(triangulo2)
-console.log(triangulo3)
+console.log(trianguloIso)
+console.log(trianguloEsc)
+console.log(trianguloEqu)
 
 
 */
@@ -219,4 +219,57 @@ compararNumeros(30, 10)
 
 */
 
+// -------- ex de interpretação de código --------
+// ----- 1
+/*
+
+const segundoMaiorMenor = (array) => {
+    let minimo = Infinity
+    let maximo = 0
+    let segundoMin = Infinity
+    let segundoMax = 0
+    let indiceMin = 0
+    let indiceMax = 0
+
+    array.map((numero, i) => {
+
+        if (numero < minimo) {
+            minimo = numero
+            indiceMin = i
+        }
+        else if (numero > maximo) {
+            maximo = numero
+            indiceMax = i
+        }
+
+    })
+
+    array.splice(indiceMin, 1)
+    array.splice(indiceMax, 1)
+
+    array.map((numero, i) => {
+
+        if (numero < segundoMin) {
+            segundoMin = numero
+            indiceMin = i
+
+        }
+        else if (numero > segundoMax) {
+            segundoMax = numero
+            indiceMax = i
+        }
+
+    })
+
+    console.log(minimo, maximo)
+    console.log(segundoMin, segundoMax)
+}
+
+
+const numeros = [10, 20, 30, 40, 50, 60, 70]
+
+segundoMaiorMenor(numeros)
+
+
+*/
 
