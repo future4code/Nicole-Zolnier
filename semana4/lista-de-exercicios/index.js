@@ -154,5 +154,29 @@ quantidadeDeNumerosPares(3)
 
 */
 
+// ----- 4
+/*
 
 
+
+*/
+
+const verificaTriangulo = (a, b, c) => { 
+    if (a === b && c === b) {
+        return "Triangulo equilátero"
+
+    } else if ((a === b && b !== c) || (a === c && c !==b) || (c === b && b !== a)) {
+        return tipoTriangulo = "Triangulo isóceles"
+
+    } else {
+        return tipoTriangulo = "Triangulo escaleno"
+    }
+}
+
+const triangulo = verificaTriangulo(10, 10, 8)
+const triangulo2 = verificaTriangulo(3, 4, 5)
+const triangulo3 = verificaTriangulo(10, 10, 10)
+
+console.log(triangulo)
+console.log(triangulo2)
+console.log(triangulo3)
