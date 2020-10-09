@@ -139,3 +139,20 @@ e. (true e true e true) - true     false e false (false) ou true = TRUE
 
 */
 
+// ----- 3
+/*
+o codigo nao funciona, ele vai entrar em um loop infinito porque não ten incremento entao nunca vai ser verdadeiro, só vai continuar rodando
+
+const quantidadeDeNumerosPares = (n) => {
+    let i = 0
+    while (i < n) {
+        console.log(i * 2)
+        i++
+    }
+}
+quantidadeDeNumerosPares(3)
+
+*/
+
+
+
