@@ -222,47 +222,46 @@ compararNumeros(30, 10)
 // -------- ex de interpretação de código --------
 // ----- 1
 /*
-
 const segundoMaiorMenor = (array) => {
-    let minimo = Infinity
-    let maximo = 0
-    let segundoMin = Infinity
-    let segundoMax = 0
-    let indiceMin = 0
-    let indiceMax = 0
+    let menor = Infinity
+    let maior = 0
+    let segundoMenor = Infinity
+    let segundoMaior = 0
+    let indexMenor = 0
+    let indexMaior = 0
 
     array.map((numero, i) => {
 
-        if (numero < minimo) {
-            minimo = numero
-            indiceMin = i
+        if (numero < menor) {
+            menor = numero
+            indexMenor = i
         }
-        else if (numero > maximo) {
-            maximo = numero
-            indiceMax = i
+        else if (numero > maior) {
+            maior = numero
+            indexMaior = i
         }
 
     })
 
-    array.splice(indiceMin, 1)
-    array.splice(indiceMax, 1)
+    array.splice(indexMenor, 1)
+    array.splice(indexMaior, 1)
 
     array.map((numero, i) => {
 
         if (numero < segundoMin) {
-            segundoMin = numero
-            indiceMin = i
+            segundoMenor = numero
+            indexMenor = i
 
         }
         else if (numero > segundoMax) {
             segundoMax = numero
-            indiceMax = i
+            indexMaior = i
         }
 
     })
 
-    console.log(minimo, maximo)
-    console.log(segundoMin, segundoMax)
+    console.log(menor, maior)
+    console.log(segundoMenor, segundoMaior)
 }
 
 
@@ -282,3 +281,5 @@ hello()
 
 
 */
+
+
