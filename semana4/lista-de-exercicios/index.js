@@ -219,7 +219,7 @@ compararNumeros(30, 10)
 
 */
 
-// -------- ex de interpretação de código --------
+// -------- ex de funcoes --------
 // ----- 1
 /*
 const segundoMaiorMenor = (array) => {
@@ -281,5 +281,17 @@ hello()
 
 
 */
+// -------- ex de objetos --------
+// ----- 1
+/*
+Um objeto é como se fosse um jogo de stop. Você tem a categoria (chaves) de nome, cep, comida, minha sogra é
+e dai quando vc vai jogar, voce preenche o maximo que conseguir com coisas das sua mente (valores). Só que ao contrário do jogo de stop
+que é feito numa folha de caderno e depois vai ser jogado no lixo para a professora não ver, o objeto é importante para guardar coisas
+sobre o usuário, compra ou até mesmo despesa! Usamos ele quando para salvar informações de uma maneira categorizada.
+Ele é muito bom quando queremos fazer algo com as informações mas não queremos perder os dados iniciais colocados.
+
+Um array é tipo uma lista assim que vc fez sem pensar muito. O array não é tão organizado como um objeto. Mas ele pode receber um objeto! E com isso 
+podemos filtrar as informações de uma maneira melhor! Ele é melhor quando vc ainda quer adicionar itens a lista ou quando vc quer remover.
 
 
+*\
