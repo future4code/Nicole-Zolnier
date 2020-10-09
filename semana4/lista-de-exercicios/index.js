@@ -382,3 +382,59 @@ const criancas = pessoas.filter((kid) => {
 
 console.log(criancas)
 *\
+
+// ----- 2
+// -- a
+/*
+const array = [1, 2, 3, 4, 5, 6]
+
+const vezesDois = (array) => {
+    let novoArray = []
+    array.forEach((numero) => {
+        novoArray.push(numero * 2)
+    })
+    return novoArray
+}
+
+const resultadoA = vezesDois(array)
+console.log(resultadoA)
+
+*/
+
+// -- b
+/*
+const vezesTres = (array) => {
+    let novoArray = []
+    array.forEach((numero) => {
+        novoArray.push(numero * 3)
+    })
+    return novoArray
+}
+
+const resultadoB = vezesTres(array)
+console.log(resultadoB)
+
+*/
+
+// -- c
+/*
+const parImpar = (array) => {
+    let novoArray = []
+    array.forEach((numero)=>{
+        if ( numero%2 === 0){
+            novoArray.push(`${numero} é par`)
+        }else{
+            novoArray.push(`${numero} é ímpar`)
+        }
+    })
+    return novoArray
+}
+
+const resultadoC = parImpar(array)
+console.log(resultadoC)
+
+*/
+
+
+
+
