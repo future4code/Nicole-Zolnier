@@ -273,3 +273,12 @@ segundoMaiorMenor(numeros)
 
 */
 
+// ----- 2
+/*
+const hello = () => {
+	alert("Hello Future4")
+}
+hello()
+
+
+*/
