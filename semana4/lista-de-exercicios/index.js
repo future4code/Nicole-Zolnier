@@ -314,3 +314,20 @@ console.log(meuRetangulo)
 
 */
 
+// ----- 3
+/*
+const filmeFav = () => {
+    const filme = {
+        titulo: 'Scott Pilgrim vs the World',
+        diretor: 'Edgar Wright',
+        ano: 2010,
+        cast: ['Michael Cera', 'Mary Elizabeth', 'Chris Evans', 'Brie Larson']
+    }
+
+    console.log(`Venha assistir ao filme ${filme.titulo}, de ${filme.ano}, dirigido por ${filme.diretor} e estrelado por ${filme.cast[0]}, ${filme.cast[1]}, ${filme.cast[2]} e ${filme.cast[3]}`)
+}
+
+filmeFav()
+
+
+*/
