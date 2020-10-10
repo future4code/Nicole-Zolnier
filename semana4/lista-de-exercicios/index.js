@@ -435,6 +435,43 @@ console.log(resultadoC)
 
 */
 
+// ----- 3
+/*
+const pessoas = [
+    { nome: "Paula", idade: 12, altura: 1.8 },
+    { nome: "João", idade: 20, altura: 1.3 },
+    { nome: "Pedro", idade: 15, altura: 1.9 },
+    { nome: "Luciano", idade: 22, altura: 1.8 },
+    { nome: "Artur", idade: 10, altura: 1.2 },
+    { nome: "Soter", idade: 70, altura: 1.9 }
+]
 
+// -- a
+const podemIr = (array) => {
+    const pessoasLiberadas = array.filter((pessoa) => {
+        if (pessoa.altura >= 1.5 && pessoa.idade > 14 && pessoa.idade < 60) {
+            return true
+        }
+    })
+    return pessoasLiberadas
+}
 
+const pessoinhasCertas = podemIr(pessoas)
+console.log(pessoinhasCertas)
+
+// -- b
+const naoPodeIr = (array) => {
+    const pessoasBarradas = array.filter((pessoa) => {
+        if(pessoa.altura<1.5 || pessoa.idade<14 || pessoa.idade>60) {
+            return true
+        }
+    })
+
+    return pessoasBarradas
+}
+
+const pessoinhasErradas = naoPodeIr(pessoas)
+console.log(pessoinhasErradas)
+
+*/
 
