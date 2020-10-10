@@ -230,45 +230,38 @@ const segundoMaiorMenor = (array) => {
     let indexMenor = 0
     let indexMaior = 0
 
-    array.map((numero, i) => {
-
+    for (let i = 0; i < array.length; i++) {
+        numero = array[i]
         if (numero < menor) {
             menor = numero
-            indexMenor = i
+            indexMenor = array.indexOf(menor)
         }
-        else if (numero > maior) {
+        if (numero > maior) {
             maior = numero
-            indexMaior = i
+            indexMaior = array.indexOf(maior)
         }
-
-    })
-
-    array.splice(indexMenor, 1)
+    }
     array.splice(indexMaior, 1)
+    array.splice(indexMenor, 1)
 
-    array.map((numero, i) => {
-
-        if (numero < segundoMin) {
+    for (let i = 0; i < array.length; i++) {
+        numero = array[i]
+        if (numero < segundoMenor) {
             segundoMenor = numero
-            indexMenor = i
-
         }
-        else if (numero > segundoMax) {
-            segundoMax = numero
-            indexMaior = i
+        if (numero > segundoMaior) {
+            segundoMaior = numero
         }
-
-    })
+    }
 
     console.log(menor, maior)
     console.log(segundoMenor, segundoMaior)
 }
 
 
-const numeros = [10, 20, 30, 40, 50, 60, 70]
+const numeros = [34, 21, 42, 13, -2, 3.14, 72, 64, 100]
 
 segundoMaiorMenor(numeros)
-
 
 */
 
@@ -543,3 +536,5 @@ const contasAtualizadas = atualizarSaldo(contas)
 console.log(contasAtualizadas)
 
 */
+
+
