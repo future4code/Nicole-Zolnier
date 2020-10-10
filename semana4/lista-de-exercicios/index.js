@@ -475,3 +475,40 @@ console.log(pessoinhasErradas)
 
 */
 
+// ----- 4
+/*
+const consultas = [
+    { nome: "João", genero: "masculino", cancelada: true, dataDaConsulta: "01/10/2019" },
+    { nome: "Pedro", genero: "masculino", cancelada: false, dataDaConsulta: "02/10/2019" },
+    { nome: "Paula", genero: "feminino", cancelada: true, dataDaConsulta: "03/11/2019" },
+    { nome: "Márcia", genero: "feminino", cancelada: false, dataDaConsulta: "04/11/2019" }
+]
+
+const padraoEmail = (array) => {
+
+    const emailArray = array.map((consulta) => {
+
+        let senhore = "Sra."
+        let lembrar = "lembrá-la"
+
+        if (consulta.genero === "masculino") {
+            senhore = "Sr."
+            lembrar = "lembrá-lo"
+        }
+
+
+        if (consulta.cancelada) {
+            return `Olá, ${senhore} ${consulta.nome}! Tudo bem? Infelizmente, sua consulta marcada para o dia ${consulta.dataDaConsulta} foi cancelada. Se quiser, pode entrar em contato conosco para remarcá-la`
+        } else {
+            return `Olá, ${senhore} ${consulta.nome}! Tudo bem? Estamos enviando esta mensagem para ${lembrar} da sua consulta no dia ${consulta.dataDaConsulta}. Por favor, acuse o recebimento deste e-mail.`
+        }
+    })
+
+    return emailArray
+}
+
+const todoMundo = padraoEmail(consultas)
+
+console.log(todoMundo)
+
+*/
