@@ -1,0 +1,26 @@
+.smallcard-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    padding: 20px 10px;
+    margin-bottom: 10px;
+    height: 90px;
+}
+
+.smallcard-container > img {
+    width: 50px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.smallcard-container h4 {
+    padding-right: 0.5em;
+}
+
+.smallcard-container > div {
+    display: flex;
+    flex-direction: row;
+    justify-items: flex-start;
+    align-items: center;
+
+}
