@@ -1,0 +1,18 @@
+
+.pai-de-todos > img {
+    width: 70px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.pai-de-todos > h4 {
+    margin-bottom: 15px;
+}
+
+.pai-de-todos > div {
+    display: flex;
+    flex-direction: column;
+    justify-items: flex-start;
+    justify-content: center;
+    align-items: center;
+}
