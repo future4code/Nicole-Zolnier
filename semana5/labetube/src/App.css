@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+body {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+}
+
+
+.tela-inteira {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 0 50px;
+  height: 10%;
+  
+}
+
+#logoLabenu {
+  width: 4%;
+}
+
+header> h1 {
+  color: black;
+  font-weight: 700;
+  width: 20%;
+}
+
+.busca {
+  width: 60%;
+
+}
+
+#campoDeBusca {
+  width: 40%;
+  padding: 0.5em;
+}
+
+#iconBusca {
+  width: 2%;
+  padding: 0.3em;
+}
+
+.user {
+  width: 20%;
+}
+
+main {
+  min-height: 80%;
+  display: flex;
+}
+
+.menu-vertical {
+  flex-basis: 200px;
+  border-right-style: solid;
+  border-right-width: thin;
+}
+
+#icons {
+  width: 15%;
+  padding-right: 0.3em;
+}
+
+#icons:hover {
+  opacity: 0;
+}
+
+#icons:active{
+  opacity: 1;
+}
+
+.botoes-meunu-vertical {
+  list-style-type: none;
+  padding: 0.8em;
+  padding-right: 0.6em;
+}
+
+.botoes-meunu-vertical:active {
+  background-color: grey;
+}
+
+.painel-de-videos {
+  padding-left: 20px;
+  padding-top: 20px;
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 24.8% 0.2%);
+  grid-template-rows: repeat(4, 270px 20px);
+  background-color: #ECECEC;
+}
+
+.media1 {
+  grid-column-start: 1;
+  grid-row-start: 1;
+}
+
+.media2 {
+  grid-column-start: 3;
+  grid-row-start: 1;
+}
+
+.media3 {
+  grid-column-start: 5;
+  grid-row-start: 1;
+}
+
+.media4 {
+  grid-column-start: 7;
+  grid-row-start: 1;
+}
+
+.media5 {
+  grid-column-start: 1;
+  grid-row-start: 3;
+}
+
+.media6 {
+  grid-column-start: 3;
+  grid-row-start: 3;
+}
+
+.media7 {
+  grid-column-start: 5;
+  grid-row-start: 3;
+}
+
+.media8 {
+  grid-column-start: 7;
+  grid-row-start: 3;
+}
+
+
+.box-pagina-principal {
+  display: grid;
+  grid-template-rows: 3fr 1fr;
+  grid-template-columns: 1fr; 
+  align-items: start;
+  justify-items: stretch;
+}
+
+
+footer {
+  height: 10%;
+  background-color: red;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box-pagina-principal > img {
+  width: 100%;
+  height: 200px;
+}
+
+h4 {
+  margin-left: 20px;
+}
+
