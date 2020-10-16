@@ -1,8 +1,8 @@
 import React from 'react'
 import './Post.css'
+import styled from 'styled-components';
 
 import { IconeComContador } from '../IconeComContador/IconeComContador'
-
 import iconeCoracaoBranco from '../../img/favorite-white.svg'
 import iconeCoracaoPreto from '../../img/favorite.svg'
 import iconeComentario from '../../img/comment_icon.svg'
@@ -12,6 +12,36 @@ import iconeCompartilhar from '../../img/send.svg'
 import { SecaoComentario } from '../SecaoComentario/SecaoComentario'
 import { SecaoCompartilhar } from '../SecaoCompartilhar/SecaoCompartilhar'
 
+const PostContainer = styled.div`
+  border: 1px solid gray;
+  width: 300px;
+  margin-bottom: 10px;
+`
+const PostHeader = styled.div`
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+`
+const UserPhoto = styled.img`
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+  border-radius: 50%;
+`
+const PostFooter = styled.div`
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  justify-content: space-between;
+`
+const PostPhoto = styled.img`
+  width: 100%;
+`
+const TextoLegenda = styled.p`
+  padding-left: 0.5em;  
+`
 class Post extends React.Component {
   state = {
     curtido: false,
@@ -94,17 +124,17 @@ class Post extends React.Component {
       componenteCompartilhar = <SecaoCompartilhar />
     }
 
-    return <div className={'post-container'}>
-      <div className={'post-header'}>
-        <img className={'user-photo'} src={this.props.fotoUsuario} alt={'Imagem do usuario'} />
+    return <PostContainer>
+      <PostHeader>
+        <UserPhoto src={this.props.fotoUsuario} alt={'Imagem do usuario'} />
         <p>{this.props.nomeUsuario}</p>
-      </div>
+      </PostHeader>
 
-      <img className={'post-photo'} src={this.props.fotoPost} alt={'Imagem do post'} />
+      <PostPhoto src={this.props.fotoPost} alt={'Imagem do post'} />
 
-      <p className="texto">{this.props.texto}</p>
+      <TextoLegenda>{this.props.texto}</TextoLegenda>
 
-      <div className={'post-footer'}>
+      <PostFooter>
         <IconeComContador
           icone={iconeCurtida}
           onClickIcone={this.onClickCurtida}
@@ -127,10 +157,10 @@ class Post extends React.Component {
           onClickIcone={this.onClickCompartilhar}
         />
 
-      </div>
+      </PostFooter>
       {componenteComentario}
       {componenteCompartilhar}
-    </div>
+    </PostContainer>
 
   }
 }
