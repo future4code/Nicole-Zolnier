@@ -1,7 +1,27 @@
-.redes > img {
-    width: 8%;
+.redes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 1em;
+    align-items: center;
 }
 
-.redes > p {
+.redes > img {
+    width: 10%;
+
+}
+
+.redes > button {
+    height: 110%;
+    background-color: whitesmoke;
+    border-radius: 2px;
+    border-color: grey;
     font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.redes > button:active {
+    background-color: grey;
 }

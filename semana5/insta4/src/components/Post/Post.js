@@ -64,6 +64,7 @@ class Post extends React.Component {
     })
   }
 
+
   render() {
     let iconeCurtida
 
@@ -89,7 +90,7 @@ class Post extends React.Component {
 
     let componenteCompartilhar
 
-    if(this.state.compartilhando) {
+    if (this.state.compartilhando) {
       componenteCompartilhar = <SecaoCompartilhar />
     }
 
@@ -100,6 +101,8 @@ class Post extends React.Component {
       </div>
 
       <img className={'post-photo'} src={this.props.fotoPost} alt={'Imagem do post'} />
+
+      <p className="texto">{this.props.texto}</p>
 
       <div className={'post-footer'}>
         <IconeComContador
@@ -128,7 +131,7 @@ class Post extends React.Component {
       {componenteComentario}
       {componenteCompartilhar}
     </div>
-    
+
   }
 }
 

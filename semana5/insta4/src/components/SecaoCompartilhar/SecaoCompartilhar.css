@@ -1,16 +1,13 @@
-.share-container {
-    
-}
-
-.redes-legais {
-    
-}
-
-.share-container > button {
-    width: 30%;
-    height: 40%;
-    font-size: 10px;
+.inputMensagem {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-content: center;
+    padding: 5px;
+}
+
+.inputMensagem > input {
+    width: 70%;
+    background-color: whitesmoke;
+    border-radius: 2px;
+    border-color: grey;
 }
