@@ -7,7 +7,7 @@ class RedeSocial extends React.Component {
     render() {
         return (
             <div className="redes">
-                <img src={this.props.icone} />
+                <img src={this.props.icone} alt="logo"/>
                 <p>{this.props.nome}</p>
                 <button id={this.props.id} onClick={this.props.clicou}>Compartilhar</button>
             </div>

@@ -1,5 +1,4 @@
 import React from 'react'
-import './Post.css'
 import styled from 'styled-components';
 
 import { IconeComContador } from '../IconeComContador/IconeComContador'
@@ -11,6 +10,11 @@ import iconeSalvarPreto from '../../img/bookmark.svg'
 import iconeCompartilhar from '../../img/send.svg'
 import { SecaoComentario } from '../SecaoComentario/SecaoComentario'
 import { SecaoCompartilhar } from '../SecaoCompartilhar/SecaoCompartilhar'
+
+const Comentario = styled.p`
+  padding-left: 0.5em; 
+  padding-top: 0;
+`
 
 const PostContainer = styled.div`
   border: 1px solid gray;
@@ -49,7 +53,8 @@ class Post extends React.Component {
     comentando: false,
     numeroComentarios: 0,
     salvo: false,
-    compartilhando: false
+    compartilhando: false,
+    arrayComentarioInicial: []
   }
 
   onClickCurtida = () => {
@@ -86,11 +91,17 @@ class Post extends React.Component {
       comentando: !this.state.comentando
     })
   }
+  
+  aoEnviarComentario = (comentario) => {
 
-  aoEnviarComentario = () => {
+    const novoComentario = comentario;
+
+		const arrayComentario = [... this.state.arrayComentarioInicial, novoComentario]
+
     this.setState({
       comentando: false,
-      numeroComentarios: this.state.numeroComentarios + 1
+      numeroComentarios: this.state.numeroComentarios + 1,
+      arrayComentarioInicial: arrayComentario
     })
   }
 
@@ -124,6 +135,11 @@ class Post extends React.Component {
       componenteCompartilhar = <SecaoCompartilhar />
     }
 
+    const listaComentarios = this.state.arrayComentarioInicial.map((coisa, id) => {
+			return <Comentario key={id}>{coisa}</Comentario>;
+		});
+
+    
     return <PostContainer>
       <PostHeader>
         <UserPhoto src={this.props.fotoUsuario} alt={'Imagem do usuario'} />
@@ -157,9 +173,14 @@ class Post extends React.Component {
           onClickIcone={this.onClickCompartilhar}
         />
 
+      
       </PostFooter>
       {componenteComentario}
       {componenteCompartilhar}
+      
+      <div>{listaComentarios}</div>
+      
+     
     </PostContainer>
 
   }

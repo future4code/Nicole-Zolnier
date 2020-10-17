@@ -10,8 +10,10 @@ export class SecaoComentario extends Component {
 		this.setState({ valorDoInput: event.target.value })
 		console.log(event.target.value)
 	}
+	
 
 	render() {
+		
 		return <div className={'comment-container'}>
 			<input
 				className={'input-comentario'}
@@ -19,7 +21,10 @@ export class SecaoComentario extends Component {
 				value={this.state.valorDoInput}
 				onChange={this.onChangeComentario}
 			/>
-			<button onClick={this.props.aoEnviar}>Enviar</button>
+			<button onClick={()=>this.props.aoEnviar(this.state.valorDoInput)}>Enviar</button>
+			
 		</div>
 	}
 }
+
+export default SecaoComentario;

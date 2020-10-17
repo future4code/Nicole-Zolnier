@@ -3,25 +3,54 @@ import './App.css';
 import Post from './components/Post/Post';
 import styled from 'styled-components';
 
+const DivMaior = styled.div`
+  border: 1px solid gray;
+  width: 300px;
+  margin-bottom: 10px;
+`
 const DivInputs = styled.div`
-    display: flex;
-    justify-content: center;
-    padding: 0.3em;
-  `
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`
+
 const InputLindo = styled.input`
-  padding: 0.5em;
+  padding: 0.8em;
+  margin: 0.5em;
   background-color: whitesmoke;
   border-radius: 2px;
   border-color: grey;
-  width: 8.9%;
+  width: 80%;
+  ;
 `
+const DivBotao = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`
+
 const Botao = styled.button`
-  padding: 0.5em;
+  padding: 0.8em;
+  margin: 0.5em;
   background-color: whitesmoke;
   border-radius: 2px;
   border-color: grey;
-  width: 20%;
+  width: 88%;
+  margin-bottom: 1em;
+  
 `
+const DivLogo = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`
+
+const Logo = styled.img`
+  width: 90%;
+  padding: 0.5em;
+  
+`
+
 
 class App extends React.Component {
   state = {
@@ -110,40 +139,49 @@ class App extends React.Component {
     })
 
     return (
-      <div>
-        <DivInputs>
-          <InputLindo
-            value={this.state.valorInputNomeUsuario}
-            onChange={this.onChangeInputNomeUsuario}
-            placeholder={"Nome do Usuário"}
-          />
-          <InputLindo
-            value={this.state.valorInputFotoUsuario}
-            onChange={this.onChangeInputFotoUsuario}
-            placeholder={"Foto do Usuário"}
-          />
-        </DivInputs>
-        <DivInputs>
-          <InputLindo
-            value={this.state.valorInputFotoPost}
-            onChange={this.onChangeInputFotoPost}
-            placeholder={"Foto para o post"}
-          />
+      <div className={'app-container'}>
+        <DivMaior>
+          <DivLogo>
+            <Logo src="https://fontmeme.com/temporary/59b96b2cb3e65ad9548006584e1409f3.png" />
+          </DivLogo>
 
-          <InputLindo
-            value={this.state.valorInputTexto}
-            onChange={this.onChangeInputTexto}
-            placeholder={"Legenda da foto"}
-          />
-        </DivInputs>
-        <DivInputs>
-        <Botao onClick={this.adicionaPost}>Adicionar</Botao>
-        </DivInputs>
+          <DivInputs>
+            <InputLindo
+              value={this.state.valorInputNomeUsuario}
+              onChange={this.onChangeInputNomeUsuario}
+              placeholder={"Nome do Usuário"}
+            />
+            <InputLindo
+              value={this.state.valorInputFotoUsuario}
+              onChange={this.onChangeInputFotoUsuario}
+              placeholder={"Foto do Usuário"}
+            />
 
-        <div className={'app-container'}>
-          {listaPosts}
-        </div>
-      </div>
+
+            <InputLindo
+              value={this.state.valorInputFotoPost}
+              onChange={this.onChangeInputFotoPost}
+              placeholder={"Foto para o post"}
+            />
+
+            <InputLindo
+              value={this.state.valorInputTexto}
+              onChange={this.onChangeInputTexto}
+              placeholder={"Legenda da foto"}
+            />
+
+
+          </DivInputs>
+
+          <DivBotao>
+            <Botao onClick={this.adicionaPost}>Adicionar</Botao>
+          </DivBotao>
+
+        </DivMaior>
+
+        {listaPosts}
+
+      </div >
 
     );
   }
