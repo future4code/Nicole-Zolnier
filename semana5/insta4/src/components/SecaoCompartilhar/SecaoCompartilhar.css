@@ -1,0 +1,14 @@
+.inputMensagem {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 5px;
+}
+
+.inputMensagem > input {
+    width: 70%;
+    background-color: whitesmoke;
+    border-radius: 2px;
+    border-color: grey;
+    padding: 0.5em;
+}
