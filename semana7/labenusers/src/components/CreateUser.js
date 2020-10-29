@@ -12,7 +12,7 @@ const MotherDiv = styled.div`
 const NiceInput = styled.input`
     margin: 1em;
     padding: 0.5em;
-    width: 15vw;
+    width: 15%;
 `
 const Title = styled.h1`
     display: flex;
@@ -21,6 +21,11 @@ const Title = styled.h1`
 `
 const Goforward = styled.button`
     margin: 2em;
+`
+const Send = styled.button`
+    padding: 0.5em;
+    width: 16%;
+    margin: 1em;
 `
 
 // --------- resumindo as coisas pro axios
@@ -78,7 +83,7 @@ class CreateUser extends React.Component {
                         placeholder="email"
                         value={this.state.emailValue}
                         onChange={this.onChangeInputEmail} />
-                    <button onClick={this.createUser}>Enviar</button>
+                    <Send onClick={this.createUser}>Enviar</Send>
                 </MotherDiv>
             </div>
         );

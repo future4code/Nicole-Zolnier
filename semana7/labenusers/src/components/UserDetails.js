@@ -3,7 +3,7 @@ import React from "react";
 import axios from 'axios';
 import EditUser from './EditUser'
 
-
+// --------- css
 const Title = styled.h1`
     display: flex;
     justify-content: center;
@@ -18,6 +18,13 @@ const MotherDiv = styled.div`
 const Goback = styled.button`
     margin: 2em;
 `
+const Buttons = styled.button`
+    margin: 1em;
+    padding: 0.5em;
+    width: 15%;
+`
+
+// --------- resumindo as coisas pro axios
 const baseUrl = "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users"
 
 const axiosConfig = {
@@ -25,6 +32,7 @@ const axiosConfig = {
         Authorization: "nicole-zolnier-dumont"
     }
 }
+
 
 
 class UserDetails extends React.Component {
@@ -61,8 +69,8 @@ class UserDetails extends React.Component {
                     getUserById={this.props.getUserById}
                     returnToButton={this.checkoutEdition}
                      userId={this.props.selectedUser.id}/> 
-                     : <button onClick={this.checkoutEdition}>Editar!</button>}
-                    <button onClick={() => this.deleteUser(this.props.selectedUser.id)}>Deletar Usuário</button>
+                     : <Buttons onClick={this.checkoutEdition}>Editar!</Buttons>}
+                    <Buttons onClick={() => this.deleteUser(this.props.selectedUser.id)}>Deletar Usuário</Buttons>
                 </MotherDiv>
             </div>
 

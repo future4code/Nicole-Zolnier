@@ -10,6 +10,23 @@ const axiosConfig = {
     }
 }
 
+const MotherDiv = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+`
+const Inputs = styled.input`
+    width: 115%;
+    padding: 0.5em;
+    margin: 0.5em;
+`
+const NiceButton = styled.button`
+    padding: 0.5em;
+    margin: 0.5em;
+    width: 124.5%;
+`
+
 class EditUser extends React.Component {
     state = {
         newNameValue: "",
@@ -47,15 +64,15 @@ class EditUser extends React.Component {
     }
     render() {
         return (
-            <div>
-                <input placeholder="novo nome"
+            <MotherDiv>
+                <Inputs placeholder="novo nome"
                 value={this.state.newNameValue}
                 onChange={this.onChangeName}/>
-                <input placeholder="novo email" 
+                <Inputs placeholder="novo email" 
                 value={this.state.newEmailValue}
                 onChange={this.onChangeEmail}/>
-                <button onClick={() => this.editUser(this.props.userId)}>Salvar!</button>
-            </div>
+                <NiceButton onClick={() => this.editUser(this.props.userId)}>Salvar!</NiceButton>
+            </MotherDiv>
         )
     }
 }

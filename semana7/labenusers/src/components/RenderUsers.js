@@ -30,7 +30,9 @@ class RenderUsers extends React.Component {
     state = {
         users: [],
         seeDetails: false,
-        selectedUser: []
+        selectedUser: [],
+        searchValue: "",
+        userFound: []
     }
 
 
@@ -77,9 +79,21 @@ class RenderUsers extends React.Component {
         }
     }
 
+    onChangeSearch = (event) => {
+        this.setState({searchValue: event.target.value})
+    }
+
+    searchUser = () => {
+        const name = this.state.searchValue
+        axios.get(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/search?name=${name}&email=`, axiosConfig).then((response) => {
+            this.setState({ userFound: response.data })
+        }).catch((err) => {
+            console.log(err.message)
+        })
+    }
 
     render() {
-
+        
         const renderedUserList = this.state.users.map((user) => {
             return (<MotherDiv>
                 <li onClick={() => this.getUserById(user.id)} key={user.id}>{user.name}</li>
@@ -91,7 +105,10 @@ class RenderUsers extends React.Component {
             if (this.state.seeDetails) {
                 return <UserDetails getAllUsers={this.getAllUsers} goBack={this.checkoutDetails} getUserById={this.getUserById} selectedUser={this.state.selectedUser} />
             } else {
-                return <UserList renderedUserList={renderedUserList} goBack={this.props.goBack} />
+                return <UserList searchUser={this.searchUser} searchValue={this.state.searchValue} onChangeSearch={this.onChangeSearch} 
+                getUserById={this.getUserById} deleteUser={this.deleteUser}
+                userFound={this.state.userFound} renderedUserList={renderedUserList} 
+                goBack={this.props.goBack} />
             }
         }
 
