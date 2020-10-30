@@ -1,7 +1,9 @@
 import React from 'react'
 import PlaylistDetails from './PlaylistDetails'
 import axios from 'axios'
-import CreatePlaylist from './/CreatePlaylist'
+import CreatePlaylist from './CreatePlaylist'
+import ListPlaylist from './ListPlaylist'
+import PlaylistGrid from './PlaylistGrid'
 
 const baseUrl = "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists"
 const axiosConfig = {

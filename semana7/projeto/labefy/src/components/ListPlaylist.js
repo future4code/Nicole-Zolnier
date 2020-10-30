@@ -1,6 +1,6 @@
 import React from 'react'
 
-class PlaylistGrid extends React.Component {
+class ListPlaylist extends React.Component {
   
     render() {
       return (
@@ -9,4 +9,4 @@ class PlaylistGrid extends React.Component {
     }
   }
   
-  export default PlaylistGrid;
+  export default ListPlaylist;

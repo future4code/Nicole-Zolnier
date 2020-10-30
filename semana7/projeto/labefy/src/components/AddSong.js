@@ -28,6 +28,7 @@ class AddSong extends React.Component {
         this.setState({urlValue: e.target.value})
     }
 
+    // adicionar tracks
     addTrack = (id) => {
         const body = {
             name: this.state.songNameValue,
@@ -39,6 +40,7 @@ class AddSong extends React.Component {
             this.setState({ songNameValue: "", artistValue: "", urlValue: ""})
     
             this.props.getPlaylistTracks()
+            this.props.closePage()
         }).catch((err) => {
             console.log(err.message)
         })
