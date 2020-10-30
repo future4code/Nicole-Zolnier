@@ -6,12 +6,19 @@ import styled from 'styled-components'
 const MotherDiv = styled.div`
     margin: 2em;
 `
+const Together = styled.div`
+    display: flex;
+    flex-direction: row;
+    
+    align-items: center;
+`
 
 const Name = styled.h3`
     color: white;
 `
 const Artist = styled.p`
     color: white;
+    padding: 0.5em 10em;
 `
 
 const Nothing = styled.h3`
@@ -35,14 +42,14 @@ class PlaylistDetails extends React.Component {
     render() {
         // mapear as tracks bonitinho
         const mapTracks = this.props.tracks.map((item) => {
-            return (<div key={item.id}>
-                <audio src={item.url} controls/>
+            return (<Together key={item.id}>
                 <Name>{item.name}</Name>
                 <Artist>{item.artist}</Artist>
-            </div>)
+                <audio src={item.url} controls/>
+            </Together>)
         })
         // ver se tem track ou nao
-        const renderCorrectly = this.props.quantity !== 0 ? mapTracks : <Nothing>Eita, tá vazio aqui</Nothing>
+        const renderCorrectly = this.props.quantity !== 0 ? <div>{mapTracks}</div> : <Nothing>Eita, tá vazio aqui</Nothing>
         return (
             <MotherDiv>
                 <button onClick={this.props.goBack}>X</button>

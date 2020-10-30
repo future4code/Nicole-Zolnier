@@ -96,7 +96,6 @@ class PlayList extends React.Component {
     }
 
 
-
     render() {
 
 
@@ -109,7 +108,6 @@ class PlayList extends React.Component {
                     </PlaylistInList>
 
                     
-
                     {this.state.seeDetails ? <PlaylistDetails goBack={this.displayDetails}
                     playlistName={this.state.playlistName}
                     tracks={this.state.tracks}
