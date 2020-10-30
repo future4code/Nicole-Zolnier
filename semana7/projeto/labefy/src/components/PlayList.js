@@ -4,6 +4,7 @@ import axios from 'axios'
 import CreatePlaylist from './CreatePlaylist'
 import ListPlaylist from './ListPlaylist'
 import PlaylistGrid from './PlaylistGrid'
+import styled from 'styled-components'
 
 const baseUrl = "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists"
 const axiosConfig = {
@@ -12,9 +13,21 @@ const axiosConfig = {
     }
 }
 
+const TwoParts = styled.div`
+    display: flex;
+`
+const PlaylistInList = styled.div`
+    width: 20%;
+`
+
+const PlaylistInGrid = styled.div`
+    width: 80%;
+    margin: 1em;
+`
+
 class PlayList extends React.Component {
     state = {
-        playlists: [], 
+        playlists: [],
         seeDetails: false,
         tracks: [],
         playlistName: '',
@@ -23,20 +36,20 @@ class PlayList extends React.Component {
     }
 
     // didmount nosso de cada dia
-    componentDidMount () {
+    componentDidMount() {
         this.getAllPlaylists()
     }
 
     // mostrar detalhes sim ou nao
     displayDetails = () => {
-        this.setState({seeDetails: !this.state.seeDetails})
+        this.setState({ seeDetails: !this.state.seeDetails })
     }
 
     // pegar todas as playlists
     getAllPlaylists = () => {
         axios.get(baseUrl, axiosConfig).then((response) => {
             const list = response.data.result.list
-            this.setState({playlists: list })
+            this.setState({ playlists: list })
         }).catch((err) => {
             console.log(err.message)
         })
@@ -51,9 +64,9 @@ class PlayList extends React.Component {
             const list = response.data.result.tracks
             console.log(list)
             this.setState({ tracks: list })
-            this.setState({playlistName: name})
-            this.setState({playlistId: id})
-            this.setState({trackQuantity: quantity})
+            this.setState({ playlistName: name })
+            this.setState({ playlistId: id })
+            this.setState({ trackQuantity: quantity })
         }).catch((err) => {
             console.log(err.message)
         })
@@ -68,26 +81,35 @@ class PlayList extends React.Component {
         })
     }
 
-    
+
 
     render() {
-        // lista de playlists
-        const renderPlaylists = this.state.playlists.map((item) => {
-        return (<div key={item.id}>
-            <p onClick={() => this.getPlaylistTracks(item.id, item.name)}>{item.name}</p>
-            <p onClick={() => this.deleteUser(item.id)}>X</p>
-        </div>)
-        })
+
+
         return (
             <div>
-                {renderPlaylists}
-                {this.state.seeDetails? <PlaylistDetails goBack= {this.displayDetails}
-                playlistName={this.state.playlistName}
-                tracks={this.state.tracks}
-                playlistId={this.state.playlistId}
-                getPlaylistTracks={this.getPlaylistTracks}
-                quantity={this.state.trackQuantity}/> : ""}
-                <CreatePlaylist getAllPlaylists={this.getAllPlaylists}/>
+                <TwoParts>
+                    <PlaylistInList>
+                        <ListPlaylist playlists={this.state.playlists} getPlaylistTracks={this.getPlaylistTracks} deletePlaylist={this.deletePlaylist} />
+                        <CreatePlaylist getAllPlaylists={this.getAllPlaylists} />
+                    </PlaylistInList>
+
+                    <PlaylistInGrid>
+                        <PlaylistGrid playlists={this.state.playlists} getPlaylistTracks={this.getPlaylistTracks} deletePlaylist={this.deletePlaylist} />
+                    </PlaylistInGrid>
+
+
+                </TwoParts>
+
+
+                {this.state.seeDetails ? <PlaylistDetails goBack={this.displayDetails}
+                    playlistName={this.state.playlistName}
+                    tracks={this.state.tracks}
+                    playlistId={this.state.playlistId}
+                    getPlaylistTracks={this.getPlaylistTracks}
+                    quantity={this.state.trackQuantity} /> : ""}
+
+                
             </div>
         );
     }
