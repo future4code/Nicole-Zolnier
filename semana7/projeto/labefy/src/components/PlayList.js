@@ -6,6 +6,7 @@ import ListPlaylist from './ListPlaylist'
 import PlaylistGrid from './PlaylistGrid'
 import styled from 'styled-components'
 
+// ------- coisas pro axios
 const baseUrl = "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists"
 const axiosConfig = {
     headers: {
@@ -13,16 +14,28 @@ const axiosConfig = {
     }
 }
 
+// ------- css
+const MotherDiv = styled.div`
+    width: 100vw;
+    height: 100vh;
+    background-color: #3A3838;
+`
+
 const TwoParts = styled.div`
     display: flex;
 `
 const PlaylistInList = styled.div`
     width: 20%;
+    background-color: #252424;
+    box-shadow: 2px 0px 4px #000000;
 `
 
 const PlaylistInGrid = styled.div`
     width: 80%;
-    margin: 1em;
+    margin: 2em;
+    display: flex;
+    justify-content: center;
+    
 `
 
 class PlayList extends React.Component {
@@ -87,30 +100,31 @@ class PlayList extends React.Component {
 
 
         return (
-            <div>
+            <MotherDiv>
                 <TwoParts>
                     <PlaylistInList>
                         <ListPlaylist playlists={this.state.playlists} getPlaylistTracks={this.getPlaylistTracks} deletePlaylist={this.deletePlaylist} />
                         <CreatePlaylist getAllPlaylists={this.getAllPlaylists} />
                     </PlaylistInList>
 
-                    <PlaylistInGrid>
-                        <PlaylistGrid playlists={this.state.playlists} getPlaylistTracks={this.getPlaylistTracks} deletePlaylist={this.deletePlaylist} />
-                    </PlaylistInGrid>
+                    
 
-
-                </TwoParts>
-
-
-                {this.state.seeDetails ? <PlaylistDetails goBack={this.displayDetails}
+                    {this.state.seeDetails ? <PlaylistDetails goBack={this.displayDetails}
                     playlistName={this.state.playlistName}
                     tracks={this.state.tracks}
                     playlistId={this.state.playlistId}
                     getPlaylistTracks={this.getPlaylistTracks}
-                    quantity={this.state.trackQuantity} /> : ""}
+                    quantity={this.state.trackQuantity} /> : <PlaylistInGrid>
+                    <PlaylistGrid playlists={this.state.playlists} getPlaylistTracks={this.getPlaylistTracks} deletePlaylist={this.deletePlaylist} />
+                </PlaylistInGrid>}
+
+                </TwoParts>
+
 
                 
-            </div>
+
+                
+            </MotherDiv>
         );
     }
 }

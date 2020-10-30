@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 
+// ------- coisas pro axios
 const baseUrl = "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists"
 const axiosConfig = {
     headers: {

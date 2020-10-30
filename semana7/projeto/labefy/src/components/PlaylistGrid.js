@@ -2,11 +2,13 @@ import React from 'react'
 import PlaylistCard from './PlaylistCard'
 import styled from 'styled-components'
 
+// ------- css
 const GridDiv = styled.div`
     display: grid;
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 1em;
+    grid-gap: 2.5em;
+    margin-bottom: 0;
 `
 
 class PlaylistGrid extends React.Component {

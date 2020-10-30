@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
+import library from '../img/list.svg'
 
+// ------- css
 const Together = styled.div`
     display: flex;
     flex-direction: row;
@@ -13,7 +15,19 @@ const Delete = styled.p`
 const Name = styled.p`
     color: white;
 `
-
+const SectionTitle = styled.h3`
+    color: white;
+    padding-left: 0.2em;
+`
+const Div = styled.div`
+    display: flex;
+    flex-direction: row;
+    margin-left: 2em;
+    margin-bottom: 0;
+`
+const Lib = styled.img`
+    width: 10%;
+`
 
 class ListPlaylist extends React.Component {
   
@@ -27,6 +41,10 @@ class ListPlaylist extends React.Component {
             })
       return (
         <div>
+            <Div>
+            <Lib src={library} />
+            <SectionTitle>Playlists</SectionTitle>
+            </Div>
             {playlistsInAList}
         </div>
       );
