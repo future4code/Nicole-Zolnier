@@ -28,6 +28,7 @@ const PlaylistInList = styled.div`
     width: 20%;
     background-color: #252424;
     box-shadow: 2px 0px 4px #000000;
+    height: 100vh;
 `
 
 const PlaylistInGrid = styled.div`

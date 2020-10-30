@@ -26,7 +26,7 @@ class PlaylistCard extends React.Component {
     render() {
         return (
             <div>
-                <Picture src={this.props.img} />
+                <Picture onClick={() => this.props.getPlaylistTracks(this.props.id, this.props.name)} src={this.props.img} />
                 <div>
                     <Name onClick={() => this.props.getPlaylistTracks(this.props.id, this.props.name)}>{this.props.name}</Name>
                     <Delete onClick={() => this.props.deletePlaylist(this.props.id)}>Delete Playlist</Delete>

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import library from '../img/list.svg'
 
 // ------- css
+
 const Together = styled.div`
     display: flex;
     flex-direction: row;
