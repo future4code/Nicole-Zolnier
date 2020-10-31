@@ -6,6 +6,9 @@ const Name = styled.h3`
     color: white;
     padding: 0;
     margin: 0;
+    &:hover{
+     cursor: pointer;
+}
 `
 const Delete = styled.p`
     color: white;
@@ -15,10 +18,16 @@ const Delete = styled.p`
     display: flex;
     justify-content: center;
     box-shadow: 2px 0px 4px #000000;
+    &:hover{
+     cursor: pointer;
+}
 `
 
 const Picture = styled.img`
     box-shadow: 2px 0px 4px #000000;
+    &:hover{
+     cursor: pointer;
+}
 `
 
 class PlaylistCard extends React.Component {

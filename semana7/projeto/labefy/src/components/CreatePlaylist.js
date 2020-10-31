@@ -17,6 +17,14 @@ const Add = styled.img`
     display: flex;
     justify-self: center;
     align-self: center;
+    &:hover {
+        cursor: pointer;
+        opacity: 0;
+    }
+    &:active {
+        opacity: 1;
+        cursor: pointer;
+    }
 `
 const Together = styled.div`
     display: flex;
@@ -25,15 +33,19 @@ const Together = styled.div`
     bottom: 0;
     justify-content: flex-start;
     align-items: center;
-    background-color: #0511F2;
     margin: 1em;
+    margin-bottom: 3.5em;
     padding: 0.8em;
-    box-shadow: 2px 0px 4px #000000;
 `
 const Input = styled.input`
     width: 100%;
-    padding: 0.5em;
+    padding: 0.7em;
     margin-right: 0.5em;
+    border: 1px solid black;
+    border-radius: 20px;
+    box-shadow: 2px 4px 26px 3px #000000;
+    background-color: #3A3838;
+    color: #FFFFFF;
 `
 
 class CreatePlaylist extends React.Component {

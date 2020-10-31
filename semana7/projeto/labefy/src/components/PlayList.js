@@ -27,15 +27,17 @@ const TwoParts = styled.div`
 const PlaylistInList = styled.div`
     width: 20%;
     background-color: #252424;
-    box-shadow: 2px 0px 4px #000000;
-    height: 100vh;
+    box-shadow: inset -7px -7px 20px -7px rgba(0,0,0,1);
+    height: 101.5vh;
 `
 
 const PlaylistInGrid = styled.div`
     width: 80%;
-    margin: 2em;
+    background-color: #3A3838;
+    height: 100%;
     display: flex;
     justify-content: center;
+    box-shadow: inset -8px -9px 65px -8px black;
     
 `
 
@@ -52,6 +54,7 @@ class PlayList extends React.Component {
     // didmount nosso de cada dia
     componentDidMount() {
         this.getAllPlaylists()
+        
     }
 
     // mostrar detalhes sim ou nao
@@ -88,11 +91,14 @@ class PlayList extends React.Component {
 
     // deletar playlist
     deletePlaylist = (id) => {
-        axios.delete(`${baseUrl}/${id}`, axiosConfig).then(() => {
-            this.getAllPlaylists()
-        }).catch((err) => {
-            console.log(err.message)
-        })
+        const beSure = window.confirm("Tem certeza que quer deletar a playlist?")
+        if (beSure){
+            axios.delete(`${baseUrl}/${id}`, axiosConfig).then(() => {
+                this.getAllPlaylists()
+            }).catch((err) => {
+                console.log(err.message)
+            })
+        }
     }
 
 
