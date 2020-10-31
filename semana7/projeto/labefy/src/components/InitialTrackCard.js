@@ -7,16 +7,16 @@ const Together = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    border-bottom: 1px solid grey;
     margin-left: 3em;
-    margin-top: 1em;
     padding: 0 1em;
     align-items: center;
-    border-bottom: 0.5px solid grey;
+
     &:hover{
         background-color: #252424;
     }
 `
-const Name = styled.h3`
+const Name = styled.p`
     width: 100%;    
     color: white;
     &:hover{
@@ -31,26 +31,12 @@ const Artist = styled.p`
      cursor: default;
 }
 `
-const Audio = styled.audio`
-    width: 100%;
-    &::-webkit-media-controls-panel {
-    background-color: #0511F2;
-    box-shadow: 2px 4px 26px 3px #000000;
+const Audio = styled.p`
+    width: 100%;    
     color: white;
-    
-  }
-    &::-webkit-media-controls-current-time-display,
-    ::-webkit-media-controls-time-remaining-display {
-        color: white;
-  }
-`
-const Delete = styled.p`
-    padding-left: 1em;
-    width: 5%;
-    color: #F27405;
     &:hover{
-     cursor: pointer;
-}
+     cursor: default;
+    }
 `
 
 // -------------------------------------------
@@ -59,10 +45,9 @@ class TrackCard extends React.Component {
     render() {
         return (
             <Together>
-                <Name>{this.props.name}</Name>
-                <Artist>{this.props.artist}</Artist>
-                <Audio src={this.props.url} controls />
-                <Delete onClick={() => this.props.deleteSong(this.props.playlistId, this.props.id)}>X</Delete>
+                <Name>TÍTULO</Name>
+                <Artist>ARTISTA</Artist>
+                <Audio>PLAY</Audio>
             </Together>
         );
     }

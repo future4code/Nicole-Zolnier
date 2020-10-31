@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import goBack from '../img/goBack.svg'
 import axios from 'axios'
 import TrackCard from './TrackCard'
+import InitialTrackCard from './InitialTrackCard'
 
 // ------- coisas pro axios
 const baseUrl = "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists"
@@ -91,7 +92,7 @@ class PlaylistDetails extends React.Component {
             )
         })
         // ver se tem track ou nao
-        const renderCorrectly = this.props.quantity !== 0 ? <div>{mapTracks}</div> : <Nothing>Eita, tá vazio aqui</Nothing>
+        const renderCorrectly = this.props.quantity !== 0 ? <div><InitialTrackCard /> {mapTracks}</div> : <Nothing>Eita, tá vazio aqui</Nothing>
         return (
             <div>
                 <GoBack src={goBack} onClick={this.props.goBack} />
