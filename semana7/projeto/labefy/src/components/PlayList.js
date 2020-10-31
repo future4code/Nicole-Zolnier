@@ -54,7 +54,6 @@ class PlayList extends React.Component {
     // didmount nosso de cada dia
     componentDidMount() {
         this.getAllPlaylists()
-        
     }
 
     // mostrar detalhes sim ou nao
@@ -80,10 +79,7 @@ class PlayList extends React.Component {
             const quantity = response.data.result.quantity
             const list = response.data.result.tracks
             console.log(list)
-            this.setState({ tracks: list })
-            this.setState({ playlistName: name })
-            this.setState({ playlistId: id })
-            this.setState({ trackQuantity: quantity })
+            this.setState({ tracks: list, playlistName: name, playlistId: id, trackQuantity: quantity })
         }).catch((err) => {
             console.log(err.message)
         })
