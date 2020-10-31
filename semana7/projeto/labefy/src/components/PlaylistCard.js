@@ -30,6 +30,7 @@ const Picture = styled.img`
 }
 `
 
+// -------------------------------------------
 class PlaylistCard extends React.Component {
 
     render() {

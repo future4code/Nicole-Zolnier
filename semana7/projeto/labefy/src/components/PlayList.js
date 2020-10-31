@@ -40,7 +40,7 @@ const PlaylistInGrid = styled.div`
     box-shadow: inset -8px -9px 65px -8px black;
     
 `
-
+// -------------------------------------------
 class PlayList extends React.Component {
     state = {
         playlists: [],
@@ -53,6 +53,7 @@ class PlayList extends React.Component {
 
     // didmount nosso de cada dia
     componentDidMount() {
+        this.getPlaylistTracks()
         this.getAllPlaylists()
     }
 
@@ -73,13 +74,12 @@ class PlayList extends React.Component {
 
     // pegar tracks da playlist
     getPlaylistTracks = (id, name) => {
-        this.displayDetails()
 
         axios.get(`${baseUrl}/${id}/tracks`, axiosConfig).then((response) => {
             const quantity = response.data.result.quantity
             const list = response.data.result.tracks
             console.log(list)
-            this.setState({ tracks: list, playlistName: name, playlistId: id, trackQuantity: quantity })
+            this.setState({ tracks: list, playlistName: name, playlistId: id, trackQuantity: quantity, seeDetails: !this.state.seeDetails })
         }).catch((err) => {
             console.log(err.message)
         })
@@ -88,7 +88,7 @@ class PlayList extends React.Component {
     // deletar playlist
     deletePlaylist = (id) => {
         const beSure = window.confirm("Tem certeza que quer deletar a playlist?")
-        if (beSure){
+        if (beSure) {
             axios.delete(`${baseUrl}/${id}`, axiosConfig).then(() => {
                 this.getAllPlaylists()
             }).catch((err) => {
@@ -109,22 +109,22 @@ class PlayList extends React.Component {
                         <CreatePlaylist getAllPlaylists={this.getAllPlaylists} />
                     </PlaylistInList>
 
-                    
+
                     {this.state.seeDetails ? <PlaylistDetails goBack={this.displayDetails}
-                    playlistName={this.state.playlistName}
-                    tracks={this.state.tracks}
-                    playlistId={this.state.playlistId}
-                    getPlaylistTracks={this.getPlaylistTracks}
-                    quantity={this.state.trackQuantity} /> : <PlaylistInGrid>
-                    <PlaylistGrid playlists={this.state.playlists} getPlaylistTracks={this.getPlaylistTracks} deletePlaylist={this.deletePlaylist} />
-                </PlaylistInGrid>}
+                        playlistName={this.state.playlistName}
+                        tracks={this.state.tracks}
+                        playlistId={this.state.playlistId}
+                        getPlaylistTracks={this.getPlaylistTracks}
+                        quantity={this.state.trackQuantity} /> : <PlaylistInGrid>
+                            <PlaylistGrid playlists={this.state.playlists} getPlaylistTracks={this.getPlaylistTracks} deletePlaylist={this.deletePlaylist} />
+                        </PlaylistInGrid>}
 
                 </TwoParts>
 
 
-                
 
-                
+
+
             </MotherDiv>
         );
     }

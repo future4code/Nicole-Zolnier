@@ -48,6 +48,7 @@ const Input = styled.input`
     color: #FFFFFF;
 `
 
+// -------------------------------------------
 class CreatePlaylist extends React.Component {
     state = {
         nameValue: ""
@@ -55,7 +56,7 @@ class CreatePlaylist extends React.Component {
 
     // on change do input de nome
     onChangeInput = (event) => {
-        this.setState({nameValue: event.target.value})
+        this.setState({ nameValue: event.target.value })
     }
 
     // função de criar playlist
@@ -65,7 +66,7 @@ class CreatePlaylist extends React.Component {
         }
 
         axios.post(baseUrl, body, axiosConfig).then(() => {
-            this.setState({ nameValue: ""})
+            this.setState({ nameValue: "" })
             window.alert("Playlist criada com sucesso!")
             this.props.getAllPlaylists()
         }).catch((err) => {
@@ -78,10 +79,10 @@ class CreatePlaylist extends React.Component {
         return (
             <Together>
                 <Input placeholder="Nova playlist"
-                value={this.state.nameValue}
-                onChange={this.onChangeInput}/>
+                    value={this.state.nameValue}
+                    onChange={this.onChangeInput} />
                 <div>
-                <Add onClick={this.createPlaylist} src={add}/>
+                    <Add onClick={this.createPlaylist} src={add} />
                 </div>
             </Together>
         );

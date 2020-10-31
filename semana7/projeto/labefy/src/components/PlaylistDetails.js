@@ -14,7 +14,6 @@ const axiosConfig = {
 }
 
 // ------- css
-
 const Nothing = styled.h2`
     color: white;
     margin-left: 2em;
@@ -58,6 +57,7 @@ const Picture = styled.img`
     box-shadow: 2px 0px 4px #000000;
 `
 
+// -------------------------------------------
 class PlaylistDetails extends React.Component {
     state = {
         add: false
@@ -68,11 +68,11 @@ class PlaylistDetails extends React.Component {
         this.setState({ add: !this.state.add })
     }
 
-    // https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/:playlistId/tracks/:trackId
-
+    // deletar musica
     deleteSong = (pId, trackId) => {
         axios.delete(`${baseUrl}/${pId}/tracks/${trackId}`, axiosConfig).then(() => {
-            window.alert("Música deletada! Atualize a página")
+            window.alert("Música deletada! Volte para a tela inicial")
+            this.props.getPlaylistTracks()
         }).catch((err) => {
             console.log(err.message)
         })

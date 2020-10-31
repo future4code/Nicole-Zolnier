@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
+// ------- css
 const BlackFooter = styled.div`
     background-color: black;
     height: 10vh;
@@ -15,12 +16,13 @@ const Github = styled.a`
     font-weight: bold;
 `
 
+// -------------------------------------------
 class Footer extends React.Component {
 
     render() {
         return (
             <BlackFooter>
-            <Github href="https://github.com/nizolnier" target="_blank"> Desenvolvido por: Nicole Zolnier</Github>
+                <Github href="https://github.com/nizolnier" target="_blank"> Desenvolvido por: Nicole Zolnier</Github>
             </BlackFooter>
         );
     }

@@ -20,7 +20,6 @@ const MotherDiv = styled.div`
     margin-top: 1em;
     margin-left: 10em;
 `
-
 const Input = styled.input`
     width: 30%;
     padding: 0.7em;
@@ -43,6 +42,7 @@ const Add = styled.img`
     }
 `
 
+// -------------------------------------------
 class AddSong extends React.Component {
     state = {
         songNameValue: "",
@@ -52,15 +52,15 @@ class AddSong extends React.Component {
 
     // ------- on change de todos os inputs
     onChangeName = (e) => {
-        this.setState({songNameValue: e.target.value})
+        this.setState({ songNameValue: e.target.value })
     }
 
     onChangeArtist = (e) => {
-        this.setState({artistValue: e.target.value})
+        this.setState({ artistValue: e.target.value })
     }
 
     onChangeUrl = (e) => {
-        this.setState({urlValue: e.target.value})
+        this.setState({ urlValue: e.target.value })
     }
 
     // adicionar tracks
@@ -72,27 +72,28 @@ class AddSong extends React.Component {
         }
 
         axios.post(`${baseUrl}/${id}/tracks`, body, axiosConfig).then(() => {
-            this.setState({ songNameValue: "", artistValue: "", urlValue: ""})
+            this.setState({ songNameValue: "", artistValue: "", urlValue: "" })
+            window.alert("Música adicionada! Volte para a tela inicial")
             this.props.closePage()
-            window.alert("Música adicionada. Atualize a página")
+            this.props.getPlaylistTracks()
         }).catch((err) => {
             console.log(err.message)
         })
     }
 
     render() {
-        
+
         return (
             <MotherDiv>
                 <Input placeholder="nome da música"
-                value={this.state.songNameValue}
-                onChange={this.onChangeName}/>
+                    value={this.state.songNameValue}
+                    onChange={this.onChangeName} />
                 <Input placeholder="artista"
-                value={this.state.artistValue}
-                onChange={this.onChangeArtist}/>
+                    value={this.state.artistValue}
+                    onChange={this.onChangeArtist} />
                 <Input placeholder="url da música"
-                value={this.state.urlValue}
-                onChange={this.onChangeUrl}/>
+                    value={this.state.urlValue}
+                    onChange={this.onChangeUrl} />
                 <Add src={add} onClick={() => this.addTrack(this.props.playlistId)} />
             </MotherDiv>
         );

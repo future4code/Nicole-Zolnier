@@ -2,6 +2,7 @@ import React from 'react'
 import logo from '../img/logo.svg'
 import styled from 'styled-components'
 
+// ------- css
 const Logo = styled.img`
     width: 5%;
 `
@@ -19,8 +20,9 @@ const Title = styled.h1`
     font-size: 2.5rem;
 `
 
+// -------------------------------------------
 class Header extends React.Component {
-  
+
   render() {
     return (
       <MotherDiv>

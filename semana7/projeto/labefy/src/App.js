@@ -1,4 +1,3 @@
-import './App.css';
 import React from 'react'
 import PlayList from './components/PlayList'
 import Header from './components/Header'
@@ -12,7 +11,6 @@ const TheDiv = styled.div`
 `
 
 class App extends React.Component {
-  
 
   render() {
     return (

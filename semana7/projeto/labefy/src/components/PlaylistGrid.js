@@ -18,6 +18,7 @@ const Hello = styled.h1`
   text-shadow: 3px -1px 2px black;
 `
 
+// -------------------------------------------
 class PlaylistGrid extends React.Component {
 
   render() {
