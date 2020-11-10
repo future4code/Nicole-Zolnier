@@ -1,7 +1,8 @@
-function MatchCard() {
+function MatchCard(props) {
     return (
       <div>
-        MatchCard
+        <img src={props.photo} />
+        <h2>{props.name}</h2>
       </div>
     );
   }

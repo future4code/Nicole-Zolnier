@@ -6,9 +6,10 @@ import NavBar from './components/NavBar';
 function App() {
   return (
     <div className="App">
+      <Match />
       <p>App</p>
       <Home />
-  
+      
     </div>
   );
 }

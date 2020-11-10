@@ -3,28 +3,27 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import Buttons from './Buttons'
 
-const baseUrl = "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/:nicole"
+const baseUrl = "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/nicole"
 
 function Home() {
 
   const [profile, setProfile] = useState({})
 
-  const getProfile = () => {
-    axios.get(`${baseUrl}/person`).then((res) => {
-      setProfile(res.data.profile)
-    }).catch((err) => {
-      console.log(err)
-    })
-  }
-
-
   useEffect(() => {
     getProfile()
   }, [])
 
+  const getProfile = () => {
+    axios.get(`${baseUrl}/person`).then((res) => {
+      setProfile(res.data.profile)
+    }).catch((err) => {
+      console.log(err.message)
+    })
+  }
 
   const choosePerson = (answer) => {
     const id = profile.id
+    const headers = { headers: { "Content-type": "application/json" } }
 
     let body
     if (answer === "no") {
@@ -39,11 +38,13 @@ function Home() {
       }
     }
 
-    axios.post(`${baseUrl}/choose-person`, body).then((res) => {
-      getProfile()
+    axios.post(`${baseUrl}/choose-person`, body, headers).then((res) => {
+      
     }).catch((err) => {
       console.log(err.message)
     })
+
+    getProfile()
 
   }
 
