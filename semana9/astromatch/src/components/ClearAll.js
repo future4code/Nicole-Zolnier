@@ -16,7 +16,6 @@ function ClearAll() {
     
     return (
       <div>
-          oii
         <button onClick={clearAll}>limpar tudo</button>
       </div>
     );

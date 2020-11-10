@@ -26,7 +26,6 @@ function Home() {
         id: id,
         choice: answer
     }
-    
 
     axios.post(`${baseUrl}/choose-person`, body).then((res) => {
       getProfile()
