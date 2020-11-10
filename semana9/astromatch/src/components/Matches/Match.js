@@ -19,6 +19,10 @@ function Match() {
     getMatches()
   }, [])
 
+  useEffect(() => {
+    getMatches()
+  }, [matches])
+
   const renderMatches = matches.map((item) => {
     return <MatchCard key={item.id} name={item.name} photo={item.photo}/>
   })

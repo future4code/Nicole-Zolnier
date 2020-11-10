@@ -21,30 +21,18 @@ function Home() {
     })
   }
 
-  const choosePerson = (answer) => {
-    const id = profile.id
-    const headers = { headers: { "Content-type": "application/json" } }
-
-    let body
-    if (answer === "no") {
-      body = {
+  const choosePerson = (id, answer) => {
+    const body = {
         id: id,
-        choice: false
-      }
-    } else if (answer === "yes") {
-      body = {
-        id: id,
-        choice: true
-      }
+        choice: answer
     }
+    
 
-    axios.post(`${baseUrl}/choose-person`, body, headers).then((res) => {
-      
+    axios.post(`${baseUrl}/choose-person`, body).then((res) => {
+      getProfile()
     }).catch((err) => {
       console.log(err.message)
     })
-
-    getProfile()
 
   }
 
@@ -52,7 +40,7 @@ function Home() {
     <div>
       <p>Home</p>
       <ProfileCard profile={profile} />
-      <Buttons choosePerson={choosePerson} />
+      <Buttons id={profile.id} choosePerson={choosePerson} />
     </div>
   );
 }
