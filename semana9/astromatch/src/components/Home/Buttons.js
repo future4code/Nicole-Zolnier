@@ -1,7 +1,8 @@
-function Buttons() {
+function Buttons(props) {
     return (
       <div>
-        Buttons
+        <button onClick={() => props.choosePerson("no")}>NÃO</button>
+        <button onClick={() => props.choosePerson("yes")}>SIM</button>
       </div>
     );
   }
