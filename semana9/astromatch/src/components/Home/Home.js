@@ -1,6 +1,6 @@
 import ProfileCard from './ProfileCard'
 import axios from 'axios'
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import Buttons from './Buttons'
 
 const baseUrl = "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/nicole"
@@ -21,9 +21,9 @@ function Home() {
     })
   }
 
-  const choosePerson = (id, answer) => {
+  const choosePerson = (answer) => {
     const body = {
-        id: id,
+        id: profile.id,
         choice: answer
     }
 
@@ -37,9 +37,8 @@ function Home() {
 
   return (
     <div>
-      <p>Home</p>
       <ProfileCard profile={profile} />
-      <Buttons id={profile.id} choosePerson={choosePerson} />
+      <Buttons choosePerson={choosePerson} />
     </div>
   );
 }

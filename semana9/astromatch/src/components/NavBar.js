@@ -1,10 +1,61 @@
+import logo from '../assets/logo-astromatch.svg'
+import React from 'react'
+import styled from 'styled-components'
+// import ClearAll from './ClearAll'
+import goBack from '../assets/go-back.svg'
+import matches from '../assets/matches.svg'
+import axios from "axios";
+import clean from '../assets/clean.svg'
+
+const Clean = styled.img`
+  width: 10%;
+  padding: 0;
+  margin: 0;
+`
+
+const Div = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.5em;
+  border-bottom: 1px solid grey;
+`
+
+const Logo = styled.img`
+  width: 50%;
+  display: flex;
+  justify-self: center;
+`
+
+const GoBack = styled.img`
+width: 10%;
+`
+
+const Matches = styled.img`
+width: 10%;
+`
+
+const baseUrl = "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/nicole"
+
 function NavBar(props) {
+  const clearAll = () => {
+    const beSure = window.confirm("Tem certeza que quer apagar todos os matches e perfis vistos?")
+
+    if(beSure) {
+        axios.put(`${baseUrl}/clear`).then((res) => {
+            console.log(res)
+        }).catch((err) => {
+            console.log(err.message)
+        })
+    }
+}
+
     return (
-      <div>
-        <button onClick={props.currentPage === "home"? null : props.goToHome}>{props.currentPage === "home"? null : "voltar"}</button>
-        <h2>logo</h2>
-        <button onClick={props.currentPage === "home"? props.goToMatches : null}>{props.currentPage === "home"? "ver match" : null}</button>
-      </div>
+      <Div>
+        {props.currentPage === "home"? <Clean src={clean}onClick={clearAll}/> : <GoBack src={goBack} onClick={props.goToHome} />}
+        <Logo src={logo}/>
+        {props.currentPage === "home"? <Matches src={matches} onClick={props.goToMatches}/> : <Clean src={clean} onClick={clearAll}/>}
+      </Div>
     );
   }
   
