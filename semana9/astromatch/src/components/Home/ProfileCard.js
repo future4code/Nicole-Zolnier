@@ -31,8 +31,8 @@ function ProfileCard(props) {
           image={props.profile.photo}
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-          {props.profile.name}, {props.profile.age}
+          <Typography gutterBottom variant="h5">
+          <strong>{props.profile.name}, {props.profile.age}</strong>
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
             {props.profile.bio}
