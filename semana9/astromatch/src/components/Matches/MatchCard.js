@@ -3,6 +3,16 @@ import styled from 'styled-components'
 import {Badge, Avatar} from '@material-ui/core';
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 
+const Div = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  &:hover {
+    background-color: #E8E8E8;
+  }
+`
+
 const StyledBadge = withStyles((theme) => ({
   badge: {
     backgroundColor: "#44b700",
@@ -38,15 +48,15 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   large: {
-    width: theme.spacing(10),
-    height: theme.spacing(10),
+    width: theme.spacing(8),
+    height: theme.spacing(8),
   }
 }));
 
 function MatchCard(props) {
   const classes = useStyles();
     return (
-      <div>
+      <Div>
         <div className={classes.root}>
         <StyledBadge
         overlap="circle"
@@ -59,8 +69,8 @@ function MatchCard(props) {
         <Avatar className={classes.large} alt="foto de perfil" src={props.photo} />
       </StyledBadge>
         </div>
-        <h2>{props.name}</h2>
-      </div>
+        <h3>{props.name}</h3>
+      </Div>
     );
   }
   
