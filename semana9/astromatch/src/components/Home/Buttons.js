@@ -21,8 +21,8 @@ function Buttons(props) {
 
   return (
       <Div>
-        <Icon src={noIcon} onClick={() => props.choosePerson(false)}/>
-        <Icon src={yesIcon} onClick={() => props.choosePerson(true)}/>
+        <Icon src={noIcon} onMouseOver={() => props.mouseOverIcon(false)} onMouseOut={props.mouseOutIcon} onClick={() => props.choosePerson(false)}/>
+        <Icon src={yesIcon} onMouseOver={() => props.mouseOverIcon(true)} onMouseOut={props.mouseOutIcon} onClick={() => props.choosePerson(true)}/>
       </Div>
     );
   }

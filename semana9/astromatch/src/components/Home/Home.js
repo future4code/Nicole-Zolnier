@@ -25,6 +25,19 @@ function Home() {
     })
   }
 
+  const mouseOverIcon = (answer) => {
+    if (answer) {
+      setYes(true)
+    } else {
+      setNo(true)
+    }
+  }
+
+  const mouseOutIcon = () => {
+    setYes(false)
+    setNo(false)
+  }
+
   const choosePerson = (answer) => {
     if (answer) {
       setYes(true)
@@ -50,7 +63,7 @@ function Home() {
   return (
     <div>
       {!profile ? <Loading /> : <ProfileCard profile={profile} />}
-      {!profile ? null : <Buttons no={no} yes={yes} choosePerson={choosePerson} /> }
+      {!profile ? null : <Buttons mouseOverIcon={mouseOverIcon} mouseOutIcon={mouseOutIcon} no={no} yes={yes} choosePerson={choosePerson} /> }
     </div>
   );
 }
