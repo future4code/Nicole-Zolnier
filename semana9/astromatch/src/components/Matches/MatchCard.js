@@ -7,6 +7,7 @@ const Div = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  overflow: auto;
   cursor: pointer;
   &:hover {
     background-color: #E8E8E8;

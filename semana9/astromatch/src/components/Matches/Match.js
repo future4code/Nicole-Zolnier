@@ -34,8 +34,8 @@ function Match(props) {
   return (
     <div>
       <NavBar getMatches={getMatches} currentPage={props.currentPage} goToHome={props.goToHome} goToMatches={props.goToMatches}/>
-      {!matches.length? null : <ItsMatch />}
-      {!matches.length? <Message /> : renderMatches }
+      {matches.length? <ItsMatch /> : null }
+      {matches.length? renderMatches : <Message /> }
     </div>
   );
 }

@@ -4,6 +4,7 @@ import Match from './components/Matches/Match';
 import { useState } from 'react'
 import Box from '@material-ui/core/Box'
 import styled from 'styled-components'
+import Footer from './components/Footer'
 
 
 const Background = styled.div`
@@ -12,7 +13,7 @@ const Background = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  
+  flex-direction: column;
 `
 
 
@@ -49,7 +50,7 @@ function App() {
       >
         {renderedPage}
       </Box>
-
+      <Footer />
     </Background>
 
   );
