@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import {Badge, Avatar} from '@material-ui/core';
+import {Badge, Avatar, Typography} from '@material-ui/core';
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 
-const Div = styled.div`
+const PersonContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -61,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
 function MatchCard(props) {
   const classes = useStyles();
     return (
-      <Div>
+      <PersonContainer>
         <div className={classes.root}>
         <StyledBadge
         overlap="circle"
@@ -74,8 +74,8 @@ function MatchCard(props) {
         <Avatar className={classes.large} alt="foto de perfil" src={props.photo} />
       </StyledBadge>
         </div>
-        <Name>{props.name}</Name>
-      </Div>
+        <Typography variant="h6" >{props.name}</Typography>
+      </PersonContainer>
     );
   }
   

@@ -1,12 +1,12 @@
 import React from 'react'
 import axios from "axios";
 import Tooltip from '@material-ui/core/Tooltip'
-import goBack from '../assets/go-back.svg'
-import matches from '../assets/matches.svg'
-import logo from '../assets/logo-astromatch.svg'
-import pinkClean from '../assets/pink-clean.svg'
-import blueClean from '../assets/blue-clean.svg'
-import { baseUrl } from "../constants/urls";
+import goBack from '../../assets/go-back.svg'
+import matches from '../../assets/matches.svg'
+import logo from '../../assets/logo-astromatch.svg'
+import pinkClean from '../../assets/pink-clean.svg'
+import blueClean from '../../assets/blue-clean.svg'
+import { baseUrl } from '../../constants/urls'
 import {Clean, NavContainer, Logo, GoBack, Matches} from './styledNav'
 
 

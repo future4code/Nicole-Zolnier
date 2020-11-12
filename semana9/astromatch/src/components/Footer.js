@@ -11,7 +11,7 @@ const Credits = styled.a`
   text-decoration: none;
   color: #191919;
   &:hover {
-    color: #606060;
+    color: #FE039D;
   }
 `
 

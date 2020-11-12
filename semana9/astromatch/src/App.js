@@ -1,8 +1,7 @@
-import './App.css';
 import styled from 'styled-components'
 import Footer from './components/Footer'
 import RenderScreen from './screens/RenderScreen';
-
+import 'fontsource-roboto'
 
 const Background = styled.div`
   background-color: #fdc9cb;
@@ -11,15 +10,17 @@ const Background = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  font-family: "Roboto";
 `
 
 
 function App() {
   return (
-    <Background>
-      <RenderScreen />
-      <Footer />
-    </Background>
+      <Background>
+        <RenderScreen />
+        <Footer />
+      </Background>
+
 
   );
 }
