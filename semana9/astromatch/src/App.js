@@ -27,33 +27,32 @@ function App() {
   const goToMatches = () => {
     setCurrentPage("matches")
   }
- 
+
   let renderedPage
-  switch(currentPage) {
-      case "home":
-        renderedPage = <Home />
-        break;
-      case "matches":
-        renderedPage = <Match />
-        break;
+  switch (currentPage) {
+    case "home":
+      renderedPage = <Home currentPage={currentPage} goToHome={goToHome} goToMatches={goToMatches} />
+      break;
+    case "matches":
+      renderedPage = <Match currentPage={currentPage} goToHome={goToHome} goToMatches={goToMatches} />
+      break;
   }
-    
+
   return (
     <Background>
-    <Box
-      height={600}
-      width={350}
-      borderRadius={8}
-      bgcolor="white"
-      boxShadow={10}
-      overflow="hidden"
-    >
-        <NavBar currentPage={currentPage} goToHome={goToHome} goToMatches={goToMatches}/>
+      <Box
+        height={600}
+        width={350}
+        borderRadius={8}
+        bgcolor="white"
+        boxShadow={10}
+        overflow="hidden"
+      >
         {renderedPage}
       </Box>
-      
+
     </Background>
-    
+
   );
 }
 

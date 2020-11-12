@@ -5,12 +5,12 @@ import Tooltip from '@material-ui/core/Tooltip'
 import goBack from '../assets/go-back.svg'
 import matches from '../assets/matches.svg'
 import axios from "axios";
-import clean from '../assets/clean.svg'
+import pinkClean from '../assets/pink-clean.svg'
+import blueClean from '../assets/blue-trash.svg'
+
 
 const Clean = styled.img`
-  width: 10%;
-  padding: 0;
-  margin: 0;
+  width: 12.4%;
 `
 
 const Div = styled.div`
@@ -28,11 +28,11 @@ const Logo = styled.img`
 `
 
 const GoBack = styled.img`
-width: 10%;
+width: 12%;
 `
 
 const Matches = styled.img`
-width: 10%;
+width: 12%;
 `
 
 const baseUrl = "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/nicole"
@@ -45,6 +45,12 @@ function NavBar(props) {
       
         axios.put(`${baseUrl}/clear`).then((res) => {
             console.log(res)
+            if(props.currentPage === "home") {
+              props.getProfile()
+            } else {
+              props.getMatches()
+            }
+            alert("Deletei tudo!")
         }).catch((err) => {
             console.log(err.message)
         })
@@ -54,11 +60,14 @@ function NavBar(props) {
     return (
       <Div>
         {props.currentPage === "home"? (<Tooltip title="Resetar" arrow>
-        <Clean src={clean}onClick={clearAll}/> 
+        <Clean src={pinkClean}onClick={clearAll}/> 
     </Tooltip>)
         : <GoBack src={goBack} onClick={props.goToHome} />}
         <Logo src={logo}/>
-        {props.currentPage === "home"? <Matches src={matches} onClick={props.goToMatches}/> : <Clean src={clean} onClick={clearAll}/>}
+        {props.currentPage === "home"? <Matches src={matches} onClick={props.goToMatches}/> : 
+        (<Tooltip title="Resetar" arrow>
+        <Clean src={blueClean} onClick={clearAll}/>
+    </Tooltip>)}
       </Div>
     );
   }

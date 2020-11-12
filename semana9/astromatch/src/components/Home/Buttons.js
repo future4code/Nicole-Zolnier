@@ -5,9 +5,11 @@ import coloredYes from '../../assets/painted-like.svg'
 import coloredNo from '../../assets/painted-dislike.svg'
 import styled from 'styled-components'
 
+
 const Icon = styled.img`
   width: 20%;
 `
+
 const Div = styled.div`
   display: flex;
   justify-content: space-around;

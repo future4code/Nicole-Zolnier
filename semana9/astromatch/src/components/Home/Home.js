@@ -3,12 +3,12 @@ import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import Buttons from './Buttons'
 import Loading from './Loading'
-
+import NavBar from '../NavBar'
 
 const baseUrl = "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/nicole"
 
 
-function Home() {
+function Home(props) {
   const [yes, setYes] = useState(false)
   const [no, setNo] = useState(false)
   const [profile, setProfile] = useState({})
@@ -62,6 +62,7 @@ function Home() {
 
   return (
     <div>
+      <NavBar getProfile={getProfile} currentPage={props.currentPage} goToHome={props.goToHome} goToMatches={props.goToMatches}/>
       {!profile ? <Loading /> : <ProfileCard profile={profile} />}
       {!profile ? null : <Buttons mouseOverIcon={mouseOverIcon} mouseOutIcon={mouseOutIcon} no={no} yes={yes} choosePerson={choosePerson} /> }
     </div>
