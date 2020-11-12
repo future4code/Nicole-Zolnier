@@ -1,7 +1,7 @@
 import React from "react";
 import styled from 'styled-components'
-import { makeStyles } from "@material-ui/core/styles";
-import { Card, CardActionArea, CardContent, CardMedia, Typography } from "@material-ui/core";
+import { Typography, Box } from "@material-ui/core";
+
 
 const Div = styled.div`
   display: flex;
@@ -9,45 +9,44 @@ const Div = styled.div`
   align-items: center;
   margin: 1em;
 `
-
-const useStyles = makeStyles({
-  root: {
-    maxWidth: 345,
-    maxHeight: 450,
-  },
-
-})
-
-
+const StyledBox = styled(Box)`
+  background-image: url(${(props) => props.bgimage});
+  background-repeat: no-repeat;
+  background-position: center;
+  background-clip: border-box;
+  background-size: 100% 100%;
+  height: 400px;
+  width: 300px;
+`
 function ProfileCard(props) {
-  const classes = useStyles();
   return (
     <Div>
-       <Card className={classes.root}>
-       <CardActionArea>
-        <CardMedia
-          component="img"
-          image={props.profile.photo}
-          height="70%"
-          width="50%"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h4" component="h2">
-          {props.profile.name}, {props.profile.age}
+      <StyledBox
+        display='flex'
+        boxShadow={5}
+        borderRadius={8}
+        bgimage={props.profile.photo}
+        overflow='hidden'
+      >
+        <Box
+          color='white'
+          bgcolor='rgba(0, 0, 0, 0.4)'
+          alignSelf="flex-end"
+          flexGrow={1}
+          px="1em"
+          py="1em"
+        >
+          <Typography variant='h5'>
+            <strong>{props.profile.name}, {props.profile.age}</strong>
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
+          <Typography>
             {props.profile.bio}
           </Typography>
-        </CardContent>
-      </CardActionArea>
-       </Card>
-      
-
- 
+        </Box>
+      </StyledBox>
     </Div>
   );
 }
-
 export default ProfileCard
 
 

@@ -1,7 +1,7 @@
 import logo from '../assets/logo-astromatch.svg'
 import React from 'react'
 import styled from 'styled-components'
-// import ClearAll from './ClearAll'
+import Tooltip from '@material-ui/core/Tooltip'
 import goBack from '../assets/go-back.svg'
 import matches from '../assets/matches.svg'
 import axios from "axios";
@@ -42,6 +42,7 @@ function NavBar(props) {
     const beSure = window.confirm("Tem certeza que quer apagar todos os matches e perfis vistos?")
 
     if(beSure) {
+      
         axios.put(`${baseUrl}/clear`).then((res) => {
             console.log(res)
         }).catch((err) => {
@@ -52,7 +53,10 @@ function NavBar(props) {
 
     return (
       <Div>
-        {props.currentPage === "home"? <Clean src={clean}onClick={clearAll}/> : <GoBack src={goBack} onClick={props.goToHome} />}
+        {props.currentPage === "home"? (<Tooltip title="Resetar" arrow>
+        <Clean src={clean}onClick={clearAll}/> 
+    </Tooltip>)
+        : <GoBack src={goBack} onClick={props.goToHome} />}
         <Logo src={logo}/>
         {props.currentPage === "home"? <Matches src={matches} onClick={props.goToMatches}/> : <Clean src={clean} onClick={clearAll}/>}
       </Div>

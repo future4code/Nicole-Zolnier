@@ -2,7 +2,6 @@ import ProfileCard from './ProfileCard'
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import Buttons from './Buttons'
-import styled , {keyframes} from 'styled-components'
 import Loading from './Loading'
 
 
@@ -51,7 +50,7 @@ function Home() {
   return (
     <div>
       {!profile ? <Loading /> : <ProfileCard profile={profile} />}
-      <Buttons no={no} yes={yes} choosePerson={choosePerson} />
+      {!profile ? null : <Buttons no={no} yes={yes} choosePerson={choosePerson} /> }
     </div>
   );
 }

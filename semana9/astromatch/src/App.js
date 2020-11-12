@@ -8,7 +8,7 @@ import styled from 'styled-components'
 
 
 const Background = styled.div`
-  background-color: grey;
+  background-color: #fdc9cb;
   height: 100vh;
   display: flex;
   justify-content: center;
