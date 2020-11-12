@@ -10,7 +10,7 @@ const right = keyframes`
 
   to {
     opacity: 0;
-	  transform: translate(-200px) rotate(-20deg);
+	  transform: translate(-100px) rotate(-10deg);
   }
 `;
 
@@ -22,7 +22,7 @@ const left = keyframes`
 
   to {
     opacity: 0;
-	  transform: translate(200px) rotate(20deg);
+	  transform: translate(100px) rotate(10deg);
   }
 `;
 
@@ -33,10 +33,8 @@ const Div = styled.div`
   align-items: center;
   margin: 1em;
   position: relative;
-	border-radius: 5px;
 	overflow: hidden;
 	transition: 0.5s;
-	height: 430px;
 	animation: ${(props) => props.animation} 0.5s forwards;
 `
 const StyledBox = styled(Box)`

@@ -1,18 +1,13 @@
-import ProfileCard from './ProfileCard'
+import ProfileCard from '../components/Home/ProfileCard'
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
-import Buttons from './Buttons'
-import Loading from './Loading'
-import NavBar from '../NavBar'
+import Buttons from '../components/Home/Buttons'
+import Loading from '../components/Home/Loading'
+import NavBar from '../components/NavBar'
 import {Snackbar} from "@material-ui/core";
-import MuiAlert from "@material-ui/lab/Alert";
+import Alert from "@material-ui/lab/Alert";
+import { baseUrl } from "../constants/urls";
 
-const baseUrl = "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/nicole"
-
-// alert verdinho bonitinho
-function Alert(props) {
-  return <MuiAlert elevation={6} variant="filled" {...props} />;
-}
 
 function Home(props) {
   const [yes, setYes] = useState(false)
@@ -64,10 +59,17 @@ function Home(props) {
 
   // função pra escolher se sim ou se nao
   const choosePerson = (answer) => {
-    !answer ? setAnimation("left") : setAnimation("right")
 
-    answer? setYes(true) : setNo(true)
-    
+    if(answer){
+      setYes(true)
+
+      setAnimation("right")
+    } else{
+      setNo(true)
+
+      setAnimation("left")
+    }
+   
     const body = {
       id: profile.id,
       choice: answer
@@ -88,7 +90,7 @@ function Home(props) {
   return (
     <div>
       <Snackbar open={isMatch} autoHideDuration={1500} anchorOrigin={{vertical: 'top', horizontal: 'center'}} onClose={handleClose}>
-        <Alert onClose={handleClose} severity="success">
+        <Alert elevation={6} variant="filled" onClose={handleClose} severity="success">
           It's a match!
         </Alert>
       </Snackbar>

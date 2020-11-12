@@ -1,11 +1,10 @@
-import MatchCard from './MatchCard'
+import MatchCard from '../components/Matches/MatchCard'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
-import Message from './Message'
-import ItsMatch from './ItsMatch'
-import NavBar from '../NavBar'
-
-const baseUrl = "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/nicole"
+import Message from '../components/Matches/Message'
+import ItsMatch from '../components/Matches/ItsMatch'
+import NavBar from '../components/NavBar'
+import { baseUrl } from "../constants/urls";
 
 function Match(props) {
   // state pra guardar as matches da função

@@ -7,7 +7,7 @@ import matches from '../assets/matches.svg'
 import axios from "axios";
 import pinkClean from '../assets/pink-clean.svg'
 import blueClean from '../assets/blue-clean.svg'
-
+import { baseUrl } from "../constants/urls";
 
 const Clean = styled.img`
   width: 12.4%;
@@ -34,8 +34,6 @@ width: 12%;
 const Matches = styled.img`
 width: 12%;
 `
-
-const baseUrl = "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/nicole"
 
 function NavBar(props) {
 
