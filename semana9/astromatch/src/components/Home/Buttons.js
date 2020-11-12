@@ -17,6 +17,7 @@ const Div = styled.div`
 `
 
 function Buttons(props) {
+  // renderização dos icons
   const yesIcon = props.yes ? (coloredYes) : (greyYes)
 
   const noIcon = props.no ? (coloredNo) : (greyNo)

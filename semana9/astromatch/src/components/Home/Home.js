@@ -9,6 +9,7 @@ import MuiAlert from "@material-ui/lab/Alert";
 
 const baseUrl = "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/nicole"
 
+// alert verdinho bonitinho
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
@@ -18,11 +19,14 @@ function Home(props) {
   const [no, setNo] = useState(false)
   const [profile, setProfile] = useState({})
   const [isMatch, setIsMatch] = useState(false)
+  const [animation, setAnimation] =useState()
 
+  // didmount
   useEffect(() => {
     getProfile()
   }, [])
 
+  // função de pegar um perfil aleatorio
   const getProfile = () => {
     axios.get(`${baseUrl}/person`).then((res) => {
       setProfile(res.data.profile)
@@ -31,6 +35,10 @@ function Home(props) {
     })
   }
 
+  // yes / coração = true
+  // no / x = false
+
+  // função de mudar o icon quando passar o mouse
   const mouseOverIcon = (answer) => {
     if (answer) {
       setYes(true)
@@ -39,11 +47,13 @@ function Home(props) {
     }
   }
 
+  // função de desmudar o icon quando não passar o mouse
   const mouseOutIcon = () => {
     setYes(false)
     setNo(false)
   }
 
+  // função pra fechar o alert
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
       return;
@@ -52,13 +62,12 @@ function Home(props) {
     setIsMatch(false);
   };
 
+  // função pra escolher se sim ou se nao
   const choosePerson = (answer) => {
-    if (answer) {
-      setYes(true)
-    } else {
-      setNo(true)
-    }
+    !answer ? setAnimation("left") : setAnimation("right")
 
+    answer? setYes(true) : setNo(true)
+    
     const body = {
       id: profile.id,
       choice: answer
@@ -84,7 +93,7 @@ function Home(props) {
         </Alert>
       </Snackbar>
       <NavBar getProfile={getProfile} currentPage={props.currentPage} goToHome={props.goToHome} goToMatches={props.goToMatches}/>
-      {!profile ? <Loading /> : <ProfileCard profile={profile} />}
+      {!profile ? <Loading /> : <ProfileCard animationDirection={animation} profile={profile} />}
       {!profile ? null : <Buttons mouseOverIcon={mouseOverIcon} mouseOutIcon={mouseOutIcon} no={no} yes={yes} choosePerson={choosePerson} /> }
     </div>
   );

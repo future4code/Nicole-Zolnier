@@ -38,6 +38,8 @@ width: 12%;
 const baseUrl = "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/nicole"
 
 function NavBar(props) {
+
+  // função para limpar todos os matches e perfis vistos
   const clearAll = () => {
     const beSure = window.confirm("Tem certeza que quer apagar todos os matches e perfis vistos?")
 
@@ -45,6 +47,7 @@ function NavBar(props) {
       
         axios.put(`${baseUrl}/clear`).then((res) => {
             console.log(res)
+            // se a pagina for home, vai chamar a função getProfile, se nao chama a de matches
             if(props.currentPage === "home") {
               props.getProfile()
             } else {
@@ -58,6 +61,7 @@ function NavBar(props) {
 }
 
     return (
+      // um monte de ternario bem doido
       <Div>
         {props.currentPage === "home"? (<Tooltip title="Resetar" arrow>
         <Clean src={pinkClean}onClick={clearAll}/> 

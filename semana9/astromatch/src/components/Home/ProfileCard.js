@@ -1,6 +1,30 @@
 import React from "react";
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { Typography, Box } from "@material-ui/core";
+
+const right = keyframes`
+  from {
+    opacity: 1;
+	  transform: translate(0) rotate(0);
+  }
+
+  to {
+    opacity: 0;
+	  transform: translate(-200px) rotate(-20deg);
+  }
+`;
+
+const left = keyframes`
+  from {
+    opacity: 1;
+	  transform: translate(0) rotate(0);
+  }
+
+  to {
+    opacity: 0;
+	  transform: translate(200px) rotate(20deg);
+  }
+`;
 
 
 const Div = styled.div`
@@ -8,6 +32,12 @@ const Div = styled.div`
   justify-content: center;
   align-items: center;
   margin: 1em;
+  position: relative;
+	border-radius: 5px;
+	overflow: hidden;
+	transition: 0.5s;
+	height: 430px;
+	animation: ${(props) => props.animation} 0.5s forwards;
 `
 const StyledBox = styled(Box)`
   background-image: url(${(props) => props.bgimage});
@@ -19,7 +49,7 @@ const StyledBox = styled(Box)`
 `
 function ProfileCard(props) {
   return (
-    <Div>
+    <Div animation={props.animation}>
       <StyledBox
         display='flex'
         boxShadow={5}
