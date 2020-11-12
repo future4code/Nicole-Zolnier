@@ -2,8 +2,8 @@ import ProfileCard from '../components/Home/ProfileCard'
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import Buttons from '../components/Home/Buttons'
-import Loading from '../components/Home/Loading'
-import NavBar from '../components/NavBar'
+import Error from '../components/Home/Error'
+import NavBar from '../components/NavBar/NavBar'
 import {Snackbar} from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
 import { baseUrl } from "../constants/urls";
@@ -14,7 +14,8 @@ function Home(props) {
   const [no, setNo] = useState(false)
   const [profile, setProfile] = useState({})
   const [isMatch, setIsMatch] = useState(false)
-  const [animation, setAnimation] =useState()
+  const [animation, setAnimation] =useState("")
+  const [animate, setAnimate] = useState(false)
 
   // didmount
   useEffect(() => {
@@ -59,14 +60,14 @@ function Home(props) {
 
   // função pra escolher se sim ou se nao
   const choosePerson = (answer) => {
+    setAnimate(true)
 
     if(answer){
       setYes(true)
-
       setAnimation("right")
     } else{
       setNo(true)
-
+      
       setAnimation("left")
     }
    
@@ -77,10 +78,10 @@ function Home(props) {
 
     axios.post(`${baseUrl}/choose-person`, body).then((res) => {
       setIsMatch(res.data.isMatch)
-      console.log(res.data.isMatch)
       getProfile()
       setYes(false)
       setNo(false)
+      setAnimate(false)
     }).catch((err) => {
       console.log(err.message)
     })
@@ -95,7 +96,7 @@ function Home(props) {
         </Alert>
       </Snackbar>
       <NavBar getProfile={getProfile} currentPage={props.currentPage} goToHome={props.goToHome} goToMatches={props.goToMatches}/>
-      {!profile ? <Loading /> : <ProfileCard animationDirection={animation} profile={profile} />}
+      {!profile ? <Error /> : <ProfileCard animate={animate} animationDirection={animation} profile={profile} />}
       {!profile ? null : <Buttons mouseOverIcon={mouseOverIcon} mouseOutIcon={mouseOutIcon} no={no} yes={yes} choosePerson={choosePerson} /> }
     </div>
   );

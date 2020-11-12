@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
 
-const Div = styled.div`
+const ErrorContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,18 +41,18 @@ const Dot = styled.div`
 }
 `
 
-function Loading() {
+function Error() {
     return (
-        <Div>
+        <ErrorContainer>
             <Dots>
                 <Dot></Dot>
                 <Dot></Dot>
                 <Dot></Dot>
             </Dots>
             <OhNo>Ops! Você já viu todos os perfis! Clica ali no Reset!</OhNo>
-        </Div>
+        </ErrorContainer>
     )
 
 }
 
-export default Loading;
+export default Error;

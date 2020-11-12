@@ -2,17 +2,17 @@ import React from 'react'
 import styled from 'styled-components'
 
 const CreditsDiv = styled.div`
-padding: 1em;
-    display: flex;
-    justify-content: flex-end;
+  padding: 1em;
+  display: flex;
+  justify-content: flex-end;
 `
 
 const Credits = styled.a`
-    text-decoration: none;
-    color: #191919;
-    &:hover {
-        color: #606060;
-    }
+  text-decoration: none;
+  color: #191919;
+  &:hover {
+    color: #606060;
+  }
 `
 
 function Footer() {
@@ -22,7 +22,6 @@ function Footer() {
     </CreditsDiv>
 
   )
-
 
 }
   

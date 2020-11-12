@@ -10,7 +10,7 @@ const Icon = styled.img`
   width: 20%;
 `
 
-const Div = styled.div`
+const ButtonContainer = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -23,10 +23,10 @@ function Buttons(props) {
   const noIcon = props.no ? (coloredNo) : (greyNo)
 
   return (
-      <Div>
+      <ButtonContainer>
         <Icon src={noIcon} onMouseOver={() => props.mouseOverIcon(false)} onMouseOut={props.mouseOutIcon} onClick={() => props.choosePerson(false)}/>
         <Icon src={yesIcon} onMouseOver={() => props.mouseOverIcon(true)} onMouseOut={props.mouseOutIcon} onClick={() => props.choosePerson(true)}/>
-      </Div>
+      </ButtonContainer>
     );
   }
   

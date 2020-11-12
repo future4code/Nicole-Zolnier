@@ -1,39 +1,14 @@
-import logo from '../assets/logo-astromatch.svg'
 import React from 'react'
-import styled from 'styled-components'
+import axios from "axios";
 import Tooltip from '@material-ui/core/Tooltip'
 import goBack from '../assets/go-back.svg'
 import matches from '../assets/matches.svg'
-import axios from "axios";
+import logo from '../assets/logo-astromatch.svg'
 import pinkClean from '../assets/pink-clean.svg'
 import blueClean from '../assets/blue-clean.svg'
 import { baseUrl } from "../constants/urls";
+import {Clean, NavContainer, Logo, GoBack, Matches} from './styledNav'
 
-const Clean = styled.img`
-  width: 12.4%;
-`
-
-const Div = styled.div`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 0.5em;
-  border-bottom: 1px solid #606060;
-`
-
-const Logo = styled.img`
-  width: 50%;
-  display: flex;
-  justify-self: center;
-`
-
-const GoBack = styled.img`
-width: 12%;
-`
-
-const Matches = styled.img`
-width: 12%;
-`
 
 function NavBar(props) {
 
@@ -60,7 +35,7 @@ function NavBar(props) {
 
     return (
       // um monte de ternario bem doido
-      <Div>
+      <NavContainer>
         {props.currentPage === "home"? (<Tooltip title="Resetar" arrow>
         <Clean src={pinkClean}onClick={clearAll}/> 
     </Tooltip>)
@@ -70,7 +45,7 @@ function NavBar(props) {
         (<Tooltip title="Resetar" arrow>
         <Clean src={blueClean} onClick={clearAll}/>
     </Tooltip>)}
-      </Div>
+      </NavContainer>
     );
   }
   

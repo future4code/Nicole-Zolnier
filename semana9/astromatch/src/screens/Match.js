@@ -3,7 +3,7 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import Message from '../components/Matches/Message'
 import ItsMatch from '../components/Matches/ItsMatch'
-import NavBar from '../components/NavBar'
+import NavBar from '../components/NavBar/NavBar'
 import { baseUrl } from "../constants/urls";
 
 function Match(props) {
