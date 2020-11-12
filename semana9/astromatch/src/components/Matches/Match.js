@@ -2,6 +2,7 @@ import MatchCard from './MatchCard'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import Message from './Message'
+import ItsMatch from './ItsMatch'
 
 const baseUrl = "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/nicole"
 
@@ -30,6 +31,7 @@ function Match() {
 
   return (
     <div>
+      {!matches.length? null : <ItsMatch />}
       {!matches.length? <Message /> : renderMatches }
     </div>
   );
