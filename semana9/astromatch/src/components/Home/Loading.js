@@ -11,6 +11,7 @@ const Div = styled.div`
 `
 const OhNo = styled.h3`
     text-align: center;
+    color: #191919;
 `
 
 const Dots = styled.div`
@@ -48,7 +49,7 @@ function Loading() {
                 <Dot></Dot>
                 <Dot></Dot>
             </Dots>
-            <OhNo>Ops! Você já viu todos os perfis!</OhNo>
+            <OhNo>Ops! Você já viu todos os perfis! Clica ali no Reset!</OhNo>
         </Div>
     )
 

@@ -13,6 +13,10 @@ const Div = styled.div`
   }
 `
 
+const Name = styled.h3`
+  color: #191919;
+`
+
 const StyledBadge = withStyles((theme) => ({
   badge: {
     backgroundColor: "#44b700",
@@ -69,7 +73,7 @@ function MatchCard(props) {
         <Avatar className={classes.large} alt="foto de perfil" src={props.photo} />
       </StyledBadge>
         </div>
-        <h3>{props.name}</h3>
+        <Name>{props.name}</Name>
       </Div>
     );
   }

@@ -13,7 +13,6 @@ const StyledBox = styled(Box)`
   background-image: url(${(props) => props.bgimage});
   background-repeat: no-repeat;
   background-position: center;
-  background-clip: border-box;
   background-size: 100% 100%;
   height: 400px;
   width: 300px;

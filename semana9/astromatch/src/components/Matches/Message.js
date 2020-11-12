@@ -12,7 +12,7 @@ const Div = styled.div`
 
 const YouUgly = styled.h3`
     text-align: center;
-    color: black;
+    color: #606060;
 `
 
 function Message() {

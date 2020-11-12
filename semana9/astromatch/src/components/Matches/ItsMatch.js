@@ -14,7 +14,7 @@ const MatchIcon = styled.img`
 
 const Text = styled.h3`
     text-align: center;
-    color: black;
+    color: #191919;
 `
 
 function ItsMatch() {

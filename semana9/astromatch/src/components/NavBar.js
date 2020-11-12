@@ -6,7 +6,7 @@ import goBack from '../assets/go-back.svg'
 import matches from '../assets/matches.svg'
 import axios from "axios";
 import pinkClean from '../assets/pink-clean.svg'
-import blueClean from '../assets/blue-trash.svg'
+import blueClean from '../assets/blue-clean.svg'
 
 
 const Clean = styled.img`
@@ -18,7 +18,7 @@ const Div = styled.div`
   justify-content: space-around;
   align-items: center;
   padding: 0.5em;
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid #606060;
 `
 
 const Logo = styled.img`

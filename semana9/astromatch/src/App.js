@@ -1,7 +1,6 @@
 import './App.css';
 import Home from './components/Home/Home';
 import Match from './components/Matches/Match';
-import NavBar from './components/NavBar';
 import { useState } from 'react'
 import Box from '@material-ui/core/Box'
 import styled from 'styled-components'
