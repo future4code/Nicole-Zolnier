@@ -1,6 +1,8 @@
 import React from 'react'
 import greyYes from '../../assets/grey-like.svg'
 import greyNo from '../../assets/grey-dislike.svg'
+import coloredYes from '../../assets/painted-like.svg'
+import coloredNo from '../../assets/painted-dislike.svg'
 import styled from 'styled-components'
 
 const Icon = styled.img`
@@ -13,10 +15,14 @@ const Div = styled.div`
 `
 
 function Buttons(props) {
-    return (
+  const yesIcon = props.yes ? (coloredYes) : (greyYes)
+
+  const noIcon = props.no ? (coloredNo) : (greyNo)
+
+  return (
       <Div>
-        <Icon src={greyNo} onClick={() => props.choosePerson(false)}/>
-        <Icon src={greyYes} onClick={() => props.choosePerson(true)}/>
+        <Icon src={noIcon} onClick={() => props.choosePerson(false)}/>
+        <Icon src={yesIcon} onClick={() => props.choosePerson(true)}/>
       </Div>
     );
   }

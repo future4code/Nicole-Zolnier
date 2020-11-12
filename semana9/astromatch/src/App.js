@@ -8,7 +8,7 @@ import styled from 'styled-components'
 
 
 const Background = styled.div`
-  background-color: #FCB0B3;
+  background-color: grey;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -37,7 +37,7 @@ function App() {
         renderedPage = <Match />
         break;
   }
-  
+    
   return (
     <Background>
     <Box

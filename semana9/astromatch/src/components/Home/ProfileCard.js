@@ -9,37 +9,40 @@ const Div = styled.div`
   align-items: center;
   margin: 1em;
 `
+
 const useStyles = makeStyles({
   root: {
-    maxWidth: 320
+    maxWidth: 345,
+    maxHeight: 450,
   },
-  media: {
-    height: 300,
-    width: 300
-  }
-});
+
+})
+
 
 function ProfileCard(props) {
   const classes = useStyles();
   return (
     <Div>
-      <Card className={classes.root}>
-      
-      <CardActionArea>
+       <Card className={classes.root}>
+       <CardActionArea>
         <CardMedia
-          className={classes.media}
+          component="img"
           image={props.profile.photo}
+          height="70%"
+          width="50%"
         />
         <CardContent>
-          <Typography gutterBottom variant="h5">
-          <strong>{props.profile.name}, {props.profile.age}</strong>
+          <Typography gutterBottom variant="h4" component="h2">
+          {props.profile.name}, {props.profile.age}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
             {props.profile.bio}
           </Typography>
         </CardContent>
       </CardActionArea>
-      </Card>
+       </Card>
+      
+
  
     </Div>
   );
