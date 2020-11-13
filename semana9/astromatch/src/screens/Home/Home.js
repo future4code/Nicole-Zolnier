@@ -1,4 +1,4 @@
-import ProfileCard from '../../kiddos/Home/ProfileCard'
+import ProfileCard from '../../kiddos/Home/ProfileCard/ProfileCard'
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import Buttons from '../../kiddos/Home/Buttons'

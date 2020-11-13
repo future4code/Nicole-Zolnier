@@ -1,7 +1,7 @@
 import React from 'react'
-import styled from 'styled-components'
 import match from '../../assets/match.svg'
 import { Typography } from '@material-ui/core'
+import styled from 'styled-components'
 
 const IconTextContainer = styled.div`
   display: flex;

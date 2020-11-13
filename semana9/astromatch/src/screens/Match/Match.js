@@ -1,4 +1,4 @@
-import MatchCard from '../../kiddos/Matches/MatchCard'
+import MatchCard from '../../kiddos/Matches/MatchCard/MatchCard'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import Error from '../../components/Errors/ErrorMatch'
