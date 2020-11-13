@@ -16,7 +16,6 @@ const MatchIcon = styled.img`
   padding-right: 0.2em;
 `
 
-
 function ItsMatch() {
   return (
     <IconTextContainer>

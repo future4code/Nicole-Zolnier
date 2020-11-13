@@ -1,11 +1,12 @@
 import MatchCard from '../components/Matches/MatchCard'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
-import Message from '../components/Matches/Message'
+import Error from '../components/Errors/ErrorMatch'
 import ItsMatch from '../components/Matches/ItsMatch'
 import NavBar from '../components/NavBar/NavBar'
 import { baseUrl } from "../constants/urls"
 import styled from 'styled-components'
+import Loading from '../components/Loading/Loading'
 
 const ScrollBar = styled.div`
   display: flex;
@@ -40,12 +41,15 @@ const ScrollBar = styled.div`
 
 
 function Match(props) {
+  const [loaded, setLoaded] = useState(false)
+
   // state pra guardar as matches da função
   const [matches, setMatches] = useState([])
   // função para pegar as matches
   const getMatches = () => {
     axios.get(`${baseUrl}/matches`).then((res) => {
       setMatches(res.data.matches)
+      setLoaded(true)
     }).catch((err) => {
       console.log(err.message)
     })
@@ -70,8 +74,7 @@ function Match(props) {
     // renderização condicional analisando se tem match ou nao
     <div>
       <NavBar getMatches={getMatches} currentPage={props.currentPage} goToHome={props.goToHome} goToMatches={props.goToMatches}/>
-      {matches.length? <ItsMatch /> : null }
-      {matches.length? <ScrollBar>{renderMatches}</ScrollBar>  : <Message /> }
+      {loaded? (matches.length? ( <div><ItsMatch /> <ScrollBar>{renderMatches}</ScrollBar></div>) : <Error matches={matches} /> ) : <Loading /> }
       
     </div>
   );

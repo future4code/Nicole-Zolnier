@@ -2,11 +2,11 @@ import ProfileCard from '../components/Home/ProfileCard'
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import Buttons from '../components/Home/Buttons'
-import Error from '../components/Home/Error'
+import Error from '../components/Errors/ErrorHome'
 import NavBar from '../components/NavBar/NavBar'
-import {Snackbar} from "@material-ui/core";
-import Alert from "@material-ui/lab/Alert";
+import MatchAlert from '../components/MatchAlert'
 import { baseUrl } from "../constants/urls";
+import Loading from '../components/Loading/Loading'
 
 
 function Home(props) {
@@ -25,11 +25,14 @@ function Home(props) {
 
   // função de pegar um perfil aleatorio
   const getProfile = () => {
+    setLoaded(false)
     axios.get(`${baseUrl}/person`).then((res) => {
       setProfile(res.data.profile)
+      setLoaded(true)
     }).catch((err) => {
       console.log(err.message)
     })
+    
   }
 
   // yes / coração = true
@@ -51,7 +54,7 @@ function Home(props) {
   }
 
   // função pra fechar o alert
-  const handleClose = (event, reason) => {
+  const handleClose = (reason) => {
     if (reason === "clickaway") {
       return;
     }
@@ -67,7 +70,6 @@ function Home(props) {
     } else{
       setNo(true)
       setSwipeRight(true)
-      
     }
    
     const body = {
@@ -88,16 +90,14 @@ function Home(props) {
 
   }
 
+
   return (
     <div>
-      <Snackbar open={isMatch} autoHideDuration={1500} anchorOrigin={{vertical: 'top', horizontal: 'center'}} onClose={handleClose}>
-        <Alert elevation={6} variant="filled" onClose={handleClose} severity="success">
-          It's a match!
-        </Alert>
-      </Snackbar>
+      <MatchAlert open={isMatch} close={handleClose} />
+      
       <NavBar getProfile={getProfile} currentPage={props.currentPage} goToHome={props.goToHome} goToMatches={props.goToMatches}/>
-      {!profile ? <Error /> : <ProfileCard swipeLeft={swipeLeft} swipeRight={swipeRight} profile={profile} />}
-      {!profile ? null : <Buttons mouseOverIcon={mouseOverIcon} mouseOutIcon={mouseOutIcon} no={no} yes={yes} choosePerson={choosePerson} /> }
+      {loaded? (!profile ? <Error /> : <ProfileCard swipeLeft={swipeLeft} swipeRight={swipeRight} profile={profile} />) : <Loading />}
+      {loaded? (!profile ? null : <Buttons mouseOverIcon={mouseOverIcon} mouseOutIcon={mouseOutIcon} no={no} yes={yes} choosePerson={choosePerson} />) : <Loading /> }
     </div>
   );
 }

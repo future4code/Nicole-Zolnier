@@ -10,9 +10,9 @@ const Div = styled.div`
   transition: 0.5s;
   animation: ${(props) => {
     if(props.swipeLeft){
-      return css`${left} 3s`
+      return css`${left} 1.5s`
     } else if(props.swipeRight) {
-      return css`${right} 3s`
+      return css`${right} 1.5s`
     }
   }};
 `

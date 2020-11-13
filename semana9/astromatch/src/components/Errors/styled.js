@@ -1,26 +1,5 @@
-import React from 'react'
 import styled, { keyframes } from 'styled-components'
 
-const ErrorContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 400px;
-    margin: 1em;
-`
-const OhNo = styled.h3`
-    text-align: center;
-    color: #191919;
-`
-
-const Dots = styled.div`
-  width: 3.5em;
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  justify-content: space-between;
-`
 const fade = keyframes`
   from {
     opacity: 1;
@@ -30,7 +9,29 @@ const fade = keyframes`
   }
 `
 
-const Dot = styled.div`
+export const ErrorContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 400px;
+    margin: 1em;
+`
+export const OhNo = styled.h3`
+    text-align: center;
+    color: #191919;
+`
+
+export const Dots = styled.div`
+  width: 3.5em;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+`
+
+
+export const Dot = styled.div`
   width: 0.8em;
   height: 0.8em;
   border-radius: 50%;
@@ -40,19 +41,3 @@ const Dot = styled.div`
   animation-delay: -0.4s;
 }
 `
-
-function Error() {
-    return (
-        <ErrorContainer>
-            <Dots>
-                <Dot></Dot>
-                <Dot></Dot>
-                <Dot></Dot>
-            </Dots>
-            <OhNo>Ops! Você já viu todos os perfis! Clica ali no Reset!</OhNo>
-        </ErrorContainer>
-    )
-
-}
-
-export default Error;
