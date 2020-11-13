@@ -1,5 +1,5 @@
-import Home from './Home';
-import Match from './Match';
+import Home from './Home/Home';
+import Match from './Match/Match';
 import { useState } from 'react'
 import Box from '@material-ui/core/Box'
 

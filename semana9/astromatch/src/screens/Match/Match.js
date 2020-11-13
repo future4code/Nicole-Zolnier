@@ -1,43 +1,12 @@
-import MatchCard from '../components/Matches/MatchCard'
+import MatchCard from '../../components/Matches/MatchCard'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
-import Error from '../components/Errors/ErrorMatch'
-import ItsMatch from '../components/Matches/ItsMatch'
-import NavBar from '../components/NavBar/NavBar'
-import { baseUrl } from "../constants/urls"
-import styled from 'styled-components'
-import Loading from '../components/Loading/Loading'
-
-const ScrollBar = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  overflow: auto;
-  max-height: 495px;
-
-  /* width */
-  ::-webkit-scrollbar {
-  width: 8px;
-  }
-
-  /* Track */
-  ::-webkit-scrollbar-track {
-  background: white; 
-  border-radius: 10px;
-  }
- 
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-  background: #FE039D; 
-  border-radius: 10px;
-  }
-
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-  background: #66C7F4; 
-  border-radius: 10px;
-  } 
-`
+import Error from '../../components/Errors/ErrorMatch'
+import ItsMatch from '../../components/Matches/ItsMatch'
+import NavBar from '../../components/NavBar/NavBar'
+import { baseUrl } from "../../constants/urls"
+import {ScrollBar} from './styled'
+import Loading from '../../components/Loading/Loading'
 
 
 function Match(props) {

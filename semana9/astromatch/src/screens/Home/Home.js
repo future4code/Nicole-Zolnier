@@ -1,12 +1,12 @@
-import ProfileCard from '../components/Home/ProfileCard'
+import ProfileCard from '../../components/Home/ProfileCard'
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
-import Buttons from '../components/Home/Buttons'
-import Error from '../components/Errors/ErrorHome'
-import NavBar from '../components/NavBar/NavBar'
-import MatchAlert from '../components/MatchAlert'
-import { baseUrl } from "../constants/urls";
-import Loading from '../components/Loading/Loading'
+import Buttons from '../../components/Home/Buttons'
+import Error from '../../components/Errors/ErrorHome'
+import NavBar from '../../components/NavBar/NavBar'
+import MatchAlert from '../../components/MatchAlert'
+import { baseUrl } from "../../constants/urls";
+import Loading from '../../components/Loading/Loading'
 
 
 function Home(props) {
@@ -64,6 +64,7 @@ function Home(props) {
 
   // função pra escolher se sim ou se nao
   const choosePerson = (answer) => {
+    
     if(answer){
       setYes(true)
       setSwipeLeft(true)
