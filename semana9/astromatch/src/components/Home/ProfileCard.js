@@ -3,16 +3,30 @@ import styled, { keyframes } from 'styled-components'
 import { Typography, Box } from "@material-ui/core";
 
 const Div = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
-margin: 1em;
-position: relative;
-overflow: hidden;
-transition: 0.5s;
-animation: ${(props) => props.animate? (props.animation === "right" ? right : left) : null } 0.5s forwards;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1em;
+  transition: 0.5s;
+  animation: ${(props) => props.animate? (props.animation === "right" ? right : left) : null } 0.5s forwards;
+`
+const BlurredBackground = styled(Box)`
+  background-image: url(${(props) => props.bgimage});
+	filter: blur(10px);
+  margin: 0;
+	height: 100%;
+	width: 100%;
+  background-clip: border-box;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
 `
 
+const ProfilePicture = styled.img`
+  width: 100%;
+  display: block;
+  z-index: 1;
+`
 
 const right = keyframes`
   from {
@@ -37,39 +51,41 @@ const left = keyframes`
 `;
 
 const StyledBox = styled(Box)`
-  background-image: url(${(props) => props.bgimage});
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 100% 100%;
-  height: 400px;
+  height: 420px;
   width: 300px;
+  display: flex;
+	align-items: center;
+	position: relative;
+  overflow: hidden;
 `
+
+const InfoBox = styled(Box)`
+	position: absolute;
+  bottom: 0;
+	width: 90%;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	z-index: 2;
+  cursor: default;
+`
+
 function ProfileCard(props) {
   return (
     <Div animate={props.animate} animation={props.animation}>
-      <StyledBox
-        display='flex'
-        boxShadow={5}
-        borderRadius={8}
-        bgimage={props.profile.photo}
-        overflow='hidden'
-      >
-        <Box
-          color='white'
-          bgcolor='rgba(0, 0, 0, 0.4)'
-          alignSelf="flex-end"
-          flexGrow={1}
-          px="1em"
-          py="1em"
-        >
+      <StyledBox boxShadow={8} borderRadius={8}>
+      <BlurredBackground bgimage={props.profile.photo}/>
+        <ProfilePicture src={props.profile.photo}/>
+        <InfoBox p="1em" bgcolor='rgba(0, 0, 0, 0.7)'>
           <Typography variant='h5'>
             <strong>{props.profile.name}, {props.profile.age}</strong>
           </Typography>
           <Typography>
             {props.profile.bio}
           </Typography>
-        </Box>
+        </InfoBox>
       </StyledBox>
+        
     </Div>
   );
 }

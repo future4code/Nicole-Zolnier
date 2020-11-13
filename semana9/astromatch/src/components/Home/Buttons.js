@@ -8,6 +8,7 @@ import styled from 'styled-components'
 
 const Icon = styled.img`
   width: 20%;
+  cursor: pointer;
 `
 
 const ButtonContainer = styled.div`

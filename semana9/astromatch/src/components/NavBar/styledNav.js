@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const Clean = styled.img`
   width: 12.4%;
+  cursor: pointer;
 `
 
 export const NavContainer = styled.div`
@@ -20,8 +21,10 @@ export const Logo = styled.img`
 
 export const GoBack = styled.img`
 width: 12%;
+cursor: pointer;
 `
 
 export const Matches = styled.img`
 width: 12%;
+cursor: pointer;
 `

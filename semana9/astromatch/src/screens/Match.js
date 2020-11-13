@@ -4,7 +4,40 @@ import { useState, useEffect } from 'react'
 import Message from '../components/Matches/Message'
 import ItsMatch from '../components/Matches/ItsMatch'
 import NavBar from '../components/NavBar/NavBar'
-import { baseUrl } from "../constants/urls";
+import { baseUrl } from "../constants/urls"
+import styled from 'styled-components'
+
+const ScrollBar = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow: auto;
+  max-height: 495px;
+
+  /* width */
+  ::-webkit-scrollbar {
+  width: 8px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+  background: white; 
+  border-radius: 10px;
+  }
+ 
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+  background: #FE039D; 
+  border-radius: 10px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+  background: #66C7F4; 
+  border-radius: 10px;
+  } 
+`
+
 
 function Match(props) {
   // state pra guardar as matches da função
@@ -39,7 +72,8 @@ function Match(props) {
     <div>
       <NavBar getMatches={getMatches} currentPage={props.currentPage} goToHome={props.goToHome} goToMatches={props.goToMatches}/>
       {matches.length? <ItsMatch /> : null }
-      {matches.length? renderMatches : <Message /> }
+      {matches.length? <ScrollBar>{renderMatches}</ScrollBar>  : <Message /> }
+      
     </div>
   );
 }

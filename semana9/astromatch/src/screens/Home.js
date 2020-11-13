@@ -16,6 +16,7 @@ function Home(props) {
   const [isMatch, setIsMatch] = useState(false)
   const [animation, setAnimation] =useState("")
   const [animate, setAnimate] = useState(false)
+  const [loaded, setLoaded] = useState(false)
 
   // didmount
   useEffect(() => {

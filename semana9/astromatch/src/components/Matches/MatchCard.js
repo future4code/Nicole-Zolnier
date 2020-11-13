@@ -7,17 +7,11 @@ const PersonContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  overflow: auto;
   cursor: pointer;
   &:hover {
     background-color: #E8E8E8;
   }
 `
-
-const Name = styled.h3`
-  color: #191919;
-`
-
 const StyledBadge = withStyles((theme) => ({
   badge: {
     backgroundColor: "#44b700",
@@ -61,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
 function MatchCard(props) {
   const classes = useStyles();
     return (
-      <PersonContainer>
+      <PersonContainer >
         <div className={classes.root}>
         <StyledBadge
         overlap="circle"

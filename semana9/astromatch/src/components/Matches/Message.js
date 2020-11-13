@@ -49,7 +49,7 @@ function Message() {
                 <Dot></Dot>
                 <Dot></Dot>
             </Dots>
-       <YouUgly>Eita! Até agora nenhuma match, que tal passar um desodorante?</YouUgly>
+       <YouUgly>Eita! Nenhum match, que tal passar um desodorante?</YouUgly>
     </Div>
 
   )
