@@ -1,5 +1,5 @@
 
-// cores usadas apenas para referência para minha cabeça doida
+// cores usadas para referência para minha cabeça doida (nem todas foram usadas no codigo mas sim nos icons)
 
 // obs: nome das cores sao da minha cabeça doida tbm
 export const skyBlue = "#66C7F4"

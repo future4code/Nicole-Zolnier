@@ -10,6 +10,7 @@ import Loading from '../../components/Loading/Loading'
 
 
 function Match(props) {
+  // coisinha pro loading
   const [loaded, setLoaded] = useState(false)
 
   // state pra guardar as matches da função
@@ -39,8 +40,12 @@ function Match(props) {
     return <MatchCard key={item.id} name={item.name} photo={item.photo}/>
   })
 
+  // renderizacao condicional muito louca que deu certo na base da fé
+  // se não tiver carregado, manda o loading que é uma animação
+  // se tiver carregado, mas sem matches, manda o erro
+  // se tiver carregado e com matches, manda o card
+  // se tiver mtas matches, aparece o srollbar
   return (
-    // renderização condicional analisando se tem match ou nao
     <div>
       <NavBar getMatches={getMatches} currentPage={props.currentPage} goToHome={props.goToHome} goToMatches={props.goToMatches}/>
       {loaded? (matches.length? ( <div><ItsMatch /> <ScrollBar>{renderMatches}</ScrollBar></div>) : <Error matches={matches} /> ) : <Loading /> }

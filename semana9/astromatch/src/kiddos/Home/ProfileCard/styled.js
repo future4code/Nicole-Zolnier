@@ -59,7 +59,7 @@ export const ProfilePicture = styled.img`
 
 
 export const StyledBox = styled(Box)`
-    height: 400px;
+    height: 410px;
     width: 300px;
     display: flex;
 	align-items: center;

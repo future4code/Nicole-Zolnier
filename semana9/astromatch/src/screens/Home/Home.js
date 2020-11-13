@@ -10,12 +10,17 @@ import Loading from '../../components/Loading/Loading'
 
 
 function Home(props) {
+  // icons
   const [yes, setYes] = useState(false)
   const [no, setNo] = useState(false)
+  // profile da api
   const [profile, setProfile] = useState({})
+  // coisinha pra salvar a res do post e fazer o alert
   const [isMatch, setIsMatch] = useState(false)
+  // animações
   const [swipeLeft, setSwipeLeft] = useState(false)
   const [swipeRight, setSwipeRight] = useState(false)
+  // loading
   const [loaded, setLoaded] = useState(false)
 
   // didmount

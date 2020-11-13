@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import {hotPink, skyBlue} from '../../constants/colors'
 
+// scrollbar maneirinho
 export const ScrollBar = styled.div`
 display: flex;
 flex-direction: column;

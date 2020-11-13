@@ -3,7 +3,7 @@ import {Animation, AnimationContainer} from './styled'
 import Tooltip from '@material-ui/core/Tooltip'
 
 
-function Loading(props) {
+function Loading() {
     return (
         <Tooltip title="Tá carregando!" arrow>
             <AnimationContainer>
