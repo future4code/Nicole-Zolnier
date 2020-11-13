@@ -1,8 +1,8 @@
-import MatchCard from '../../components/Matches/MatchCard'
+import MatchCard from '../../kiddos/Matches/MatchCard'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import Error from '../../components/Errors/ErrorMatch'
-import ItsMatch from '../../components/Matches/ItsMatch'
+import ItsMatch from '../../kiddos/Matches/ItsMatch'
 import NavBar from '../../components/NavBar/NavBar'
 import { baseUrl } from "../../constants/urls"
 import {ScrollBar} from './styled'

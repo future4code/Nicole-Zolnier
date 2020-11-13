@@ -1,10 +1,10 @@
-import ProfileCard from '../../components/Home/ProfileCard'
+import ProfileCard from '../../kiddos/Home/ProfileCard'
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
-import Buttons from '../../components/Home/Buttons'
+import Buttons from '../../kiddos/Home/Buttons'
 import Error from '../../components/Errors/ErrorHome'
 import NavBar from '../../components/NavBar/NavBar'
-import MatchAlert from '../../components/MatchAlert'
+import MatchAlert from '../../kiddos/Home/MatchAlert'
 import { baseUrl } from "../../constants/urls";
 import Loading from '../../components/Loading/Loading'
 
