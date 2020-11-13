@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import {Badge, Avatar, Typography} from '@material-ui/core';
 import { makeStyles, withStyles } from "@material-ui/core/styles";
+import {paleGrey} from '../../constants/colors'
 
 const PersonContainer = styled.div`
   display: flex;
@@ -9,7 +10,7 @@ const PersonContainer = styled.div`
   align-items: center;
   cursor: pointer;
   &:hover {
-    background-color: #E8E8E8;
+    background-color: ${paleGrey};
   }
 `
 const StyledBadge = withStyles((theme) => ({

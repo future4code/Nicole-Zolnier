@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import {hotPink, notBlack} from '../constants/colors'
 
 const CreditsDiv = styled.div`
   padding: 1em;
@@ -9,9 +10,9 @@ const CreditsDiv = styled.div`
 
 const Credits = styled.a`
   text-decoration: none;
-  color: #191919;
+  color: ${notBlack};
   &:hover {
-    color: #FE039D;
+    color: ${hotPink};
   }
 `
 

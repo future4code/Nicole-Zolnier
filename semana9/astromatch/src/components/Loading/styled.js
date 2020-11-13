@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components'
+import {skyBlue, softBlue} from '../../constants/colors'
 
 const spin = keyframes`
     to {
@@ -6,8 +7,8 @@ const spin = keyframes`
     }
 `
 export const Animation = styled.div`
-    border: 6px solid #C1FFFF;
-    border-top-color: #66C7F4;
+    border: 6px solid ${softBlue};
+    border-top-color: ${skyBlue};
     border-radius: 50%;
     width: 3em;
     height: 3em;

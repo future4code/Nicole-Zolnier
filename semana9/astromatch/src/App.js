@@ -2,9 +2,10 @@ import styled from 'styled-components'
 import Footer from './components/Footer'
 import RenderScreen from './screens/RenderScreen';
 import 'fontsource-roboto'
+import {softPink} from './constants/colors'
 
 const Background = styled.div`
-  background-color: #fdc9cb;
+  background-color: ${softPink};
   height: 100vh;
   display: flex;
   justify-content: center;

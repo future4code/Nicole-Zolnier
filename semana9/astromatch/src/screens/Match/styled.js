@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import {hotPink, skyBlue} from '../../constants/colors'
 
 export const ScrollBar = styled.div`
 display: flex;
@@ -20,13 +21,13 @@ border-radius: 10px;
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-background: #FE039D; 
+background: ${hotPink}; 
 border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-background: #66C7F4; 
+background: ${skyBlue}; 
 border-radius: 10px;
 } 
 `
