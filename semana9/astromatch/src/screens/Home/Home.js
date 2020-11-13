@@ -1,7 +1,7 @@
 import ProfileCard from '../../kiddos/Home/ProfileCard/ProfileCard'
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
-import Buttons from '../../kiddos/Home/Buttons'
+import Buttons from '../../kiddos/Home/Buttons/Buttons'
 import Error from '../../components/Errors/ErrorHome'
 import NavBar from '../../components/NavBar/NavBar'
 import MatchAlert from '../../kiddos/Home/MatchAlert'
@@ -64,7 +64,7 @@ function Home(props) {
 
   // função pra escolher se sim ou se nao
   const choosePerson = (answer) => {
-    
+    // seta a mudança do botao no onclick e o swipe correto
     if(answer){
       setYes(true)
       setSwipeLeft(true)
@@ -91,7 +91,10 @@ function Home(props) {
 
   }
 
-
+  // renderizacao condicional muito louca que deu certo na base da fé
+  // se não tiver carregado, manda o loading que é uma animação
+  // se tiver carregado, mas sem profile, manda o erro
+  // se tiver carregado e com profile, manda o card
   return (
     <div>
       <MatchAlert open={isMatch} close={handleClose} />

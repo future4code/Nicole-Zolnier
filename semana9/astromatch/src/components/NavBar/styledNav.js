@@ -3,6 +3,9 @@ import styled from 'styled-components'
 export const Clean = styled.img`
   width: 12.4%;
   cursor: pointer;
+  &:active {
+    opacity: 0.5;
+  }
 `
 
 export const NavContainer = styled.div`
@@ -20,11 +23,17 @@ export const Logo = styled.img`
 `
 
 export const GoBack = styled.img`
-width: 12%;
-cursor: pointer;
+  width: 12%;
+  cursor: pointer;
+  &:active {
+    opacity: 0.5;
+  }
 `
 
 export const Matches = styled.img`
-width: 12%;
-cursor: pointer;
+  width: 12%;
+  cursor: pointer;
+  &:active {
+    opacity: 0.5;
+  }
 `
