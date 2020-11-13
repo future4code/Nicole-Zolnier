@@ -42,7 +42,6 @@ const ScrollBar = styled.div`
 function Match(props) {
   // state pra guardar as matches da função
   const [matches, setMatches] = useState([])
-
   // função para pegar as matches
   const getMatches = () => {
     axios.get(`${baseUrl}/matches`).then((res) => {

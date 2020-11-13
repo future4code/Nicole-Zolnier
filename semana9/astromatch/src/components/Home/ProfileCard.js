@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { keyframes } from 'styled-components'
+import styled, { keyframes, css } from 'styled-components'
 import { Typography, Box } from "@material-ui/core";
 
 const Div = styled.div`
@@ -8,7 +8,13 @@ const Div = styled.div`
   align-items: center;
   margin: 1em;
   transition: 0.5s;
-  animation: ${(props) => props.animate? (props.animation === "right" ? right : left) : null } 0.5s forwards;
+  animation: ${(props) => {
+    if(props.swipeLeft){
+      return css`${left} 3s`
+    } else if(props.swipeRight) {
+      return css`${right} 3s`
+    }
+  }};
 `
 const BlurredBackground = styled(Box)`
   background-image: url(${(props) => props.bgimage});
@@ -31,10 +37,12 @@ const ProfilePicture = styled.img`
 const right = keyframes`
   from {
 	  transform: translate(0) rotate(0);
+    opacity: 1;
   }
 
   to {
-	  transform: translate(-100px) rotate(-10deg);
+	  transform: translate(-200px) rotate(-20deg);
+    opacity: 0;
   }
 `;
 
@@ -46,7 +54,7 @@ const left = keyframes`
 
   to {
     opacity: 0;
-	  transform: translate(100px) rotate(10deg);
+	  transform: translate(200px) rotate(20deg);
   }
 `;
 
@@ -72,7 +80,7 @@ const InfoBox = styled(Box)`
 
 function ProfileCard(props) {
   return (
-    <Div animate={props.animate} animation={props.animation}>
+    <Div swipeLeft={props.swipeLeft} swipeRight={props.swipeRight}>
       <StyledBox boxShadow={8} borderRadius={8}>
       <BlurredBackground bgimage={props.profile.photo}/>
         <ProfilePicture src={props.profile.photo}/>

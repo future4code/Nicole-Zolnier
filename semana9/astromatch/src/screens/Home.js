@@ -14,8 +14,8 @@ function Home(props) {
   const [no, setNo] = useState(false)
   const [profile, setProfile] = useState({})
   const [isMatch, setIsMatch] = useState(false)
-  const [animation, setAnimation] =useState("")
-  const [animate, setAnimate] = useState(false)
+  const [swipeLeft, setSwipeLeft] = useState(false)
+  const [swipeRight, setSwipeRight] = useState(false)
   const [loaded, setLoaded] = useState(false)
 
   // didmount
@@ -61,15 +61,13 @@ function Home(props) {
 
   // função pra escolher se sim ou se nao
   const choosePerson = (answer) => {
-    setAnimate(true)
-
     if(answer){
       setYes(true)
-      setAnimation("right")
+      setSwipeLeft(true)
     } else{
       setNo(true)
+      setSwipeRight(true)
       
-      setAnimation("left")
     }
    
     const body = {
@@ -82,7 +80,8 @@ function Home(props) {
       getProfile()
       setYes(false)
       setNo(false)
-      setAnimate(false)
+      setSwipeRight(false)
+      setSwipeLeft(false)
     }).catch((err) => {
       console.log(err.message)
     })
@@ -97,7 +96,7 @@ function Home(props) {
         </Alert>
       </Snackbar>
       <NavBar getProfile={getProfile} currentPage={props.currentPage} goToHome={props.goToHome} goToMatches={props.goToMatches}/>
-      {!profile ? <Error /> : <ProfileCard animate={animate} animationDirection={animation} profile={profile} />}
+      {!profile ? <Error /> : <ProfileCard swipeLeft={swipeLeft} swipeRight={swipeRight} profile={profile} />}
       {!profile ? null : <Buttons mouseOverIcon={mouseOverIcon} mouseOutIcon={mouseOutIcon} no={no} yes={yes} choosePerson={choosePerson} /> }
     </div>
   );
