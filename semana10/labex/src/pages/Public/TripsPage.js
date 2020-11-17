@@ -1,9 +1,11 @@
 import React from 'react'
+import NavBar from '../components/NavBar'
 
 function TripsPage() {
   return (
     <div>
-        TripsPage
+        <NavBar />
+        <p>Trips</p>
     </div>
   );
 }

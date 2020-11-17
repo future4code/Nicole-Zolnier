@@ -1,9 +1,11 @@
 import React from 'react'
+import NavBar from '../components/NavBar'
 
 function ApplyPage() {
   return (
     <div>
-        ApplyPage
+        <NavBar />
+        <p>Apply</p>
     </div>
   );
 }
