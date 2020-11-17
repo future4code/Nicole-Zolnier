@@ -1,13 +1,13 @@
 import React from 'react'
 import NavBarAdmin from '../../components/NavBarAdmin';
 
-function AdminPage() {
+function CreateTrip() {
   return (
     <div>
-      <NavBarAdmin />
-        <p>Admin</p>
+        <NavBarAdmin />
+        <p>criar viagem</p>
     </div>
   );
 }
 
-export default AdminPage;
+export default CreateTrip;

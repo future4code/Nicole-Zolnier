@@ -7,6 +7,9 @@ import LoginPage from '../pages/Private/LoginPage'
 import TripsPage from '../pages/Public/TripsPage'
 import ErrorPage from '../pages/ErrorPage'
 import AdminPage from '../pages/Private/AdminPage'
+import Candidates from '../pages/Private/CandidatesPage';
+import CreateTrip from '../pages/Private/CreateTripPage';
+import ListTrip from '../pages/Private/ListTripPage';
 
 
 
@@ -37,6 +40,18 @@ function Router() {
         <Route exact path="/viagens">
           <TripsPage />
         </Route>
+
+        <Route exact path="/admin/candidatos">
+          <Candidates />
+        </Route>
+
+        <Route exact path="/admin/viagens/criar-viagem">
+          <CreateTrip />
+        </Route>   
+
+        <Route exact path="/admin/viagens">
+          <ListTrip />
+        </Route>       
 
         <Route>
           <ErrorPage />
