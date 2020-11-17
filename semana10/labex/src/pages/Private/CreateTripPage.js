@@ -6,6 +6,11 @@ function CreateTrip() {
     <div>
         <NavBarAdmin />
         <p>criar viagem</p>
+        <input placeholder="nome" />
+        <input placeholder="planeta" />
+        <input placeholder="data" />
+        <input placeholder="descrição" />
+        <input placeholder="duração" />
     </div>
   );
 }

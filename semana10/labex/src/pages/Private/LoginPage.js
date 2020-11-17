@@ -13,6 +13,8 @@ function LoginPage() {
     <div>
         <NavBar />
         <p>login</p>
+        <input placeholder="nome"/>
+        <input placeholder="senha"/>
         <button onClick={goToAdmin}>LOGAR</button>
     </div>
   );

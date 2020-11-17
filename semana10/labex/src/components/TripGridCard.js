@@ -15,10 +15,9 @@ function TripGridCard() {
     const data = useRequestData(
         `${baseUrl}/trips`,
         undefined
-      )
+    )    
 
-      
-  return (
+    return (
     <GridContainer>
         {data && data.trips.map((item, i) => {
           return <TripCard name={item.name} index={i} date={item.date} description={item.description} />
