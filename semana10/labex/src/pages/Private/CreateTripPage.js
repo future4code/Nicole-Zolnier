@@ -1,7 +1,12 @@
 import React from 'react'
-import NavBarAdmin from '../../components/NavBarAdmin';
+import NavBarAdmin from '../../components/NavBarAdmin'
+import { useProtectedPage } from '../../hooks/useProtectedPage';
+
 
 function CreateTrip() {
+
+  useProtectedPage()
+
   return (
     <div>
         <NavBarAdmin />

@@ -5,6 +5,7 @@ function NavBarAdmin() {
   const history = useHistory()
 
   const goToHome = () => {
+    localStorage.removeItem("token");
     history.push("/")
   }
 
@@ -30,7 +31,7 @@ function NavBarAdmin() {
         <button onClick={goToTrips}>Viagens</button>
         <button onClick={goToCreateTrip}>Criar Viagens</button>
         <button onClick={goToCandidates}>Candidatos</button>
-        <button onClick={goToHome}>Voltar</button>
+        <button onClick={goToHome}>Logout</button>
     </div>
   );
 }
