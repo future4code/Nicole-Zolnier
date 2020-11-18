@@ -7,5 +7,9 @@ export function useInput(initialState) {
     setInput(event.target.value)
   }
 
-  return [input, handleInput]
+  const resetInput = () => {
+    setInput(initialState)
+  }
+
+  return [input, handleInput, resetInput]
 }

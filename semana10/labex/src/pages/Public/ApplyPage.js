@@ -8,14 +8,13 @@ import Countries from '../../components/Countries'
 
 function ApplyPage() {
   const [trips, loaded] = useTripsList()
-  const [name, handleName] = useInput("")
-  const [age, handleAge] = useInput(18)
-  const [reason, handleReason] = useInput("")
-  const [profession, handleProfession] = useInput("")
-  const [country, handleCountry] = useInput("")
-  const [tripId, handleTripId] = useInput("")
+  const [name, handleName, resetName] = useInput("")
+  const [age, handleAge, resetAge] = useInput(18)
+  const [reason, handleReason, resetReason] = useInput("")
+  const [profession, handleProfession, resetProfession] = useInput("")
+  const [country, handleCountry, resetCountry] = useInput("")
+  const [tripId, handleTripId, resetTripId] = useInput("")
 
-  console.log(name)
   const applyToTrip = () => {
     
     const body = {
@@ -28,6 +27,12 @@ function ApplyPage() {
 
     axios.post(`${baseUrl}/trips/${tripId}/apply`, body).then(() => {
       window.alert(`Formulário enviado com sucesso! Entraremos em contato ${name}`)
+      resetName()
+      resetAge()
+      resetReason()
+      resetProfession()
+      resetCountry()
+      resetTripId()
     }).catch((err) => {
       console.log(err)
     })

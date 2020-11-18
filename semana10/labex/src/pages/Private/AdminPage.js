@@ -15,6 +15,11 @@ function AdminPage() {
     history.push(`/admin/viagens/detalhe/${id}`);
   };
   
+  const goToCreationMode = () => {
+    history.push("/admin/viagens/criar-viagem")
+  }
+
+
   return (
     <div>
       <NavBarAdmin />
@@ -25,6 +30,7 @@ function AdminPage() {
           return <p onClick={() => goToDetails(item.id)} key={item.id}>{item.name}</p>
         })}
         </div>
+        <button onClick={goToCreationMode}>Criar mais viagens</button>
     </div>
   );
 }

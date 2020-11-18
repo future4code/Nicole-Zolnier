@@ -39,7 +39,7 @@ function TripDetailPage() {
             <NavBarAdmin />
             <TripInfo planet={trip.planet} description={trip.description} date={trip.date} name={trip.name} duration={trip.durationInDays} />
             {candidates.map((item) => {
-                <TripCandidates country={item.country} name={item.name} age={item.age} reason={item.applicationText} profession={item.profession} />
+               return <TripCandidates country={item.country} name={item.name} age={item.age} reason={item.applicationText} profession={item.profession} />
             })}
         </div>
     );

@@ -7,8 +7,8 @@ import {baseUrl} from '../../constants/urls'
 
 function LoginPage() {
   const history = useHistory()
-  const [email, handleEmail] = useInput("")
-  const [password, handlePassword] = useInput("")
+  const [email, handleEmail, resetEmail] = useInput("")
+  const [password, handlePassword, resetPassword] = useInput("")
 
   const login = () => {
     const body = {
@@ -17,6 +17,8 @@ function LoginPage() {
     };
 
     axios.post(`${baseUrl}/login`, body).then((res) => {
+        resetEmail()
+        resetPassword()
         localStorage.setItem("token", res.data.token)
         history.push("/admin")
     }).catch((err) => {
