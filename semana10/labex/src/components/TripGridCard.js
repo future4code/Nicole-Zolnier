@@ -3,6 +3,7 @@ import {baseUrl} from '../constants/urls'
 import {useRequestData} from '../hooks/useRequestData'
 import TripCard from './TripCard'
 import styled from 'styled-components'
+import Loading from './Loading'
 
 const GridContainer = styled.div`
   display: grid;
@@ -19,10 +20,9 @@ function TripGridCard() {
 
     return (
     <GridContainer>
-        {data && data.trips.map((item, i) => {
+        {data? data.trips.map((item, i) => {
           return <TripCard name={item.name} index={i} date={item.date} description={item.description} />
-            })
-          }
+        }) : <Loading /> }
     </GridContainer>
   );
 }
