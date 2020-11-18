@@ -2,9 +2,6 @@ import React from 'react'
 import styled, {keyframes} from 'styled-components'
 
 const AnimationContainer = styled.div`
-    dispaly: flex;
-    justify-content: center;
-    align-items: center;
     margin: auto;
 `
 

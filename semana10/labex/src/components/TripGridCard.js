@@ -1,6 +1,5 @@
 import React from 'react'
-import {baseUrl} from '../constants/urls' 
-import {useRequestData} from '../hooks/useRequestData'
+import {useTripsList} from '../hooks/useTripsList'
 import TripCard from './TripCard'
 import styled from 'styled-components'
 import Loading from './Loading'
@@ -13,14 +12,11 @@ const GridContainer = styled.div`
 `
 
 function TripGridCard() {
-    const data = useRequestData(
-        `${baseUrl}/trips`,
-        undefined
-    )    
+    const [trips, loaded] = useTripsList()
 
     return (
     <GridContainer>
-        {data? data.trips.map((item, i) => {
+        {loaded? trips.map((item, i) => {
           return <TripCard name={item.name} index={i} date={item.date} description={item.description} />
         }) : <Loading /> }
     </GridContainer>
