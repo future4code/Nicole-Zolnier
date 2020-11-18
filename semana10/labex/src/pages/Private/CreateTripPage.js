@@ -1,5 +1,5 @@
 import React from 'react'
-import NavBarAdmin from '../../components/NavBarAdmin'
+import NavBarAdmin from '../../components/Private/NavBarAdmin'
 import { useProtectedPage } from '../../hooks/useProtectedPage';
 
 

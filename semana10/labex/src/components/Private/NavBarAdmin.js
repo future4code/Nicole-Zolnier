@@ -13,14 +13,6 @@ function NavBarAdmin() {
     history.push("/admin")
   }
 
-  const goToCandidates = () => {
-    history.push("/admin/candidatos")
-  }
-  
-  const goToTrips = () => {
-    history.push("/admin/viagens")
-  }
-
   const goToCreateTrip = () => {
     history.push("/admin/viagens/criar-viagem")
   }
@@ -28,12 +20,10 @@ function NavBarAdmin() {
   return (
     <div>
         <button onClick={goToAdmin}>Admin</button>
-        <button onClick={goToTrips}>Viagens</button>
         <button onClick={goToCreateTrip}>Criar Viagens</button>
-        <button onClick={goToCandidates}>Candidatos</button>
         <button onClick={goToHome}>Logout</button>
     </div>
   );
 }
 
-export default NavBarAdmin;
+export default NavBarAdmin
