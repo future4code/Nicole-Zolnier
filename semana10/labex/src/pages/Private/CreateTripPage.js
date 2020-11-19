@@ -13,11 +13,6 @@ function CreateTrip() {
   const token = localStorage.getItem("token")
   const { form, onChange, reset } = useForm({ name: "", planet: "", date:"", description:"", duration: ""})
 
-  const handleInputChange = (event) => {
-    const { value, name } = event.target
-
-    onChange(value, name)
-  }
 
   const createTrip = (e) => {
     e.preventDefault()
@@ -33,10 +28,11 @@ function CreateTrip() {
         auth: token
       }
     }).then(() => {
-      window.alert("deu boa")
+      window.alert("Viagem criada com sucesso!")
       reset()
     }).catch((err) => {
       console.log(err)
+      window.alert("Eita! Deu erro")
     })
   }
 
@@ -45,11 +41,11 @@ function CreateTrip() {
       <NavBarAdmin />
       <p>criar viagem</p>
       <form onSubmit={createTrip}>
-        <input required placeholder="nome" name="name" pattern="^.{6,}" value={form.name} onChange={handleInputChange} />
-        <Planets planet={form.planet} handle={handleInputChange} />
-        <input required name="date" type="date" placeholder="data" value={form.date} onChange={handleInputChange}/>
-        <input required name="description" placeholder="descrição" pattern="^.{30,}" value={form.description} onChange={handleInputChange}/>
-        <input required name="duration" type="number" min="50" placeholder="duração" value={form.uration} onChange={handleInputChange} />
+        <input required placeholder="nome" name="name" pattern="[a-zA-ZsÀ-ú ]{6,}" value={form.name} onChange={onChange} />
+        <Planets planet={form.planet} handle={onChange} />
+        <input required name="date" type="date" placeholder="data" value={form.date} onChange={onChange}/>
+        <input required name="description" placeholder="descrição" pattern="^.{30,}" value={form.description} onChange={onChange}/>
+        <input required name="duration" type="number" min="50" placeholder="duração" value={form.uration} onChange={onChange} />
         <button>criar</button>
       </form>
 

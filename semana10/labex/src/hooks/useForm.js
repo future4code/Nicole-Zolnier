@@ -3,8 +3,11 @@ import React, { useState } from 'react'
 export const useForm = (initialValues) => {
     const [form, setForm] = useState(initialValues)
 
-    const onChange = (value, name) => {
-    setForm({ ...form, [name]: value });
+    const onChange = (event) => {
+        const {name, value} = event.target
+        const newForm = {...form, [name]: value}
+
+        setForm(newForm)
     }
 
 
