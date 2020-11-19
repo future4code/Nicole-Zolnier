@@ -1,29 +1,32 @@
 import axios from 'axios'
 import React from 'react'
 import NavBarAdmin from '../../components/Private/NavBarAdmin'
-import { useInput } from '../../hooks/useInput'
+import Planets from '../../components/Private/Planets'
+import { useForm } from '../../hooks/useForm'
 import { useProtectedPage } from '../../hooks/useProtectedPage'
 import { baseUrl } from '../../constants/urls'
-
 
 function CreateTrip() {
 
   useProtectedPage()
 
   const token = localStorage.getItem("token")
-  const [name, handleName, resetName] = useInput("")
-  const [planet, handlePlanet, resetPlanet] = useInput("")
-  const [date, handleDate, resetDate] = useInput("")
-  const [description, handleDescription, resetDescription] = useInput("")
-  const [duration, handleDuration, resetDuration] = useInput(0)
+  const { form, onChange, reset } = useForm({ name: "", planet: "", date:"", description:"", duration: ""})
 
-  const createTrip = () => {
+  const handleInputChange = (event) => {
+    const { value, name } = event.target
+
+    onChange(value, name)
+  }
+
+  const createTrip = (e) => {
+    e.preventDefault()
     const body = {
-      name: name,
-      planet: planet,
-      date: date,
-      description: description,
-      durationInDays: duration
+      name: form.name,
+      planet: form.planet,
+      date: form.date,
+      description: form.description,
+      durationInDays: form.duration
     }
     axios.post(`${baseUrl}/trips`, body, {
       headers: {
@@ -31,11 +34,7 @@ function CreateTrip() {
       }
     }).then(() => {
       window.alert("deu boa")
-      resetName()
-      resetDuration()
-      resetPlanet()
-      resetDescription()
-      resetDate()
+      reset()
     }).catch((err) => {
       console.log(err)
     })
@@ -45,38 +44,17 @@ function CreateTrip() {
     <div>
       <NavBarAdmin />
       <p>criar viagem</p>
-      <input placeholder="nome" value={name} onChange={handleName} />
-      <input placeholder="planeta" value={planet} onChange={handlePlanet}/>
-      <input type="date" placeholder="data" value={date} onChange={handleDate}/>
-      <input placeholder="descrição" value={description} onChange={handleDescription}/>
-      <input type="number" placeholder="duração" value={duration} onChange={handleDuration} />
-      <button onClick={createTrip}>criar</button>
+      <form onSubmit={createTrip}>
+        <input required placeholder="nome" name="name" pattern="^.{6,}" value={form.name} onChange={handleInputChange} />
+        <Planets planet={form.planet} handle={handleInputChange} />
+        <input required name="date" type="date" placeholder="data" value={form.date} onChange={handleInputChange}/>
+        <input required name="description" placeholder="descrição" pattern="^.{30,}" value={form.description} onChange={handleInputChange}/>
+        <input required name="duration" type="number" min="50" placeholder="duração" value={form.uration} onChange={handleInputChange} />
+        <button>criar</button>
+      </form>
+
     </div>
-  );
+  )
 }
 
 export default CreateTrip;
-
-//   const applyToTrip = () => {
-
-//     const body = {
-//       name: name,
-//       age: age,
-//       applicationText: reason,
-//       profession: profession,
-//       country: country
-//     }
-
-//     axios.post(`${baseUrl}/trips/${tripId}/apply`, body).then(() => {
-//       window.alert(`Formulário enviado com sucesso! Entraremos em contato ${name}`)
-//       resetName()
-//       resetAge()
-//       resetReason()
-//       resetProfession()
-//       resetCountry()
-//       resetTripId()
-//     }).catch((err) => {
-//       console.log(err)
-//     })
-
-//   }  

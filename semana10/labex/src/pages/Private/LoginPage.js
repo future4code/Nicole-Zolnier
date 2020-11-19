@@ -1,24 +1,30 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import NavBar from '../../components/NavBar'
-import { useInput } from '../../hooks/useInput'
+import { useForm } from '../../hooks/useForm'
 import axios from 'axios'
 import {baseUrl} from '../../constants/urls'
 
 function LoginPage() {
   const history = useHistory()
-  const [email, handleEmail, resetEmail] = useInput("")
-  const [password, handlePassword, resetPassword] = useInput("")
+  const { form, onChange, reset } = useForm({ email: "", password: "" });
 
-  const login = () => {
+  const handleInputChange = (event) => {
+    const { value, name } = event.target
+
+    onChange(value, name)
+  }
+
+  const login = (e) => {
+    e.preventDefault()
+
     const body = {
-      email: email,
-      password: password
+      email: form.email,
+      password: form.password
     };
 
     axios.post(`${baseUrl}/login`, body).then((res) => {
-        resetEmail()
-        resetPassword()
+        reset()
         localStorage.setItem("token", res.data.token)
         history.push("/admin")
     }).catch((err) => {
@@ -30,9 +36,12 @@ function LoginPage() {
     <div>
         <NavBar />
         <p>login</p>
-        <input placeholder="email" value={email} onChange={handleEmail}/>
-        <input placeholder="senha" type="password" value={password} onChange={handlePassword}/>
-        <button onClick={login}>LOGAR</button>
+        <form onSubmit={login}>
+          <input placeholder="email" value={form.email} onChange={handleInputChange} name="email" type="email" required/>
+          <input placeholder="senha" type="password"  value={form.password} onChange={handleInputChange} name="password" required/>
+          <button>LOGAR</button>
+        </form>
+        
     </div>
   );
 }
