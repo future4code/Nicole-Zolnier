@@ -41,7 +41,7 @@ function CreateTrip() {
       <NavBarAdmin />
       <p>criar viagem</p>
       <form onSubmit={createTrip}>
-        <input required placeholder="nome" name="name" pattern="[a-zA-ZsÀ-ú ]{6,}" value={form.name} onChange={onChange} />
+        <input required placeholder="nome" name="name" pattern="[a-zA-Zs\À-ú ]{6,}" value={form.name} onChange={onChange} />
         <Planets planet={form.planet} handle={onChange} />
         <input required name="date" type="date" placeholder="data" value={form.date} onChange={onChange}/>
         <input required name="description" placeholder="descrição" pattern="^.{30,}" value={form.description} onChange={onChange}/>

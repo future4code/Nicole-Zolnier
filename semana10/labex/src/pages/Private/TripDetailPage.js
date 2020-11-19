@@ -1,18 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import NavBarAdmin from '../../components/Private/NavBarAdmin'
-import { useHistory, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import {baseUrl} from '../../constants/urls'
 import { useProtectedPage } from '../../hooks/useProtectedPage'
 import axios from 'axios'
 import TripInfo from '../../components/Private/TripInfo'
+import CandidateCard from '../../components/Private/CandidateCard'
 
 function TripDetailPage() {
-    const history = useHistory()
-
-    const goToCandidateDetails = (candidateId) => {
-    history.push(`/admin/viagens/detalhe/${id}/candidato/${candidateId}`)
-  }
-
+   
     useProtectedPage()
 
     const pathParams = useParams();
@@ -21,11 +17,12 @@ function TripDetailPage() {
     const [trip, setTrip] = useState({})
     const [candidates, setCandidates] = useState([])
 
+
     useEffect(() => {
-        getDetails()
+        getTripDetails()
     }, [])
 
-    const getDetails = () => {
+    const getTripDetails = () => {
         axios.get(`${baseUrl}/trip/${id}` , {
             headers: {
                 auth: token
@@ -39,13 +36,15 @@ function TripDetailPage() {
         })
     }
 
+
+    const renderCandidate = candidates.length !== 0 ? candidates.map((item) => {
+        return <CandidateCard getTripDetails={getTripDetails} tripId={id} candidateId={item.id} reason={item.applicationText} profession={item.profession} age={item.age} country={item.country} name={item.name}/>
+     }) : <div>nenhum candidato!</div>
     return (
         <div>
             <NavBarAdmin />
             <TripInfo planet={trip.planet} description={trip.description} date={trip.date} name={trip.name} duration={trip.durationInDays} />
-            {candidates.map((item) => {
-               return <h4 onClick={() => goToCandidateDetails(item.id)}>{item.name}</h4>
-            })}
+            {renderCandidate}
         </div>
     );
 }

@@ -9,11 +9,6 @@ function LoginPage() {
   const history = useHistory()
   const { form, onChange, reset } = useForm({ email: "", password: "" });
 
-  const handleInputChange = (event) => {
-    const { value, name } = event.target
-
-    onChange(value, name)
-  }
 
   const login = (e) => {
     e.preventDefault()
@@ -37,8 +32,8 @@ function LoginPage() {
         <NavBar />
         <p>login</p>
         <form onSubmit={login}>
-          <input placeholder="email" value={form.email} onChange={handleInputChange} name="email" type="email" required/>
-          <input placeholder="senha" type="password"  value={form.password} onChange={handleInputChange} name="password" required/>
+          <input placeholder="email" value={form.email} onChange={onChange} name="email" type="email" required/>
+          <input placeholder="senha" type="password"  value={form.password} onChange={onChange} name="password" required/>
           <button>LOGAR</button>
         </form>
         
