@@ -9,6 +9,7 @@ import ErrorPage from '../pages/ErrorPage'
 import AdminPage from '../pages/Private/AdminPage'
 import CreateTrip from '../pages/Private/CreateTripPage'
 import TripDetailPage from '../pages/Private/TripDetailPage'
+import CandidateDetailPage from '../pages/Private/CandidateDetailPage';
 
 function Router() {
   return (
@@ -45,6 +46,11 @@ function Router() {
         <Route exact path="/admin/viagens/detalhe/:id">
           <TripDetailPage />
         </Route>
+
+        <Route exact path="/admin/viagens/detalhe/:id/candidato/:cid">
+          <CandidateDetailPage />
+        </Route>
+
         <Route>
           <ErrorPage />
         </Route>

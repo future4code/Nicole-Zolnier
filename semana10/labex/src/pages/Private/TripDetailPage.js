@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import NavBarAdmin from '../../components/Private/NavBarAdmin'
-import { useParams } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 import {baseUrl} from '../../constants/urls'
 import { useProtectedPage } from '../../hooks/useProtectedPage'
 import axios from 'axios'
 import TripInfo from '../../components/Private/TripInfo'
-import TripCandidates from '../../components/Private/TripCandidates'
 
 function TripDetailPage() {
+    const history = useHistory()
+
+    const goToCandidateDetails = (candidateId) => {
+    history.push(`/admin/viagens/detalhe/${id}/candidato/${candidateId}`)
+  }
+
     useProtectedPage()
 
     const pathParams = useParams();
@@ -39,7 +44,7 @@ function TripDetailPage() {
             <NavBarAdmin />
             <TripInfo planet={trip.planet} description={trip.description} date={trip.date} name={trip.name} duration={trip.durationInDays} />
             {candidates.map((item) => {
-               return <TripCandidates country={item.country} name={item.name} age={item.age} reason={item.applicationText} profession={item.profession} />
+               return <h4 onClick={() => goToCandidateDetails(item.id)}>{item.name}</h4>
             })}
         </div>
     );
