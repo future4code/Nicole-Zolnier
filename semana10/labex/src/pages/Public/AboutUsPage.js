@@ -1,5 +1,6 @@
 import React from 'react'
 import NavBar from '../../components/NavBar'
+import Footer from '../../components/Footer'
 
 function AboutUsPage() {
   return (
@@ -11,6 +12,7 @@ function AboutUsPage() {
       <h1>In memoriam</h1>
       <p>“Você pode tirar meus trajes, você pode tirar a minha casa, mas há uma coisa que você nunca pode tirar de mim: eu sou o Homem de Ferro!” - Tony Stark</p>
       <img src="https://picsum.photos/500/400/" />
+      <Footer />
     </div>
   );
 }

@@ -5,6 +5,7 @@ import {baseUrl} from '../../constants/urls'
 import { useForm } from '../../hooks/useForm'
 import {useTripsList} from '../../hooks/useTripsList'
 import Countries from '../../components/Countries'
+import Footer from '../../components/Footer'
 
 function ApplyPage() {
   const [trips, loaded] = useTripsList()
@@ -56,6 +57,7 @@ function ApplyPage() {
 
         <button>Aplicar</button>
         </form>
+        <Footer />
     </div>
   );
 }
