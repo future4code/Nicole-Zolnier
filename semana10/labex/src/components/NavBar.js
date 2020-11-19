@@ -1,5 +1,33 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
+import styled from 'styled-components'
+import logo from '../assets/white-starkx.svg'
+import { Button, createMuiTheme, MuiThemeProvider } from '@material-ui/core'
+
+
+const Header = styled.div`
+  display: flex;
+  padding: 1em;
+  align-items: center;
+  justify-content: space-between;
+  background-color: black;
+  
+`
+
+const Logo = styled.img`
+  width: 15%;
+`
+
+const myTheme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "#FFFFFF"
+    },
+    secondary: {
+      main: "#67C7EB"
+    }
+  },
+})
 
 function NavBar() {
   const history = useHistory()
@@ -15,7 +43,7 @@ function NavBar() {
   const goToLogin = () => {
     history.push("/login")
   }
-  
+
   const goToApply = () => {
     history.push("/inscricao")
   }
@@ -25,13 +53,16 @@ function NavBar() {
   }
 
   return (
-    <div>
-        <button onClick={goToHome}>Home</button>
-        <button onClick={goToAboutUs}>Sobre nós</button>
-        <button onClick={goToApply}>Inscreva-se</button>
-        <button onClick={goToTrips}>Viagens</button>
-        <button onClick={goToLogin}>Admin</button>
-    </div>
+    <Header>
+      <MuiThemeProvider theme={myTheme}>
+        <Logo src={logo} onClick={goToHome} />
+        <Button color="primary" onClick={goToAboutUs}>Sobre nós</Button>
+        <Button color="primary" onClick={goToApply}>Inscreva-se</Button>
+        <Button color="primary" onClick={goToTrips}>Viagens</Button>
+        <Button color="secondary" variant="contained" onClick={goToLogin}>Admin</Button>
+      </MuiThemeProvider>
+
+    </Header>
   );
 }
 
