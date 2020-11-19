@@ -44,7 +44,7 @@ function ApplyPage() {
           <input placeholder="idade" value={form.age} onChange={onChange}  name="age" type="number"
           min="18"
           required/>
-          <input pattern={"^.{30,}"} required placeholder="por que" name="reason" value={form.reason} onChange={onChange}/>
+          <input pattern="^.{30,}" required placeholder="por que" name="reason" value={form.reason} onChange={onChange}/>
           <input required  pattern={"[a-zA-Z\À-ú ]{10,}"} placeholder="profissao" name="profession" value={form.profession} onChange={onChange} />
           <Countries country={form.country} handle={onChange}/>
 
