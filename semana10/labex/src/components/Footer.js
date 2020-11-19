@@ -7,7 +7,7 @@ import instagram from '../assets/instagram.svg'
 import linkedin from '../assets/linkedin.svg'
 
 const DivFooter = styled.div`
-  background-color: black;
+  background-color: #55545c;
   height: 50vh;
   padding: 0 10em;
 `
