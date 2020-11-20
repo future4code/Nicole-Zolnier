@@ -7,6 +7,7 @@ import { useTripsList } from '../../hooks/useTripsList'
 import styled from 'styled-components'
 import { makeStyles } from '@material-ui/core/styles'
 import { Button, Typography } from '@material-ui/core';
+import Loading from '../../components/Loading';
 
 
 
@@ -36,7 +37,7 @@ const BlackContainer = styled.div`
   background-color: black;
   color: white;
   width: auto;
-  height: 100%;
+  height: 110vh;
 `
 
 const useStyles = makeStyles({
@@ -82,11 +83,11 @@ function AdminPage() {
           <Typography variant="h5">Viagens</Typography>
           <Button variant="contained" className={classes.button} onClick={goToCreationMode}>Criar mais viagens</Button>
         </CenterContainer>
-        <GridContainer>
+        {loaded? <GridContainer>
           {trips.map((item) => {
             return <TripCard goToDetails={goToDetails} date={item.date} planet={item.planet} description={item.description} id={item.id} name={item.name} />
           })}
-        </GridContainer>
+        </GridContainer> : <CenterContainer><Loading /></CenterContainer> }
       </BlackContainer>
 
 
