@@ -2,8 +2,8 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 import logo from '../../assets/white-admin.svg'
-import { Button, createMuiTheme, MuiThemeProvider } from '@material-ui/core'
-
+import { Button } from '@material-ui/core'
+import {makeStyles} from '@material-ui/core/styles'
 
 const Header = styled.div`
   display: flex;
@@ -16,21 +16,23 @@ const Header = styled.div`
 
 const Logo = styled.img`
   width: 10%;
+  cursor: pointer;
 `
 
-const myTheme = createMuiTheme({
-  palette: {
-    primary: {
-      main: "#FFFFFF"
-    },
-    secondary: {
-      main: "#67C7EB"
-    }
+const useStyles = makeStyles({
+  logout: {
+      color: "white",
+      background: 'linear-gradient(45deg, #F61B1B 100%, #FF8E53 90%)',
   },
-})
+  normal: {
+    color: "white",
+  }
+});
 
 
 function NavBarAdmin() {
+  const classes = useStyles()
+
   const history = useHistory()
 
   const goToHome = () => {
@@ -48,11 +50,10 @@ function NavBarAdmin() {
 
   return (
     <Header>
-        <MuiThemeProvider theme={myTheme}>
         <Logo src={logo} onClick={goToAdmin} />
-        <Button color="primary" onClick={goToCreateTrip}>Criar Viagens</Button>
-        <Button color="secondary" variant="contained" onClick={goToHome}>Logout</Button>
-        </MuiThemeProvider>
+        <Button className={classes.normal} onClick={goToCreateTrip}>Criar Viagens</Button>
+        <Button className={classes.logout} variant="contained" onClick={goToHome}>Logout</Button>
+  
         
     </Header>
   );
