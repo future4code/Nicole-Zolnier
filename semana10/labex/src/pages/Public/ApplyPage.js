@@ -70,18 +70,18 @@ function ApplyPage() {
     <div>
       <NavBar />
       <p>Apply</p>
-      <FormContainer onSubmit={applyToTrip}>
+      <FormContainer autoComplete="off" validate onSubmit={applyToTrip}>
 
         <TextField label="Nome" value={form.name} onChange={onChange} name="name"
-          inputProps={{ pattern: "[a-zA-Z\À-ú ]{3,}" }}
+          inputProps={{ pattern: "[a-zA-ZÀ-ú ]{3,}" }}
           required variant="outlined" />
         <TextField variant="outlined" label="Idade" value={form.age} onChange={onChange} name="age" type="number"
-          min="18"
+          inputProps={{ min: "18", step: "1" }}
           required />
         <TextField label="Por que você seria um bom candidato?" name="reason" value={form.reason} onChange={onChange}
           inputProps={{ pattern: "^.{30,}" }}
           required variant="outlined" />
-        <TextField variant="outlined" required inputProps={{ pattern: "[a-zA-Z\À-ú ]{10,}" }} label="Profissao" name="profession" value={form.profession} onChange={onChange} />
+        <TextField variant="outlined" required inputProps={{ pattern: "[a-zA-ZÀ-ú ]{10,}" }} label="Profissao" name="profession" value={form.profession} onChange={onChange} />
 
 
         <FormControl variant="outlined">
@@ -106,7 +106,7 @@ function ApplyPage() {
         </FormControl>
 
         <MuiThemeProvider theme={myTheme}>
-          <Button color="secondary" variant="contained">Aplicar</Button>
+          <Button type='submit' color="secondary" variant="contained">Aplicar</Button>
         </MuiThemeProvider>
 
 

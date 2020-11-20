@@ -8,7 +8,7 @@ import linkedin from '../assets/linkedin.svg'
 
 const DivFooter = styled.div`
   background-color: #55545c;
-  height: 50vh;
+  height: 45vh;
   padding: 0 10em;
 `
 
