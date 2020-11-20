@@ -97,7 +97,7 @@ function ApplyPage() {
 
         <FormControl variant="outlined">
           <InputLabel>Viagem</InputLabel>
-          <Select label="Viagem" name="tripId" value={form.tripId} onChange={onChange}>
+          <Select required label="Viagem" name="tripId" value={form.tripId} onChange={onChange}>
             <MenuItem value="">Viagem</MenuItem>
             {trips.map((item) => {
               return <MenuItem value={item.id}>{item.name}</MenuItem>
