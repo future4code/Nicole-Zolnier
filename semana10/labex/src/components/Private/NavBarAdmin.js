@@ -51,6 +51,7 @@ function NavBarAdmin() {
   return (
     <Header>
         <Logo src={logo} onClick={goToAdmin} />
+        <Button className={classes.normal} onClick={goToAdmin}>Viagens</Button>
         <Button className={classes.normal} onClick={goToCreateTrip}>Criar Viagens</Button>
         <Button className={classes.logout} variant="contained" onClick={goToHome}>Logout</Button>
   
