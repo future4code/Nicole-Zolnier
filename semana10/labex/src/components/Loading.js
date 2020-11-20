@@ -2,8 +2,9 @@ import React from 'react'
 import styled, {keyframes} from 'styled-components'
 
 const AnimationContainer = styled.div`
-    margin: auto;
+  padding: 10em;
 `
+
 
 const spin = keyframes`
     50%,
@@ -23,9 +24,10 @@ const fill = keyframes`
 `
 
 const Animation = styled.div`
-    position: relative;
-    width: 2em;
-    height: 2em;
+    display: flex;
+    justify-self: center;
+    width: 5em;
+    height: 5em;
     border: 3px solid #3cefff;
     overflow: hidden;
     animation: ${spin} 3s ease infinite;
@@ -34,8 +36,8 @@ const Animation = styled.div`
     position: absolute;
     top: -3px;
     left: -3px;
-    width: 2em;
-    height: 2em;
+    width: 5em;
+    height: 5em;
     background-color: hsla(185, 100%, 62%, 0.75);
     transform-origin: center bottom;
     transform: scaleY(1);
@@ -44,11 +46,12 @@ const Animation = styled.div`
 ` 
 
 function Loading() {
-  return (
-    <AnimationContainer>
-        <Animation></Animation>
-    </AnimationContainer>
-  );
+  return ( <AnimationContainer>
+    <Animation></Animation>
+  </AnimationContainer>
+
+  )
+
 }
 
 export default Loading;

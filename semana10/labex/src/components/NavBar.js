@@ -35,7 +35,7 @@ function NavBar() {
   const goToHome = () => {
     history.push("/")
   }
-
+  
   const goToAboutUs = () => {
     history.push("/sobre")
   }

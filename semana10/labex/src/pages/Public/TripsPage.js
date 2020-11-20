@@ -9,7 +9,6 @@ function TripsPage() {
   return (
     <div>
         <NavBar />
-        <p>Trips</p>
         <TripGridCard />
         <Footer />
     </div>
