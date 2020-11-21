@@ -63,6 +63,7 @@ function LoginPage() {
       localStorage.setItem("token", res.data.token)
       history.push("/admin")
     }).catch((err) => {
+      window.alert("Your password or email is incorrect")
       console.log(err)
     })
   }
