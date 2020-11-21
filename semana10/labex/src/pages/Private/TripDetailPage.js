@@ -20,7 +20,6 @@ const MainContainer = styled.div`
 `
 const Title = styled(Typography)`
   margin: 1em;
-  padding-bottom: 0.5em;
 `
 const Line = styled.div`
   width: 60px;
@@ -33,6 +32,12 @@ const CandidateGrid = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1em;
+`
+const SpacedText = styled.p`
+    padding: 0.5em;
+`
+const ApprovedName = styled.li`
+    padding: 0.5em;
 `
 
 
@@ -72,11 +77,11 @@ function TripDetailPage() {
 
     const renderCandidate = candidates.length !== 0 ? candidates.map((item) => {
         return (<CandidateGrid><CandidateCard getTripDetails={getTripDetails} tripId={id} candidateId={item.id} reason={item.applicationText} profession={item.profession} age={item.age} country={item.country} name={item.name} /></CandidateGrid>)
-    }) : <div>nenhum candidato!</div>
+    }) : <SpacedText>Nenhum candidato!</SpacedText>
     
     const renderApproved = approved.length !== 0 ? approved.map((item) => {
-        return <li>{item.name}</li>
-    }) : <div>Ninguém aprovado!</div>
+        return <ApprovedName>{item.name}</ApprovedName>
+    }) : <SpacedText>Ninguém aprovado!</SpacedText>
     return (
         <div>
             <NavBarAdmin />
@@ -85,7 +90,7 @@ function TripDetailPage() {
             {loaded ? <TripInfo planet={trip.planet} description={trip.description} date={trip.date} name={trip.name} duration={trip.durationInDays} /> : <Loading />}
             {loaded? <Typography variant="h5">Candidatos</Typography> : null}
             {loaded? <div>{renderCandidate}</div> : null }
-            {loaded? <Typography variant="h5">Candidatos Aprovados</Typography> : null}
+            {loaded? <Typography p={1} variant="h5">Candidatos Aprovados</Typography> : null}
             {loaded? <ul>{renderApproved}</ul> : null}
             </MainContainer>
             

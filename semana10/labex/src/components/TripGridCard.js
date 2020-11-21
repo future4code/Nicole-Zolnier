@@ -5,6 +5,11 @@ import styled from 'styled-components'
 import Loading from './Loading'
 import { Typography } from '@material-ui/core'
 
+const Title = styled(Typography)`
+  color: white;
+  margin: 0.2em;
+`
+
 const MainContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -32,7 +37,9 @@ function TripGridCard() {
     
     return (
     <MainContainer>
-        <Typography color="#ffffff" variant="h3" gutterBottom>Viagens</Typography>
+        <Title variant="h3" gutterBottom>Viagens</Title>
+        <Title variant="h4" align="center"><i>"I’m sorry, Earth is closed today. <br></br>
+        You better pack it up and get outta here."</i> <br></br> - Iron Man</Title>
         {loaded? <GridContainer>{mapResult}</GridContainer>  : <Loading /> }
     </MainContainer>
   );

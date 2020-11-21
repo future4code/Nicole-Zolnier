@@ -16,6 +16,7 @@ const Header = styled.div`
 
 const Logo = styled.img`
   width: 15%;
+  cursor: pointer;
 `
 
 const myTheme = createMuiTheme({

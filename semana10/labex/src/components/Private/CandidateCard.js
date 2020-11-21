@@ -22,8 +22,6 @@ function CandidateCard(props) {
         auth: token
       }
     }).then((res) => {
-      window.alert("Foi!")
-      console.log(res)
       props.getTripDetails()
     }).catch(err => {
       console.log(err)

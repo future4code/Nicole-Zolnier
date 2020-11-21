@@ -8,7 +8,7 @@ import { useHistory } from 'react-router-dom'
 
 const FooterContainer = styled.div`
   background-color: black;
-  height: 45vh;
+  height: 48vh;
   padding: 0 10em;
 `
 

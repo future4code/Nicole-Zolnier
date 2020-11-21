@@ -27,10 +27,8 @@ function ErrorPage() {
     <div>
       <NavBar />
       <MainContainer>
-        <Title variant="h3">Ops, não tem nada aqui</Title>
-        <Text variant="body1">O que você estava procurando não existe nesse endereço.</Text>
-        <Text variant="body">A não ser que você estava procurando por essa página de erro, nesse caso:</Text>
-        <Text variant="body">Parabéns! Você a encontrou!</Text>
+        <Title variant="h3">Ops, não tem nada aqui!</Title>
+        <Text align="center" variant="body1">O que você estava procurando não existe nesse endereço. <br></br> A não ser que você estava procurando por essa página de erro, nesse caso: <br></br> Parabéns! Você a encontrou!</Text>
       </MainContainer>
 
       <Footer />
