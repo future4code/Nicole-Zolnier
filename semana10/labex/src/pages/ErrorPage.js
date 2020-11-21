@@ -1,12 +1,39 @@
 import React from 'react'
 import NavBar from '../components/NavBar'
+import Footer from '../components/Footer'
+import styled from 'styled-components'
+import { Typography } from '@material-ui/core'
+
+const MainContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  background-color: black;
+  flex-direction: column;
+  align-items: center;
+  height: 90vh;
+`
+const Title = styled(Typography)`
+  padding-bottom: 0.5em;
+  color: white;
+`
+
+const Text = styled(Typography)`
+  color: white;
+  padding: 0.2em;
+`
 
 function ErrorPage() {
   return (
     <div>
-        <NavBar />
-        <h1>Ops, não tem nada aqui</h1>
-        <p>O que você estava procurando não existe nesse endereço. A não ser que você estava procurando por essa página de erro, nesse caso: Parabéns! Você a encontrou!</p>
+      <NavBar />
+      <MainContainer>
+        <Title variant="h3">Ops, não tem nada aqui</Title>
+        <Text variant="body1">O que você estava procurando não existe nesse endereço.</Text>
+        <Text variant="body">A não ser que você estava procurando por essa página de erro, nesse caso:</Text>
+        <Text variant="body">Parabéns! Você a encontrou!</Text>
+      </MainContainer>
+
+      <Footer />
     </div>
   );
 }

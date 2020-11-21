@@ -4,55 +4,55 @@ import logo from "../assets/white-starkx.svg";
 import twitter from '../assets/twitter.svg'
 import facebook from '../assets/facebook.svg'
 import instagram from '../assets/instagram.svg'
-import linkedin from '../assets/linkedin.svg'
 import { useHistory } from 'react-router-dom'
 
-const DivFooter = styled.div`
-  background-color: #55545c;
+const FooterContainer = styled.div`
+  background-color: black;
   height: 45vh;
   padding: 0 10em;
 `
 
-const DivImg = styled.div`
+const FirstContainer = styled.div`
   display: flex;
   align-items: center;
   padding: 25px 0 20px 0;
 
 `
 
-const DivText = styled.div`
+const SecondContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   padding: 20px 0 10px 0;
-  border: 1px solid black;
+  border: 1px solid white;
   border-left: none;
   border-right: none;
 `
 
-const Img = styled.img`
-  width: 10%;
-
+const SocialLogo = styled.img`
+  width: 30%;
+  justify-content: flex-start;
 `
 
-const ImgLogo = styled.img`
+const Logo = styled.img`
   width: 90%;
 
 `
 
 const SectionMedias = styled.section`
   display: flex;
-
+  margin-left: 20em;
 `
 
 const SectionLogo = styled.section`
   display: flex;
   justify-content: flex-end;
-
+  margin-left: 5em;
 `
 
-const P = styled.p`
+const Bold = styled.p`
  font-weight: bold;
+ color: white;
 `
 
 const Copyright = styled.p`
@@ -61,22 +61,23 @@ const Copyright = styled.p`
   padding-top: 20px;
 `
 
-const A = styled.a`
+const Link = styled.a`
   text-decoration: none;
-  color: #222222;
+  color: white;
+  cursor: pointer;
   &:hover{
     text-decoration: none;
-    color: black;
+    color: grey;
   }
+`
+
+const Text = styled.p`
+  color: white;
 `
 
 function Footer() {
 
   const history = useHistory()
-
-  const goToHome = () => {
-    history.push("/")
-  }
 
   const goToAboutUs = () => {
     history.push("/sobre")
@@ -95,54 +96,55 @@ function Footer() {
   }
 
   return (
-    <DivFooter>
-      <DivImg>
+    <FooterContainer>
+      <FirstContainer>
+        <SectionLogo>
+          <Logo src={logo} />
+        </SectionLogo>
         <SectionMedias>
           <a href="https://www.instagram.com/" target="_blank">
-            <Img src={instagram} alt="Logotipo instagram" />
+            <SocialLogo src={instagram} alt="Logotipo instagram" />
           </a>
           <a href="https://facebook.com/" target="_blank">
-            <Img
+            <SocialLogo
               src={facebook}
               alt="Logotipo Facebook"
             />
           </a>
           <a href="https://twitter.com/login?lang=pt" target="_blank">
-            <Img
+            <SocialLogo
               src={twitter}
               alt="Logotipo Twitter"
             />
           </a>
-          <a href="https://www.linkedin.com/" target="_blank">
-            <Img
-              src={linkedin}
-              alt="Logotipo Linkedin"
-            />
-          </a>
         </SectionMedias>
-        <SectionLogo>
-          <ImgLogo src={logo} />
-        </SectionLogo>
-      </DivImg>
+        
+      </FirstContainer>
 
-      <DivText>
+      <SecondContainer>
         <section>
-          <P>Atendimento: </P>
-          <p>atendimento@starkx.com </p>
-
-          <P>Sugestões: </P>
-          <p>sugestoes@starkx.com</p>
+          <Bold>Endereço</Bold>
+          <Text>890 Fifth Avenue</Text>
+          <Text>New York, NY 10003, United States</Text>
+          <br></br>
         </section>
         <section>
-          <P onClick={goToAboutUs}>Sobre nós</P>
-          <P onClick={goToApply}>Inscreva-se</P>
-          <P onClick={goToTrips}>Viagens</P>
-          <P onClick={goToError}>Erro</P>
+          <Bold>Atendimento </Bold>
+          <Text>atendimento@starkx.com </Text>
+
+          <Bold>Sugestões </Bold>
+          <Text>sugestoes@starkx.com</Text>
+        </section>
+        <section>
+          <Bold onClick={goToAboutUs}>Sobre nós</Bold>
+          <Bold onClick={goToApply}>Inscreva-se</Bold>
+          <Bold onClick={goToTrips}>Viagens</Bold>
+          <Bold onClick={goToError}>Erro</Bold>
         </section>
 
-      </DivText>
-      <Copyright><A>Desenvolvido por Nicole Zolnier</A></Copyright>
-    </DivFooter>
+      </SecondContainer>
+      <Copyright><Link >Desenvolvido por Nicole Zolnier</Link></Copyright>
+    </FooterContainer>
   );
 
 }
