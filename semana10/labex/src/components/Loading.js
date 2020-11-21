@@ -28,7 +28,7 @@ const Animation = styled.div`
     justify-self: center;
     width: 5em;
     height: 5em;
-    border: 3px solid #3cefff;
+    border: 3px solid #67C7EB;
     overflow: hidden;
     animation: ${spin} 3s ease infinite;
     &::before {
@@ -38,7 +38,7 @@ const Animation = styled.div`
     left: -3px;
     width: 5em;
     height: 5em;
-    background-color: hsla(185, 100%, 62%, 0.75);
+    background-color: hsl(196, 77%, 66%, 0.75);
     transform-origin: center bottom;
     transform: scaleY(1);
     animation: ${fill} 3s linear infinite;

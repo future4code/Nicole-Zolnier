@@ -1,7 +1,13 @@
 import axios from 'axios'
 import React from 'react'
 import Buttons from './Buttons'
-import {baseUrl} from '../../constants/urls'
+import { baseUrl } from '../../constants/urls'
+import Card from 'react-bootstrap/Card'
+import styled from 'styled-components'
+
+const CardContainer = styled.div`
+  background-color: black;
+`
 
 function CandidateCard(props) {
   const token = localStorage.getItem("token")
@@ -15,23 +21,29 @@ function CandidateCard(props) {
       headers: {
         auth: token
       }
-    }).then((res) => { 
+    }).then((res) => {
       window.alert("Foi!")
       console.log(res)
-      props.getTripDetails() }).catch(err => {
-        console.log(err) 
-        window.alert("deu erro")
-      })
+      props.getTripDetails()
+    }).catch(err => {
+      console.log(err)
+      window.alert("deu erro")
+    })
   }
 
   return (
     <div>
-      <h4>{props.name}</h4>
-      <h5>{props.profession} , {props.age} anos</h5>
-      <p>{props.reason}</p>
-      <Buttons decideCandidate={decideCandidate} />
+      <Card text="white" style={{ width: '300px', backgroundColor: "black" }}>
+        <Card.Body>
+          <Card.Title>{props.name}</Card.Title>
+          <Card.Subtitle className="mb-2 text-muted">{props.profession} , {props.age} anos</Card.Subtitle>
+          <Card.Text>{props.reason}</Card.Text>
+          <Buttons decideCandidate={decideCandidate} />
+        </Card.Body>
+      </Card>
     </div>
   );
 }
 
 export default CandidateCard;
+

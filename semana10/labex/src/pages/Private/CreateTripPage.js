@@ -9,6 +9,7 @@ import { TextField, InputLabel, MenuItem, FormControl, Select, Button, Typograph
 import DateFnsUtils from '@date-io/date-fns'
 import {	MuiPickersUtilsProvider,	KeyboardDatePicker} from '@material-ui/pickers';
 import {makeStyles} from '@material-ui/core/styles'
+import { useHistory } from 'react-router-dom'
 
 const Container = styled.div`
   background-color: black;
@@ -50,6 +51,7 @@ const useStyles = makeStyles({
 
 
 function CreateTrip() {
+  const history = useHistory()
   const classes = useStyles()
   useProtectedPage()
 
@@ -80,6 +82,7 @@ function CreateTrip() {
     }).then(() => {
       window.alert("Viagem criada com sucesso!")
       reset()
+      history.push("/admin")
     }).catch((err) => {
       console.log(err)
       window.alert("Eita! Deu erro")
@@ -105,7 +108,7 @@ function CreateTrip() {
         </Select>
         </FormControl>
         
-        <TextField variant="outlined" required name="description" label="Descrição" inputProps={{ pattern: "^.{30,}" }} value={form.description} onChange={onChange}/>
+        <TextField multiline variant="outlined" required name="description" label="Descrição" inputProps={{ pattern: "^.{30,}" }} value={form.description} onChange={onChange}/>
         <TextField variant="outlined" required name="duration" type="number" inputProps={{ min: "50", step: "1" }} label="Duração" value={form.duration} onChange={onChange} />
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
 						<KeyboardDatePicker

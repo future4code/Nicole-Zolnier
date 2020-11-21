@@ -27,7 +27,14 @@ const Line = styled.div`
   height: 2px;
   background-color: white;
   margin-bottom: 1em;
+  margin-top: 1em;
 `
+const CandidateGrid = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1em;
+`
+
 
 function TripDetailPage() {
 
@@ -39,6 +46,7 @@ function TripDetailPage() {
     const [trip, setTrip] = useState({})
     const [candidates, setCandidates] = useState([])
     const [loaded, setLoaded] = useState(false)
+    const [approved, setApproved] = useState([])
 
 
     useEffect(() => {
@@ -53,7 +61,7 @@ function TripDetailPage() {
             }
         }).then(res => {
             setLoaded(true)
-            console.log(res)
+            setApproved(res.data.trip.approved)
             setTrip(res.data.trip)
             setCandidates(res.data.trip.candidates)
         }).catch(err => {
@@ -63,19 +71,22 @@ function TripDetailPage() {
 
 
     const renderCandidate = candidates.length !== 0 ? candidates.map((item) => {
-        return <CandidateCard getTripDetails={getTripDetails} tripId={id} candidateId={item.id} reason={item.applicationText} profession={item.profession} age={item.age} country={item.country} name={item.name} />
+        return (<CandidateGrid><CandidateCard getTripDetails={getTripDetails} tripId={id} candidateId={item.id} reason={item.applicationText} profession={item.profession} age={item.age} country={item.country} name={item.name} /></CandidateGrid>)
     }) : <div>nenhum candidato!</div>
-
     
+    const renderApproved = approved.length !== 0 ? approved.map((item) => {
+        return <li>{item.name}</li>
+    }) : <div>Ninguém aprovado!</div>
     return (
         <div>
             <NavBarAdmin />
             <MainContainer>
             <Title variant="h3">Informações da Viagem</Title>
             {loaded ? <TripInfo planet={trip.planet} description={trip.description} date={trip.date} name={trip.name} duration={trip.durationInDays} /> : <Loading />}
-            <Line></Line>
-            <Typography variant="h5">Candidatos</Typography>
+            {loaded? <Typography variant="h5">Candidatos</Typography> : null}
             {loaded? <div>{renderCandidate}</div> : null }
+            {loaded? <Typography variant="h5">Candidatos Aprovados</Typography> : null}
+            {loaded? <ul>{renderApproved}</ul> : null}
             </MainContainer>
             
         </div>
