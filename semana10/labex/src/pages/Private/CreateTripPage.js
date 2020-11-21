@@ -23,9 +23,10 @@ const FormContainer = styled.form`
 	margin-bottom: 3em;
 	display: flex;
 	flex-direction: column;
-	gap: 1em;
+	gap: 1.2em;
   width: 30vw;
   background-color: white;
+  border-radius: 5px;
 `
 
 const useStyles = makeStyles({
@@ -96,13 +97,16 @@ function CreateTrip() {
       <Typography variant="h3" className={classes.title}>Criar Viagem</Typography>
       <FormContainer onSubmit={createTrip}>
         <TextField  required label="Nome" variant="outlined" name="name" inputProps={{ pattern: "[a-zA-Zs\À-ú ]{6,}" }} value={form.name} onChange={onChange} />
-        <FormControl variant="outlined">
+        <FormControl required variant="outlined">
         <InputLabel >Planeta</InputLabel>
-        <Select required name="planet" value={form.planet} onChange={onChange}>
+        <Select name="planet" value={form.planet} onChange={onChange}>
         <MenuItem value="">Planeta</MenuItem>
           {planetsList}
         </Select>
         </FormControl>
+        
+        <TextField variant="outlined" required name="description" label="Descrição" inputProps={{ pattern: "^.{30,}" }} value={form.description} onChange={onChange}/>
+        <TextField variant="outlined" required name="duration" type="number" inputProps={{ min: "50", step: "1" }} label="Duração" value={form.duration} onChange={onChange} />
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
 						<KeyboardDatePicker
               disableToolbar
@@ -112,8 +116,6 @@ function CreateTrip() {
 							value={date} onChange={onChangeDate}
 						/>
 					</MuiPickersUtilsProvider>
-        <TextField variant="outlined" required name="description" label="Descrição" inputProps={{ pattern: "^.{30,}" }} value={form.description} onChange={onChange}/>
-        <TextField variant="outlined" required name="duration" type="number" inputProps={{ min: "50", step: "1" }} label="Duração" value={form.duration} onChange={onChange} />
         <Button className={classes.create} type={'submit'} variant="contained" color="secondary">CRIAR</Button>
 
         

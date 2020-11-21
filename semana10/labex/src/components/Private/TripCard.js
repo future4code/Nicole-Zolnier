@@ -17,10 +17,10 @@ const scaleUp = keyframes`
 
 `
 
-
 const Div = styled.div`
     border: 0.3px solid white;
     border-radius: 5px;
+    cursor: pointer;
     &:hover {
         animation: ${scaleUp} 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     }
@@ -41,18 +41,17 @@ const useStyles = makeStyles({
         color: "white",
         fontSize: "1.2rem"
     },
-    content: {
-        cursor: "default",
-    }
+    
 });
 
 function TripCard(props) {
     const classes = useStyles();
 
     return (
-        <Div>
+        <Div onClick={() => props.goToDetails(props.id)}>
+  
             <Card className={classes.root}>
-            <CardContent className={classes.content}>
+            <CardContent>
                 <Typography variant="h5" component="h2">
                     {props.name}
                 </Typography>

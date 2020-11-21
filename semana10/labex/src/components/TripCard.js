@@ -32,7 +32,7 @@ function TripCard(props) {
           <Card.Text>
             {props.description}
           </Card.Text>
-          <footer className="blockquote-footer">
+          <footer>
             <MuiThemeProvider theme={myTheme}>
               <Button variant="contained" color="secondary" onClick={goToApply}>INSCREVER</Button>
             </MuiThemeProvider>

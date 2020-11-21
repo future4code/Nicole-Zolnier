@@ -7,6 +7,27 @@ import axios from 'axios'
 import TripInfo from '../../components/Private/TripInfo'
 import CandidateCard from '../../components/Private/CandidateCard'
 import Loading from '../../components/Loading'
+import styled from 'styled-components'
+import {Typography} from '@material-ui/core'
+
+const MainContainer = styled.div`
+  background-color: black;
+  display: flex;
+  align-items: center;
+  color: white;
+  flex-direction: column;
+  height: 100vh;
+`
+const Title = styled(Typography)`
+  margin: 1em;
+  padding-bottom: 0.5em;
+`
+const Line = styled.div`
+  width: 60px;
+  height: 2px;
+  background-color: white;
+  margin-bottom: 1em;
+`
 
 function TripDetailPage() {
 
@@ -49,8 +70,14 @@ function TripDetailPage() {
     return (
         <div>
             <NavBarAdmin />
+            <MainContainer>
+            <Title variant="h3">Informações da Viagem</Title>
             {loaded ? <TripInfo planet={trip.planet} description={trip.description} date={trip.date} name={trip.name} duration={trip.durationInDays} /> : <Loading />}
+            <Line></Line>
+            <Typography variant="h5">Candidatos</Typography>
             {loaded? <div>{renderCandidate}</div> : null }
+            </MainContainer>
+            
         </div>
     );
 }

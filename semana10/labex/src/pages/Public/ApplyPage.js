@@ -5,18 +5,28 @@ import { baseUrl } from '../../constants/urls'
 import { useForm } from '../../hooks/useForm'
 import { useTripsList } from '../../hooks/useTripsList'
 import Footer from '../../components/Footer'
-import { TextField, InputLabel, MenuItem, FormControl, Select, Button, createMuiTheme, MuiThemeProvider } from '@material-ui/core'
+import { TextField, InputLabel, MenuItem, FormControl, Select, Button, createMuiTheme, MuiThemeProvider, Typography } from '@material-ui/core'
 import styled from 'styled-components'
 
 const FormContainer = styled.form`
 	padding: 1em;
-	margin: auto;
-	margin-bottom: 3em;
 	display: flex;
 	flex-direction: column;
 	gap: 1em;
-	width: 30vw;
+  width: 30vw;
+  background-color: white;
+  border-radius: 5px;
 `
+
+const MainContainer = styled.div`
+  background-color: black;
+  display: flex;
+  align-items: center;
+  color: white;
+  flex-direction: column;
+  height: 100vh;
+`
+
 const myTheme = createMuiTheme({
   palette: {
     primary: {
@@ -28,6 +38,10 @@ const myTheme = createMuiTheme({
   },
 })
 
+const Title = styled(Typography)`
+  margin: 1em;
+  padding-bottom: 0.5em;
+`
 
 function ApplyPage() {
   const [trips, loaded] = useTripsList()
@@ -69,8 +83,9 @@ function ApplyPage() {
 
     <div>
       <NavBar />
-      <p>Apply</p>
-      <FormContainer autoComplete="off" validate onSubmit={applyToTrip}>
+      <MainContainer>
+      <Title variant="h3">Inscrição</Title>
+      <FormContainer autoComplete="off" onSubmit={applyToTrip}>
 
         <TextField label="Nome" value={form.name} onChange={onChange} name="name"
           inputProps={{ pattern: "[a-zA-ZÀ-ú ]{3,}" }}
@@ -78,7 +93,7 @@ function ApplyPage() {
         <TextField variant="outlined" label="Idade" value={form.age} onChange={onChange} name="age" type="number"
           inputProps={{ min: "18", step: "1" }}
           required />
-        <TextField label="Por que você seria um bom candidato?" name="reason" value={form.reason} onChange={onChange}
+        <TextField multiline label="Por que você seria um bom candidato?" name="reason" value={form.reason} onChange={onChange}
           inputProps={{ pattern: "^.{30,}" }}
           required variant="outlined" />
         <TextField variant="outlined" required inputProps={{ pattern: "[a-zA-ZÀ-ú ]{10,}" }} label="Profissao" name="profession" value={form.profession} onChange={onChange} />
@@ -108,9 +123,8 @@ function ApplyPage() {
         <MuiThemeProvider theme={myTheme}>
           <Button type='submit' color="secondary" variant="contained">Aplicar</Button>
         </MuiThemeProvider>
-
-
       </FormContainer>
+      </MainContainer>
       <Footer />
     </div>
   );

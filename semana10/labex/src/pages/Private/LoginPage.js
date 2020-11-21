@@ -8,9 +8,9 @@ import styled from 'styled-components'
 import { TextField, Button, createMuiTheme, MuiThemeProvider, Typography } from '@material-ui/core'
 import Footer from '../../components/Footer'
 
-
 const Title = styled(Typography)`
   margin: 1em;
+  padding-bottom: 0.5em;
 `
 
 const MainContainer = styled.div`
@@ -28,14 +28,16 @@ const FormContainer = styled.form`
 	flex-direction: column;
   justify-content: center;
 	gap: 1em;
-	width: 30vw;
+  width: 30vw;
   background-color: white;
+  border-radius: 5px;
 `
 
 const myTheme = createMuiTheme({
   palette: {
     primary: {
-      main: "#FFFFFF"
+      main: '#ffffff',
+
     },
     secondary: {
       main: "#67C7EB"
@@ -70,16 +72,20 @@ function LoginPage() {
       <NavBar />
       <MainContainer>
         <Title variant="h3">Login</Title>
-      <FormContainer onSubmit={login}>
-        <MuiThemeProvider theme={myTheme}>
-        <TextField color="primary" variant="outlined" label="Email" type={"email"} onChange={onChange} value={form.email} name="email" required />
-        <TextField color="primary" variant="outlined" label="Senha" type={"password"} value={form.password} onChange={onChange} name="password" required />
+
+
+        <FormContainer onSubmit={login}>
         
-        <Button type={'submit'} variant="contained" color="secondary">LOGAR</Button>
-        </MuiThemeProvider>
-      </FormContainer>
+          <TextField variant="outlined" label="Email" type={"email"} onChange={onChange} value={form.email} name="email" required />
+          <TextField variant="outlined" label="Senha" type={"password"} value={form.password} onChange={onChange} name="password" required />
+          <MuiThemeProvider theme={myTheme}>
+            <Button type={'submit'} variant="contained" color="secondary">LOGAR</Button>
+          </MuiThemeProvider>
+        </FormContainer>
+
+
       </MainContainer>
-      
+
       <Footer />
 
     </div>
