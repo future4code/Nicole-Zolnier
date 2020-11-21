@@ -67,7 +67,6 @@ function TripCard(props) {
             </CardActions>
         </Card>
         </Div>
-    );
+    )
 }
-
 export default TripCard

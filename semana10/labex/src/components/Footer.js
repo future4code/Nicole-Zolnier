@@ -5,6 +5,7 @@ import twitter from '../assets/twitter.svg'
 import facebook from '../assets/facebook.svg'
 import instagram from '../assets/instagram.svg'
 import linkedin from '../assets/linkedin.svg'
+import { useHistory } from 'react-router-dom'
 
 const DivFooter = styled.div`
   background-color: #55545c;
@@ -16,10 +17,7 @@ const DivImg = styled.div`
   display: flex;
   align-items: center;
   padding: 25px 0 20px 0;
-  @media (min-device-width: 320px) and (max-device-width: 420px) {
-    flex-direction: column;
-    padding: 0;
-  }
+
 `
 
 const DivText = styled.div`
@@ -30,40 +28,27 @@ const DivText = styled.div`
   border: 1px solid black;
   border-left: none;
   border-right: none;
-  @media (min-device-width: 320px) and (max-device-width: 420px) {
-    flex-direction: column;
-    text-align: center;
-    font-size: 20px;
-  }
 `
 
 const Img = styled.img`
   width: 10%;
-  @media (min-device-width: 320px) and (max-device-width: 420px) {
-    width: 30%;
-  }
+
 `
 
 const ImgLogo = styled.img`
   width: 90%;
-  @media (min-device-width: 320px) and (max-device-width: 420px) {
-    width: 80%;
-  }
+
 `
 
 const SectionMedias = styled.section`
   display: flex;
-  @media (min-device-width: 320px) and (max-device-width: 420px) {
-    padding: 2em 0 0 2em;
-  }
+
 `
 
 const SectionLogo = styled.section`
   display: flex;
   justify-content: flex-end;
-  @media (min-device-width: 320px) and (max-device-width: 420px) {
-    justify-content: center;
-  }
+
 `
 
 const P = styled.p`
@@ -81,57 +66,85 @@ const A = styled.a`
   color: #222222;
   &:hover{
     text-decoration: none;
-    color: #F61B1B;
+    color: black;
   }
 `
 
 function Footer() {
 
-    return (
-      <DivFooter>
-        <DivImg>
-          <SectionMedias>
-            <a href="https://www.instagram.com/" target="_blank">
-              <Img src={instagram} alt="Logotipo instagram" />
-            </a>
-            <a href="https://facebook.com/" target="_blank">
-              <Img
-                src={facebook}
-                alt="Logotipo Facebook"
-              />
-            </a>
-            <a href="https://twitter.com/login?lang=pt" target="_blank">
-              <Img
-                src={twitter}
-                alt="Logotipo Twitter"
-              />
-            </a>
-            <a href="https://www.linkedin.com/" target="_blank">
-              <Img
-                src={linkedin}
-                alt="Logotipo Linkedin"
-              />
-            </a>
-          </SectionMedias>
-          <SectionLogo>
-            <ImgLogo src={logo} />
-          </SectionLogo>
-        </DivImg>
+  const history = useHistory()
 
-        <DivText>
-          <section>
-            <P>Atendimento: </P>
-            <p>atendimento@fstarkx.com </p>
-            
-            <P>Sugestões: </P>
-            <p>sugestoes@starkx.com</p>
-          </section>
+  const goToHome = () => {
+    history.push("/")
+  }
 
-        </DivText>
-        <Copyright><A>Desenvolvido por Nicole Zolnier</A></Copyright>
-      </DivFooter>
-    );
-  
+  const goToAboutUs = () => {
+    history.push("/sobre")
+  }
+
+  const goToApply = () => {
+    history.push("/inscricao")
+  }
+
+  const goToTrips = () => {
+    history.push("/viagens")
+  }
+
+  const goToError = () => {
+    history.push("/error")
+  }
+
+  return (
+    <DivFooter>
+      <DivImg>
+        <SectionMedias>
+          <a href="https://www.instagram.com/" target="_blank">
+            <Img src={instagram} alt="Logotipo instagram" />
+          </a>
+          <a href="https://facebook.com/" target="_blank">
+            <Img
+              src={facebook}
+              alt="Logotipo Facebook"
+            />
+          </a>
+          <a href="https://twitter.com/login?lang=pt" target="_blank">
+            <Img
+              src={twitter}
+              alt="Logotipo Twitter"
+            />
+          </a>
+          <a href="https://www.linkedin.com/" target="_blank">
+            <Img
+              src={linkedin}
+              alt="Logotipo Linkedin"
+            />
+          </a>
+        </SectionMedias>
+        <SectionLogo>
+          <ImgLogo src={logo} />
+        </SectionLogo>
+      </DivImg>
+
+      <DivText>
+        <section>
+          <P>Atendimento: </P>
+          <p>atendimento@starkx.com </p>
+
+          <P>Sugestões: </P>
+          <p>sugestoes@starkx.com</p>
+        </section>
+        <section>
+          <P onClick={goToAboutUs}>Sobre nós</P>
+          <P onClick={goToApply}>Inscreva-se</P>
+          <P onClick={goToTrips}>Viagens</P>
+          <P onClick={goToError}>Erro</P>
+        </section>
+
+      </DivText>
+      <Copyright><A>Desenvolvido por Nicole Zolnier</A></Copyright>
+    </DivFooter>
+  );
+
 }
 
 export default Footer;
