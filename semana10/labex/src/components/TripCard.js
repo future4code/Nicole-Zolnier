@@ -25,7 +25,7 @@ function TripCard(props) {
   return (
     <div>
       <Card text="white" style={{ width: '100%', height: '650px', backgroundColor: "black" }}>
-        <Card.Img className="d-block w-100" variant="top" alt="imagem bonita" src={`https://picsum.photos/500/300/?a=${props.index}`} />
+        <Card.Img className="d-block w-100" variant="top" alt="imagem bonita" src={`https://spaceholder.cc/300x200?random=${props.index}`} />
         <Card.Body>
           <Card.Title>{props.name}</Card.Title>
           <Card.Subtitle className="mb-2 text-muted">{props.date}</Card.Subtitle>

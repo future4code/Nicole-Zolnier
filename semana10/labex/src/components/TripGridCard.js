@@ -32,6 +32,12 @@ const GridContainer = styled.div`
   grid-template-rows: 1fr;
   grid-gap: 2.5em;
   padding: 1em;
+  margin-bottom: 8em;
+`
+const Center = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
 
 function TripGridCard() {
@@ -47,7 +53,7 @@ function TripGridCard() {
         <Title variant="h4" align="center"><i>"I’m sorry, Earth is closed today. <br></br>
         You better pack it up and get outta here."</i> </Title>
         <Credits variant="h5" align="right" >- Iron Man</Credits>
-        {loaded? <GridContainer>{mapResult}</GridContainer>  : <Loading /> }
+        {loaded? <GridContainer>{mapResult}</GridContainer>  : <Center><Loading /></Center>  }
     </MainContainer>
   );
 }
