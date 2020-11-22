@@ -64,17 +64,17 @@ function AdminPage() {
   const history = useHistory();
 
   const goToDetails = (id) => {
-    history.push(`/admin/viagens/detalhe/${id}`);
+    history.push(`/admin/trips/detail/${id}`);
   };
 
   const goToCreationMode = () => {
-    history.push("/admin/viagens/criar-viagem")
+    history.push("/admin/trips/create-trip")
   }
 
   const deleteTrip = (id) => {
     axios.delete(`${baseUrl}/trips/${id}`).then((response) => {
-      history.push("/admin")
-      window.alert("Trip deleted!")
+      window.alert("Trip deleted! Now let's create another one")
+      history.push("/admin/trips/create-trip")
     }).catch((err) => {
       console.log(err)
     })

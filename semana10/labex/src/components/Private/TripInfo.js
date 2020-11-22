@@ -7,6 +7,7 @@ const Line = styled.div`
   height: 2px;
   background-color: white;
   margin-bottom: 1em;
+  margin-top: 2em;
 `
 
 const Center = styled.div`
@@ -26,7 +27,7 @@ function TripInfo(props) {
         <p>Date: {props.date}</p>
         <p>Description: {props.description}</p>
         <p>Planet: {props.planet}</p>
-        <p>Duration: {props.duration} dias</p>
+        <p>Duration: {props.duration} days</p>
     </div>
   );
 }

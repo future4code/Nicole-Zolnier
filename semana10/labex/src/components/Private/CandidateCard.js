@@ -25,7 +25,6 @@ function CandidateCard(props) {
       props.getTripDetails()
     }).catch(err => {
       console.log(err)
-      window.alert("deu erro")
     })
   }
 

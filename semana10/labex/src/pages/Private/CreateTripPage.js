@@ -99,7 +99,7 @@ function CreateTrip() {
       <NavBarAdmin />
       <Typography variant="h3" className={classes.title}>Create Trip</Typography>
       <FormContainer onSubmit={createTrip}>
-        <TextField  required label="Name" variant="outlined" name="name" inputProps={{ pattern: "[a-zA-Zs\À-ú ]{6,}" }} value={form.name} onChange={onChange} />
+        <TextField  required label="Name" variant="outlined" name="name" inputProps={{ pattern: "[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]{6,}" }} value={form.name} onChange={onChange} />
         <FormControl required variant="outlined">
         <InputLabel >Cosmo</InputLabel>
         <Select name="planet" value={form.planet} onChange={onChange}>
@@ -108,7 +108,7 @@ function CreateTrip() {
         </Select>
         </FormControl>
         
-        <TextField multiline variant="outlined" required name="description" label="Description" inputProps={{ pattern: "^.{30,}" }} value={form.description} onChange={onChange}/>
+        <TextField multiline variant="outlined" required name="description" label="Description" inputProps={{ pattern: "[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ,.?! ]{30,}" }} value={form.description} onChange={onChange}/>
         <TextField variant="outlined" required name="duration" type="number" inputProps={{ min: "50", step: "1" }} label="Duration" value={form.duration} onChange={onChange} />
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
 						<KeyboardDatePicker

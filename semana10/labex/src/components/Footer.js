@@ -85,15 +85,15 @@ function Footer() {
   const history = useHistory()
 
   const goToAboutUs = () => {
-    history.push("/sobre")
+    history.push("/about")
   }
 
   const goToApply = () => {
-    history.push("/inscricao")
+    history.push("/apply")
   }
 
   const goToTrips = () => {
-    history.push("/viagens")
+    history.push("/trips")
   }
 
   const goToError = () => {

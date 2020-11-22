@@ -17,7 +17,7 @@ function CarouselFeature() {
   const history = useHistory()
 
   const goToTrips = () => {
-    history.push("/viagens")
+    history.push("/trips")
   }
 
   return (

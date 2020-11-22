@@ -19,37 +19,42 @@ function Router() {
           <LandingPage />
         </Route>
 
-        <Route exact path="/sobre">
+        <Route exact path="/about">
           <AboutUsPage />
         </Route>
         
-        <Route exact path="/inscricao">
+        <Route exact path="/apply">
           <ApplyPage />
+        </Route>
+        
+        <Route exact path="/trips">
+          <TripsPage />
         </Route>
 
         <Route exact path="/login">
           <LoginPage />
-        </Route>
-        
-        <Route exact path="/viagens">
-          <TripsPage />
         </Route>
 
         <Route exact path="/admin">
           <AdminPage />
         </Route>
 
-        <Route exact path="/admin/viagens/criar-viagem">
+        <Route exact path="/admin/trips">
+          <AdminPage />
+        </Route>
+
+        <Route exact path="/admin/trips/create-trip">
           <CreateTrip />
         </Route>         
 
-        <Route exact path="/admin/viagens/detalhe/:id">
+        <Route exact path="/admin/trips/detail/:id">
           <TripDetailPage />
         </Route>
 
         <Route>
           <ErrorPage />
         </Route>
+
       </Switch>
     </BrowserRouter>
   );

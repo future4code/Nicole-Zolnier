@@ -38,7 +38,7 @@ function NavBar() {
   }
   
   const goToAboutUs = () => {
-    history.push("/sobre")
+    history.push("/about")
   }
 
   const goToLogin = () => {
@@ -46,11 +46,11 @@ function NavBar() {
   }
 
   const goToApply = () => {
-    history.push("/inscricao")
+    history.push("/apply")
   }
 
   const goToTrips = () => {
-    history.push("/viagens")
+    history.push("/trips")
   }
 
   return (

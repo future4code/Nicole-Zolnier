@@ -19,7 +19,7 @@ function TripCard(props) {
   const history = useHistory()
 
   const goToApply = () => {
-    history.push("/inscricao")
+    history.push("/apply")
   }
 
   return (

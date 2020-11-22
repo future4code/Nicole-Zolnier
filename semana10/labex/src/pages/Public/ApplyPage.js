@@ -89,15 +89,15 @@ function ApplyPage() {
       <FormContainer autoComplete="off" onSubmit={applyToTrip}>
 
         <TextField label="Name" value={form.name} onChange={onChange} name="name"
-          inputProps={{ pattern: "[a-zA-ZÀ-ú ]{3,}" }}
+          inputProps={{ pattern: "[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]{3,}" }}
           required variant="outlined" />
         <TextField variant="outlined" label="Age" value={form.age} onChange={onChange} name="age" type="number"
           inputProps={{ min: "18", step: "1" }}
           required />
         <TextField multiline label="Why would you be a good candidate?" name="reason" value={form.reason} onChange={onChange}
-          inputProps={{ pattern: "^.{30,}" }}
+          inputProps={{ pattern: "[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ,.?! ]{30,}" }} 
           required variant="outlined" />
-        <TextField variant="outlined" required inputProps={{ pattern: "[a-zA-ZÀ-ú ]{10,}" }} label="Profession" name="profession" value={form.profession} onChange={onChange} />
+        <TextField variant="outlined" required inputProps={{ pattern: "[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]{10,}" }} label="Profession" name="profession" value={form.profession} onChange={onChange} />
 
 
         <FormControl variant="outlined">
@@ -113,7 +113,7 @@ function ApplyPage() {
 
         <FormControl variant="outlined">
           <InputLabel>Choose a Trip</InputLabel>
-          <Select required label="Viagem" name="tripId" value={form.tripId} onChange={onChange}>
+          <Select required label="Trip" name="tripId" value={form.tripId} onChange={onChange}>
             <MenuItem value="">Trip</MenuItem>
             {trips.map((item) => {
               return <MenuItem value={item.id}>{item.name}</MenuItem>

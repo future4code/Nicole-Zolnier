@@ -44,14 +44,18 @@ function NavBarAdmin() {
     history.push("/admin")
   }
 
+  const goToTrips = () => {
+    history.push("/admin/trips")
+  }
+
   const goToCreateTrip = () => {
-    history.push("/admin/viagens/criar-viagem")
+    history.push("/admin/trips/create-trip")
   }
 
   return (
     <Header>
         <Logo src={logo} onClick={goToAdmin} />
-        <Button className={classes.normal} onClick={goToAdmin}>Trips</Button>
+        <Button className={classes.normal} onClick={goToTrips}>Trips</Button>
         <Button className={classes.normal} onClick={goToCreateTrip}>Create Trip</Button>
         <Button className={classes.logout} variant="contained" onClick={goToHome}>Logout</Button>
   

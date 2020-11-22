@@ -86,7 +86,7 @@ function TripDetailPage() {
         <div>
             <NavBarAdmin />
             <MainContainer>
-            <Title variant="h3">Informações da Viagem</Title>
+            <Title variant="h3">Trip Information</Title>
             {loaded ? <TripInfo planet={trip.planet} description={trip.description} date={trip.date} name={trip.name} duration={trip.durationInDays} /> : <Loading />}
             {loaded? <Typography variant="h5">Candidates</Typography> : null}
             {loaded? <div>{renderCandidate}</div> : null }
