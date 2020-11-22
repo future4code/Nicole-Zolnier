@@ -71,10 +71,10 @@ function ApplyPage() {
     }
 
     axios.post(`${baseUrl}/trips/${form.tripId}/apply`, body).then(() => {
-      window.alert(`Formulário enviado com sucesso! Entraremos em contato, ${form.name}`)
+      window.alert(`Application submitted, thank you! Keep an eye on your email, ${form.name}`)
       reset()
     }).catch((err) => {
-      window.alert(`Vish, ${form.name}, algum erro aconteceu!`)
+      window.alert(`Oh no, ${form.name}, something went wrong!`)
       console.log(err)
     })
 

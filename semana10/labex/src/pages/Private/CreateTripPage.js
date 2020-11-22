@@ -80,12 +80,12 @@ function CreateTrip() {
         auth: token
       }
     }).then(() => {
-      window.alert("Viagem criada com sucesso!")
+      window.alert("Trip created!")
       reset()
       history.push("/admin")
     }).catch((err) => {
       console.log(err)
-      window.alert("Eita! Deu erro")
+      window.alert("Whoops! Something went wrong")
     })
   }
 
