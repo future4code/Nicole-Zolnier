@@ -8,16 +8,18 @@ import waiting from '../assets/waiting.gif'
 
 
 const Title = styled(Typography)`
-  color: white;
-  padding: 1em;
+  padding: 0.5em;
 `
 const MainContainer = styled.div`
     background-color: black;
+    color: white;
 `
 
 const CardsGrid = styled.div`
     display: flex;
     justify-content: space-around;
+    padding: 4em;
+    padding-bottom: 6em;
 `
 
 function HowItWorks() {
@@ -25,6 +27,7 @@ function HowItWorks() {
     return (
       <MainContainer>
           <Title variant="h3" align="center">How to use our services?</Title>
+          <Title variant="h4" align="center">Follow the steps bellow to use our services</Title>
           <CardsGrid>
             <ExplanationCard text="Go to the trips page and choose one trip" image={choosing} />
             <ExplanationCard text="Apply to the one you liked the most" image={applying} />

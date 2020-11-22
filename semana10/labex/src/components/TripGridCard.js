@@ -10,11 +10,17 @@ const Title = styled(Typography)`
   margin: 0.2em;
 `
 
+const Credits = styled(Typography)`
+  color: white;
+  margin: 0.2em;
+  padding-right: 20em;
+  padding-bottom: 1.5em;
+`
+
 const MainContainer = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  align-items: center;
   background-color: black;
   width: 100%;
   height: 100%;
@@ -37,9 +43,10 @@ function TripGridCard() {
     
     return (
     <MainContainer>
-        <Title variant="h3" gutterBottom>Viagens</Title>
+        <Title variant="h3" align="center" gutterBottom>Trips</Title>
         <Title variant="h4" align="center"><i>"I’m sorry, Earth is closed today. <br></br>
-        You better pack it up and get outta here."</i> <br></br> - Iron Man</Title>
+        You better pack it up and get outta here."</i> </Title>
+        <Credits variant="h5" align="right" >- Iron Man</Credits>
         {loaded? <GridContainer>{mapResult}</GridContainer>  : <Loading /> }
     </MainContainer>
   );
