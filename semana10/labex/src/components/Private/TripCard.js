@@ -48,10 +48,10 @@ function TripCard(props) {
     const classes = useStyles();
 
     return (
-        <Div onClick={() => props.goToDetails(props.id)}>
+        <Div>
   
             <Card className={classes.root}>
-            <CardContent>
+            <CardContent onClick={() => props.goToDetails(props.id)}>
                 <Typography variant="h5" component="h2">
                     {props.name}
                 </Typography>
@@ -63,7 +63,7 @@ function TripCard(props) {
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button className={classes.button} onClick={() => props.goToDetails(props.id)} size="small">See more</Button>
+                <Button className={classes.button} onClick={() => props.deleteTrip(props.id)} size="small">DELETE</Button>
             </CardActions>
         </Card>
         </Div>

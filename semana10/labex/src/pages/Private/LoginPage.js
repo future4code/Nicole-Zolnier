@@ -72,7 +72,7 @@ function LoginPage() {
     <div>
       <NavBar />
       <MainContainer>
-        <Title variant="h3">Log-in</Title>
+        <Title variant="h3">Log in</Title>
 
 
         <FormContainer onSubmit={login}>
@@ -80,7 +80,7 @@ function LoginPage() {
           <TextField variant="outlined" label="Email" type={"email"} onChange={onChange} value={form.email} name="email" required />
           <TextField variant="outlined" label="Password" type={"password"} value={form.password} onChange={onChange} name="password" required />
           <MuiThemeProvider theme={myTheme}>
-            <Button type={'submit'} variant="contained" color="secondary">Log-in</Button>
+            <Button type={'submit'} variant="contained" color="secondary">Log in</Button>
           </MuiThemeProvider>
         </FormContainer>
 

@@ -8,8 +8,8 @@ import styled from 'styled-components'
 import { makeStyles } from '@material-ui/core/styles'
 import { Button, Typography } from '@material-ui/core';
 import Loading from '../../components/Loading';
-
-
+import axios from 'axios'
+import {baseUrl} from '../../constants/urls'
 
 const GridContainer = styled.div`
   display: grid;
@@ -71,6 +71,14 @@ function AdminPage() {
     history.push("/admin/viagens/criar-viagem")
   }
 
+  const deleteTrip = (id) => {
+    axios.delete(`${baseUrl}/trips/${id}`).then((response) => {
+      history.push("/admin")
+      window.alert("Trip deleted!")
+    }).catch((err) => {
+      console.log(err)
+    })
+  }
 
   return (
     <div>
@@ -85,7 +93,7 @@ function AdminPage() {
         </CenterContainer>
         {loaded? <GridContainer>
           {trips.map((item) => {
-            return <TripCard goToDetails={goToDetails} date={item.date} planet={item.planet} description={item.description} id={item.id} name={item.name} />
+            return <TripCard deleteTrip={deleteTrip} goToDetails={goToDetails} date={item.date} planet={item.planet} description={item.description} id={item.id} name={item.name} />
           })}
         </GridContainer> : <CenterContainer><Loading /></CenterContainer> }
       </BlackContainer>
