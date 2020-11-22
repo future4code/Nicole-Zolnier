@@ -63,7 +63,7 @@ function TripCard(props) {
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button className={classes.button} onClick={() => props.goToDetails(props.id)} size="small">Ver mais</Button>
+                <Button className={classes.button} onClick={() => props.goToDetails(props.id)} size="small">See more</Button>
             </CardActions>
         </Card>
         </Div>

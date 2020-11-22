@@ -77,20 +77,20 @@ function TripDetailPage() {
 
     const renderCandidate = candidates.length !== 0 ? candidates.map((item) => {
         return (<CandidateGrid><CandidateCard getTripDetails={getTripDetails} tripId={id} candidateId={item.id} reason={item.applicationText} profession={item.profession} age={item.age} country={item.country} name={item.name} /></CandidateGrid>)
-    }) : <SpacedText>Nenhum candidato!</SpacedText>
+    }) : <SpacedText>No candidates</SpacedText>
     
     const renderApproved = approved.length !== 0 ? approved.map((item) => {
         return <ApprovedName>{item.name}</ApprovedName>
-    }) : <SpacedText>Ninguém aprovado!</SpacedText>
+    }) : <SpacedText>No one was approved</SpacedText>
     return (
         <div>
             <NavBarAdmin />
             <MainContainer>
             <Title variant="h3">Informações da Viagem</Title>
             {loaded ? <TripInfo planet={trip.planet} description={trip.description} date={trip.date} name={trip.name} duration={trip.durationInDays} /> : <Loading />}
-            {loaded? <Typography variant="h5">Candidatos</Typography> : null}
+            {loaded? <Typography variant="h5">Candidates</Typography> : null}
             {loaded? <div>{renderCandidate}</div> : null }
-            {loaded? <Typography p={1} variant="h5">Candidatos Aprovados</Typography> : null}
+            {loaded? <Typography p={1} variant="h5">Approved Candidates</Typography> : null}
             {loaded? <ul>{renderApproved}</ul> : null}
             </MainContainer>
             

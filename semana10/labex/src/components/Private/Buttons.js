@@ -24,8 +24,8 @@ function Buttons(props) {
   
   return (
     <ButtonContainer>
-        <Button className={classes.aprove} onClick={() => props.decideCandidate(true)}>aprovar</Button>
-        <Button className={classes.donot} onClick={() => props.decideCandidate(false)}>não aprovar</Button>
+        <Button className={classes.aprove} onClick={() => props.decideCandidate(true)}>APPROVE</Button>
+        <Button className={classes.donot} onClick={() => props.decideCandidate(false)}>DON'T APPROVE</Button>
     </ButtonContainer>
   );
 }

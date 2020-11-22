@@ -23,10 +23,10 @@ function TripInfo(props) {
         <Line></Line>
         <Typography variant="h5">{props.name}</Typography>
         </Center>
-        <p>Data: {props.date}</p>
-        <p>Descrição: {props.description}</p>
-        <p>Planeta: {props.planet}</p>
-        <p>Duração: {props.duration} dias</p>
+        <p>Date: {props.date}</p>
+        <p>Description: {props.description}</p>
+        <p>Planet: {props.planet}</p>
+        <p>Duration: {props.duration} dias</p>
     </div>
   );
 }

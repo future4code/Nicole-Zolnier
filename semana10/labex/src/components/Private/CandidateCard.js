@@ -34,7 +34,7 @@ function CandidateCard(props) {
       <Card text="white" style={{ width: '300px', backgroundColor: "black" }}>
         <Card.Body>
           <Card.Title>{props.name}</Card.Title>
-          <Card.Subtitle className="mb-2 text-muted">{props.profession} , {props.age} anos</Card.Subtitle>
+          <Card.Subtitle className="mb-2 text-muted">{props.profession} , {props.age} years old</Card.Subtitle>
           <Card.Text>{props.reason}</Card.Text>
           <Buttons decideCandidate={decideCandidate} />
         </Card.Body>

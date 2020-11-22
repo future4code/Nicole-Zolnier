@@ -54,6 +54,11 @@ const Bold = styled.p`
  font-weight: bold;
  color: white;
 `
+const BoldLink = styled.p`
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+`
 
 const Copyright = styled.p`
   text-align: center;
@@ -103,18 +108,18 @@ function Footer() {
         </SectionLogo>
         <SectionMedias>
           <a href="https://www.instagram.com/" target="_blank">
-            <SocialLogo src={instagram} alt="Logotipo instagram" />
+            <SocialLogo src={instagram} alt="instagram" />
           </a>
           <a href="https://facebook.com/" target="_blank">
             <SocialLogo
               src={facebook}
-              alt="Logotipo Facebook"
+              alt="facebook"
             />
           </a>
           <a href="https://twitter.com/login?lang=pt" target="_blank">
             <SocialLogo
               src={twitter}
-              alt="Logotipo Twitter"
+              alt="twitter"
             />
           </a>
         </SectionMedias>
@@ -123,27 +128,27 @@ function Footer() {
 
       <SecondContainer>
         <section>
-          <Bold>Endereço</Bold>
+          <Bold>Address</Bold>
           <Text>890 Fifth Avenue</Text>
           <Text>New York, NY 10003, United States</Text>
           <br></br>
         </section>
         <section>
-          <Bold>Atendimento </Bold>
-          <Text>atendimento@starkx.com </Text>
+          <Bold>Customer Service </Bold>
+          <Text>cservice@starkx.com </Text>
 
-          <Bold>Sugestões </Bold>
-          <Text>sugestoes@starkx.com</Text>
+          <Bold>Suggestions </Bold>
+          <Text>suggestions@starkx.com</Text>
         </section>
         <section>
-          <Bold onClick={goToAboutUs}>Sobre nós</Bold>
-          <Bold onClick={goToApply}>Inscreva-se</Bold>
-          <Bold onClick={goToTrips}>Viagens</Bold>
-          <Bold onClick={goToError}>Erro</Bold>
+          <BoldLink onClick={goToAboutUs}>About us</BoldLink>
+          <BoldLink onClick={goToApply}>Apply</BoldLink>
+          <BoldLink onClick={goToTrips}>Trips</BoldLink>
+          <BoldLink onClick={goToError}>Error</BoldLink>
         </section>
 
       </SecondContainer>
-      <Copyright><Link >Desenvolvido por Nicole Zolnier</Link></Copyright>
+      <Copyright><Link >Developed by Nicole Zolnier</Link></Copyright>
     </FooterContainer>
   );
 

@@ -89,7 +89,7 @@ function CreateTrip() {
     })
   }
 
-  const planets = ["Mercúrio", "Vênus", "Terra", "Marte", "Júpiter", "Saturno", "Urano", "Netuno", "Plutão"]
+  const planets = ["Mercury", "Venus", "Moon", "Mars", "Jupiter", "Saturn", "Titan, Saturn moon" , "Uranus", "Neptune", "Pluto", "Asteroid Belt", "Black Hole"]
 	const planetsList = planets.map((planet, id) => (
 			<MenuItem key={id} value={planet}>{planet}</MenuItem>
 		))
@@ -97,29 +97,29 @@ function CreateTrip() {
   return (
     <Container>
       <NavBarAdmin />
-      <Typography variant="h3" className={classes.title}>Criar Viagem</Typography>
+      <Typography variant="h3" className={classes.title}>Create Trip</Typography>
       <FormContainer onSubmit={createTrip}>
-        <TextField  required label="Nome" variant="outlined" name="name" inputProps={{ pattern: "[a-zA-Zs\À-ú ]{6,}" }} value={form.name} onChange={onChange} />
+        <TextField  required label="Name" variant="outlined" name="name" inputProps={{ pattern: "[a-zA-Zs\À-ú ]{6,}" }} value={form.name} onChange={onChange} />
         <FormControl required variant="outlined">
-        <InputLabel >Planeta</InputLabel>
+        <InputLabel >Cosmo</InputLabel>
         <Select name="planet" value={form.planet} onChange={onChange}>
-        <MenuItem value="">Planeta</MenuItem>
+        <MenuItem value="">Cosmo</MenuItem>
           {planetsList}
         </Select>
         </FormControl>
         
-        <TextField multiline variant="outlined" required name="description" label="Descrição" inputProps={{ pattern: "^.{30,}" }} value={form.description} onChange={onChange}/>
-        <TextField variant="outlined" required name="duration" type="number" inputProps={{ min: "50", step: "1" }} label="Duração" value={form.duration} onChange={onChange} />
+        <TextField multiline variant="outlined" required name="description" label="Description" inputProps={{ pattern: "^.{30,}" }} value={form.description} onChange={onChange}/>
+        <TextField variant="outlined" required name="duration" type="number" inputProps={{ min: "50", step: "1" }} label="Duration" value={form.duration} onChange={onChange} />
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
 						<KeyboardDatePicker
               disableToolbar
               variant="inline"
 							format="dd/MM/yyyy" required
-							label="Data da Viagem"
+							label="Trip's date"
 							value={date} onChange={onChangeDate}
 						/>
 					</MuiPickersUtilsProvider>
-        <Button className={classes.create} type={'submit'} variant="contained" color="secondary">CRIAR</Button>
+        <Button className={classes.create} type={'submit'} variant="contained" color="secondary">CREATE</Button>
 
         
       </FormContainer>

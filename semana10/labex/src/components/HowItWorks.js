@@ -27,7 +27,7 @@ function HowItWorks() {
     return (
       <MainContainer>
           <Title variant="h3" align="center">How to use our services?</Title>
-          <Title variant="h4" align="center">Follow the steps bellow to use our services</Title>
+          <Title variant="h4" align="center">Tony Stark will show how to use our services in just 3 steps</Title>
           <CardsGrid>
             <ExplanationCard text="Go to the trips page and choose one trip" image={choosing} />
             <ExplanationCard text="Apply to the one you liked the most" image={applying} />

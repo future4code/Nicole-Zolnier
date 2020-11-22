@@ -77,11 +77,11 @@ function AdminPage() {
       <NavBarAdmin />
 
       <BlackContainer>
-        <Typography className={classes.title} variant="h3">Bem-vinde!</Typography>
+        <Typography className={classes.title} variant="h3">Welcome!</Typography>
         <CenterContainer>
           <Line></Line>
-          <Typography variant="h5">Viagens</Typography>
-          <Button variant="contained" className={classes.button} onClick={goToCreationMode}>Criar mais viagens</Button>
+          <Typography variant="h5">Trips</Typography>
+          <Button variant="contained" className={classes.button} onClick={goToCreationMode}>Create more trips</Button>
         </CenterContainer>
         {loaded? <GridContainer>
           {trips.map((item) => {

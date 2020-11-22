@@ -55,17 +55,20 @@ const MemoriamContainer = styled.div`
 const Quote = styled.p`
   padding: 3em;
   text-align: start;
-  font-size: 1.3rem;
-  margin-right: 8em;
+  font-size: 1.5rem;
+  margin-left: 2em;
+  margin-right: 12em;
   padding-bottom: 0;
+  cursor: default;
 `
 const Credits = styled.p`
   text-align: end;
   padding: 3em;
   font-size: 1.3rem;
-  margin-right: 8em;
+  margin-right: 10em;
   padding-top: 0;
   margin-bottom: 3em;
+  cursor: default;
 `
 
 function AboutUsPage() {
@@ -74,12 +77,12 @@ function AboutUsPage() {
       <NavBar />
       <MainContainer>
         <Typography align="center" variant="h3" gutterBottom>
-          Sobre nós
+          About starkX
       </Typography>
         <AboutContainer>
           <AboutImg src={avengers} />
           <AboutText>
-            Depois dos acontecimentos do Blip (quando metade da população mundial sumiu), muitas pessoas ficaram com medo do espaço e não queriam mais nem viajar de avião. Nós da StarkX queremos mudar isso e abrir um mundo de oportunidades de diversão para as pessoas. Ao contrário de nossos competidores que querem explorar os outros planetas, nós queremos aprecia-los e mostrar a sua individualidade. Acreditamos que o espaço sideral tenha muitas atividades incríveis e os planetas devem ser preservados em vez de explorados. Por isso, para cada viagem, nós doamos 0.5% das vendas para uma ONG de preservação de planetas.</AboutText>
+          After the Blip (when half the world's population disappeared), many people were afraid of the space and even scared to travel by plane. StarkX wants to change that and open up a world of fun opportunities for the people. Unlike our competitors who want to explore other planets, we believe that they must be preserved and appreciate for their individuality in an ecological way. Outer space can have many incredible activities for humans and planets should be preserved rather than explored. Therefore, for each trip, we donate 1% of sales to a planet preservation NGO (non-gonvernmental organization).</AboutText>
         </AboutContainer>
 
         <Typography align="center" variant="h3" gutterBottom>
@@ -88,7 +91,7 @@ function AboutUsPage() {
 
         <MemoriamContainer>
           <div>
-            <Quote><i>“Você pode tirar meus trajes, você pode tirar a minha casa, <br></br> mas há uma coisa que você nunca pode tirar de mim: eu sou o Homem de Ferro!” </i></Quote>
+            <Quote><i>"You can take away my house, all my tricks and toys.<br></br> One thing you can’t take away… I am Iron Man.” </i></Quote>
             <Credits>- Tony Stark</Credits>
           </div>
 

@@ -84,36 +84,37 @@ function ApplyPage() {
     <div>
       <NavBar />
       <MainContainer>
-      <Title variant="h3">Inscrição</Title>
+      <Title variant="h3">Application Form</Title>
+      <Title variant="body1">PS: you can write it in your country's language</Title>
       <FormContainer autoComplete="off" onSubmit={applyToTrip}>
 
-        <TextField label="Nome" value={form.name} onChange={onChange} name="name"
+        <TextField label="Name" value={form.name} onChange={onChange} name="name"
           inputProps={{ pattern: "[a-zA-ZÀ-ú ]{3,}" }}
           required variant="outlined" />
-        <TextField variant="outlined" label="Idade" value={form.age} onChange={onChange} name="age" type="number"
+        <TextField variant="outlined" label="Age" value={form.age} onChange={onChange} name="age" type="number"
           inputProps={{ min: "18", step: "1" }}
           required />
-        <TextField multiline label="Por que você seria um bom candidato?" name="reason" value={form.reason} onChange={onChange}
+        <TextField multiline label="Why would you be a good candidate?" name="reason" value={form.reason} onChange={onChange}
           inputProps={{ pattern: "^.{30,}" }}
           required variant="outlined" />
-        <TextField variant="outlined" required inputProps={{ pattern: "[a-zA-ZÀ-ú ]{10,}" }} label="Profissao" name="profession" value={form.profession} onChange={onChange} />
+        <TextField variant="outlined" required inputProps={{ pattern: "[a-zA-ZÀ-ú ]{10,}" }} label="Profession" name="profession" value={form.profession} onChange={onChange} />
 
 
         <FormControl variant="outlined">
-          <InputLabel>País</InputLabel>
+          <InputLabel>Country of Origin</InputLabel>
           <Select required label="País" value={form.country} name="country" onChange={onChange} >
-            <MenuItem value="">País</MenuItem>
+            <MenuItem value="">Country</MenuItem>
             {countries ? countries.map((item) => {
               return <MenuItem key={item.name}
                 value={item.name}>{item.name}</MenuItem>
-            }) : <MenuItem>Carregando</MenuItem>}
+            }) : <MenuItem>Loading</MenuItem>}
           </Select>
         </FormControl>
 
         <FormControl variant="outlined">
-          <InputLabel>Viagem</InputLabel>
+          <InputLabel>Choose a Trip</InputLabel>
           <Select required label="Viagem" name="tripId" value={form.tripId} onChange={onChange}>
-            <MenuItem value="">Viagem</MenuItem>
+            <MenuItem value="">Trip</MenuItem>
             {trips.map((item) => {
               return <MenuItem value={item.id}>{item.name}</MenuItem>
             })}
@@ -121,7 +122,7 @@ function ApplyPage() {
         </FormControl>
 
         <MuiThemeProvider theme={myTheme}>
-          <Button type='submit' color="secondary" variant="contained">Aplicar</Button>
+          <Button type='submit' color="secondary" variant="contained">Apply</Button>
         </MuiThemeProvider>
       </FormContainer>
       </MainContainer>

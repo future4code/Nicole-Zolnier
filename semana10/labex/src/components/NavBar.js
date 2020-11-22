@@ -57,9 +57,9 @@ function NavBar() {
     <Header>
       <Logo src={logo} onClick={goToHome} />
       <MuiThemeProvider theme={myTheme}>
-        <Button color="primary" onClick={goToAboutUs}>Sobre nós</Button>
-        <Button color="primary" onClick={goToApply}>Inscreva-se</Button>
-        <Button color="primary" onClick={goToTrips}>Viagens</Button>
+        <Button color="primary" onClick={goToAboutUs}>About Us</Button>
+        <Button color="primary" onClick={goToApply}>Apply</Button>
+        <Button color="primary" onClick={goToTrips}>Trips</Button>
         <Button color="secondary" variant="contained" onClick={goToLogin}>Admin</Button>
       </MuiThemeProvider>
 

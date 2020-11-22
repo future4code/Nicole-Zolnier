@@ -42,16 +42,16 @@ const TextButtonContainer = styled.div`
 function Slogan() {
     const history = useHistory()
 
-    const goToTrips = () => {
-        history.push("/viagens")
-      }
+    const goToApply = () => {
+      history.push("/inscricao")
+    }
 
     return (
         <Container>
             <TextButtonContainer>
                 <Title variant="h4">Welcome to starkX! Your next adventure is just one planet away!</Title>
                 <MuiThemeProvider theme={myTheme}>
-                <Button color="secondary" variant="contained" onClick={goToTrips}>See trips</Button>
+                <Button color="secondary" variant="contained" onClick={goToApply}>Apply now</Button>
                 </MuiThemeProvider>
                 
             </TextButtonContainer>

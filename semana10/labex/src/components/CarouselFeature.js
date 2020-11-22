@@ -27,24 +27,24 @@ function CarouselFeature() {
           <Carousel.Item>
             <img className="d-block w-100" src={galaxy} alt="First slide" />
             <Carousel.Caption>
-              <Title>A galáxia não estará mais tão distante assim</Title>
-              <Button className="w-50" onClick={goToTrips}onClick={goToTrips} size="lg" variant="light">VER VIAGENS</Button>
+              <Title>The galaxy won't be that far away anymore</Title>
+              <Button className="w-50" onClick={goToTrips}onClick={goToTrips} size="lg" variant="light">SEE TRIPS</Button>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
             <img className="d-block w-100" src={meteorites} alt="Second slide" />
 
             <Carousel.Caption>
-              <Title>Cansade de ficar na seca? Que tal uma chuva de meteoros?</Title>
-              <Button className="w-50" onClick={goToTrips} size="lg" onClick={goToTrips} variant="light">VER VIAGENS</Button>
+              <Title>Tired of the dry spell? How about seeing a meteor shower?</Title>
+              <Button className="w-50" onClick={goToTrips} size="lg" onClick={goToTrips} variant="light">SEE TRIPS</Button>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
             <img className="d-block w-100" src={earth} alt="Third slide" />
 
             <Carousel.Caption>
-              <Title>Eu posso te mostrar uma galáxia de oportunidades!</Title>
-              <Button className="w-50" onClick={goToTrips} size="lg" onClick={goToTrips} variant="light">VER VIAGENS</Button>
+              <Title>I can show you the.... GALAXY!</Title>
+              <Button className="w-50" onClick={goToTrips} size="lg" onClick={goToTrips} variant="light">SEE TRIPS</Button>
               
             </Carousel.Caption>
           </Carousel.Item>
