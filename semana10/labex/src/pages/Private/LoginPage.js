@@ -4,46 +4,10 @@ import NavBar from '../../components/NavBar'
 import { useForm } from '../../hooks/useForm'
 import axios from 'axios'
 import { baseUrl } from '../../constants/urls'
-import styled from 'styled-components'
-import { TextField, Button, createMuiTheme, MuiThemeProvider, Typography } from '@material-ui/core'
-import Footer from '../../components/Footer'
+import { TextField, Button, MuiThemeProvider } from '@material-ui/core'
+import Footer from '../../components/Footer/Footer'
+import {Title, MainContainer, LoginForm, myTheme } from '../styles'
 
-const Title = styled(Typography)`
-  margin: 1em;
-  padding-bottom: 0.5em;
-`
-
-const MainContainer = styled.div`
-  background-color: black;
-  display: flex;
-  align-items: center;
-  color: white;
-  flex-direction: column;
-  height: 100vh;
-`
-
-const FormContainer = styled.form`
-	padding: 1em;
-	display: flex;
-	flex-direction: column;
-  justify-content: center;
-	gap: 1em;
-  width: 30vw;
-  background-color: white;
-  border-radius: 5px;
-`
-
-const myTheme = createMuiTheme({
-  palette: {
-    primary: {
-      main: '#ffffff',
-
-    },
-    secondary: {
-      main: "#67C7EB"
-    }
-  },
-})
 
 function LoginPage() {
   const history = useHistory()
@@ -75,14 +39,14 @@ function LoginPage() {
         <Title variant="h3">Log in</Title>
 
 
-        <FormContainer onSubmit={login}>
+        <LoginForm onSubmit={login}>
         
           <TextField variant="outlined" label="Email" type={"email"} onChange={onChange} value={form.email} name="email" required />
           <TextField variant="outlined" label="Password" type={"password"} value={form.password} onChange={onChange} name="password" required />
           <MuiThemeProvider theme={myTheme}>
             <Button type={'submit'} variant="contained" color="secondary">Log in</Button>
           </MuiThemeProvider>
-        </FormContainer>
+        </LoginForm>
 
 
       </MainContainer>

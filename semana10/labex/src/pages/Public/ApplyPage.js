@@ -4,46 +4,15 @@ import NavBar from '../../components/NavBar'
 import { baseUrl } from '../../constants/urls'
 import { useForm } from '../../hooks/useForm'
 import { useTripsList } from '../../hooks/useTripsList'
-import Footer from '../../components/Footer'
-import { TextField, InputLabel, MenuItem, FormControl, Select, Button, createMuiTheme, MuiThemeProvider, Typography } from '@material-ui/core'
-import styled from 'styled-components'
+import Footer from '../../components/Footer/Footer'
+import { TextField, InputLabel, MenuItem, FormControl, Select, Button, MuiThemeProvider } from '@material-ui/core'
+import {MainContainer, Title, ApplyForm, myTheme} from '../styles'
+import { useHistory } from 'react-router-dom'
 
-const FormContainer = styled.form`
-	padding: 1em;
-	display: flex;
-	flex-direction: column;
-	gap: 1em;
-  width: 30vw;
-  background-color: white;
-  border-radius: 5px;
-`
-
-const MainContainer = styled.div`
-  background-color: black;
-  display: flex;
-  align-items: center;
-  color: white;
-  flex-direction: column;
-  height: 100vh;
-`
-
-const myTheme = createMuiTheme({
-  palette: {
-    primary: {
-      main: "#FFFFFF"
-    },
-    secondary: {
-      main: "#67C7EB"
-    }
-  },
-})
-
-const Title = styled(Typography)`
-  margin: 1em;
-  padding-bottom: 0.5em;
-`
 
 function ApplyPage() {
+  const history = useHistory()
+
   const [trips, loaded] = useTripsList()
   const { form, onChange, reset } = useForm({ name: "", age: "", reason: "", profession: "", country: "", tripId: "" })
   const [countries, setCountries] = useState()
@@ -71,10 +40,10 @@ function ApplyPage() {
     }
 
     axios.post(`${baseUrl}/trips/${form.tripId}/apply`, body).then(() => {
-      window.alert(`Application submitted, thank you! Keep an eye on your email, ${form.name}`)
-      reset()
+      alert('Application submitted, thank you!')
+      history.push("/")
     }).catch((err) => {
-      window.alert(`Oh no, ${form.name}, something went wrong!`)
+      alert('Oh no, something went wrong!')
       console.log(err)
     })
 
@@ -86,7 +55,7 @@ function ApplyPage() {
       <MainContainer>
       <Title variant="h3">Application Form</Title>
       <Title variant="body1">PS: you can write it in your country's language</Title>
-      <FormContainer autoComplete="off" onSubmit={applyToTrip}>
+      <ApplyForm autoComplete="off" onSubmit={applyToTrip}>
 
         <TextField label="Name" value={form.name} onChange={onChange} name="name"
           inputProps={{ pattern: "[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]{3,}" }}
@@ -124,7 +93,7 @@ function ApplyPage() {
         <MuiThemeProvider theme={myTheme}>
           <Button type='submit' color="secondary" variant="contained">Apply</Button>
         </MuiThemeProvider>
-      </FormContainer>
+      </ApplyForm>
       </MainContainer>
       <Footer />
     </div>

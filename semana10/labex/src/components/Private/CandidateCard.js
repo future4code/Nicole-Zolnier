@@ -1,17 +1,11 @@
 import axios from 'axios'
 import React from 'react'
 import Buttons from './Buttons'
-import { baseUrl } from '../../constants/urls'
+import { baseUrl} from '../../constants/urls'
 import Card from 'react-bootstrap/Card'
-import styled from 'styled-components'
-
-const CardContainer = styled.div`
-  background-color: black;
-`
+import { headers } from '../../pages/Private/axiosConfig'
 
 function CandidateCard(props) {
-  const token = localStorage.getItem("token")
-
   const decideCandidate = (answer) => {
     const body = {
       approve: answer
@@ -19,9 +13,9 @@ function CandidateCard(props) {
 
     axios.put(`${baseUrl}/trips/${props.tripId}/candidates/${props.candidateId}/decide`, body, {
       headers: {
-        auth: token
+          auth: localStorage.getItem("token")
       }
-    }).then((res) => {
+  }).then((res) => {
       props.getTripDetails()
     }).catch(err => {
       console.log(err)

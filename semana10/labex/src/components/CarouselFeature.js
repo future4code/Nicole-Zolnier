@@ -12,7 +12,6 @@ const Title = styled.h1`
   text-shadow: 2px 1px 2px rgba(58, 58, 58, 1);
 `
 
-
 function CarouselFeature() {
   const history = useHistory()
 

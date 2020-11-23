@@ -4,58 +4,16 @@ import NavBarAdmin from '../../components/Private/NavBarAdmin'
 import { useForm } from '../../hooks/useForm'
 import { useProtectedPage } from '../../hooks/useProtectedPage'
 import { baseUrl } from '../../constants/urls'
-import styled from 'styled-components'
 import { TextField, InputLabel, MenuItem, FormControl, Select, Button, Typography } from '@material-ui/core'
 import DateFnsUtils from '@date-io/date-fns'
 import {	MuiPickersUtilsProvider,	KeyboardDatePicker} from '@material-ui/pickers';
-import {makeStyles} from '@material-ui/core/styles'
 import { useHistory } from 'react-router-dom'
-
-const Container = styled.div`
-  background-color: black;
-  width: auto;
-  height: 100vh;
-`
-
-
-const FormContainer = styled.form`
-	padding: 1em;
-	margin: auto;
-	margin-bottom: 3em;
-	display: flex;
-	flex-direction: column;
-	gap: 1.2em;
-  width: 30vw;
-  background-color: white;
-  border-radius: 5px;
-`
-
-const useStyles = makeStyles({
-  create: {
-      color: "white",
-      background: 'linear-gradient(45deg, #F61B1B 100%, #FF8E53 90%)',
-      padding: "0.5em",
-      fontSize: "1.2rem"
-  },
-  title: {
-    color: "white",
-    textAlign: "center",
-    padding: "1em",
-  },
-  input: {
-    color: "white",
-    borderColor: "white"
-  }
-});
-
-
+import {CreateContainer, CreationForm, useStyles} from '../styles'
 
 function CreateTrip() {
   const history = useHistory()
   const classes = useStyles()
   useProtectedPage()
-
-  const token = localStorage.getItem("token")
 
   const { form, onChange, reset } = useForm({ name: "", planet: "", description:"", duration: ""})
   const [date, setDate] = useState(Date.now)
@@ -77,9 +35,9 @@ function CreateTrip() {
     }
     axios.post(`${baseUrl}/trips`, body, {
       headers: {
-        auth: token
+          auth: localStorage.getItem("token")
       }
-    }).then(() => {
+  }).then(() => {
       window.alert("Trip created!")
       reset()
       history.push("/admin")
@@ -95,10 +53,10 @@ function CreateTrip() {
 		))
 
   return (
-    <Container>
+    <CreateContainer>
       <NavBarAdmin />
-      <Typography variant="h3" className={classes.title}>Create Trip</Typography>
-      <FormContainer onSubmit={createTrip}>
+      <Typography variant="h3" className={classes.createTitle}>Create Trip</Typography>
+      <CreationForm onSubmit={createTrip}>
         <TextField  required label="Name" variant="outlined" name="name" inputProps={{ pattern: "[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]{6,}" }} value={form.name} onChange={onChange} />
         <FormControl required variant="outlined">
         <InputLabel >Cosmo</InputLabel>
@@ -122,9 +80,9 @@ function CreateTrip() {
         <Button className={classes.create} type={'submit'} variant="contained" color="secondary">CREATE</Button>
 
         
-      </FormContainer>
+      </CreationForm>
 
-    </Container>
+    </CreateContainer>
   )
 }
 

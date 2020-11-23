@@ -1,34 +1,8 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
-import styled from 'styled-components'
 import logo from '../assets/white-starkx.svg'
-import { Button, createMuiTheme, MuiThemeProvider } from '@material-ui/core'
-
-
-const Header = styled.div`
-  display: flex;
-  padding: 1em;
-  align-items: center;
-  justify-content: space-between;
-  background-color: black;
-  
-`
-
-const Logo = styled.img`
-  width: 15%;
-  cursor: pointer;
-`
-
-const myTheme = createMuiTheme({
-  palette: {
-    primary: {
-      main: "#FFFFFF"
-    },
-    secondary: {
-      main: "#67C7EB"
-    }
-  },
-})
+import { Button, MuiThemeProvider } from '@material-ui/core'
+import {myTheme, Header, StarkxLogo} from './styles'
 
 function NavBar() {
   const history = useHistory()
@@ -55,7 +29,7 @@ function NavBar() {
 
   return (
     <Header>
-      <Logo src={logo} onClick={goToHome} />
+      <StarkxLogo src={logo} onClick={goToHome} />
       <MuiThemeProvider theme={myTheme}>
         <Button color="primary" onClick={goToAboutUs}>About Us</Button>
         <Button color="primary" onClick={goToApply}>Apply</Button>

@@ -5,7 +5,6 @@ const AnimationContainer = styled.div`
   padding: 10em;
 `
 
-
 const spin = keyframes`
     50%,
     100% {
