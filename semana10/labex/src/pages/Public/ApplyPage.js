@@ -5,14 +5,13 @@ import { baseUrl } from '../../constants/urls'
 import { useForm } from '../../hooks/useForm'
 import { useTripsList } from '../../hooks/useTripsList'
 import Footer from '../../components/Footer/Footer'
-import { TextField, InputLabel, MenuItem, FormControl, Select, Button, MuiThemeProvider } from '@material-ui/core'
+import { TextField, InputLabel, MenuItem, FormControl, Select, Button, MuiThemeProvider} from '@material-ui/core'
 import {MainContainer, Title, ApplyForm, myTheme} from '../styles'
 import { useHistory } from 'react-router-dom'
 
-
 function ApplyPage() {
   const history = useHistory()
-
+  const [sucess, setSucess] = useState(false);
   const [trips, loaded] = useTripsList()
   const { form, onChange, reset } = useForm({ name: "", age: "", reason: "", profession: "", country: "", tripId: "" })
   const [countries, setCountries] = useState()
@@ -28,7 +27,8 @@ function ApplyPage() {
   }
 
 
-  const applyToTrip = () => {
+  const applyToTrip = (e) => {
+    e.preventDefault()
 
     const body = {
       name: form.name,
@@ -40,14 +40,20 @@ function ApplyPage() {
     }
 
     axios.post(`${baseUrl}/trips/${form.tripId}/apply`, body).then(() => {
-      alert('Application submitted, thank you!')
+      alert(`Application sent, ${form.name}, thank you! Keep an eye on your email!`)
+      reset()
       history.push("/")
     }).catch((err) => {
-      alert('Oh no, something went wrong!')
+      alert(`Oh no, ${form.name}, something went wrong!`)
       console.log(err)
     })
 
   }
+
+  const handleClose = () => {
+    setSucess(false);
+  }
+
   return (
 
     <div>
