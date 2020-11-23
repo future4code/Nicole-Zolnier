@@ -3,7 +3,6 @@ import React from 'react'
 import Buttons from './Buttons'
 import { baseUrl} from '../../constants/urls'
 import Card from 'react-bootstrap/Card'
-import { headers } from '../../pages/Private/axiosConfig'
 
 function CandidateCard(props) {
   const decideCandidate = (answer) => {
