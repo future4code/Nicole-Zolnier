@@ -18,6 +18,7 @@ export const AboutImg = styled.img`
 export const Tony = styled.img`
   width: 25%;
   align-self: flex-end;
+  margin-right: 3em;
   margin-bottom: 6em;
 `
 export const MainContainer = styled.div`

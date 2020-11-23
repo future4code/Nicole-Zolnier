@@ -23,7 +23,7 @@ function TripCard(props) {
           </Card.Text>
           <footer>
             <MuiThemeProvider theme={myTheme}>
-              <Button variant="contained" color="secondary" onClick={goToApply}>INSCREVER</Button>
+              <Button variant="contained" color="secondary" onClick={goToApply}>APPLY</Button>
             </MuiThemeProvider>
           </footer>
         </Card.Body>
