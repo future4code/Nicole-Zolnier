@@ -80,6 +80,8 @@ export const CardPublic = styled.div`
 export const TripCardDiv = styled.div`
     border: 0.3px solid white;
     border-radius: 5px;
+    background-color: black;
+    color: white;
     cursor: pointer;
     &:hover {
         animation: ${scaleUp} 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
