@@ -18,13 +18,6 @@ export const useStyles = makeStyles({
       color: "white",
       background: 'linear-gradient(45deg, #F61B1B 100%, #FF8E53 90%)',
     },
-    root: {
-      minWidth: 260,
-      backgroundColor: 'black',
-      color: "white",
-      border: "1px",
-      borderColor: "white"
-    },
     pos: {
       marginBottom: 12,
     },
@@ -80,8 +73,6 @@ export const CardPublic = styled.div`
 export const TripCardDiv = styled.div`
     border: 0.3px solid white;
     border-radius: 5px;
-    background-color: black;
-    color: white;
     cursor: pointer;
     &:hover {
         animation: ${scaleUp} 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
