@@ -23,6 +23,7 @@ function CreateTrip() {
     setDate(d)
   }
 
+  // função pra criar uma viagem massa
   const createTrip = (e) => {
     e.preventDefault()
     const newDate = new Date(date)

@@ -14,6 +14,7 @@ function LoginPage() {
   const { form, onChange, reset } = useForm({ email: "", password: "" });
 
 
+  // função pra fazer login maneiro
   const login = (e) => {
     e.preventDefault()
 

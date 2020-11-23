@@ -13,20 +13,24 @@ import {GridContainer, Line, CenterContainer, BlackContainer, useStyles} from '.
 
 function AdminPage() {
   const classes = useStyles()
-
+  
+  // aqui ta a função de get trips
   const [trips, loaded] = useTripsList()
   useProtectedPage()
 
   const history = useHistory();
 
+  // função pra ir pros detalhes com base no id
   const goToDetails = (id) => {
     history.push(`/admin/trips/detail/${id}`);
   };
 
+  // função pra ir pra criar uma trip
   const goToCreationMode = () => {
     history.push("/admin/trips/create-trip")
   }
 
+  // função pra deletar trips que força o admin a criar outra pois ele que lute
   const deleteTrip = (id) => {
     axios.delete(`${baseUrl}/trips/${id}`).then((response) => {
       window.alert("Trip deleted! Now let's create another one")

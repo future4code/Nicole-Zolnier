@@ -20,13 +20,14 @@ function ApplyPage() {
     getCountries()
   }, [])
 
+  // função de pegar os paises de uma api doida
   const getCountries = () => {
     axios.get("https://restcountries.eu/rest/v2/all").then((res) => {
       setCountries(res.data)
     })
   }
 
-
+  // função pra aplicar pra uma viagem
   const applyToTrip = (e) => {
     e.preventDefault()
 
@@ -48,10 +49,6 @@ function ApplyPage() {
       console.log(err)
     })
 
-  }
-
-  const handleClose = () => {
-    setSucess(false);
   }
 
   return (

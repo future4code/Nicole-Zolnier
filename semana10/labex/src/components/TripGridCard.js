@@ -6,6 +6,7 @@ import {Title, Center, TripsContainer, GridContainer, Credits } from './styles'
 
 
 function TripGridCard() {
+    // aqui ta a função de get trips num custom hook
     const [trips, loaded] = useTripsList()
 
     const mapResult = trips.map((item, i) => {

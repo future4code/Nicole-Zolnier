@@ -26,6 +26,7 @@ function TripDetailPage() {
         getTripDetails()
     }, [])
 
+    // função pra pegar os detalhes maneiros
     const getTripDetails = () => {
         setLoaded(false)
         axios.get(`${baseUrl}/trip/${id}`, {

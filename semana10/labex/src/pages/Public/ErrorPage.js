@@ -3,7 +3,7 @@ import NavBar from '../../components/NavBar'
 import Footer from '../../components/Footer/Footer'
 import {Title, MainContainer, Text} from '../styles'
 
-
+// tenho mto carinho por essa pagina aqui
 function ErrorPage() {
   return (
     <div>
