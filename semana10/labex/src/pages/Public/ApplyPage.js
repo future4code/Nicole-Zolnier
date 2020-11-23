@@ -11,7 +11,6 @@ import { useHistory } from 'react-router-dom'
 
 function ApplyPage() {
   const history = useHistory()
-  const [sucess, setSucess] = useState(false);
   const [trips, loaded] = useTripsList()
   const { form, onChange, reset } = useForm({ name: "", age: "", reason: "", profession: "", country: "", tripId: "" })
   const [countries, setCountries] = useState()
