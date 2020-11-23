@@ -107,7 +107,7 @@ export const BlackContainer = styled.div`
   background-color: black;
   color: white;
   width: auto;
-  height: 110vh;
+  height: 120vh;
 `
 
 export const LoginForm = styled.form`
