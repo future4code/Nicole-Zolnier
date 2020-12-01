@@ -26,7 +26,7 @@ function PostDetailsPage() {
           <CreateComment update={update} id={data.post.id} />
         </div>
         <div>{data.post.comments.map((item) => {
-          return <CommentCard id={item.id} text={item.text} username={item.username} userVoteDirection={item.userVoteDirection} votesCount={item.votesCount} />
+          return <CommentCard commentId={item.id} postId={params.id} update={update} id={item.id} text={item.text} username={item.username} userVoteDirection={item.userVoteDirection} votesCount={item.votesCount} />
         })}</div>
       </div>}
     </div>
