@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { useEffect } from 'react'
+import { useHistory } from 'react-router-dom'
 
 export function useProtectedPage() {
   const history = useHistory();
@@ -9,7 +9,7 @@ export function useProtectedPage() {
 
     if (!token) {
       history.push("/login")
-      window.alert("Você não está logado!")
+      window.alert("Ops! Você não está logado!")
     }
 
   }, [history]);

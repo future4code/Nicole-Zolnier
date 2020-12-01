@@ -25,7 +25,7 @@ function Header() {
   if (token) {
     return (<HeaderContainer>
       <h1>Logo</h1>
-      <h2 onClick={logout}>Logout</h2>
+      <button onClick={logout}>Logout</button>
       <h1>usuario</h1>
     </HeaderContainer>
     )
