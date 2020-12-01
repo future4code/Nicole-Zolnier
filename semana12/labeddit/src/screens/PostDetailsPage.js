@@ -12,7 +12,7 @@ function PostDetailsPage() {
 
   const params = useParams()
 
-  const data = useRequestData(`${baseUrl}/posts/${params.id}`, undefined)
+  const [data, update] = useRequestData(`${baseUrl}/posts/${params.id}`, undefined)
 
   return (
     <div>
@@ -23,7 +23,7 @@ function PostDetailsPage() {
             <h1>{data.post.title}</h1>
             <p>{data.post.text}</p>
           </div>
-          <CreateComment id={data.post.id} />
+          <CreateComment update={update} id={data.post.id} />
         </div>
         <div>{data.post.comments.map((item) => {
           return <CommentCard id={item.id} text={item.text} username={item.username} userVoteDirection={item.userVoteDirection} votesCount={item.votesCount} />

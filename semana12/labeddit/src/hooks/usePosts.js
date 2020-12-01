@@ -1,25 +1,27 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import {baseUrl} from '../constants/urls'
 
-export const useRequestData = (url, initialState) => {
+export const usePosts = () => {
     const axiosConfig = {
         headers: {
             Authorization: localStorage.getItem("token")
         }
     }
 
-    const [data, setData] = useState(initialState);
+    const [data, setData] = useState({});
 
-    const getData = () => {
-        axios.get(url, axiosConfig).then(response => {
+    const getPosts = () => {
+        axios.get(`${baseUrl}/posts`, axiosConfig).then(response => {
             setData(response.data);
         }).catch(err => {
             console.log(err.message);
-        }) 
+        })    
     }
-    useEffect(() => {
-        getData()
-    }, [url]);
 
-    return [data, getData]  
+    useEffect(() => {
+        getPosts()
+    });
+
+    return [data, getPosts];   
 };

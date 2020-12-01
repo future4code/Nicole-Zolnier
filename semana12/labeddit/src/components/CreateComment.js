@@ -7,7 +7,7 @@ function CreateComment(props) {
 
     const handleSubmission = (e) => {
         e.preventDefault()
-        createComment(form, props.id )
+        createComment(form, props.id, props.update )
         reset()
     }
     return (<div>

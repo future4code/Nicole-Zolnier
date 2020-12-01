@@ -2,12 +2,12 @@ import React from 'react'
 import { useForm } from '../hooks/useForm';
 import { createPost } from '../services/feed'
 
-function CreatePost() {
+function CreatePost(props) {
     const { form, onChange, reset } = useForm({text: "", title: ""})
 
     const handleSubmission = (e) => {
         e.preventDefault()
-        createPost(form)
+        createPost(form, props.update)
         reset()
     }
     return (<div>
