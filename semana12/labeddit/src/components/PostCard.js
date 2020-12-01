@@ -1,7 +1,11 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom';
+import { goToPostDetails } from '../router/coordinator';
 
 function PostCard(props) {
-    return (<div>
+    const history = useHistory()
+
+    return (<div onClick={() => goToPostDetails(history, props.id)}>
         <h3>{props.username}</h3>
         <h1>{props.title}</h1>
         <p>{props.text}</p>
