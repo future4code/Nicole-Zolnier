@@ -1,5 +1,5 @@
 import React from 'react'
-import { goToLogin, goToSignUp } from '../router/coordinator'
+import { goToFeed, goToLogin, goToSignUp } from '../router/coordinator'
 import styled from 'styled-components'
 import { useHistory } from 'react-router-dom'
 
@@ -10,7 +10,6 @@ const HeaderContainer = styled.div`
   height: 8vh;
   align-items: center;
 `
-
 
 function Header() {
   const history = useHistory()
@@ -25,6 +24,7 @@ function Header() {
   if (token) {
     return (<HeaderContainer>
       <h1>Logo</h1>
+      <button onClick={() => goToFeed(history)}>feed</button>
       <button onClick={logout}>Logout</button>
       <h1>usuario</h1>
     </HeaderContainer>
