@@ -5,6 +5,7 @@ import { useRequestData } from '../hooks/useRequestData'
 import { baseUrl } from '../constants/urls'
 import Loading from '../components/Loading';
 import CommentCard from '../components/CommentCard';
+import CreateComment from '../components/CreateComment';
 
 function PostDetailsPage() {
   useProtectedPage()
@@ -22,7 +23,7 @@ function PostDetailsPage() {
             <h1>{data.post.title}</h1>
             <p>{data.post.text}</p>
           </div>
-          <div>comentar</div>
+          <CreateComment id={data.post.id} />
         </div>
         <div>{data.post.comments.map((item) => {
           return <CommentCard id={item.id} text={item.text} username={item.username} userVoteDirection={item.userVoteDirection} votesCount={item.votesCount} />
