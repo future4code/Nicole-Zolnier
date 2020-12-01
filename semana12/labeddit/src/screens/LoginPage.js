@@ -17,8 +17,8 @@ function LoginPage() {
   return (
     <div>
       <form onSubmit={handleSubmission}>
-        <input type={"email"} onChange={onChange} value={form.email} name="email" />
-        <input type={"password"} value={form.password} onChange={onChange} name="password" />
+        <input placeholder="email" type={"email"} onChange={onChange} value={form.email} name="email" />
+        <input placeholder="senha" type={"password"} value={form.password} onChange={onChange} name="password" />
         <button>LOGAR</button>
       </form>
     </div>
