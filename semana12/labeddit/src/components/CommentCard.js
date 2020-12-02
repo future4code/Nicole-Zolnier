@@ -9,6 +9,7 @@ function CommentCard(props) {
         }
         voteComment(body, props.postId, props.commentId, props.update)
     }
+    
     return (<div>
         <h5>votos: {props.votesCount}</h5>
         <h3>{props.username}</h3>

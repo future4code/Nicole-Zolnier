@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom'
 const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-around;
-  background-color: green;
+  background-color: #0DD3BB;
   height: 8vh;
   align-items: center;
 `

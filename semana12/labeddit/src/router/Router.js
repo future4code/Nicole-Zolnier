@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import LoginPage from '../screens/LoginPage'
-import SignUpPage from '../screens/SignUpPage'
+import LoginPage from '../screens/LoginPage/LoginPage'
+import SignUpPage from '../screens/SignUpPage/SignUpPage'
 import FeedPage from '../screens/FeedPage'
 import PostDetailsPage from '../screens/PostDetailsPage'
 import ErrorPage from '../screens/ErrorPage'
