@@ -11,7 +11,7 @@ function Router() {
     return (
         <BrowserRouter>
             <Switch>
-                <Route exact path="/">
+                <Route exact path="/login">
                     <Header />
                     <LoginPage />
                 </Route>
@@ -19,7 +19,7 @@ function Router() {
                     <Header />
                     <SignUpPage />
                 </Route>
-                <Route exact path="/feed">
+                <Route exact path={['/feed', '/']}>
                     <Header />
                     <FeedPage />
                 </Route>

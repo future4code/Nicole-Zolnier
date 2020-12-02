@@ -2,10 +2,19 @@ import React from 'react'
 import {useProtectedPage} from '../hooks/useProtectedPage'
 // import { useRequestData } from '../hooks/useRequestData'
 // import {baseUrl} from '../constants/urls'
-import PostCard from '../components/PostCard'
+import PostCard from '../components/PostCard/PostCard'
 import Loading from '../components/Loading'
 import CreatePost from '../components/CreatePost'
 import { usePosts } from '../hooks/usePosts'
+import styled from 'styled-components'
+
+const PostsContainer = styled.div`
+    display: flex;
+    gap: 2em;
+    flex-direction: column;
+    align-items: center;
+    background-color: #C4C4C4;
+`
 
 function FeedPage() {
   useProtectedPage()
@@ -13,14 +22,15 @@ function FeedPage() {
   const [{posts}, update] = usePosts()
 
   return (
-    <div>
+    <PostsContainer>
       <CreatePost update={update}/>
+   
       {!posts ? <Loading /> : posts.map((item) => {
-        return <PostCard update={update} id={item.id} title={item.title} text={item.text} username={item.username} votesCount={item.votesCount} commentsCount={item.commentsCount} />
+        return <PostCard update={update} id={item.id} title={item.title} text={item.text} username={item.username} votesCount={item.votesCount} direction={item.userVoteDirection} commentsCount={item.commentsCount} />
       })
-
       }
-    </div>
+
+    </PostsContainer>
   );
 }
 

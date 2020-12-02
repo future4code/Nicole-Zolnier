@@ -11,5 +11,5 @@ export const goToPostDetails = (history, id) => {
 }
 
 export const goToLogin = (history) => {
-    history.push("/")
+    history.push("/login")
 }
