@@ -27,10 +27,7 @@ export const createComment = (body, postId, update) => {
     })
 }
 
-export const vote = (decision, postId, update) => {
-    const body = {
-        direction: decision,
-    }
+export const votePost = (body, postId, update) => {
     
     axios.put(`${baseUrl}/posts/${postId}/vote`, body, axiosConfig).then((res) => {
         window.alert("deu boa")
@@ -42,10 +39,8 @@ export const vote = (decision, postId, update) => {
 
 }
 
-export const voteComment = (decision, postId, commentId, update) => {
-    const body = {
-        direction: decision,
-    }
+export const voteComment = (body, postId, commentId, update) => {
+    
 
     axios.put(`${baseUrl}/posts/${postId}/comment/${commentId}/vote`, body, axiosConfig).then((res) => {
         window.alert("deu boa")

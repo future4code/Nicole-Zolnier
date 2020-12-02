@@ -4,7 +4,10 @@ import { voteComment } from '../services/feed';
 function CommentCard(props) {
 
     const handleVote = (decision) => {
-        voteComment(decision, props.postId, props.commentId, props.update)
+        const body = {
+            direction: decision,
+        }
+        voteComment(body, props.postId, props.commentId, props.update)
     }
     return (<div>
         <h5>votos: {props.votesCount}</h5>
