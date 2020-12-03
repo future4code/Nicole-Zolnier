@@ -5,8 +5,9 @@ import { useRequestData } from '../../hooks/useRequestData'
 import Loading from '../../components/Loading';
 import CommentCard from '../../components/CommentCard/CommentCard';
 import CreateComment from '../../components/CreateComment/CreateComment'
-import {Arrow, ButtonsContainer, CommentsContainer, DetailsContainer, InfoContainer, StyledBox, TextContainer} from './styled'
+import {Arrow, ButtonsContainer, CommentsContainer, DetailsContainer, InfoContainer, MainContainer, StyledBox, TextContainer} from './styled'
 import { Heading, Text } from '@chakra-ui/react'
+import { ChatIcon } from '@chakra-ui/icons'
 import greyDown from '../../assets/grey-down.svg'
 import greyUp from '../../assets/grey-up.svg'
 import coloredUp from '../../assets/colored-up.svg'
@@ -52,7 +53,7 @@ function PostDetailsPage() {
 
 
   return (
-    <div>
+    <MainContainer>
       {!post ? <Loading /> : <DetailsContainer>
         <StyledBox borderWidth="1px" borderRadius="lg">
           <InfoContainer>
@@ -63,6 +64,7 @@ function PostDetailsPage() {
             <Text>u/{post.username}</Text>
             <Heading size="lg">{post.title}</Heading>
             <Text>{post.text}</Text>
+            <Text pt="0.3em" textAlign="end"><ChatIcon  color="grey" /> {post.commentsCount} {post.commentsCount === 1? "comentário" : "comentários"}</Text>
           </TextContainer>
           </InfoContainer>
           <CreateComment update={update} id={post.id} />
@@ -71,7 +73,7 @@ function PostDetailsPage() {
           return <CommentCard direction={item.userVoteDirection} commentId={item.id} postId={params.id} update={update} id={item.id} text={item.text} username={item.username} userVoteDirection={item.userVoteDirection} votesCount={item.votesCount} />
         })}</CommentsContainer>
       </DetailsContainer>}
-    </div>
+    </MainContainer>
   );
 }
 

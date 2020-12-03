@@ -12,8 +12,8 @@ export const CreateContainer = styled.div`
 
 export const FormContainer = styled.form`
     display: flex;
-    flex-direction: column;
-    height: 20vh;
-    justify-content: space-around;
-    margin-bottom: 15px;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1em;
+    align-items: center;
 `

@@ -25,7 +25,7 @@ function CreatePost(props) {
                 <FormControl id="text">
                     <Textarea borderRadius="lg" size="sm" required placeholder="Insira o texto do seu post" onChange={onChange} value={form.text} name="text" />
                 </FormControl>
-                <Button colorScheme="teal" variant="solid" type="submit">POSTAR</Button>
+                <Button colorScheme="blue" variant="solid" type="submit">POSTAR</Button>
             </FormContainer>
         </LoginContainer>
     </StyledBox>

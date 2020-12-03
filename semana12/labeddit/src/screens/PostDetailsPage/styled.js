@@ -1,11 +1,18 @@
 import styled from 'styled-components'
 import { Box } from '@chakra-ui/react'
 
+export const MainContainer = styled.div`
+    background-color: #DAE0E6;
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    justify-content: center;
+`
+
 export const DetailsContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #DAE0E6;
     min-height: 100vh;
     margin: 0 auto;
     padding: 1em;
@@ -16,6 +23,10 @@ export const StyledBox = styled(Box)`
     max-width: 600px;
     background-color: white;
     flex-direction: column;
+    border: 1px solid #D7D7D7;
+    &:hover {
+        border: 1px solid #A7A9AB;
+    }
 `
 
 export const CommentsContainer = styled.div`

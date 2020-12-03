@@ -1,8 +1,9 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom';
-import { goToPostDetails } from '../../router/coordinator';
+import { useHistory } from 'react-router-dom'
+import { goToPostDetails } from '../../router/coordinator'
 import { votePost } from '../../services/feed'
 import { Heading, Text } from "@chakra-ui/react"
+import { ChatIcon } from '@chakra-ui/icons'
 import { Arrow, ButtonsContainer, StyledBox, TextContainer } from './styled'
 import greyDown from '../../assets/grey-down.svg'
 import greyUp from '../../assets/grey-up.svg'
@@ -49,6 +50,7 @@ function PostCard(props) {
             <Text>u/{props.username}</Text>
             <Heading size="lg">{props.title} </Heading>
             <Text>{props.text}</Text>
+            <Text pt="0.3em" textAlign="end"><ChatIcon  color="grey" /> {props.commentsCount} {props.commentsCount === 1? "comentário" : "comentários"}</Text>
         </TextContainer>
 
     </StyledBox>

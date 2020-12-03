@@ -2,7 +2,7 @@ import React from 'react'
 import { useForm } from '../../hooks/useForm'
 import { createComment } from '../../services/feed'
 import { CreateContainer, FormContainer } from './styled'
-import { FormControl, Textarea, Button} from "@chakra-ui/react"
+import { FormControl, Button, Textarea} from "@chakra-ui/react"
 
 function CreateComment(props) {
     const { form, onChange, reset } = useForm({ text: "" })
@@ -15,9 +15,9 @@ function CreateComment(props) {
     return (<CreateContainer>
         <FormContainer onSubmit={handleSubmission}>
             <FormControl id="text">
-                <Textarea borderRadius="lg" size="sm" required placeholder="Insira um comentário" onChange={onChange} value={form.text} name="text" />
+                <Textarea required placeholder="Insira um comentário" onChange={onChange} value={form.text} name="text" />
             </FormControl>
-            <Button colorScheme="teal" variant="solid" type="submit">COMENTAR</Button>
+            <Button p="1.5em" colorScheme="blue" variant="solid" type="submit">COMENTAR</Button>
         </FormContainer>
     </CreateContainer>
 
