@@ -2,6 +2,7 @@ import React from 'react'
 import { goToFeed, goToLogin, goToSignUp } from '../router/coordinator'
 import styled from 'styled-components'
 import { useHistory } from 'react-router-dom'
+import logo from '../assets/logo-nome.svg'
 
 const HeaderContainer = styled.div`
   display: flex;
@@ -18,6 +19,10 @@ const HeaderAccountContainer = styled.div`
   align-items: center;
 `
 
+const Logo = styled.img`
+  width: 12%;
+`
+
 function Header() {
   const history = useHistory()
   const token = localStorage.getItem("token")
@@ -31,7 +36,7 @@ function Header() {
 
   if (token) {
     return (<HeaderAccountContainer>
-      <h1>Logo</h1>
+      <Logo src={logo} />
       <button onClick={() => goToFeed(history)}>feed</button>
       <button onClick={logout}>Logout</button>
       <h1>u/{username}</h1>

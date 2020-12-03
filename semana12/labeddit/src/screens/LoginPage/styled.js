@@ -24,11 +24,6 @@ export const Logo = styled.img`
 
 `
 
-export const Title = styled.h1`
-    font-size: 2rem;
-    text-align: center;
-`
-
 export const Message = styled.div`
     display: flex;
     justify-content: center;

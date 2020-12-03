@@ -4,7 +4,7 @@ import {useProtectedPage} from '../hooks/useProtectedPage'
 // import {baseUrl} from '../constants/urls'
 import PostCard from '../components/PostCard/PostCard'
 import Loading from '../components/Loading'
-import CreatePost from '../components/CreatePost'
+import CreatePost from '../components/CreatePost/CreatePost'
 import { usePosts } from '../hooks/usePosts'
 import styled from 'styled-components'
 
@@ -14,6 +14,7 @@ const PostsContainer = styled.div`
     flex-direction: column;
     align-items: center;
     background-color: #C4C4C4;
+    min-height: 100vh;
 `
 
 function FeedPage() {

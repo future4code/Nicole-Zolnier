@@ -20,6 +20,7 @@ export const TextContainer = styled.div`
     display: flex;
     flex-direction: column;
     margin: 1em;
+    width: 90%;
 `
 
 export const Arrow = styled.img`

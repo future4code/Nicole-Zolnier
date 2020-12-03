@@ -2,8 +2,8 @@ import React from 'react'
 import { useForm } from '../../hooks/useForm'
 import { useHistory } from 'react-router-dom'
 import { signUp } from '../../services/user'
-import { FormControl, FormLabel, Input, Button } from "@chakra-ui/react"
-import { Anchor, FormContainer, LoginContainer, Logo, Message, Title } from './styled'
+import { FormControl, FormLabel, Input, Button, Heading } from "@chakra-ui/react"
+import { Anchor, FormContainer, LoginContainer, Logo, Message} from './styled'
 import alien from '../../assets/alien.svg'
 import { goToLogin } from '../../router/coordinator'
 
@@ -21,7 +21,7 @@ function SignUpPage() {
   return (
     <LoginContainer>
       <Logo src={alien}/>
-      <Title><strong>Cadastre-se</strong></Title>
+      <Heading textAlign="center" p="0.2em">Cadastre-se</Heading>
       <FormContainer onSubmit={handleSubmission}>
         <FormControl id="username">
           <FormLabel>Username</FormLabel>

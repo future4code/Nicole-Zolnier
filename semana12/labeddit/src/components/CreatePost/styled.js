@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Box } from '@chakra-ui/react'
 
 export const LoginContainer = styled.div`
     display: flex;
@@ -10,27 +11,18 @@ export const LoginContainer = styled.div`
     padding: 1em;
 `
 
+export const StyledBox = styled(Box)`
+    display: flex;
+    width: 35vw;
+    min-width: 500px;
+    background-color: white;
+    margin: 1em;
+`
+
 export const FormContainer = styled.form`
     display: flex;
     flex-direction: column;
-    height: 45vh;
+    height: 28vh;
     justify-content: space-around;
     margin-bottom: 15px;
-`
-
-export const Logo = styled.img`
-    width: 20%;
-    align-self: center;
-
-`
-
-export const Message = styled.div`
-    display: flex;
-    justify-content: center;
-`
-
-export const Anchor = styled.h1`
-    padding-left: 0.5em;
-    color: blue;
-    cursor: pointer;
 `

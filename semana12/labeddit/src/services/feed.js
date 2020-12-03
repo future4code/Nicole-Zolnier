@@ -31,7 +31,7 @@ export const votePost = (body, postId, update) => {
     console.log(body)
     axios.put(`${baseUrl}/posts/${postId}/vote`, body, axiosConfig).then((res) => {
         window.alert("deu boa")
-        // update()
+        update()
     }).catch((err) => {
       window.alert("Ih deu erro!")
       console.log(err)
