@@ -2,7 +2,6 @@ import React from 'react'
 import { useParams } from 'react-router-dom';
 import { useProtectedPage } from '../hooks/useProtectedPage'
 import { useRequestData } from '../hooks/useRequestData'
-import { baseUrl } from '../constants/urls'
 import Loading from '../components/Loading';
 import CommentCard from '../components/CommentCard';
 import CreateComment from '../components/CreateComment';
@@ -12,7 +11,7 @@ function PostDetailsPage() {
 
   const params = useParams()
 
-  const [data, update] = useRequestData(`${baseUrl}/posts/${params.id}`, undefined)
+  const [data, update] = useRequestData(`/posts/${params.id}`, undefined)
 
   return (
     <div>

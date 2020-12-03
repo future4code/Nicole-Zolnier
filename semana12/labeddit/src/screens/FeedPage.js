@@ -1,11 +1,9 @@
 import React from 'react'
 import {useProtectedPage} from '../hooks/useProtectedPage'
-// import { useRequestData } from '../hooks/useRequestData'
-// import {baseUrl} from '../constants/urls'
+import { useRequestData } from '../hooks/useRequestData'
 import PostCard from '../components/PostCard/PostCard'
 import Loading from '../components/Loading'
 import CreatePost from '../components/CreatePost/CreatePost'
-import { usePosts } from '../hooks/usePosts'
 import styled from 'styled-components'
 
 const PostsContainer = styled.div`
@@ -19,8 +17,7 @@ const PostsContainer = styled.div`
 
 function FeedPage() {
   useProtectedPage()
-  // const data = useRequestData(`${baseUrl}/posts`, undefined)
-  const [{posts}, update] = usePosts()
+  const [{posts}, update] = useRequestData("/posts", undefined)
 
   return (
     <PostsContainer>

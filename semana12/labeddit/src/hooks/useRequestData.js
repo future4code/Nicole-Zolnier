@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import {baseUrl} from '../constants/urls'
 
-export const useRequestData = (url, initialState) => {
+export const useRequestData = (urlEnd, initialState) => {
     const axiosConfig = {
         headers: {
             Authorization: localStorage.getItem("token")
@@ -11,7 +12,7 @@ export const useRequestData = (url, initialState) => {
     const [data, setData] = useState(initialState);
 
     const getData = () => {
-        axios.get(url, axiosConfig).then(response => {
+        axios.get(`${baseUrl}${urlEnd}`, axiosConfig).then(response => {
             setData(response.data);
         }).catch(err => {
             console.log(err.message);
@@ -19,7 +20,7 @@ export const useRequestData = (url, initialState) => {
     }
     useEffect(() => {
         getData()
-    }, [url]);
+    }, [urlEnd]);
 
     return [data, getData]  
 };
