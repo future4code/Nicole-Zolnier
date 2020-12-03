@@ -4,7 +4,7 @@ import { goToPostDetails } from '../../router/coordinator'
 import { votePost } from '../../services/feed'
 import { Heading, Text } from "@chakra-ui/react"
 import { ChatIcon } from '@chakra-ui/icons'
-import { Arrow, ButtonsContainer, StyledBox, TextContainer } from './styled'
+import { Arrow, Avatar, ButtonsContainer, StyledBox, TextContainer, UserThings } from './styled'
 import greyDown from '../../assets/grey-down.svg'
 import greyUp from '../../assets/grey-up.svg'
 import coloredUp from '../../assets/colored-up.svg'
@@ -47,7 +47,10 @@ function PostCard(props) {
             {arrow()}
         </ButtonsContainer>
         <TextContainer onClick={() => goToPostDetails(history, props.id)}>
-            <Text>u/{props.username}</Text>
+            <UserThings>
+            <Avatar src={props.image} />
+            <Heading size="xs" pl="0.4em">u/{props.username}</Heading>
+            </UserThings>
             <Heading size="lg">{props.title} </Heading>
             <Text>{props.text}</Text>
             <Text pt="0.3em" textAlign="end"><ChatIcon  color="grey" /> {props.commentsCount} {props.commentsCount === 1? "comentário" : "comentários"}</Text>

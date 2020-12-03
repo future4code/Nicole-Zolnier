@@ -34,3 +34,17 @@ export const TextContainer = styled.div`
     width: 90%;
     cursor: pointer;
 `
+
+export const Avatar = styled.img`
+    width: 10%;
+    border-radius: 5px;
+    border: 1px solid #A7A9AB;
+`
+
+export const UserThings = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0.1em;
+    padding-bottom: 0.2em;
+`

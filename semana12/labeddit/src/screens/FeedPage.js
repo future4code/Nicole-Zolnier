@@ -13,18 +13,18 @@ const PostsContainer = styled.div`
     align-items: center;
     background-color: #DAE0E6;
     min-height: 100vh;
+    padding-bottom: 2em;
 `
 
 function FeedPage() {
   useProtectedPage()
   const [{posts}, update] = useRequestData("/posts")
-
   return (
     <PostsContainer>
       <CreatePost update={update}/>
    
-      {!posts ? <Loading /> : posts.map((item) => {
-        return <PostCard update={update} id={item.id} title={item.title} text={item.text} username={item.username} votesCount={item.votesCount} direction={item.userVoteDirection} commentsCount={item.commentsCount} />
+      {!posts ? <Loading /> : posts.map((item, i) => {
+        return <PostCard image={`https://avatars.dicebear.com/api/avataaars/${item.id}.svg`} update={update} id={item.id} title={item.title} text={item.text} username={item.username} votesCount={item.votesCount} direction={item.userVoteDirection} commentsCount={item.commentsCount} />
       })
       }
 

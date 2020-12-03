@@ -5,7 +5,7 @@ import greyUp from '../../assets/grey-up.svg'
 import coloredUp from '../../assets/colored-up.svg'
 import coloredDown from '../../assets/colored-down.svg'
 import { Heading, Text } from "@chakra-ui/react"
-import { Arrow, ButtonsContainer, StyledBox, TextContainer } from './styled'
+import { Arrow, Avatar, ButtonsContainer, StyledBox, TextContainer, UserThings } from './styled'
 
 function CommentCard(props) {
 
@@ -43,7 +43,10 @@ function CommentCard(props) {
             {arrow()}
         </ButtonsContainer>
         <TextContainer>
-            <Heading size="xs">u/{props.username}</Heading>
+            <UserThings>
+                <Avatar src={props.image} />
+                <Heading size="xs" pl="0.4em">u/{props.username}</Heading>
+            </UserThings>
             <Text>{props.text}</Text>
         </TextContainer>
     </StyledBox>

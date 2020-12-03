@@ -14,11 +14,11 @@ const Svg = styled.svg`
   
 const Ring = styled.circle`
     fill: none;
-    stroke: hsla(341, 97%, 59%, 0.3);
+    stroke: #FF936A;
     stroke-width: 2;
 `
 const Ball = styled.circle`
-    fill: #fc2f70;
+    fill: #FF4500;
     stroke: none;
 `
 
