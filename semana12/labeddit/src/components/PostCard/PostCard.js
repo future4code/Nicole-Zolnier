@@ -47,13 +47,18 @@ function PostCard(props) {
             {arrow()}
         </ButtonsContainer>
         <TextContainer onClick={() => goToPostDetails(history, props.id)}>
+
             <UserThings>
             <Avatar src={props.image} />
             <Heading size="xs" pl="0.4em">u/{props.username}</Heading>
             </UserThings>
-            <Heading size="lg">{props.title} </Heading>
+
+            <Heading pb="0.2em" size="lg">{props.title} </Heading>
+
             <Text>{props.text}</Text>
+            
             <Text pt="0.3em" textAlign="end"><ChatIcon  color="grey" /> {props.commentsCount} {props.commentsCount === 1? "comentário" : "comentários"}</Text>
+
         </TextContainer>
 
     </StyledBox>

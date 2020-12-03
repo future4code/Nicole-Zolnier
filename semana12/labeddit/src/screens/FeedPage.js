@@ -23,7 +23,7 @@ function FeedPage() {
     <PostsContainer>
       <CreatePost update={update}/>
    
-      {!posts ? <Loading /> : posts.map((item, i) => {
+      {!posts ? <Loading /> : posts.map((item) => {
         return <PostCard image={`https://avatars.dicebear.com/api/avataaars/${item.id}.svg`} update={update} id={item.id} title={item.title} text={item.text} username={item.username} votesCount={item.votesCount} direction={item.userVoteDirection} commentsCount={item.commentsCount} />
       })
       }

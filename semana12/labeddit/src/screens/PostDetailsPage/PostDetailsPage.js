@@ -67,7 +67,7 @@ function PostDetailsPage() {
                 <Avatar src={`https://avatars.dicebear.com/api/avataaars/${post.id}.svg`} />
                 <Heading size="xs" pl="0.4em">u/{post.username}</Heading>
               </UserThings>
-              <Heading size="lg">{post.title}</Heading>
+              <Heading pb="0.2em" size="lg">{post.title}</Heading>
               <Text>{post.text}</Text>
               <Text pt="0.3em" textAlign="end"><ChatIcon color="grey" /> {post.commentsCount} {post.commentsCount === 1 ? "comentário" : "comentários"}</Text>
             </TextContainer>
