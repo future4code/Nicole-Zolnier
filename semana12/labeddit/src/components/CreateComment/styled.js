@@ -1,7 +1,6 @@
 import styled from 'styled-components'
-import { Box } from '@chakra-ui/react'
 
-export const LoginContainer = styled.div`
+export const CreateContainer = styled.div`
     display: flex;
     flex-direction: column;
     width: 85vw;
@@ -11,18 +10,10 @@ export const LoginContainer = styled.div`
     padding: 1em;
 `
 
-export const StyledBox = styled(Box)`
-    display: flex;
-    width: 90vw;
-    max-width: 600px;
-    background-color: white;
-    margin: 1em;
-`
-
 export const FormContainer = styled.form`
     display: flex;
     flex-direction: column;
-    height: 28vh;
+    height: 20vh;
     justify-content: space-around;
     margin-bottom: 15px;
 `

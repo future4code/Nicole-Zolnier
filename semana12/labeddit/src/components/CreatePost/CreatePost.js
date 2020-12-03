@@ -2,7 +2,7 @@ import React from 'react'
 import { useForm } from '../../hooks/useForm';
 import { createPost } from '../../services/feed'
 import { FormControl, Textarea, Input, Button, Heading } from "@chakra-ui/react"
-import { FormContainer, LoginContainer, StyledBox, Title } from './styled';
+import { FormContainer, LoginContainer, StyledBox } from './styled';
 
 
 
@@ -17,7 +17,7 @@ function CreatePost(props) {
 
     return (<StyledBox borderWidth="1px" borderRadius="lg">
         <LoginContainer>
-            <Heading textAlign="center" p="0.2em">Crie seu post</Heading>
+            <Heading size="xl" textAlign="center" p="0.2em">Crie seu post</Heading>
             <FormContainer onSubmit={handleSubmission}>
                 <FormControl id="title">
                     <Input required placeholder="Insira um título para o seu post" onChange={onChange} value={form.title} name="title" />

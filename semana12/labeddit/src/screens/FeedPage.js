@@ -8,16 +8,16 @@ import styled from 'styled-components'
 
 const PostsContainer = styled.div`
     display: flex;
-    gap: 2em;
+    gap: 1em;
     flex-direction: column;
     align-items: center;
-    background-color: #C4C4C4;
+    background-color: #DAE0E6;
     min-height: 100vh;
 `
 
 function FeedPage() {
   useProtectedPage()
-  const [{posts}, update] = useRequestData("/posts", undefined)
+  const [{posts}, update] = useRequestData("/posts")
 
   return (
     <PostsContainer>

@@ -8,11 +8,16 @@ export const ButtonsContainer = styled.div`
     padding: 0.4em;
     align-items: center;
 `
+export const Arrow = styled.img`
+    width: 50%;
+    margin: 0.2em;
+    cursor: pointer;
+`
 
 export const StyledBox = styled(Box)`
     display: flex;
-    width: 35vw;
-    min-width: 400px;
+    width: 90vw;
+    max-width: 600px;
     background-color: white;
 `
 
@@ -21,9 +26,5 @@ export const TextContainer = styled.div`
     flex-direction: column;
     margin: 1em;
     width: 90%;
-`
-
-export const Arrow = styled.img`
-    width: 50%;
-    margin: 0.2em;
+    cursor: pointer;
 `
