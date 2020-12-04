@@ -10,6 +10,7 @@ import greyUp from '../../assets/grey-up.svg'
 import coloredUp from '../../assets/colored-up.svg'
 import coloredDown from '../../assets/colored-down.svg'
 
+
 function PostCard(props) {
     const history = useHistory()
 
@@ -23,19 +24,23 @@ function PostCard(props) {
     const arrow = () => {
         if (props.direction === 0) {
             return (<>
-                <Arrow src={greyUp} onClick={() => handleVote(1)} />
+                <Arrow onMouseOver={(e) => (e.currentTarget.src = coloredUp)}
+                    onMouseOut={(e) => (e.currentTarget.src = greyUp)} src={greyUp} onClick={() => handleVote(1)} />
                 <Heading size="md">{props.votesCount}</Heading>
-                <Arrow src={greyDown} onClick={() => handleVote(-1)} />
+                <Arrow onMouseOver={(e) => (e.currentTarget.src = coloredDown)}
+                    onMouseOut={(e) => (e.currentTarget.src = greyDown)} src={greyDown} onClick={() => handleVote(-1)} />
             </>)
         } else if (props.direction === 1) {
             return (<>
                 <Arrow src={coloredUp} onClick={() => handleVote(0)} />
                 <Heading size="md">{props.votesCount}</Heading>
-                <Arrow src={greyDown} onClick={() => handleVote(-1)} />
+                <Arrow onMouseOver={(e) => (e.currentTarget.src = coloredDown)}
+                    onMouseOut={(e) => (e.currentTarget.src = greyDown)} src={greyDown} onClick={() => handleVote(-1)} />
             </>)
         } else {
             return (<>
-                <Arrow src={greyUp} onClick={() => handleVote(1)} />
+                <Arrow onMouseOver={(e) => (e.currentTarget.src = coloredUp)}
+                    onMouseOut={(e) => (e.currentTarget.src = greyUp)} src={greyUp} onClick={() => handleVote(1)} />
                 <Heading size="md">{props.votesCount}</Heading>
                 <Arrow src={coloredDown} onClick={() => handleVote(0)} />
             </>)
@@ -49,15 +54,15 @@ function PostCard(props) {
         <TextContainer onClick={() => goToPostDetails(history, props.id)}>
 
             <UserThings>
-            <Avatar src={props.image} />
-            <Heading size="xs" pl="0.4em">u/{props.username}</Heading>
+                <Avatar src={props.image} />
+                <Heading size="xs" pl="0.4em">u/{props.username}</Heading>
             </UserThings>
 
             <Heading pb="0.2em" size="lg">{props.title} </Heading>
 
             <Text>{props.text}</Text>
-            
-            <Text pt="0.3em" textAlign="end"><ChatIcon  color="grey" /> {props.commentsCount} {props.commentsCount === 1? "comentário" : "comentários"}</Text>
+
+            <Text pt="0.3em" textAlign="end"><ChatIcon color="grey" /> {props.commentsCount} {props.commentsCount === 1 ? "comentário" : "comentários"}</Text>
 
         </TextContainer>
 
