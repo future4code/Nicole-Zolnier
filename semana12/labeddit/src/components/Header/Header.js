@@ -5,7 +5,7 @@ import logo from '../../assets/logo-nome.svg'
 import { Button, Heading, Text, Avatar, AvatarBadge } from "@chakra-ui/react"
 import home from '../../assets/home.svg'
 import logoutIcon from '../../assets/logout.svg'
-import { HeaderContainer, Logo, ButtonsContainer, HomeContainer, HomeIcon, LeftContainer, LogoFeed, RightContainer, LogoutIcon } from './styled'
+import { HeaderContainer, Logo, ButtonsContainer, HomeContainer, HomeIcon, LeftContainer, LogoFeed, RightContainer, LogoutIcon, Title, Username } from './styled'
 
 function Header() {
   const history = useHistory()
@@ -24,7 +24,7 @@ function Header() {
         <LogoFeed src={logo} />
         <HomeContainer onClick={() => goToFeed(history)}>
           <HomeIcon src={home} />
-          <Text>Home</Text>
+          <Title>Home</Title>
         </HomeContainer>
       </LeftContainer>
 
@@ -32,7 +32,7 @@ function Header() {
         <Avatar src={`https://avatars.dicebear.com/api/avataaars/${username}.svg`}>
           <AvatarBadge boxSize="1em" bg="green.500" />
         </Avatar>
-        <Heading pl="1em" size="sm">u/{username}</Heading>
+        <Username pl="0.5em" size="sm">u/{username}</Username>
         <LogoutIcon onClick={logout} src={logoutIcon} />
       </RightContainer>
     </HeaderContainer>

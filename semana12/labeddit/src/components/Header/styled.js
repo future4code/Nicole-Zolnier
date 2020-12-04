@@ -47,9 +47,9 @@ export const HomeIcon = styled.img`
 
 export const LogoutIcon = styled.img`
     width: 8%;
-    margin-left: 3em;
+    margin-left: 1em;
     cursor: pointer;
-    @media screen and (min-device-width : 320px) and (max-device-width : 420px) {
+  @media screen and (min-device-width : 320px) and (max-device-width : 420px) {
     width: 45%;
   }
   @media screen and (min-device-width : 421px) and (max-device-width : 800px) {
@@ -61,36 +61,46 @@ export const LeftContainer = styled.div`
     display: flex;
     justify-content: space-between;
     width: 25%;
-    position: absolute;
-    left: 10px;
 `
 export const HeaderFeed = styled.div`
     display: flex;
-    position: relative;
     background-color: white;
     height: 8vh;
     align-items: center;
     justify-content: center;
+    margin: 0 1em;
+    @media screen and (min-device-width : 320px) and (max-device-width : 420px) {
+      margin: 0 10em;
+    }
+    @media screen and (min-device-width : 421px) and (max-device-width : 800px) {
+      margin: 0 10em;
+    }
 `
 
 export const RightContainer = styled.div`
     display: flex;
     width: 25%;
-    position: absolute;
     align-items: center;
-    right: 1px;
 `
 
 export const LogoFeed = styled.img`
     width: 45%;
     margin-right: 2em;
     @media screen and (min-device-width : 320px) and (max-device-width : 420px) {
-    width: 100%;
+      width: 100%;
     }
     @media screen and (min-device-width : 421px) and (max-device-width : 800px) {
-    width: 50%;
+      width: 50%;
     }
 `
-export const Title = styled(Heading)`
+export const Username = styled(Heading)`
+  @media screen and (min-device-width : 320px) and (max-device-width : 420px) {
+    display: none;
+  }
+`
 
+export const Title = styled(Text)`
+  @media screen and (min-device-width : 320px) and (max-device-width : 420px) {
+    display: none;
+  }
 `
