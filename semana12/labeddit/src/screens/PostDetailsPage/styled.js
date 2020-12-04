@@ -46,6 +46,9 @@ export const Arrow = styled.img`
     width: 50%;
     margin: 0.2em;
     cursor: pointer;
+    @media screen and (min-device-width : 320px) and (max-device-width : 420px) {
+    width: 90%;
+  }
 `
 
 export const TextContainer = styled.div`
@@ -61,8 +64,9 @@ export const InfoContainer = styled.div`
 
 export const Avatar = styled.img`
     width: 10%;
-    border-radius: 5px;
+    border-radius: 50%;
     border: 1px solid #A7A9AB;
+    
 `
 
 export const UserThings = styled.div`

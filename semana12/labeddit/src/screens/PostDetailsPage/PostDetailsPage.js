@@ -64,7 +64,7 @@ function PostDetailsPage() {
             </ButtonsContainer>
             <TextContainer>
               <UserThings>
-                <Avatar src={`https://avatars.dicebear.com/api/avataaars/${post.id}.svg`} />
+                <Avatar src={`https://avatars.dicebear.com/api/avataaars/${post.username}.svg`} />
                 <Heading size="xs" pl="0.4em">u/{post.username}</Heading>
               </UserThings>
               <Heading pb="0.2em" size="lg">{post.title}</Heading>
@@ -75,7 +75,7 @@ function PostDetailsPage() {
           <CreateComment update={update} id={post.id} />
         </StyledBox>
         <CommentsContainer>{post.comments.map((item) => {
-          return <CommentCard image={`https://avatars.dicebear.com/api/avataaars/${item.id}.svg`} direction={item.userVoteDirection} commentId={item.id} postId={params.id} update={update} id={item.id} text={item.text} username={item.username} userVoteDirection={item.userVoteDirection} votesCount={item.votesCount} />
+          return <CommentCard image={`https://avatars.dicebear.com/api/avataaars/${item.username}.svg`} direction={item.userVoteDirection} commentId={item.id} postId={params.id} update={update} id={item.id} text={item.text} username={item.username} userVoteDirection={item.userVoteDirection} votesCount={item.votesCount} />
         })}</CommentsContainer>
       </DetailsContainer>}
     </MainContainer>

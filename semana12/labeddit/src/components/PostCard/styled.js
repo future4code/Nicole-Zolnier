@@ -14,6 +14,9 @@ export const Arrow = styled.img`
     width: 50%;
     margin: 0.2em;
     cursor: pointer;
+    @media screen and (min-device-width : 320px) and (max-device-width : 420px) {
+    width: 90%;
+  }
 `
 
 export const StyledBox = styled(Box)`
