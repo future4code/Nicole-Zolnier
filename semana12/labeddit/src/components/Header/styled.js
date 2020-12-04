@@ -18,7 +18,7 @@ export const HeaderContainer = styled.div`
 export const Logo = styled.img`
   width: 12%;
   @media screen and (min-device-width : 320px) and (max-device-width : 420px) {
-    width: 45%;
+    width: 42%;
   }
   @media screen and (min-device-width : 421px) and (max-device-width : 800px) {
     width: 32%;
@@ -38,10 +38,10 @@ export const HomeIcon = styled.img`
     width: 12%;
     margin-right: 0.5em;
     @media screen and (min-device-width : 320px) and (max-device-width : 420px) {
-    width: 45%;
+    width: 35%;
   }
   @media screen and (min-device-width : 421px) and (max-device-width : 800px) {
-    width: 32%;
+    width: 30%;
   }
 `
 
@@ -50,10 +50,10 @@ export const LogoutIcon = styled.img`
     margin-left: 1em;
     cursor: pointer;
   @media screen and (min-device-width : 320px) and (max-device-width : 420px) {
-    width: 45%;
+    width: 30%;
   }
   @media screen and (min-device-width : 421px) and (max-device-width : 800px) {
-    width: 32%;
+    width: 20%;
   }
 `
 
@@ -61,6 +61,12 @@ export const LeftContainer = styled.div`
     display: flex;
     justify-content: space-between;
     width: 25%;
+    @media screen and (min-device-width : 320px) and (max-device-width : 420px) {
+    width: 75%;
+  }
+  @media screen and (min-device-width : 421px) and (max-device-width : 800px) {
+    width: 50%;
+  }
 `
 export const HeaderFeed = styled.div`
     display: flex;
@@ -87,7 +93,7 @@ export const LogoFeed = styled.img`
     width: 45%;
     margin-right: 2em;
     @media screen and (min-device-width : 320px) and (max-device-width : 420px) {
-      width: 100%;
+      width: 55%;
     }
     @media screen and (min-device-width : 421px) and (max-device-width : 800px) {
       width: 50%;
@@ -97,10 +103,14 @@ export const Username = styled(Heading)`
   @media screen and (min-device-width : 320px) and (max-device-width : 420px) {
     display: none;
   }
+
 `
 
 export const Title = styled(Text)`
   @media screen and (min-device-width : 320px) and (max-device-width : 420px) {
     display: none;
   }
+  @media screen and (min-device-width : 421px) and (max-device-width : 800px) {
+      font-size: 1.2rem;
+    }
 `
