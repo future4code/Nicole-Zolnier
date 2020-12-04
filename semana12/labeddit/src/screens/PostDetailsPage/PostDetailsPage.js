@@ -74,7 +74,7 @@ function PostDetailsPage() {
           </InfoContainer>
           <CreateComment update={update} id={post.id} />
         </StyledBox>
-        <CommentsContainer>{post.comments.map((item) => {
+        <CommentsContainer>{post.comments.sort((a,b) => a.createdAt < b.createdAt ? 1 : -1).map((item) => {
           return <CommentCard image={`https://avatars.dicebear.com/api/avataaars/${item.username}.svg`} direction={item.userVoteDirection} commentId={item.id} postId={params.id} update={update} id={item.id} text={item.text} username={item.username} userVoteDirection={item.userVoteDirection} votesCount={item.votesCount} />
         })}</CommentsContainer>
       </DetailsContainer>}
