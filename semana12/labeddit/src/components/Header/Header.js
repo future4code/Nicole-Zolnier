@@ -2,7 +2,7 @@ import React from 'react'
 import { goToFeed, goToLogin, goToSignUp } from '../../router/coordinator'
 import { useHistory } from 'react-router-dom'
 import logo from '../../assets/logo-nome.svg'
-import { Button, Heading, Text, Avatar, AvatarBadge } from "@chakra-ui/react"
+import { Button, Avatar, AvatarBadge } from "@chakra-ui/react"
 import home from '../../assets/home.svg'
 import logoutIcon from '../../assets/logout.svg'
 import { HeaderContainer, Logo, ButtonsContainer, HomeContainer, HomeIcon, LeftContainer, LogoFeed, RightContainer, LogoutIcon, Title, Username } from './styled'
@@ -13,8 +13,11 @@ function Header() {
   const username = localStorage.getItem("username")
 
   const logout = () => {
-    localStorage.removeItem("token");
-    goToLogin(history)
+    const beSure = window.confirm("Você tem certeza que quer sair da conta?")
+    if(beSure){
+      localStorage.removeItem("token");
+      goToLogin(history)
+    }
   }
 
 

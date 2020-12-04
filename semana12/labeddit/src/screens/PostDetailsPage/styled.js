@@ -64,7 +64,7 @@ export const InfoContainer = styled.div`
 
 export const Avatar = styled.img`
     width: 10%;
-    border-radius: 50%;
+    border-radius: 5px;
     border: 1px solid #A7A9AB;
     
 `

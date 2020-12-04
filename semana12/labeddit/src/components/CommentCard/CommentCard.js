@@ -19,19 +19,23 @@ function CommentCard(props) {
     const arrow = () => {
         if (props.direction === 0) {
             return (<>
-                <Arrow src={greyUp} onClick={() => handleVote(1)} />
+                <Arrow onMouseOver={(e) => (e.currentTarget.src = coloredUp)}
+                    onMouseOut={(e) => (e.currentTarget.src = greyUp)} src={greyUp} onClick={() => handleVote(1)} />
                 <Heading size="md">{props.votesCount}</Heading>
-                <Arrow src={greyDown} onClick={() => handleVote(-1)} />
+                <Arrow onMouseOver={(e) => (e.currentTarget.src = coloredDown)}
+                    onMouseOut={(e) => (e.currentTarget.src = greyDown)} src={greyDown} onClick={() => handleVote(-1)} />
             </>)
         } else if (props.direction === 1) {
             return (<>
                 <Arrow src={coloredUp} onClick={() => handleVote(0)} />
                 <Heading size="md">{props.votesCount}</Heading>
-                <Arrow src={greyDown} onClick={() => handleVote(-1)} />
+                <Arrow onMouseOver={(e) => (e.currentTarget.src = coloredDown)}
+                    onMouseOut={(e) => (e.currentTarget.src = greyDown)} src={greyDown} onClick={() => handleVote(-1)} />
             </>)
         } else {
             return (<>
-                <Arrow src={greyUp} onClick={() => handleVote(1)} />
+                <Arrow onMouseOver={(e) => (e.currentTarget.src = coloredUp)}
+                    onMouseOut={(e) => (e.currentTarget.src = greyUp)} src={greyUp} onClick={() => handleVote(1)} />
                 <Heading size="md">{props.votesCount}</Heading>
                 <Arrow src={coloredDown} onClick={() => handleVote(0)} />
             </>)
