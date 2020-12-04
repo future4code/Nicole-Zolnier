@@ -1,20 +1,10 @@
 import React from 'react'
-import {useProtectedPage} from '../hooks/useProtectedPage'
-import { useRequestData } from '../hooks/useRequestData'
-import PostCard from '../components/PostCard/PostCard'
-import Loading from '../components/Loading'
-import CreatePost from '../components/CreatePost/CreatePost'
-import styled from 'styled-components'
-
-const PostsContainer = styled.div`
-    display: flex;
-    gap: 1em;
-    flex-direction: column;
-    align-items: center;
-    background-color: #DAE0E6;
-    min-height: 100vh;
-    padding-bottom: 2em;
-`
+import {useProtectedPage} from '../../hooks/useProtectedPage'
+import { useRequestData } from '../../hooks/useRequestData'
+import PostCard from '../../components/PostCard/PostCard'
+import Loading from '../../components/Loading'
+import CreatePost from '../../components/CreatePost/CreatePost'
+import {PostsContainer} from './styled'
 
 function FeedPage() {
   useProtectedPage()
