@@ -29,8 +29,6 @@ function PostDetailsPage() {
     votePost(body, params.id, update)
   }
 
-  console.log(post)
-
   const arrow = () => {
     if (post.userVoteDirection === 0) {
       return (<>
