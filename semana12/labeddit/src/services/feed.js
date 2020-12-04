@@ -13,7 +13,6 @@ export const createPost = (body, update) => {
         update()
     }).catch((err) => {
       window.alert("Ih deu erro!")
-      console.log(err)
     })
 }
 
@@ -28,23 +27,20 @@ export const createComment = (body, postId, update) => {
 }
 
 export const votePost = (body, postId, update) => {
-    console.log(body)
     axios.put(`${baseUrl}/posts/${postId}/vote`, body, axiosConfig).then((res) => {
         update()
     }).catch((err) => {
-      window.alert("Ih deu erro!")
+      window.alert("Não foi, você poderia clicar novamente?")
       console.log(err)
     })
 
 }
 
 export const voteComment = (body, postId, commentId, update) => {
-    
-
     axios.put(`${baseUrl}/posts/${postId}/comment/${commentId}/vote`, body, axiosConfig).then((res) => {
         update()
     }).catch((err) => {
-      window.alert("Ih deu erro!")
+      window.alert("Não foi, você poderia clicar novamente?")
       console.log(err)
     })
 

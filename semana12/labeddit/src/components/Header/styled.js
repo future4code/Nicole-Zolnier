@@ -38,7 +38,7 @@ export const HomeIcon = styled.img`
     width: 12%;
     margin-right: 0.5em;
     @media screen and (min-device-width : 320px) and (max-device-width : 420px) {
-    width: 35%;
+    display: none;
   }
   @media screen and (min-device-width : 421px) and (max-device-width : 800px) {
     width: 30%;
@@ -62,7 +62,8 @@ export const LeftContainer = styled.div`
     justify-content: space-between;
     width: 25%;
     @media screen and (min-device-width : 320px) and (max-device-width : 420px) {
-    width: 75%;
+    width: 50%;
+    justify-content: null;
   }
   @media screen and (min-device-width : 421px) and (max-device-width : 800px) {
     width: 50%;
@@ -92,8 +93,10 @@ export const RightContainer = styled.div`
 export const LogoFeed = styled.img`
     width: 45%;
     margin-right: 2em;
+    cursor: pointer;
     @media screen and (min-device-width : 320px) and (max-device-width : 420px) {
-      width: 55%;
+      width: 90%;
+      margin-right: 0;
     }
     @media screen and (min-device-width : 421px) and (max-device-width : 800px) {
       width: 50%;
@@ -112,5 +115,17 @@ export const Title = styled(Text)`
   }
   @media screen and (min-device-width : 421px) and (max-device-width : 800px) {
       font-size: 1.2rem;
-    }
+  }
+`
+
+export const CenterContainer = styled.div`
+  width: 30%;
+  
+  @media screen and (min-device-width : 320px) and (max-device-width : 420px) {
+    width: 50%;
+    margin-right: 1em;
+  }
+  @media screen and (min-device-width : 421px) and (max-device-width : 800px) {
+    margin-right: 1em;
+  }
 `

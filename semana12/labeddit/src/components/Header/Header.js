@@ -5,7 +5,8 @@ import logo from '../../assets/logo-nome.svg'
 import { Button, Avatar, AvatarBadge } from "@chakra-ui/react"
 import home from '../../assets/home.svg'
 import logoutIcon from '../../assets/logout.svg'
-import { HeaderContainer, Logo, ButtonsContainer, HomeContainer, HomeIcon, LeftContainer, LogoFeed, RightContainer, LogoutIcon, Title, Username } from './styled'
+import { HeaderContainer, Logo, ButtonsContainer, HomeContainer, HomeIcon, LeftContainer, LogoFeed, RightContainer, LogoutIcon, Title, Username, CenterContainer } from './styled'
+import SearchBar from '../SearchBar'
 
 function Header() {
   const history = useHistory()
@@ -14,7 +15,7 @@ function Header() {
 
   const logout = () => {
     const beSure = window.confirm("Você tem certeza que quer sair da conta?")
-    if(beSure){
+    if (beSure) {
       localStorage.removeItem("token");
       goToLogin(history)
     }
@@ -24,16 +25,21 @@ function Header() {
   if (token) {
     return (<HeaderContainer>
       <LeftContainer>
-        <LogoFeed src={logo} />
+        <LogoFeed onClick={() => goToFeed(history)} src={logo} />
         <HomeContainer onClick={() => goToFeed(history)}>
           <HomeIcon src={home} />
           <Title>Home</Title>
         </HomeContainer>
       </LeftContainer>
 
+      <CenterContainer>
+        <SearchBar />
+      </CenterContainer>
+
+
       <RightContainer>
-        <Avatar src={`https://avatars.dicebear.com/api/avataaars/${username}.svg`}>
-          <AvatarBadge boxSize="1em" bg="green.500" />
+        <Avatar boxSize="2.2em" src={`https://avatars.dicebear.com/api/avataaars/${username}.svg`}>
+          <AvatarBadge boxSize="0.8em" bg="green.500" />
         </Avatar>
         <Username pl="0.5em" size="sm">u/{username}</Username>
         <LogoutIcon onClick={logout} src={logoutIcon} />

@@ -9,3 +9,5 @@ function Base() {
 }
 
 export default Base;
+
+// component pra eu basicamente fazer um ctrl c ctrl v
