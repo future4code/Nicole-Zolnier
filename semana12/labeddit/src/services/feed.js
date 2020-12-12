@@ -1,14 +1,12 @@
 import axios from 'axios'
 import {baseUrl} from '../constants/urls'
 
-const axiosConfig = {
-    headers: {
-        Authorization: localStorage.getItem("token")
-    }
-}
-
 export const createPost = (body, update) => {
-    axios.post(`${baseUrl}/posts`, body, axiosConfig).then((res) => {
+    axios.post(`${baseUrl}/posts`, body, {
+        headers: {
+            Authorization: localStorage.getItem("token")
+        }
+    }).then((res) => {
         window.alert("Post criado com sucesso!")
         update()
     }).catch((err) => {
@@ -17,7 +15,11 @@ export const createPost = (body, update) => {
 }
 
 export const createComment = (body, postId, update) => {
-    axios.post(`${baseUrl}/posts/${postId}/comment`, body, axiosConfig).then((res) => {
+    axios.post(`${baseUrl}/posts/${postId}/comment`, body, {
+        headers: {
+            Authorization: localStorage.getItem("token")
+        }
+    }).then((res) => {
         window.alert("Comentário criado com sucesso!")
         update()
     }).catch((err) => {
@@ -27,7 +29,11 @@ export const createComment = (body, postId, update) => {
 }
 
 export const votePost = (body, postId, update) => {
-    axios.put(`${baseUrl}/posts/${postId}/vote`, body, axiosConfig).then((res) => {
+    axios.put(`${baseUrl}/posts/${postId}/vote`, body, {
+        headers: {
+            Authorization: localStorage.getItem("token")
+        }
+    }).then((res) => {
         update()
     }).catch((err) => {
       window.alert("Não foi, você poderia clicar novamente?")
@@ -37,7 +43,11 @@ export const votePost = (body, postId, update) => {
 }
 
 export const voteComment = (body, postId, commentId, update) => {
-    axios.put(`${baseUrl}/posts/${postId}/comment/${commentId}/vote`, body, axiosConfig).then((res) => {
+    axios.put(`${baseUrl}/posts/${postId}/comment/${commentId}/vote`, body, {
+        headers: {
+            Authorization: localStorage.getItem("token")
+        }
+    }).then((res) => {
         update()
     }).catch((err) => {
       window.alert("Não foi, você poderia clicar novamente?")
