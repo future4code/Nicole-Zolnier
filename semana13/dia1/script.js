@@ -1,3 +1,5 @@
+// substring() method extracts the characters from a string, between two specified indices, and returns the new sub string.
+
 // ---- ex 1 - funcao que reverte um texto
 
 /* const answer = prompt("Escreva algo").toLowerCase()
@@ -26,8 +28,18 @@ const checkIfPalindrome = (string) => {
 console.log(checkIfPalindrome(answer))  */
 
 // ---- ex 3 - combinacoes string
+/* const answer = prompt("Digite uma palavra maneira")
+const getCombinations = (string) => {
+    let stringArray = []
+    for (i = 0; i < string.length; i++) {
+        for (j = i + 1; j < string.length + 1; j++) {
+            stringArray.push(string.slice(i, j));
+        }
+    }
+    return stringArray.join(", ")
+}
+console.log(getCombinations(answer)) */
 
-// errrrrr ta dificil
 
 // ---- ex 4 - string em ordem alfabetica
 
@@ -41,7 +53,7 @@ console.log(sortString(answer))
  */
 
 //  ---- ex 5 - letra inicial maiuscula
-const answer = prompt("Escreva uma frase")
+/* const answer = prompt("Escreva uma frase")
 
 const uppercaseString = (string) => {
     let splitString = string.toLowerCase().split(' ');
@@ -51,4 +63,5 @@ const uppercaseString = (string) => {
     return splitString.join(' ');
 }
 
-console.log(uppercaseString(answer))
+console.log(uppercaseString(answer)) */
+
