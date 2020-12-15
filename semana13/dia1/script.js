@@ -138,3 +138,23 @@ const secondBest = (array) => {
 }
 
 console.log(secondBest(numbersArray)) */
+
+// ---- ex 9 - extrair caracteres unicos
+// // "thequickbrownfoxjumpsoverthelazydog"
+// charAt() method returns the character at the specified index in a string.
+
+/* const anything = prompt("digite algo sem espaço. ex: batataquente")
+const uniqueCharacters = (string) => {
+    let unique = ""
+    for (let i = 0; i < string.length; i++) {
+        if (unique.indexOf(string.charAt(i)) == -1) {
+            unique += string[i];
+
+        }
+    }
+    return unique
+}
+console.log(anything)
+console.log(uniqueCharacters(anything)) */
+
+
