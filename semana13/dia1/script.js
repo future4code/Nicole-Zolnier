@@ -84,3 +84,22 @@ const getLongestWord = (string) => {
 console.log(sentence)
 console.log(getLongestWord(sentence)) */
 
+// ---- ex 7 - contar vogals
+
+/* const vowels = ["a", "e", "i", "o", "u"]
+const word = prompt("Digite uma palavra")
+
+const vowelCounter = (string) => {
+    let counter = 0
+
+    for (let letter of string.toLowerCase()){
+        if (vowels.includes(letter)) {
+           counter++
+        }
+    }
+    const rightText = counter === 1 ? "vogal" : "vogais"
+
+    return `${string} possui ${counter} ${rightText}`
+}
+
+console.log(vowelCounter(word)) */
