@@ -103,3 +103,38 @@ const vowelCounter = (string) => {
 }
 
 console.log(vowelCounter(word)) */
+
+// ---- ex 8 - segundo maior e menor
+/* const numbersArray = [34, 21, 42, 13, -2, 3.14, 72, 64, -13, 450, 100]
+
+const secondBest = (array) => {
+    let lowest = Infinity
+    let highest = 0
+    let secondLowest = Infinity
+    let secondHighest = 0
+    let indexLowest = 0
+    let indexHighest = 0
+    for (let number of array) {
+        if (number < lowest) {
+            lowest = number
+            indexLowest = array.indexOf(lowest)
+        }
+        if (number > highest) {
+            highest = number
+            indexHighest = array.indexOf(highest)
+        }
+    }
+    array.splice(indexHighest, 1)
+    array.splice(indexLowest, 1)
+    for (let number of array) {
+        if (number < secondLowest) {
+            secondLowest = number
+        }
+        if (number > secondHighest) {
+            secondHighest = number
+        }
+    }
+    return `Os segundos maiores são ${secondLowest} e ${secondHighest}`
+}
+
+console.log(secondBest(numbersArray)) */
