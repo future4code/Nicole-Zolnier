@@ -65,3 +65,22 @@ const uppercaseString = (string) => {
 
 console.log(uppercaseString(answer)) */
 
+// ---- ex 6 - maior palavra
+/* const sentence = prompt("Digite uma frase")
+
+const getLongestWord = (string) => {
+    let stringInArray = string.split(" ");
+    let longest = 0;
+    let longestWord = null;
+    for (let word of stringInArray) {
+        if (longest < word.length) {
+            longest = word.length;
+            longestWord = word;
+        }
+    }
+    return `A maior palavra é ${longestWord}`
+}
+
+console.log(sentence)
+console.log(getLongestWord(sentence)) */
+
