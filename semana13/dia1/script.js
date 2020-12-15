@@ -11,7 +11,7 @@ console.log(reverseText(answer)) */
 
 // ex 2 - palindromo
 
-const answer = prompt("Escreva uma palavra massa").toLowerCase()
+/* const answer = prompt("Escreva uma palavra massa").toLowerCase()
 
 const checkIfPalindrome = (string) => {
     const reverseString = string.split("").reverse().join("")
@@ -23,4 +23,17 @@ const checkIfPalindrome = (string) => {
     }
 }
 
-console.log(checkIfPalindrome(answer))
+console.log(checkIfPalindrome(answer)) */
+
+// ex 3 - combinacoes string
+
+// errrrrr ta dificil
+
+// ex 4 - string em ordem alfabetica
+const answer = prompt("Digite algo")
+
+const alphabeticalOrderString = (string) => {
+    return string.split('').sort().join('');
+}
+
+console.log(alphabeticalOrderString(answer))
