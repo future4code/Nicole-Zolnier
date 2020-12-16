@@ -76,3 +76,19 @@ console.log(sortAscendingAlert(numbers)) */
 }
 
 evenThree() */
+
+// ---- ex 6 - asteriscos
+/* const pattern = () => {
+    let i = 0
+    let total = 5
+    while (i < total) {
+        let line = ""
+        for (let asterisk = 0; asterisk < i + 1; asterisk++) {
+            line += "*"
+        }
+        console.log(line)
+        i++
+    }
+}
+
+pattern() */
