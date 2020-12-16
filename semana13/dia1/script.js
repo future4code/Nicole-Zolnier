@@ -157,4 +157,15 @@ const uniqueCharacters = (string) => {
 console.log(anything)
 console.log(uniqueCharacters(anything)) */
 
-
+// ---- ex 10 - numero de caracteres
+/* const word = prompt("Escreva uma palavra")
+const countLetters = (string) => {
+    return string.split("").reduce((lettersObject, char) => {
+        if(lettersObject[char]){
+            return {...lettersObject, [char]: lettersObject[char] + 1}
+        } else {
+            return {...lettersObject, [char]: 1}
+        }
+    }, {})
+}
+console.log(countLetters(word)) */
