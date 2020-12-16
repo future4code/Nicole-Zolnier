@@ -29,3 +29,12 @@ const getLongestWord = (array) => {
 
 console.log(getLongestWord(wordsArray))
  */
+
+// ---- ex 3 - ordernar menor para maior
+// const numbers = [3, 27, 12]
+
+// const sortAscending = (array) => {
+//     return array.sort(function(a, b){return a-b})
+// }
+
+// console.log(sortAscending(numbers))
