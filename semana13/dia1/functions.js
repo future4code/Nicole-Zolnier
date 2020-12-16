@@ -70,11 +70,11 @@ console.log(uppercaseString(answer)) */
 
 const getLongestWord = (string) => {
     let stringInArray = string.split(" ");
-    let longest = 0;
+    let length = 0;
     let longestWord = null;
     for (let word of stringInArray) {
-        if (longest < word.length) {
-            longest = word.length;
+        if (length < word.length) {
+            length = word.length;
             longestWord = word;
         }
     }

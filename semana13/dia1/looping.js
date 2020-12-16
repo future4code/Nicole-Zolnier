@@ -12,3 +12,20 @@ const highestNumber = (array) => {
 
 console.log(highestNumber(numbersArray)) */
 
+// ---- ex 2 - string mais longa de um array
+/* const wordsArray = ["Casa", "Elefante", "Espelho", "Internacional"]
+
+const getLongestWord = (array) => {
+    let length = 0;
+    let longestWord = null;
+    for (let word of array) {
+        if (length < word.length) {
+            length = word.length;
+            longestWord = word;
+        }
+    }
+    return `A maior palavra é ${longestWord}`
+}
+
+console.log(getLongestWord(wordsArray))
+ */
