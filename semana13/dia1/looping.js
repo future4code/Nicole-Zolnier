@@ -30,14 +30,19 @@ const getLongestWord = (array) => {
 console.log(getLongestWord(wordsArray))
  */
 
-// ---- ex 3 - ordernar menor para maior
-// const numbers = [3, 27, 12]
+// ---- ex 3 - ordernar menor para maior / ordernar maior menor
+/* const numbers = [3, 27, 12]
 
-// const sortAscending = (array) => {
-//     return array.sort(function(a, b){return a-b})
-// }
+const sortAscending = (array) => {
+    return array.sort(function(a, b){return a-b})
+}
 
-// console.log(sortAscending(numbers))
+const sortDescending = (array) => {
+    return array.sort(function(a, b){return b-a})
+}
+
+console.log(sortAscending(numbers))
+console.log(sortDescending(numbers)) */
 
 // ---- ex 4 - ordernar menor para maior + alert no maior
 /* const numbers = [3, 27, 12]
@@ -54,3 +59,4 @@ const sortAscendingAlert = (array) => {
 }
 
 console.log(sortAscendingAlert(numbers)) */
+
