@@ -60,3 +60,19 @@ const sortAscendingAlert = (array) => {
 
 console.log(sortAscendingAlert(numbers)) */
 
+// ---- ex 5 - checar se é par ou divisivel por 3 ou os dois
+/* const evenThree = () => {
+    for(let i = 0; i < 30; i++){
+        if(i%2 === 0 && i%3 === 0){
+            console.log(`${i} é par e divisivel por 3`)
+        } else if (i%3 === 0){
+            console.log(`${i} é divisivel por 3`)
+        } else if(i%2 === 0){
+            console.log(`${i} é par`)
+        } else {
+            console.log(`${i} é um numero primo`)
+        }
+    }
+}
+
+evenThree() */
