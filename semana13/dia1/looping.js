@@ -38,3 +38,19 @@ console.log(getLongestWord(wordsArray))
 // }
 
 // console.log(sortAscending(numbers))
+
+// ---- ex 4 - ordernar menor para maior + alert no maior
+/* const numbers = [3, 27, 12]
+
+const sortAscendingAlert = (array) => {
+    let highest = 0
+    for (let number of array) {
+        if (number > highest) {
+            highest = number
+        }
+    }
+    alert(highest)
+    return array.sort(function(a, b){return a-b})
+}
+
+console.log(sortAscendingAlert(numbers)) */
