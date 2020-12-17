@@ -70,7 +70,7 @@ console.log(sortAscendingAlert(numbers)) */
         } else if(i%2 === 0){
             console.log(`${i} é par`)
         } else {
-            console.log(`${i} é um numero primo`)
+            console.log(`${i} não é nada :(`)
         }
     }
 }
@@ -92,3 +92,34 @@ evenThree() */
 }
 
 pattern() */
+
+// ---- ex 7 - notas
+
+/* const pessoas = [
+    {name: "Soter", score: 80},
+    {name: "Paula", score: 77},
+    {name: "Caio", score:88},
+    {name: "Amanda", score: 95},
+    {name: "Mateus", score: 68},
+]
+
+const getGrades = (array) => {
+    const newArray = array.map((item) => {
+        if(item.score> 90){
+            return {...item, score: "Nota A"}
+        } else if(item.score> 80){
+            return {...item, score: "Nota B"}
+        } else if(item.score> 60){
+            return {...item, score: "Nota C"}
+        } else if(item.score> 40){
+            return {...item, score: "Nota D"}
+        } else if(item.score <30){
+            return {...item, score: "Nota E"}
+        }
+
+    })
+
+    return newArray
+}
+
+console.log(getGrades(pessoas)) */
