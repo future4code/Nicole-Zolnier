@@ -5,11 +5,11 @@ const newToDo = process.argv[2]
 fs.appendFile('./toDoList.txt', `${newToDo}, `, error => {
     if(error) throw error
 
-    console.log("Tarefa adicionada com sucesso!")
+    console.log("\x1b[36m" , "Tarefa adicionada com sucesso!")
 
     fs.readFile('./toDoList.txt', 'utf-8', (error, data) => {
         if(error) throw error
-        console.log(data)
+        console.log("\x1b[35m", data)
         })
 })
 
