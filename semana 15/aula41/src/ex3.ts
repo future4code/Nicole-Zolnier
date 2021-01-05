@@ -22,3 +22,14 @@ const posts: post[] = [
       texto: "Avada Kedavra!"
     }
 ]
+
+// a entrada é o array e o nome do autor, a saida é o array filtrado
+function buscarPostsPorAutor(posts: post[], autorInformado: string): post[] {
+  return posts.filter(
+    (post) => {
+      return post.autor === autorInformado
+    }
+  )
+} 
+
+console.log(buscarPostsPorAutor(posts, "Dobby"))
