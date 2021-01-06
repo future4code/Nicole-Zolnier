@@ -18,6 +18,9 @@ app.get("/countries/all", (req: Request, res: Response) => {
 app.get("/countries/search", (req: Request, res: Response) => {
     let result: country[] = countries
 
+    if(!req.query.name && !req.query.capital && !req.query.continent){
+        res.status(404).send("Coloque um parametro (name, capital ou continent)")
+    }
     if (req.query.name) {
         result = result.filter(
             country => country.name.includes(String(req.query.name))
@@ -33,8 +36,13 @@ app.get("/countries/search", (req: Request, res: Response) => {
             country => country.continent.includes(String(req.query.continent))
         )
     }
-    res.status(404).send("Pais não encontrado")
-    res.status(200).send(result)
+
+    if(result.length !== 0){
+        res.status(200).send(result)
+    } else {
+        res.status(404).send("Pais não encontrado")
+    }
+
 })
 
 // endpoint 2 - get country by id
