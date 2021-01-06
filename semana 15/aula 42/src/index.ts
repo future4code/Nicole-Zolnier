@@ -77,8 +77,31 @@ app.get("/countries/:id", (req: Request, res: Response) => {
 
 
 // endpoint 5 - delete country
-app.delete("countries/:id", (req: Request, res: Response) => {
-})
+app.delete("/countries/:id", (req:Request, res:Response)=>{
+    let errorCode: number = 400
+    try {
+ 
+       if(!req.headers.authorization){
+          errorCode = 401
+          throw new Error()
+       }
+ 
+       const countryIndex: number = countries.findIndex(
+          (country) => country.id === Number(req.params.id)
+       )
+ 
+          if(countryIndex === -1){
+             errorCode = 404
+             throw new Error()
+          }
+ 
+       countries.splice(countryIndex, 1)
+       res.status(200).end()
+    } catch (error) {
+       console.log(error)
+       res.status(errorCode).end()
+    }
+ })
 
 //  endpoint 6 - create country
 app.post("countries/create", (req: Request, res: Response) => {
