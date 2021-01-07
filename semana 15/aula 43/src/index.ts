@@ -173,6 +173,45 @@ app.put("/user/edit/:id", (req: Request, res: Response)=>{
 
 });
 
+// ex 6 - realterar um usuario
+app.patch("/user/patch/:id", (req: Request, res: Response)=>{
+
+    let errorCode: number = 400;
+
+    try {
+        const reqBody: {id: number, name: string} = {
+            id: Number(req.params.id),
+            name: req.body.name
+        }
+
+        if(!reqBody.name){
+            errorCode = 422;
+            throw new Error("Nome inválido. Preencha corretamente.");
+        }
+
+        if(isNaN(Number(reqBody.id))) {
+            errorCode = 422;
+            throw new Error("Id inválido");
+        }
+
+        const myUserIndex = users.findIndex(((u: user) => u.id === Number(reqBody.id)));
+
+        if (myUserIndex === -1) {
+            errorCode = 404;
+            throw new Error("Usuário não encontrado");
+        }
+
+        users[myUserIndex].name = reqBody.name;
+    
+        res.status(200).send({message: "Usuário atualizado com sucesso!"});
+        
+    } catch (error) {
+        res.status(errorCode).send({message: error.message});
+    }
+
+});
+
+
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
        const address = server.address() as AddressInfo;
