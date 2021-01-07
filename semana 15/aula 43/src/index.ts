@@ -103,8 +103,7 @@ app.get("/user/search", (req: Request, res: Response) => {
 // ex 4 - endpoint de criar
 // a) ele alterou meu usuario :(
 // b) não, porque ele edita usuarios em vez de criar
-
-app.post("/user", (req: Request, res: Response)=>{
+app.post("/user/create", (req: Request, res: Response)=>{
     let errorCode: number = 400;
 
     try {
@@ -135,6 +134,44 @@ app.post("/user", (req: Request, res: Response)=>{
     }
 
 })
+
+// ex 5 - endpoint alterar usuario
+app.put("/user/edit/:id", (req: Request, res: Response)=>{
+
+    let errorCode: number = 400;
+
+    try {
+        const reqBody: {id: number, name: string} = {
+            id: Number(req.params.id),
+            name: req.body.name
+        }
+
+        if(!reqBody.name){
+            errorCode = 422;
+            throw new Error("Nome inválido. Preencha corretamente.");
+        }
+
+        if(isNaN(Number(reqBody.id))) {
+            errorCode = 422;
+            throw new Error("Id inválido");
+        }
+
+        const myUserIndex = users.findIndex(((u: user) => u.id === Number(reqBody.id)));
+
+        if (myUserIndex === -1) {
+            errorCode = 404;
+            throw new Error("Usuário não encontrado");
+        }
+
+        users[myUserIndex].name = reqBody.name;
+    
+        res.status(200).send({message: "Usuário atualizado com sucesso!"});
+        
+    } catch (error) {
+        res.status(errorCode).send({message: error.message});
+    }
+
+});
 
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
