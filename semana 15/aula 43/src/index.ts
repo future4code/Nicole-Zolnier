@@ -19,10 +19,14 @@ app.use(cors());
 app.get("/user/all", (req: Request, res: Response) => {
     let errorCode: number = 400;
     try {
-        const result = users
+        // setando o resultado como o array
+        const result: user[] = users
+
+        // deu boa
         res.status(200).send(result);
 
     } catch (error) {
+        // deu ruim
         res.status(errorCode).send(error.message);
     }
 
@@ -33,32 +37,70 @@ app.get("/user/all", (req: Request, res: Response) => {
 // b) sim
 
 app.get("/user/", (req: Request, res: Response) => {
-    let errorCode = 400
-    const validQueries = ["ADMIN", "NORMAL"]
+    let errorCode: number = 400
+    const validOnes = ["ADMIN", "NORMAL"]
 
     try {
-        if (!Object.keys(req.query).length) {
-            throw new Error("Não encontrei nada, coloca um query aí!")
-        }
-
+        // colocando a query pra uppercase
         const searchQuery: string = (req.query.type as string).toUpperCase()
 
-        if(!validQueries.includes(searchQuery)){
-            errorCode = 422
+        // se a query não ficar igual as validas joga um erro
+        if(!validOnes.includes(searchQuery)){
             throw new Error("Query inválido.")
         }
 
+        // o filtro de query em si
         const result: user[] = users.filter((user) => {
             return user.type.toUpperCase() === searchQuery
         })
 
+        // deu boaaaaaaaaa
         res.status(200).send(result)
 
     } catch (error) {
+        // deu ruim
         res.status(errorCode).send(error.message)
     }
 
 });
+
+// ex 3 - endpoint pesquisa por nome
+// a) query params
+// b) ok
+app.get("/user", (req: Request, res: Response) => {
+    let errorCode: number = 400;
+    try {
+        // salvando a query
+        const name: string = req.query.nome as string
+
+        // se nao tiver query joga um erro
+        if (!name) {
+            errorCode = 422;
+            throw new Error("Nome inválido.")
+        }
+
+        // a busca pelo nome em si
+        const myUser = users.find(((u: user) => u.name.toLowerCase() === name.toLowerCase()))
+
+        // se nao achar o usuario, manda um erro
+        if (!myUser) {
+            errorCode = 404;
+            throw new Error("Usuário não encontrado")
+        }
+
+        // resultado é o usuario
+        const result = myUser;
+        // deu boaa
+        res.status(200).send(result)
+
+    } catch (error) {
+        // deu ruim
+        res.status(errorCode).send(error.message)
+    }
+
+})
+
+
 
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
