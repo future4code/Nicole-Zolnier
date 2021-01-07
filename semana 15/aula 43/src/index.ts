@@ -28,6 +28,37 @@ app.get("/user/all", (req: Request, res: Response) => {
 
 });
 
+// ex 2 - endpoint pesquisar por type
+// a) passei por queryparams pq o bruno disse que a bianca disse que o professor disse que era o melhor a se fazer
+// b) sim
+
+app.get("/user/", (req: Request, res: Response) => {
+    let errorCode = 400
+    const validQueries = ["ADMIN", "NORMAL"]
+
+    try {
+        if (!Object.keys(req.query).length) {
+            throw new Error("Não encontrei nada, coloca um query aí!")
+        }
+
+        const searchQuery: string = (req.query.type as string).toUpperCase()
+
+        if(!validQueries.includes(searchQuery)){
+            errorCode = 422
+            throw new Error("Query inválido.")
+        }
+
+        const result: user[] = users.filter((user) => {
+            return user.type.toUpperCase() === searchQuery
+        })
+
+        res.status(200).send(result)
+
+    } catch (error) {
+        res.status(errorCode).send(error.message)
+    }
+
+});
 
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
