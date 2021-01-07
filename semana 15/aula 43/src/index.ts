@@ -1,5 +1,5 @@
 //importando express com Request e Response e cors
-import express, {Request, Response} from 'express';
+import express, { Request, Response } from 'express';
 import cors from 'cors';
 import { users, user } from './users'
 
@@ -45,7 +45,7 @@ app.get("/user/search", (req: Request, res: Response) => {
         const searchQuery: string = (req.query.type as string).toUpperCase()
 
         // se a query não ficar igual as validas joga um erro
-        if(!validOnes.includes(searchQuery)){
+        if (!validOnes.includes(searchQuery)) {
             throw new Error("Query inválido.")
         }
 
@@ -103,7 +103,7 @@ app.get("/user/search", (req: Request, res: Response) => {
 // ex 4 - endpoint de criar
 // a) ele alterou meu usuario :(
 // b) não, porque ele edita usuarios em vez de criar
-app.post("/user/create", (req: Request, res: Response)=>{
+app.post("/user/create", (req: Request, res: Response) => {
     let errorCode: number = 400;
 
     try {
@@ -117,41 +117,41 @@ app.post("/user/create", (req: Request, res: Response)=>{
         }
 
         // se tiver faltando alguma coisa no objeto joga um erro
-        if(!newUser.age || !newUser.email || !newUser.type || !newUser.name){
+        if (!newUser.age || !newUser.email || !newUser.type || !newUser.name) {
             errorCode = 422;
             throw new Error("Algum campo está inválido. Preencha corretamente.");
         }
 
         // adiciona o novo user no array de users
         users.push(newUser);
-    
+
         // deu boaa
-        res.status(200).send({message: "Usuário inserido com sucesso!"});
-        
+        res.status(200).send({ message: "Usuário inserido com sucesso!" });
+
     } catch (error) {
         // deu ruim
-        res.status(errorCode).send({message: error.message});
+        res.status(errorCode).send({ message: error.message });
     }
 
 })
 
 // ex 5 - endpoint alterar usuario
-app.put("/user/edit/:id", (req: Request, res: Response)=>{
+app.put("/user/edit/:id", (req: Request, res: Response) => {
 
     let errorCode: number = 400;
 
     try {
-        const reqBody: {id: number, name: string} = {
+        const reqBody: { id: number, name: string } = {
             id: Number(req.params.id),
             name: req.body.name
         }
 
-        if(!reqBody.name){
+        if (!reqBody.name) {
             errorCode = 422;
             throw new Error("Nome inválido. Preencha corretamente.");
         }
 
-        if(isNaN(Number(reqBody.id))) {
+        if (isNaN(Number(reqBody.id))) {
             errorCode = 422;
             throw new Error("Id inválido");
         }
@@ -164,32 +164,32 @@ app.put("/user/edit/:id", (req: Request, res: Response)=>{
         }
 
         users[myUserIndex].name = reqBody.name;
-    
-        res.status(200).send({message: "Usuário atualizado com sucesso!"});
-        
+
+        res.status(200).send({ message: "Usuário atualizado com sucesso!" });
+
     } catch (error) {
-        res.status(errorCode).send({message: error.message});
+        res.status(errorCode).send({ message: error.message });
     }
 
 });
 
 // ex 6 - realterar um usuario
-app.patch("/user/patch/:id", (req: Request, res: Response)=>{
+app.patch("/user/patch/:id", (req: Request, res: Response) => {
 
     let errorCode: number = 400;
 
     try {
-        const reqBody: {id: number, name: string} = {
+        const reqBody: { id: number, name: string } = {
             id: Number(req.params.id),
             name: req.body.name
         }
 
-        if(!reqBody.name){
+        if (!reqBody.name) {
             errorCode = 422;
             throw new Error("Nome inválido. Preencha corretamente.");
         }
 
-        if(isNaN(Number(reqBody.id))) {
+        if (isNaN(Number(reqBody.id))) {
             errorCode = 422;
             throw new Error("Id inválido");
         }
@@ -202,22 +202,42 @@ app.patch("/user/patch/:id", (req: Request, res: Response)=>{
         }
 
         users[myUserIndex].name = reqBody.name;
-    
-        res.status(200).send({message: "Usuário atualizado com sucesso!"});
-        
+
+        res.status(200).send({ message: "Usuário atualizado com sucesso!" });
+
     } catch (error) {
-        res.status(errorCode).send({message: error.message});
+        res.status(errorCode).send({ message: error.message });
     }
 
 });
 
+// ex 7 - deletar usuario
+app.delete("/user/delete/:id", (req: Request, res: Response) => {
+    let errorCode: number = 400
+    try {
+        const userIndex: number = users.findIndex(
+            (u) => u.id === Number(req.params.id)
+        )
+
+        if (userIndex === -1) {
+            errorCode = 404
+            throw new Error("Usuario não encontrado")
+        }
+
+        users.splice(userIndex, 1)
+
+        res.status(200).send({ message: "Usuário deletado"})
+    } catch (error) {
+        res.status(errorCode).send({ message: error.message });
+    }
+})
 
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
-       const address = server.address() as AddressInfo;
-       console.log(`Server is running in http://localhost: ${address.port}`);
+        const address = server.address() as AddressInfo;
+        console.log(`Server is running in http://localhost: ${address.port}`);
     } else {
-       console.error(`Failure upon starting server.`);
+        console.error(`Failure upon starting server.`);
     }
-  });
-  
+});
+
