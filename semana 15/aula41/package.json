@@ -1,0 +1,12 @@
+{
+  "name": "aula41",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node ./build/ex1.js && node ./build/ex2.js && node ./build/ex3.js && node ./build/ex4.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nicole Zolnier",
+  "license": "ISC"
+}
