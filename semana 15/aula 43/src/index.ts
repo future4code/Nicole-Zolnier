@@ -36,7 +36,7 @@ app.get("/user/all", (req: Request, res: Response) => {
 // a) passei por queryparams pq o bruno disse que a bianca disse que o professor disse que era o melhor a se fazer
 // b) sim
 
-app.get("/user/", (req: Request, res: Response) => {
+app.get("/user/search", (req: Request, res: Response) => {
     let errorCode: number = 400
     const validOnes = ["ADMIN", "NORMAL"]
 
@@ -67,7 +67,7 @@ app.get("/user/", (req: Request, res: Response) => {
 // ex 3 - endpoint pesquisa por nome
 // a) query params
 // b) ok
-app.get("/user", (req: Request, res: Response) => {
+app.get("/user/search", (req: Request, res: Response) => {
     let errorCode: number = 400;
     try {
         // salvando a query
@@ -100,7 +100,41 @@ app.get("/user", (req: Request, res: Response) => {
 
 })
 
+// ex 4 - endpoint de criar
+// a) ele alterou meu usuario :(
+// b) não, porque ele edita usuarios em vez de criar
 
+app.post("/user", (req: Request, res: Response)=>{
+    let errorCode: number = 400;
+
+    try {
+        // o objetinho do usuario com o body
+        const newUser: user = {
+            id: Date.now(),
+            name: req.body.name,
+            email: req.body.email,
+            type: req.body.type,
+            age: req.body.age,
+        }
+
+        // se tiver faltando alguma coisa no objeto joga um erro
+        if(!newUser.age || !newUser.email || !newUser.type || !newUser.name){
+            errorCode = 422;
+            throw new Error("Algum campo está inválido. Preencha corretamente.");
+        }
+
+        // adiciona o novo user no array de users
+        users.push(newUser);
+    
+        // deu boaa
+        res.status(200).send({message: "Usuário inserido com sucesso!"});
+        
+    } catch (error) {
+        // deu ruim
+        res.status(errorCode).send({message: error.message});
+    }
+
+})
 
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
