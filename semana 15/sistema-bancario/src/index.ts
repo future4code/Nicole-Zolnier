@@ -2,6 +2,7 @@ import express, {Express, Request, Response} from 'express'
 import cors from 'cors'
 import { AddressInfo } from "net"
 import { users, userAccount } from './users'
+import { checkIfAdult, checkCpf } from './helpers'
 
 const app: Express = express();
 
@@ -24,9 +25,23 @@ app.post("/account/create", (req: Request, res: Response) => {
             throw new Error("Algum campo está inválido. Preencha corretamente.");
         }
 
+        const canOpenAccount: boolean = checkIfAdult(req.body.birthDate) 
+
+        if(!canOpenAccount) {
+            errorCode = 401
+            throw new Error("Você precisa ter 18 ou mais de 18 para criar uma conta")
+        }
+
+        const checkingCpf : userAccount | undefined = checkCpf(newUser.cpf)
+
+        if(checkingCpf){
+            errorCode = 409
+            throw new Error("Já existe uma conta com esse CPF")
+        }
+
         users.push(newUser);
 
-        res.status(200).send({ message: "Usuário inserido com sucesso!" });
+        res.status(200).send({ message: "Conta criada com sucesso! Seu atual saldo é 0, para depositos, use outro endpoint" });
 
     } catch (error) {
         res.status(errorCode).send({ message: error.message });
