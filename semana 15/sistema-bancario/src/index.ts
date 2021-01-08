@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(cors());
 
 app.post("/account/create", (req: Request, res: Response) => {
-    let errorCode: number = 400;
+    let errorCode: number = 400
     try {
         const newUser: userAccount = {
             name: req.body.name,
@@ -21,8 +21,8 @@ app.post("/account/create", (req: Request, res: Response) => {
         }
 
         if (!newUser.name || !newUser.cpf || !newUser.birthDate) {
-            errorCode = 422;
-            throw new Error("Algum campo está inválido. Preencha corretamente.");
+            errorCode = 422
+            throw new Error("Algum campo está inválido. Preencha corretamente.")
         }
 
         const canOpenAccount: boolean = checkIfAdult(req.body.birthDate) 
@@ -39,33 +39,60 @@ app.post("/account/create", (req: Request, res: Response) => {
             throw new Error("Já existe uma conta com esse CPF")
         }
 
-        users.push(newUser);
+        users.push(newUser)
 
-        res.status(200).send({ message: "Conta criada com sucesso! Seu atual saldo é 0, para depositos, use outro endpoint" });
+        res.status(200).send({ message: "Conta criada com sucesso! Seu atual saldo é 0, para depositos, use outro endpoint" })
 
     } catch (error) {
-        res.status(errorCode).send({ message: error.message });
+        res.status(errorCode).send({ message: error.message })
     }
 })
 
+
+app.get("/account/search", (req: Request, res: Response) => {
+    let errorCode: number = 400
+    try {
+        const cpf: number = Number(req.query.cpf)
+        if(!cpf) {
+            throw new Error("Insira um CPF válido")
+        }
+
+        const checkingCpf: userAccount | undefined = checkCpf(cpf)
+
+        if(!checkingCpf) {
+            errorCode = 404
+            throw new Error("Conta não encontrada")
+        } else {
+            const result = checkingCpf.balance
+
+            res.status(200).send({balance: result})
+        }
+        
+    } catch (error) {
+        res.status(errorCode).send({ message: error.message })
+    }
+
+})
+
 app.get("/account/all", (req: Request, res: Response) => {
-    let errorCode: number = 400;
+    let errorCode: number = 400
+
     try {
         const result: userAccount[] = users
 
-        res.status(200).send(result);
+        res.status(200).send(result)
 
     } catch (error) {
-        res.status(errorCode).send(error.message);
+        res.status(errorCode).send(error.message)
     }
 
-});
-  
+})
+
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
        const address = server.address() as AddressInfo;
-       console.log(`Server is running in http://localhost: ${address.port}`);
+       console.log(`Server is running in http://localhost: ${address.port}`)
     } else {
-       console.error(`Failure upon starting server.`);
+       console.error(`Failure upon starting server.`)
     }
-});
+  })

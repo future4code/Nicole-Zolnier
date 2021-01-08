@@ -8,7 +8,7 @@ export const getTimestamp = (date: string): number => {
     return new Date(`${year}-${month}-${day}`).getTime()
 }
 
-console.log(today)
+// console.log(today)
 export const checkIfAdult = (birthDate: string): boolean => {
 
     const birthDateTimestamp = getTimestamp(birthDate)
@@ -20,7 +20,7 @@ export const checkIfAdult = (birthDate: string): boolean => {
     return age > 18
 }
 
-console.log(checkIfAdult("22/02/2002"))
+// console.log(checkIfAdult("22/02/2002"))
 
 export const checkCpf = (cpf: number): userAccount | undefined => {
     return users.find(account => {
