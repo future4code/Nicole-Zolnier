@@ -1,7 +1,7 @@
 import express, {Express, Request, Response} from 'express'
 import cors from 'cors'
 import { AddressInfo } from "net"
-import { users, userAccount } from './users'
+import { users, userAccount, transaction } from './users'
 import { checkIfAdult, checkCpf } from './helpers'
 
 const app: Express = express();
@@ -32,22 +32,51 @@ app.post("/account/create", (req: Request, res: Response) => {
             throw new Error("Você precisa ter 18 ou mais de 18 para criar uma conta")
         }
 
-        const checkingCpf : userAccount | undefined = checkCpf(newUser.cpf)
+        const existingAccount : userAccount | undefined = checkCpf(newUser.cpf)
 
-        if(checkingCpf){
+        if(existingAccount){
             errorCode = 409
             throw new Error("Já existe uma conta com esse CPF")
         }
 
         users.push(newUser)
 
-        res.status(200).send({ message: "Conta criada com sucesso! Seu atual saldo é 0, para depositos, use outro endpoint" })
+        res.status(201).send({ message: "Conta criada! Seu atual saldo é 0, para depositos, use outro endpoint" })
 
     } catch (error) {
         res.status(errorCode).send({ message: error.message })
     }
 })
 
+app.put("/account/deposit", (req: Request, res: Response) => {
+    let errorCode: number = 400
+    try {
+        if(!req.body.name || !req.body.cpf || !req.body.amount) {
+            errorCode = 422
+            throw new Error("Algum campo está inválido. Preencha corretamente.")
+        }
+
+        const existingAccount: userAccount | undefined = checkCpf(req.body.cpf)
+
+        if(!existingAccount){
+            errorCode = 404
+            throw new Error()
+        } else {
+            const newTransaction: transaction = { 
+                amount: Number(req.body.amount),
+                date: Date.now(),
+                description: "Depósito de Dinheiro"
+            }
+
+            existingAccount.balance += req.body.amount
+            existingAccount.statement.push(newTransaction)
+
+            res.status(202).send("Deposito feito com sucesso!")
+        }
+    } catch (error) {
+        res.status(errorCode).send(error.message)
+    }
+})
 
 app.get("/account/search", (req: Request, res: Response) => {
     let errorCode: number = 400
