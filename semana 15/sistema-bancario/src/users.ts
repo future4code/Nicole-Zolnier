@@ -1,3 +1,4 @@
+// objeto padrão da conta do usuario
 export type userAccount = {
     name: string,
     cpf: number,
@@ -6,12 +7,14 @@ export type userAccount = {
     statement: transaction[]
 }
 
+// objeto padrão da transação
 export type transaction = {
     amount: number,
     date: number,
     description: string
 }
 
+// array de usuarios :)
 export const users: userAccount[] = [
     {
         name: "Kylo Ren",
