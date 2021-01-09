@@ -28,3 +28,10 @@ export const findCpf = (cpf: number): userAccount | undefined => {
     })
     
 }
+
+export const findName = (name: string): userAccount | undefined => {
+    return users.find(account => {
+            return account.name === name
+    })
+    
+}
