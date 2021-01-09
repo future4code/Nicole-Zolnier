@@ -28,7 +28,7 @@ export const users: userAccount[] = [
         name: "Rey Skywalker",
         cpf: 9876543210,
         birthDate: "15/03/1989",
-        balance: 1400,
+        balance: 1200,
         statement: [{
             amount: 1200,
             date: 1610214088067,

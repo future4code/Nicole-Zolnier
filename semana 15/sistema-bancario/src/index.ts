@@ -57,7 +57,7 @@ app.post("/account/create", (req: Request, res: Response) => {
 app.post("/account/pay", (req: Request, res: Response) => {
     let errorCode: number = 400
     try {
-        if (!req.body.cpf || !req.body.amount) {
+        if (!req.body.cpf || !Number(req.body.amount)) {
             errorCode = 422
             throw new Error("Algum campo está inválido, por favor informe CPF e valor.")
         }
@@ -84,12 +84,11 @@ app.post("/account/pay", (req: Request, res: Response) => {
             }
 
             const newPayment: transaction = {
-                amount: -req.body.amount,
+                amount: -Number(req.body.amount),
                 date: date,
                 description: req.body.description || ""
             }
 
-            existingAccount.balance -= req.body.amount
             existingAccount.statement.push(newPayment)
 
             res.status(202).send("Pagamento agendado com sucesso!")
@@ -120,25 +119,22 @@ app.post("/account/transfer", (req: Request, res: Response) => {
         } else if (senderAccount.balance < Number(req.body.amount)) {
             throw new Error("Saldo insuficiente")
         } else {
-            
-
             const senderTransaction: transaction = {
-                amount: -req.body.amount,
+                amount: -Number(req.body.amount),
                 date: today,
                 description: `Transferência para ${req.body.recipientName}`
             }
 
+            senderAccount.statement.push(senderTransaction)
+
             const recipientTransaction: transaction = {
-                amount: req.body.amount,
+                amount: Number(req.body.amount),
                 date: today,
                 description: `Transferência de ${req.body.senderName}`
             }
 
-            recipientAccount.balance += req.body.amount
             recipientAccount.statement.push(recipientTransaction)
-            senderAccount.balance -= req.body.amount
-            senderAccount.statement.push(senderTransaction)
-
+            
             res.status(202).send("Transferência enviada com sucesso!")
         }
     } catch (error) {
@@ -167,10 +163,37 @@ app.put("/account/deposit", (req: Request, res: Response) => {
                 description: "Depósito de Dinheiro"
             }
 
-            existingAccount.balance += req.body.amount
             existingAccount.statement.push(newTransaction)
 
             res.status(202).send("Deposito feito com sucesso!")
+        }
+    } catch (error) {
+        res.status(errorCode).send(error.message)
+    }
+})
+
+app.put("/account/update/:cpf", (req: Request, res: Response) => {
+    let errorCode: number = 400
+    try{
+        const cpf: number = Number(req.params.cpf)
+        const account: userAccount | undefined = findCpf(cpf)
+        if(!account){
+            errorCode = 404
+            throw new Error("Conta não encontrada")
+            
+        } 
+        else {
+            const todayTransactions: transaction[] | undefined = account.statement.filter(transaction => {
+                return transaction.date <= today
+            })
+            let newBalance: number = account.balance
+
+            for(let transaction of todayTransactions) {
+                newBalance = account.balance + transaction.amount
+            }
+            
+            account.balance = newBalance
+            res.status(200).send("Saldo atualizado!")
         }
     } catch (error) {
         res.status(errorCode).send(error.message)
