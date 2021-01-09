@@ -2,7 +2,7 @@ import express, { Express, Request, Response } from 'express'
 import cors from 'cors'
 import { AddressInfo } from "net"
 import { users, userAccount, transaction } from './users'
-import { today, checkIfAdult, findCpf, getTimestamp } from './helpers'
+import { today, checkIfAdult, findCpf, getTimestamp, findName } from './helpers'
 
 const app: Express = express();
 
@@ -30,11 +30,17 @@ app.post("/account/create", (req: Request, res: Response) => {
             throw new Error("Você precisa ter 18 ou mais de 18 para criar uma conta")
         }
 
-        const existingAccount: userAccount | undefined = findCpf(req.body.cpf)
+        const existingCpf: userAccount | undefined = findCpf(req.body.cpf)
+        const existingName: userAccount | undefined = findName(req.body.name)
 
-        if (existingAccount) {
+        if (existingCpf) {
             errorCode = 409
             throw new Error("Já existe uma conta com esse CPF")
+        }
+        
+        if(existingName) {
+            errorCode = 409
+            throw new Error("Já existe uma conta com esse nome")
         }
 
         const newUser: userAccount = {
@@ -109,13 +115,25 @@ app.post("/account/transfer", (req: Request, res: Response) => {
 
         const senderAccount: userAccount | undefined = findCpf(req.body.senderCpf)
         const recipientAccount: userAccount | undefined = findCpf(req.body.recipientCpf)
+        const senderName: userAccount | undefined = findName(req.body.senderName)
+        const recipientName: userAccount | undefined = findName(req.body.senderName)
+
+        if(!senderName){
+            errorCode = 404
+            throw new Error("Conta do rementente não encontrada, verifique o nome")
+        }
+
+        if(!recipientName){
+            errorCode = 404
+            throw new Error("Conta do rementente não encontrada, verifique o nome")
+        }
 
         if (!senderAccount) {
             errorCode = 404
-            throw new Error("Conta do rementente não encontrada")
+            throw new Error("Conta do rementente não encontrada, verifique o CPF")
         } else if(!recipientAccount) {
             errorCode = 404
-            throw new Error("Conta do destinatário não encontrada")
+            throw new Error("Conta do destinatário não encontrada, verifique o CPF")
         } else if (senderAccount.balance < Number(req.body.amount)) {
             throw new Error("Saldo insuficiente")
         } else {
@@ -208,6 +226,7 @@ app.get("/account/search", (req: Request, res: Response) => {
             throw new Error("Insira um CPF válido")
         }
 
+        
         const checkingCpf: userAccount | undefined = findCpf(cpf)
 
         if (!checkingCpf) {
