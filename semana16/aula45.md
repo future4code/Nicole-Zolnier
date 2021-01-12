@@ -53,3 +53,17 @@ d) Ele executa a query, mas nada é atualizado
 
 ---------------
 
+## Exercicio 3
+a) 
+```
+DELETE FROM Actor 
+WHERE
+    name = "Fernanda Montenegro";
+```
+
+b)
+```
+DELETE FROM Actor 
+WHERE
+    gender = "male" AND salary > 1000000
+```
