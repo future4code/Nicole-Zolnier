@@ -67,3 +67,39 @@ DELETE FROM Actor
 WHERE
     gender = "male" AND salary > 1000000
 ```
+
+--------------
+## Exercicio 4
+a)
+```
+SELECT 
+    MAX(salary) AS 'Maior salário'
+FROM
+    Actor
+```
+
+b)
+```
+SELECT 
+    MIN(salary) AS 'Menor salário'
+FROM
+    Actor
+```
+
+c)
+```
+SELECT 
+    COUNT(*)
+FROM
+    Actor
+WHERE
+    gender = 'female'
+```
+
+d)
+```
+SELECT 
+    SUM(salary) AS 'Soma de salários'
+FROM
+    Actor
+```
