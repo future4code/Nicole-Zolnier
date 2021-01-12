@@ -176,3 +176,57 @@ WHERE
 d) A query é executada mas nenhuma linha é afetada por ela.
 
 -------------
+## Exercicio 7
+a) 
+```
+SELECT 
+    *
+FROM
+    Movies
+WHERE
+    classification > 7.5
+```
+
+b) 
+```
+SELECT 
+    AVG(classification)
+FROM
+    Movies
+```
+
+c) 
+```
+SELECT 
+    COUNT(*)
+FROM
+    Movies
+WHERE
+    playing_limit_date >= CURDATE()
+```
+
+d)
+```
+SELECT 
+    COUNT(*)
+FROM
+    Movies
+WHERE
+    launch_date >= CURDATE()
+```
+
+e)
+```
+SELECT 
+    MAX(classification)
+FROM
+    Movies
+```
+
+f)
+```
+SELECT 
+    MIN(classification)
+FROM
+    Movies
+```
