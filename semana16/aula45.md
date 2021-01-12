@@ -103,3 +103,44 @@ SELECT
 FROM
     Actor
 ```
+
+------------
+## Exercicio 5
+a) A query agrupa os atores com base no gênero
+
+b)
+```
+SELECT 
+    id, name
+FROM
+    Actor
+ORDER BY name DESC
+```
+
+c)
+```
+SELECT 
+    name, salary
+FROM
+    Actor
+ORDER BY salary DESC
+```
+
+d) 
+```
+SELECT 
+    id, name, salary
+FROM
+    Actor
+ORDER BY salary DESC
+LIMIT 3
+```
+
+e) 
+```
+SELECT 
+    AVG(salary), gender
+FROM
+    Actor
+GROUP BY gender
+```
