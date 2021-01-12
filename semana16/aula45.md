@@ -144,3 +144,35 @@ FROM
     Actor
 GROUP BY gender
 ```
+-------------
+## Exercicio 6
+a) 
+```
+ALTER TABLE Movies ADD playing_limit_date DATE;
+```
+
+b)
+```
+ALTER TABLE Movies MODIFY COLUMN classification FLOAT NOT NULL;
+```
+
+c) 
+```
+UPDATE Movies
+SET 
+    playing_limit_date = '2020-12-31'
+WHERE
+    id = '001';
+```
+
+```
+UPDATE Movies
+SET 
+    playing_limit_date = '2021-01-20'
+WHERE
+    id = '002';
+```
+
+d) A query é executada mas nenhuma linha é afetada por ela.
+
+-------------
