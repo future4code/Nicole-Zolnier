@@ -153,7 +153,7 @@ ALTER TABLE Movies ADD playing_limit_date DATE;
 
 b)
 ```
-ALTER TABLE Movies MODIFY COLUMN classification FLOAT NOT NULL;
+ALTER TABLE Movies MODIFY COLUMN rating FLOAT NOT NULL;
 ```
 
 c) 
@@ -184,13 +184,13 @@ SELECT
 FROM
     Movies
 WHERE
-    classification > 7.5
+    rating > 7.5
 ```
 
 b) 
 ```
 SELECT 
-    AVG(classification)
+    AVG(rating)
 FROM
     Movies
 ```
@@ -218,7 +218,7 @@ WHERE
 e)
 ```
 SELECT 
-    MAX(classification)
+    MAX(rating)
 FROM
     Movies
 ```
@@ -226,7 +226,51 @@ FROM
 f)
 ```
 SELECT 
-    MIN(classification)
+    MIN(rating)
 FROM
     Movies
 ```
+-------------
+## Exercicio 8
+a)
+```
+SELECT 
+    *
+FROM
+    Movies
+ORDER BY name ASC
+```
+
+b) 
+```
+SELECT 
+    *
+FROM
+    Movies
+ORDER BY name DESC
+LIMIT 5
+```
+
+c) 
+```
+SELECT 
+    *
+FROM
+    Movies
+WHERE
+    playing_limit_date >= CURDATE()
+ORDER BY playing_limit_date ASC
+LIMIT 3
+```
+
+d) 
+```
+SELECT 
+    *
+FROM
+    Movies
+ORDER BY rating DESC
+LIMIT 3
+```
+
+
