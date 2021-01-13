@@ -26,6 +26,28 @@ export const countActors = async (gender: string): Promise<any> => {
     const result = await connection.raw(`
       SELECT COUNT(*) as count FROM Actor WHERE gender = "${gender}"
     `)
-    
+
     return result[0]
-  }
+}
+
+export const updateSalary = async (id: string, newSalary: number): Promise<void> => {
+    await connection('Actor')
+        .where('id', '=', `${id}`)
+        .update({
+            salary: newSalary
+        })
+}
+
+export const deleteActor = async (id: string): Promise<void> => {
+    await connection("Actor")
+        .delete()
+        .where("id", id)
+}
+
+export const averageSalary = async (gender: string): Promise<any> => {
+    const result = await connection("Actor")
+      .avg("salary as average")
+      .where({ gender })
+  
+    return result[0].average
+}
