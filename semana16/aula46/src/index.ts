@@ -2,7 +2,7 @@ import knex from "knex";
 import express, { Request, Response } from "express";
 import dotenv from "dotenv";
 import { AddressInfo } from "net";
-import { averageSalary, countActors, deleteActor, getActorById, getActorByName, updateSalary } from './functions'
+import { averageSalary, countActors, createMovie, deleteActor, getActorById, getActorByName, getAllMovies, searchMovie, updateSalary } from './functions'
 
 /**************************************************************/
 
@@ -113,6 +113,55 @@ app.get('/actors/average/salary/:gender', async (req:Request, res: Response) => 
   }
 })
 
+// create a movie
+app.post("/movie", async (req: Request, res: Response) => {
+  try {
+    await createMovie(
+      req.body.id,
+      req.body.title,
+      req.body.synopsis,
+      req.body.releaseDate,
+      req.body.playingLimitDate
+    )
+
+    res.status(200).send({
+      message: "Filme criado"
+    })
+  } catch (err) {
+    res.status(400).send({
+      message: err.message,
+    })
+  }
+})
+
+// get all movies
+app.get("/movie", async (req: Request, res: Response) => {
+  try {
+    const movies = await getAllMovies()
+
+    res.status(200).send({
+      movies: movies,
+    })
+  } catch (err) {
+    res.status(400).send({
+      message: err.message,
+    })
+  }
+})
+
+app.get("/movie/search", async (req: Request, res: Response) => {
+  try {
+    const movies = await searchMovie(req.query.query as string)
+
+    res.status(200).send({
+      movies: movies,
+    })
+  } catch (err) {
+    res.status(400).send({
+      message: err.message,
+    })
+  }
+})
 
 const server = app.listen(process.env.PORT || 3003, () => {
   if (server) {

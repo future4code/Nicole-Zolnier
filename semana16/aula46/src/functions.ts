@@ -51,3 +51,43 @@ export const averageSalary = async (gender: string): Promise<any> => {
   
     return result[0].average
 }
+
+export const createMovie = async (
+    id: string,
+    title: string,
+    synopsis: string,
+    releaseDate: Date,
+    playingLimitDate: Date
+  ) => {
+    await connection
+      .insert({
+        id: id,
+        title: title,
+        synopsis: synopsis,
+        releas_date: releaseDate,
+        playing_limit_date: playingLimitDate,
+      })
+      .into("Movie")
+  }
+
+export const getAllMovies = async (): Promise<any> => {
+    const result = await connection.raw(`
+      SELECT * FROM Movie LIMIT 15
+    `)
+  
+    return result[0]
+  }
+
+  export const searchMovie = async (title: string): Promise<any> => {
+    try {
+        const result = await connection
+            .raw(`
+                SELECT * FROM Movie
+                WHERE title LIKE "%${title}%"
+                `)
+        return result[0]
+    } catch (error) {
+        console.log(error)
+        return []
+    }
+}
