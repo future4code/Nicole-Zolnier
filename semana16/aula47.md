@@ -85,3 +85,29 @@ ON Movies.id = Rating.movie_id
 GROUP BY movie_name
 ```
 --------------
+## Exercicio 5
+a) Porque 3 tabelas estão sendo unidas. O primeiro join une a primeira e a segunda, e o segundo join une o resultado do primeiro join com a terceira tabela.
+
+b) 
+```
+SELECT m.id as "Id do Filme", movie_name as "Título do filme", actor_id as "ID do Ator", name as "Nome do ator" FROM Movies m
+LEFT JOIN MovieCast mc ON m.id = mc.movie_id
+JOIN Actor a ON a.id = mc.actor_id;
+```
+c) Não há uma coluna m na lista de campos. Tem uma vírgula no lugar no ponto em m.title. Se substituirmos, o erro persiste, porque não existe o campo title na tabela Movies. Teria que ser m.movie_name
+```
+Error Code: 1054. Unknown column 'm' in 'field list'
+```
+d)
+```
+SELECT m.id AS movie_id, m.movie_name, a.id AS actor_id, a.name, r.rate, r.comment
+FROM
+    Movies m
+        LEFT JOIN
+    Rating r ON r.movie_id = m.id
+        LEFT JOIN
+    MovieCast mc ON m.id = mc.movie_id
+        JOIN
+    Actor a ON a.id = mc.actor_id
+```
+--------------
