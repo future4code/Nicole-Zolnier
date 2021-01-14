@@ -32,3 +32,25 @@ e) Não é possível adicionar ou atualizar um item pai
 Error Code: 1451. Cannot delete or update a parent row: a foreign key constraint fails
 ```
 ---------------
+## Exercicio 2
+a) É uma tabela de elenco do filme que se relaciona com a tabela de filme, por meio da chave movie_id, e com a tabela de atores, por meio da chave actor_id
+
+b)
+```
+INSERT INTO MovieCast 
+VALUES ("001", "002"),
+VALUES ("002", "003"),
+VALUES ("003", "004"),
+VALUES ("004", "003"),
+VALUES ("001", "001"),
+VALUES ("002", "002");
+```
+c) Não é possível adicionar ou atualizar um item filho.
+```
+Error Code: 1452. Cannot add or update a child row: a foreign key constraint fails...
+```
+d) Não é possível adicionar ou atualizar um item pai.
+```
+Error Code: 1451. Cannot delete or update a parent row: a foreign key constraint fails...
+```
+---------------
