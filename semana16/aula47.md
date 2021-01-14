@@ -54,3 +54,13 @@ d) Não é possível adicionar ou atualizar um item pai.
 Error Code: 1451. Cannot delete or update a parent row: a foreign key constraint fails...
 ```
 ---------------
+## Exercicio 3
+a) Essa query filtra filmes e avaliações correspondentes atrás da chave estrangeira id da tabela Movies e movie_id da tabela Rating. O ON é a condição, neste caso, se id de Movies for igual a movie_id de Rating.
+
+b) 
+```
+SELECT movie_name, Movies.id, rate FROM Movies
+INNER JOIN Rating 
+ON Movies.id = Rating.movie_id
+```
+--------------
