@@ -111,3 +111,43 @@ FROM
     Actor a ON a.id = mc.actor_id
 ```
 --------------
+## Exercicio 6
+a) É uma relação N:M, vários filmes se relacionam com vários oscars ganhos
+
+b)
+```
+CREATE TABLE Oscars (
+	oscar_name VARCHAR(255) NOT NULL,
+    oscar_date DATE NOT NULL,
+    movie_id VARCHAR(255),
+    FOREIGN KEY (movie_id)
+        REFERENCES Movies(id)
+);
+```
+c)
+```
+INSERT INTO Oscars
+VALUES("Oscar de melhor atriz", "2013-02-22",
+  "002"
+), (
+  "Oscar de melhor diretor",
+  "2019-02-24",
+  "004"
+),(
+  "Oscar de melhor filme",
+  "2019-02-24",
+  "004"
+);
+```
+d)
+```
+SELECT 
+    m.id AS movie_id,
+    m.movie_name AS movie_name,
+    o.oscar_name AS oscar_name,
+    o.oscar_date AS oscar_date
+FROM
+    Movies m
+        LEFT JOIN
+    Oscars o ON o.movie_id = m.id
+```
