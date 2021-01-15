@@ -1,14 +1,15 @@
 import express, { Express } from "express";
 import { AddressInfo } from "net";
 import createUser from './endpoints/createUser'
+import getUserById from './endpoints/getUserById'
 
 const app: Express = express();
 
 app.use('/user',createUser)
-// app.use('/user/:id', getUserById)
+app.use('/user', getUserById)
 // app.use('/user/edit/:id', editUser)
 // app.use('/task', createTask)
-// app.use(use'/task/:id', getTaskById)
+// app.use('/task/:id', getTaskById)
 
 const server = app.listen(process.env.PORT || 3003, () => {
    if (server) {
