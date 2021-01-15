@@ -1,9 +1,10 @@
 import express, { Express } from "express";
 import { AddressInfo } from "net";
+import createUser from './endpoints/createUser'
 
 const app: Express = express();
 
-// app.use('/user', createUser)
+app.use('/user',createUser)
 // app.use('/user/:id', getUserById)
 // app.use('/user/edit/:id', editUser)
 // app.use('/task', createTask)
