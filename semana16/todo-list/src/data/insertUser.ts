@@ -1,6 +1,6 @@
 import {connection} from './connection'
 
-export const createUser = async (
+export const insertUser = async (
     name: string, nickname: string, email: string
   ) => {
     await connection

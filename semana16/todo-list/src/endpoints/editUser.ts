@@ -1,6 +1,6 @@
 import express, { Router, Request, Response } from 'express'
 import cors from 'cors'
-import { editUser } from '../data/editUser'
+import { updateUser } from '../data/updateUser'
 
 const router: Router = express.Router()
 router.use(express.json())
@@ -16,7 +16,7 @@ router.post('/edit/:id', async (req: Request, res: Response) => {
             errorCode = 422
             throw new Error("Please provide a new name and a new nickname")
         } else {
-            await editUser(id, name, nickname)
+            await updateUser(id, name, nickname)
             res.status(201).send("User edited!")
         }
 

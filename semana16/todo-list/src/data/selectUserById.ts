@@ -1,6 +1,6 @@
 import { connection } from './connection'
 
-export const getUserById = async (id: number): Promise<any> => {
+export const selectUserById = async (id: number): Promise<any> => {
   try {
     const result = await connection('Users')
       .where('user_id', id)

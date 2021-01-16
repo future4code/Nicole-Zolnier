@@ -126,34 +126,6 @@
 }
 ```
 
-## **POST** Assign responsible
-**Path:** `/task/responsible`
-
-**Body:**
-
-```json
-{
-	"taskId": "Astro Dev",
-	"userId": "astrodev"
-}
-```
-
-## **GET** Responsible users
-**Path:** `/task/:id/responsible`
-
-**Path Param**: é o id da tarefa
-
-**Body de Resposta:**
-
-```json
-{
-	"users": [{
-		"id": "1",
-		"nickname": "astrodev"
-	}]
-}
-```
-
 ## **POST** Edit Status
 
 **Path:** `/task/status/edit`

@@ -1,6 +1,6 @@
 import { connection } from './connection'
 
-export const getAllUsers = async () => {
+export const selectAllUsers = async () => {
     try {
         const result = await connection("Users")
             .select("user_id", "nickname")

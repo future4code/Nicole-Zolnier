@@ -1,6 +1,6 @@
 import express, { Router, Request, Response } from 'express'
 import cors from 'cors'
-import { getUserById } from '../data/getUserById'
+import { selectUserById } from '../data/selectUserById'
 
 const router: Router = express.Router()
 router.use(express.json())
@@ -11,7 +11,7 @@ router.get('/:id', async (req: Request, res: Response) => {
   try {
     const id = Number(req.params.id)
 
-    const result = await getUserById(id)
+    const result = await selectUserById(id)
 
     if (!result) {
       errorCode = 404

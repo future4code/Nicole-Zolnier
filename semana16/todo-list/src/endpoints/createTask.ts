@@ -1,6 +1,6 @@
 import express, { Router, Request, Response } from 'express'
 import cors from 'cors'
-import { createTask } from '../data/createTask'
+import { insertTask } from '../data/insertTask'
 import { checkDate, formatDate } from '../helpers'
 
 const router: Router = express.Router()
@@ -24,7 +24,7 @@ router.put('/create', async (req: Request, res: Response) => {
         }
 
         const dateFormat = formatDate(dueDate)
-        await createTask(title, description, dateFormat, userId)
+        await insertTask(title, description, dateFormat, userId)
         res.status(201).send("Task created!")
     } catch (error) {
     res.status(errorCode).send(error.message || error.sqlMessage)

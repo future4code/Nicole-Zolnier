@@ -1,6 +1,6 @@
 import express, { Router, Request, Response } from 'express'
 import cors from 'cors'
-import { createUser } from '../data/createUser'
+import { insertUser } from '../data/insertUser'
 
 const router: Router = express.Router()
 router.use(express.json())
@@ -15,7 +15,7 @@ router.put('/create', async (req: Request, res: Response) => {
             errorCode = 422
             throw new Error("Please provide a name, a nickname and an email.")
         } else {
-            await createUser(name, nickname, email)
+            await insertUser(name, nickname, email)
             res.status(201).send("User created!")
         }
 

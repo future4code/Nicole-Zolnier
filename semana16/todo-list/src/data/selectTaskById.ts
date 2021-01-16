@@ -1,6 +1,6 @@
 import { connection } from './connection'
 
-export const getTaskById = async (id: number) => {
+export const selectTaskById = async (id: number) => {
   try {
     const result = await connection('Tasks')
       .where('task_id', id)

@@ -7,7 +7,7 @@ import createTask from './endpoints/createTask'
 import getTaskById from './endpoints/getTaskById'
 import getAllUsers from './endpoints/getAllUsers'
 import getTaskByUserId from './endpoints/getTaskByUserId'
-import getUserByName from './endpoints/getUserByName'
+import getUserByName from './endpoints/getUserByNickname'
 
 const app: Express = express();
 

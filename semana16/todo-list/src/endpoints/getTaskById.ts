@@ -1,6 +1,6 @@
 import express, { Router, Request, Response } from 'express'
 import cors from 'cors'
-import { getTaskById } from '../data/getTaskById'
+import { selectTaskById } from '../data/selectTaskById'
 import moment from 'moment'
 
 const router: Router = express.Router()
@@ -12,7 +12,7 @@ router.get('/:id', async (req: Request, res: Response) => {
     try {
       const id = Number(req.params.id)
   
-      const queryResult = await getTaskById(id)
+      const queryResult = await selectTaskById(id)
   
       if (!queryResult) {
         errorCode = 404

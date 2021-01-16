@@ -1,6 +1,6 @@
 import {connection} from './connection'
 
-export const createTask = async (
+export const insertTask = async (
     title: string, description: string, dueDate: string, userId: number
   ) => {
     await connection
