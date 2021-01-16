@@ -5,9 +5,11 @@ import getUserById from './endpoints/getUserById'
 import editUser from './endpoints/editUser'
 import createTask from './endpoints/createTask'
 import getTaskById from './endpoints/getTaskById'
+import getAllUsers from './endpoints/getAllUsers'
 
 const app: Express = express();
 
+app.use('/user', getAllUsers)
 app.use('/user',createUser)
 app.use('/user', getUserById)
 app.use('/user', editUser)

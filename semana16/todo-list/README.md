@@ -23,7 +23,7 @@
 
 ```json
 {
-	"id": "001",
+	"id": "1",
 	"nickname": "astrodev"
 }
 ```
@@ -72,5 +72,19 @@
 	"dueDate": "04/05/2020",
 	"status": "to_do",
 	"userId": "3",
+}
+```
+
+## **GET** All Users
+**Path:** `/user/all`
+
+**Body de Resposta:**
+
+```json
+{
+	"users": [{
+		"id": "1",
+		"nickname": "astrodev"
+	}]
 }
 ```
