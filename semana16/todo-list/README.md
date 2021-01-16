@@ -90,9 +90,9 @@
 ```
 
 ## **GET** Task by User Id
-**Path:** `/task?userId=id`
+**Path:** `/task/search?userId=id`
 
-**Query String:** indica o id do usuário que criou através da chave `userId`
+**Query String:** id do usuário que criou através da chave `userId`
 
 **Body de Resposta:**
 
@@ -111,9 +111,9 @@
 ```
 
 ## **GET** User By Name
-**Path:** `/user?query=astro`
+**Path:** `/user/search?nickname=astro`
 
-**Query String:** indica o termo de busca através da chave `query`
+**Query String:** nickname do usuario através da chave `nickname`
 
 **Body de Resposta:**
 
@@ -133,8 +133,8 @@
 
 ```json
 {
-	"task_id": "Astro Dev",
-	"responsible_user_id": "astrodev"
+	"taskId": "Astro Dev",
+	"userId": "astrodev"
 }
 ```
 
@@ -166,8 +166,3 @@
 	"status": "doing"
 }
 ```
-
-## **DEL** Delete Task
-**Path:** `/task/:id`
-
-**Path Param**: id da task
