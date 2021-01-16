@@ -71,7 +71,7 @@
 	"description": "Devemos criar o banco dos alunos para o módulo do backend",
 	"dueDate": "04/05/2020",
 	"status": "to_do",
-	"userId": "3",
+	"userId": "3"
 }
 ```
 
@@ -105,7 +105,6 @@
 		"dueDate": "04/05/2020",
 		"userId": "001",
 		"status": "to_do",
-		"userNickname": "astrodev"
 	}]
 }
 ```
@@ -134,7 +133,7 @@
 
 ```json
 {
-	"taskId": "1"
+	"taskId": "1",
 	"status": "doing"
 }
 ```

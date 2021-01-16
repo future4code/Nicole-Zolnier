@@ -8,6 +8,7 @@ import getTaskById from './endpoints/getTaskById'
 import getAllUsers from './endpoints/getAllUsers'
 import getTaskByUserId from './endpoints/getTaskByUserId'
 import getUserByName from './endpoints/getUserByNickname'
+import editTaskStatus from './endpoints/editTaskStatus'
 
 const app: Express = express();
 
@@ -18,6 +19,7 @@ app.use('/user', getUserById)
 app.use('/user', editUser)
 app.use('/task', createTask)
 app.use('/task', getTaskByUserId)
+app.use('/task', editTaskStatus)
 app.use('/task', getTaskById)
 
 const server = app.listen(process.env.PORT || 3003, () => {
