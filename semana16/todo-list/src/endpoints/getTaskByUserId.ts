@@ -8,15 +8,23 @@ router.use(express.json())
 router.use(cors())
 
 router.get('/search', async (req: Request, res: Response) => {
-    try {
-        const result = await searchTasks(req.query.userId as string)
-    
-        res.status(200).send({tasks: result})
-      } catch (err) {
-        res.status(400).send({
-          message: err.message,
-        })
-      }
+  let errorCode = 400
+  try {
+    const id = Number(req.query.userId)
+
+    if (!id) {
+      errorCode = 422
+      throw new Error("Please insert the nickname query and a value")
+    }
+    const result = await searchTasks(id)
+    if (!result) {
+      errorCode = 404
+      throw new Error("User or tasks not found")
+    }
+    res.status(200).send({ tasks: result })
+  } catch (error) {
+    res.status(errorCode).send(error.message || error.sqlMessage)
+  }
 })
 
 export default router

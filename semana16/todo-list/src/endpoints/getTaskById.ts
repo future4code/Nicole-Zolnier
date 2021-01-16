@@ -13,8 +13,6 @@ router.get('/:id', async (req: Request, res: Response) => {
       const id = Number(req.params.id)
   
       const queryResult = await getTaskById(id)
-
-      
   
       if (!queryResult) {
         errorCode = 404
