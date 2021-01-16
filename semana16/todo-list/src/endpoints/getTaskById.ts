@@ -5,6 +5,8 @@ const router: Router = express.Router()
 router.use(express.json())
 router.use(cors())
 
-router.get('/task/:id', (req: Request, res: Response) => {
+router.get('/:id', (req: Request, res: Response) => {
 
 })
+
+export default router

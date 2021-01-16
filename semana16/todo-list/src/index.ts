@@ -3,14 +3,16 @@ import { AddressInfo } from "net";
 import createUser from './endpoints/createUser'
 import getUserById from './endpoints/getUserById'
 import editUser from './endpoints/editUser'
+import createTask from './endpoints/createTask'
+// import getTaskById from './endpoints/getTaskById'
 
 const app: Express = express();
 
 app.use('/user',createUser)
 app.use('/user', getUserById)
 app.use('/user', editUser)
-// app.use('/task', createTask)
-// app.use('/task/:id', getTaskById)
+app.use('/task', createTask)
+// app.use('/task', getTaskById)
 
 const server = app.listen(process.env.PORT || 3003, () => {
    if (server) {

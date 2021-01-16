@@ -51,8 +51,8 @@
 {
 	"title": "Criar banco dos alunos",
 	"description": "Devemos criar o banco dos alunos para o módulo do backend",
-	"limitDate": "04/05/2020",
-	"creatorUserId": "001"
+	"dueDate": "04/05/2020",
+    "userId": "3"
 }
 ```
 
@@ -69,9 +69,8 @@
 	"taskId": "001",
 	"title": "Criar banco dos alunos",
 	"description": "Devemos criar o banco dos alunos para o módulo do backend",
-	"limitDate": "04/05/2020",
+	"dueDate": "04/05/2020",
 	"status": "to_do",
-	"creatorUserId": "001",
-	"creatorUserNickname": "astrodev"
+	"userId": "3",
 }
 ```
