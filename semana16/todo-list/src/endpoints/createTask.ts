@@ -1,7 +1,7 @@
 import express, { Router, Request, Response } from 'express'
 import cors from 'cors'
 import { createTask } from '../data/createTask'
-import { checkDate, transformDate } from '../helpers'
+import { checkDate, formatDate } from '../helpers'
 
 const router: Router = express.Router()
 router.use(express.json())
@@ -23,10 +23,9 @@ router.put('/create', async (req: Request, res: Response) => {
             throw new Error("Please provide a date in the format DD/MM/YYYY")
         }
 
-        const dateFormat = transformDate(dueDate)
+        const dateFormat = formatDate(dueDate)
         await createTask(title, description, dateFormat, userId)
         res.status(201).send("Task created!")
-        
     } catch (error) {
     res.status(errorCode).send(error.message || error.sqlMessage)
     }

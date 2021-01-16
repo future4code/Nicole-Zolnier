@@ -88,3 +88,86 @@
 	}]
 }
 ```
+
+## **GET** Task by User Id
+**Path:** `/task?userId=id`
+
+**Query String:** indica o id do usuário que criou através da chave `userId`
+
+**Body de Resposta:**
+
+```json
+{
+	"tasks": [{
+		"taskId": "1",
+		"title": "Criar banco dos alunos",
+		"description": "Devemos criar o banco dos alunos para o módulo do backend",
+		"dueDate": "04/05/2020",
+		"userId": "001",
+		"status": "to_do",
+		"userNickname": "astrodev"
+	}]
+}
+```
+
+## **GET** User By Name
+**Path:** `/user?query=astro`
+
+**Query String:** indica o termo de busca através da chave `query`
+
+**Body de Resposta:**
+
+```json
+{
+	"users": [{
+		"id": "1",
+		"nickname": "astrodev",
+	}]
+}
+```
+
+## **POST** Assign responsible
+**Path:** `/task/responsible`
+
+**Body:**
+
+```json
+{
+	"task_id": "Astro Dev",
+	"responsible_user_id": "astrodev"
+}
+```
+
+## **GET** Responsible users
+**Path:** `/task/:id/responsible`
+
+**Path Param**: é o id da tarefa
+
+**Body de Resposta:**
+
+```json
+{
+	"users": [{
+		"id": "1",
+		"nickname": "astrodev"
+	}]
+}
+```
+
+## **POST** Edit Status
+
+**Path:** `/task/status/edit`
+
+**Body:**
+
+```json
+{
+	"taskId": "1"
+	"status": "doing"
+}
+```
+
+## **DEL** Delete Task
+**Path:** `/task/:id`
+
+**Path Param**: id da task
