@@ -3,7 +3,7 @@ import selectByNameType from '../data/selectByNameType'
 import { search } from '../types/search'
 import { user } from '../types/user'
 
-export const getUserByNameType = async (req:Request, res:Response): Promise<any> => {
+export const getUserByNameType = async (req:Request, res:Response): Promise<void> => {
 
     try {
         const searchData: search = {

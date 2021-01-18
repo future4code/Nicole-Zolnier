@@ -13,7 +13,6 @@ export const getAllUsers = async(req: Request,res: Response): Promise<void> =>{
        res.status(200).send(users)
        
     } catch (error) {
-       console.log(error)
        res.send(error.message || error.sqlMessage)
     }
  }
