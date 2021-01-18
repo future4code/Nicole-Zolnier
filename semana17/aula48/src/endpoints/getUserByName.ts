@@ -2,7 +2,7 @@ import { Request, Response } from 'express'
 import selectByName from '../data/selectByName'
 import { user } from '../types/user'
 
-export const getUserByName = async (req:Request, res:Response) => {
+export const getUserByName = async (req:Request, res:Response): Promise<any> => {
     try {
         const name:string = req.params.name as string
 
