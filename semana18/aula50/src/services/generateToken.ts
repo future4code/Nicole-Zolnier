@@ -1,10 +1,13 @@
 import * as jwt from 'jsonwebtoken'
+// import dotenv from "dotenv";
+
+// dotenv.config();
 
 type AuthenticationData = {
     id: string
 }
 
-const expiresIn = "1min";
+const expiresIn = "1y";
 export const generateToken = (input: AuthenticationData): string => {
     const token = jwt.sign(
       {

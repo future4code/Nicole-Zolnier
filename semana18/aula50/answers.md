@@ -19,20 +19,17 @@ CREATE TABLE Users_Aula50 (
     password VARCHAR(255) NOT NULL
 );
 ```
-c)
+c) O User é um type que eu criei que contêm id, email e password
 ```
-export const insertUser = async (id: string, email: string, password: string) => {
+export const insertUser = async (newUser: User) => {
     await connection(('Users_Aula50'))
-      .insert({
-        id,
-        email,
-        password,
-      })
+      .insert(newUser)
 }
 ```
 ------------
 ## Exercicio 3
 a) Transforma a chave em string, que é o formato aceito pelo Secret do sign().
+
 b)
 ```
 type AuthenticationData = {
@@ -53,3 +50,45 @@ export const generateToken = (input: AuthenticationData): string => {
     return token;
 }
 ```
+------------
+## Exercicio 4
+```
+export const createUser = async (req:Request, res:Response) => {
+    const { email, password } = req.body
+    try {
+        const id: string = generateId()
+
+        if(!email || email.indexOf("@") === -1){
+            throw new Error("Invalid email")
+        }
+
+        if(!password || password.length < 6){
+            throw new Error("Invalid password. Make sure it has more than 6 characters")
+        }
+
+
+        const newUser: User = {
+            id: id,
+            email: email,
+            password: password
+        }
+
+        await insertUser(newUser);
+
+        const token = generateToken({
+            id,
+        });
+      
+          res.status(200).send({
+            token,
+          })
+
+        
+    } catch (error) {
+        res.send({
+            message: error.message || error.sqlMessage
+        })
+    }
+}
+```
+------------

@@ -1,10 +1,7 @@
+import { User } from "../types";
 import { connection } from "./connection";
 
-export const insertUser = async (id: string, email: string, password: string) => {
+export const insertUser = async (newUser: User) => {
     await connection(('Users_Aula50'))
-      .insert({
-        id,
-        email,
-        password,
-      })
+      .insert(newUser)
 }
