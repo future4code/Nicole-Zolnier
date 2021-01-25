@@ -1,6 +1,6 @@
 import * as jwt from 'jsonwebtoken'
 
-type AuthenticationData = {
+export type AuthenticationData = {
   id: string
 }
 

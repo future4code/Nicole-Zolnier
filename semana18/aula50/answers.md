@@ -168,3 +168,46 @@ export const getTokenData = (token: string): AuthenticationData => {
   ) as AuthenticationData
 }
 ```
+------------
+## Exercicio 8
+a)
+```
+export const selectUserById = async(id: string): Promise<any> => {
+    try {
+        const result = await connection("Users_Aula50")
+      .select("*")
+      .where({ id })
+ 
+    return result[0]
+    } catch (error) {
+        throw new Error(error.message || error.sqlMessage);
+    }
+}
+```
+b)
+```
+export const getUserById = async (req: Request,  res: Response) => {
+    try {
+        const token: string = req.headers.authorization as string
+        const tokenData: AuthenticationData = getTokenData(token)
+
+        const user = await selectUserById(tokenData.id)
+
+        if(!user){
+            res.statusCode = 404
+            throw new Error('User not found!');
+        }
+
+        res.status(200).send({
+            message: {
+                id: user.id,
+                email: user.email
+            }
+        })
+    } catch (error) {
+        res.status(400).send({
+            message: error.message || error.sqlMessage
+        })    
+    }
+}
+```
