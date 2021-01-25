@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { selectUserByEmail } from "../data/selectUserByEmail";
-import { generateToken } from "../services/generateToken";
+import { generateToken } from "../services/authentication";
 
 export const login = async (req:Request, res:Response) => {
     const { email, password } = req.body

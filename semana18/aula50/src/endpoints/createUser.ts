@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { insertUser } from "../data/insertUser";
 import { generateId } from "../services/generateId";
-import { generateToken } from "../services/generateToken";
+import { generateToken } from "../services/authentication";
 import { User } from "../types";
 
 

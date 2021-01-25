@@ -155,3 +155,16 @@ export const login = async (req:Request, res:Response) => {
     }
 }
 ```
+------------
+## Exercicio 7
+a) Ele diz que o resultado do jwt.verify pode ser qualquer coisa e é necessário para não dar erro na hora de transpilar
+
+b)
+```
+export const getTokenData = (token: string): AuthenticationData => {
+  return jwt.verify(
+    token,
+    process.env.JWT_KEY as string
+  ) as AuthenticationData
+}
+```
