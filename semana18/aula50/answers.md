@@ -31,3 +31,25 @@ export const insertUser = async (id: string, email: string, password: string) =>
 }
 ```
 ------------
+## Exercicio 3
+a) Transforma a chave em string, que é o formato aceito pelo Secret do sign().
+b)
+```
+type AuthenticationData = {
+    id: string
+}
+
+const expiresIn = "1min";
+export const generateToken = (input: AuthenticationData): string => {
+    const token = jwt.sign(
+      {
+        id: input.id,
+      },
+      process.env.JWT_KEY as string,
+      {
+        expiresIn
+      }
+    );
+    return token;
+}
+```
