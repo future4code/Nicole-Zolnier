@@ -24,17 +24,106 @@ export const compare = async (
 ```
 ------------
 ## Exercicio 2
-a)
+a) O cadastro deve ser modificado primeiro, para que a senha criada possa ser encriptada e depois fazermos o login comparando as senhas encriptadas (a salva no banco e a fornecida no login).
 
 b) 
 ```
+export const createUser = async (req: Request, res: Response) => {
+    const { email, password } = req.body
+    try {
+        const id: string = generateId()
 
+        if (!email || email.indexOf("@") === -1) {
+            res.statusCode = 422
+            throw new Error("Invalid email")
+        }
+
+        if (!password || password.length < 6) {
+            res.statusCode = 422
+            throw new Error("Invalid password. Make sure it has more than 6 characters")
+        }
+
+        const passwordHash: string = await hash(password)
+
+        const newUser: User = {
+            id: id,
+            email: email,
+            password: passwordHash
+        }
+
+        await insertUser(newUser);
+
+        const token = generateToken({
+            id,
+        });
+
+        res.status(200).send({
+            token,
+        })
+
+
+    } catch (error) {
+        res.send({
+            message: error.message || error.sqlMessage
+        })
+    }
+}
 ```
 c) 
 ```
+export const login = async (req: Request, res: Response) => {
+    const { email, password } = req.body
+    try {
+        if (!email || email.indexOf("@") === -1) {
+            res.statusCode = 422
+            throw new Error("Invalid email")
+        }
 
+        if (!password || password.length < 6) {
+            res.statusCode = 422
+            throw new Error("Invalid password. Make sure it has more than 6 characters")
+        }
+
+        const newUser = {
+            email: email,
+            password: password
+        }
+
+        const user = await selectUserByEmail(newUser.email);
+
+        if (!user) {
+            res.statusCode = 404
+            throw new Error("User not found");
+        }
+
+        const passwordIsCorrect = await compare(
+            newUser.password,
+            user.password
+        );
+
+        if (!passwordIsCorrect) {
+            throw new Error("Invalid password");
+        }
+
+
+
+        const token = generateToken({
+            id: user.id,
+        });
+
+        res.status(200).send({
+            token,
+        })
+
+
+    } catch (error) {
+        res.send({
+            message: error.message || error.sqlMessage
+        })
+    }
+}
 ```
-d)
+d) Não é necessário
 
 ------------
 ## Exercicio 3
