@@ -11,6 +11,7 @@ app.use(express.json());
 app.post('/signup', createUser)
 app.post('/login', login)
 app.delete('/user/:id', deleteUser)
+app.get('/user/:id',)
 app.get('/user/profile', getUserByToken)
 
 
