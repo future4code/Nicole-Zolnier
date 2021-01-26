@@ -7,7 +7,7 @@ import { hash } from "../services/hashManager";
 
 
 export const createUser = async (req: Request, res: Response) => {
-    const { email, password } = req.body
+    const { email, password, role } = req.body
     try {
         const id: string = generateId()
 
@@ -26,13 +26,15 @@ export const createUser = async (req: Request, res: Response) => {
         const newUser: User = {
             id: id,
             email: email,
-            password: passwordHash
+            password: passwordHash,
+            role: role || 'NORMAL'
         }
 
         await insertUser(newUser);
 
         const token = generateToken({
             id,
+            role
         });
 
         res.status(200).send({

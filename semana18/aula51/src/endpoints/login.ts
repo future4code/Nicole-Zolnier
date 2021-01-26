@@ -41,6 +41,7 @@ export const login = async (req: Request, res: Response) => {
 
         const token = generateToken({
             id: user.id,
+            role: user.role
         });
 
         res.status(200).send({

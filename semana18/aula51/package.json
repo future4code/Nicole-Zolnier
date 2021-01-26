@@ -21,7 +21,8 @@
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.21.4",
     "moment": "^2.27.0",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",

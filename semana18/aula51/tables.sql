@@ -3,3 +3,9 @@ CREATE TABLE Users_Aula50 (
     email VARCHAR(255) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL
 );
+
+DESCRIBE Users_Aula50;
+
+SELECT * from Users_Aula50;
+ALTER TABLE Users_Aula50
+ADD role ENUM("NORMAL", "ADMIN") DEFAULT("NORMAL");
