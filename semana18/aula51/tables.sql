@@ -7,5 +7,6 @@ CREATE TABLE Users_Aula50 (
 DESCRIBE Users_Aula50;
 
 SELECT * from Users_Aula50;
+
 ALTER TABLE Users_Aula50
 ADD role ENUM("NORMAL", "ADMIN") DEFAULT("NORMAL");
