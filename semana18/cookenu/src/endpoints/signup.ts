@@ -43,7 +43,7 @@ export const signUp = async (req: Request, res: Response) => {
 
         const token = generateToken(id)
 
-        res.status(200).send({
+        res.status(201).send({
             token,
         })
 

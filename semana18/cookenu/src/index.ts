@@ -10,17 +10,19 @@ import { signUp } from './endpoints/signUp'
 import { login } from './endpoints/login'
 import { getOwnProfile } from './endpoints/getOwnProfile'
 import { getUserProfile } from './endpoints/getUserProfile'
-
+import { createRecipe } from './endpoints/createRecipe'
 
 const app: Express = express()
 app.use(express.json())
 app.use(cors())
 
 
-app.post('/signup', signUp)
-app.post('/login', login)
+app.post('/user/signup', signUp)
+app.post('/user/login', login)
 app.get('/user/profile', getOwnProfile)
 app.get('/user/:id', getUserProfile)
+
+app.post('/recipe/create', createRecipe)
 
 
 
