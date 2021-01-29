@@ -35,7 +35,7 @@ export const getRecipeById = async (req: Request, res: Response) => {
             creatorName: user.name
         }
 
-        res.status(200).send({message: recipe})
+        res.status(200).send({recipe: recipe})
     } catch (error) {
         res.status(400).send({
             message: error.message || error.sqlMessage

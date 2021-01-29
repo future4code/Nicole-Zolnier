@@ -2,16 +2,19 @@ import { Request, Response } from "express"
 import { selectUserByEmail } from "../data/selectUserByEmail"
 import { generateToken } from "../services/authenticator"
 import { compareHash } from "../services/hashManager"
+import { verifyEmail } from "../services/validators"
 
 
 export const login = async (req: Request, res: Response) => {
     const { email, password } = req.body
     try {
-        if (!email || email.indexOf("@") === -1) {
+        if (!email) {
             res.statusCode = 422
             throw new Error("Invalid email")
         }
 
+        verifyEmail(email)
+        
         if (!password || password.length < 6) {
             res.statusCode = 422
             throw new Error("Invalid password. Make sure it has more than 6 characters")

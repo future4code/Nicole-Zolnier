@@ -29,7 +29,7 @@ export const getUserProfile = async (req: Request, res: Response) => {
         }
 
         res.status(200).send({
-            message: user
+            user: user
         })
 
     } catch (error) {

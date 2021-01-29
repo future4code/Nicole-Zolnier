@@ -22,7 +22,7 @@ export const getAllRecipes = async (req: Request, res: Response) => {
         
 
         res.status(200).send({
-            message: recipes
+            recipes: recipes
         })
         
     } catch (error) {

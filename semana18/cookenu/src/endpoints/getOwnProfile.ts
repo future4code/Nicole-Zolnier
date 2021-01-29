@@ -26,7 +26,7 @@ export const getOwnProfile = async (req: Request, res: Response) => {
         }
 
         res.status(200).send({
-            message: user
+            user: user
         })
         
     } catch (error) {
