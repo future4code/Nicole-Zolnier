@@ -1,8 +1,10 @@
+import dayjs from "dayjs"
 import { Request, Response } from "express"
+import { selectRecipeById } from "../data/selectRecipeById"
 import { selectUserById } from "../data/selectUserById"
 import { getTokenData } from "../services/authenticator"
 
-export const getUserProfile = async (req: Request, res: Response) => {
+export const getRecipeById = async (req: Request, res: Response) => {
     try {
         const token = req.headers.authorization as string
 
@@ -15,23 +17,22 @@ export const getUserProfile = async (req: Request, res: Response) => {
 
         const id: string = req.params.id as string
 
-        const queryData = await selectUserById(id)
+        const queryData = await selectRecipeById(id)
 
         if (!queryData) {
             res.statusCode = 404
             throw new Error('User not found!')
         }
 
-        const user = {
+        const recipe = {
             id: queryData.id,
-            name: queryData.name,
-            email: queryData.email
+            title: queryData.title,
+            description: queryData.description,
+            createdAt: dayjs(queryData.created_at).format('DD/MM/YYYY'),
+            creatorId: queryData.creator_id,
         }
 
-        res.status(200).send({
-            message: user
-        })
-
+        res.status(200).send({message: recipe})
     } catch (error) {
         res.status(400).send({
             message: error.message || error.sqlMessage

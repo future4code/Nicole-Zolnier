@@ -11,6 +11,7 @@ import { login } from './endpoints/login'
 import { getOwnProfile } from './endpoints/getOwnProfile'
 import { getUserProfile } from './endpoints/getUserProfile'
 import { createRecipe } from './endpoints/createRecipe'
+import { getRecipeById } from './endpoints/getRecipeById'
 
 const app: Express = express()
 app.use(express.json())
@@ -23,7 +24,7 @@ app.get('/user/profile', getOwnProfile)
 app.get('/user/:id', getUserProfile)
 
 app.post('/recipe/create', createRecipe)
-
+app.get('/recipe/:id', getRecipeById)
 
 
 // Server
