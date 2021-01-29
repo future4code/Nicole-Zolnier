@@ -10,7 +10,7 @@ export const getRecipeById = async (req: Request, res: Response) => {
 
         getTokenData(token)
 
-        if(!getTokenData){
+        if(!token || !getTokenData){
             res.statusCode = 406
             throw new Error('Invalid token')
         }
@@ -24,12 +24,15 @@ export const getRecipeById = async (req: Request, res: Response) => {
             throw new Error('User not found!')
         }
 
+        const user = await selectUserById(queryData.creator_id)
+
         const recipe = {
             id: queryData.id,
             title: queryData.title,
             description: queryData.description,
             createdAt: dayjs(queryData.created_at).format('DD/MM/YYYY'),
             creatorId: queryData.creator_id,
+            creatorName: user.name
         }
 
         res.status(200).send({message: recipe})

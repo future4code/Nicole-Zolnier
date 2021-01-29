@@ -15,6 +15,11 @@ export const createRecipe = async (req: Request, res: Response) => {
 
         const tokenData: AuthenticationData = getTokenData(token)
 
+        if(!token || !tokenData){
+            res.statusCode = 406
+            throw new Error('Invalid token')
+        }
+
         const user = await selectUserById(tokenData.id)
 
         if (!user) {

@@ -8,7 +8,7 @@ export const getUserProfile = async (req: Request, res: Response) => {
 
         getTokenData(token)
 
-        if(!getTokenData){
+        if(!token || !getTokenData){
             res.statusCode = 406
             throw new Error('Invalid token')
         }
