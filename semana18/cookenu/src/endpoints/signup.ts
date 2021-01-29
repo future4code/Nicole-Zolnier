@@ -4,6 +4,7 @@ import { generateToken } from '../services/authenticator'
 import { generateId } from '../services/idGenerator'
 import { generateHash } from '../services/hashManager'
 import { user } from '../types'
+import { verifyEmail } from '../services/validators'
 
 
 export const signUp = async (req: Request, res: Response) => {
@@ -11,12 +12,18 @@ export const signUp = async (req: Request, res: Response) => {
     try {
         const id: string = generateId()
 
+        if(!name){
+            res.statusCode = 422
+            throw new Error("Please provide a name") 
+        }
 
-        if (!email || email.indexOf("@") === -1) {
+        if (!email) {
             res.statusCode = 422
             throw new Error("Invalid email")
         }
 
+        verifyEmail(email)
+        
         if (!password || password.length < 6) {
             res.statusCode = 422
             throw new Error("Invalid password. Make sure it has more than 6 characters")
@@ -32,9 +39,7 @@ export const signUp = async (req: Request, res: Response) => {
             password: passwordHash
         }
 
-
         await insertUser(newUser);
-
 
         const token = generateToken(id)
 
