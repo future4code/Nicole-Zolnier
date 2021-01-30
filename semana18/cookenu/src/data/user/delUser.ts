@@ -1,4 +1,4 @@
-import { connection } from "./connection/connection";
+import { connection } from "../connection/connection";
 
 export const delUser = async (id: string) => {
     try {

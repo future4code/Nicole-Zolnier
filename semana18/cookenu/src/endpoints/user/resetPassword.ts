@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
-import { selectUserByEmail } from "../data/selectUserByEmail";
-import { updatePassword } from "../data/updatePassword";
-import { generateHash } from "../services/hashManager";
-import { writeEmail } from "../services/mailer";
+import { selectUserByEmail } from "../../data/user/selectUserByEmail";
+import { updatePassword } from "../../data/user/updatePassword";
+import { generateHash } from "../../services/hashManager";
+import { writeEmail } from "../../services/mailer";
 
 export const resetPassword = async (req: Request, res: Response) => {
     const { email } = req.body;

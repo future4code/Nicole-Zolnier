@@ -1,6 +1,6 @@
 import { Request, Response } from "express"
-import { AuthenticationData, getTokenData } from "../services/authenticator"
-import { selectUserById } from "../data/selectUserById"
+import { AuthenticationData, getTokenData } from "../../services/authenticator"
+import { selectUserById } from "../../data/user/selectUserById"
 
 export const getOwnProfile = async (req: Request, res: Response) => {
     try {

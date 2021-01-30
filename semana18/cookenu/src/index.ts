@@ -6,26 +6,24 @@ import cors from 'cors'
 import { AddressInfo } from 'net'
 
 // Endpoints
-import { signUp } from './endpoints/signUp'
-import { login } from './endpoints/login'
-import { getOwnProfile } from './endpoints/getOwnProfile'
-import { getUserProfile } from './endpoints/getUserProfile'
-import { createRecipe } from './endpoints/createRecipe'
-import { getRecipeById } from './endpoints/getRecipeById'
-import { getAllUsers } from './endpoints/getAllUsers'
-import { getAllRecipes } from './endpoints/getAllRecipes'
-import { deleteUser } from './endpoints/deleteUser'
-import { followUser } from './endpoints/followUser'
-import { unfollowUser } from './endpoints/unfollowUser'
-import { resetPassword } from './endpoints/resetPassword'
+import { signUp } from './endpoints/user/signUp'
+import { login } from './endpoints/user/login'
+import { getOwnProfile } from './endpoints/user/getOwnProfile'
+import { getUserProfile } from './endpoints/user/getUserProfile'
+import { createRecipe } from './endpoints/recipe/createRecipe'
+import { getRecipeById } from './endpoints/recipe/getRecipeById'
+import { getAllUsers } from './endpoints/user/getAllUsers'
+import { getAllRecipes } from './endpoints/recipe/getAllRecipes'
+import { deleteUser } from './endpoints/user/deleteUser'
+import { followUser } from './endpoints/user/followUser'
+import { unfollowUser } from './endpoints/user/unfollowUser'
+import { resetPassword } from './endpoints/user/resetPassword'
 
 const app: Express = express()
 app.use(express.json())
 app.use(cors())
 
 app.get('/user/all', getAllUsers)
-app.get('/recipe/all', getAllRecipes)
-
 app.post('/user/signup', signUp)
 app.post('/user/login', login)
 app.post('/user/password/reset', resetPassword)
@@ -35,6 +33,7 @@ app.get('/user/profile', getOwnProfile)
 app.delete('/user/:id', deleteUser)
 app.get('/user/:id', getUserProfile)
 
+app.get('/recipe/all', getAllRecipes)
 app.post('/recipe/create', createRecipe)
 app.get('/recipe/:id', getRecipeById)
 

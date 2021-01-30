@@ -1,5 +1,5 @@
-import { recipe } from "../types";
-import { connection } from "./connection/connection"
+import { recipe } from "../../types";
+import { connection } from "../connection/connection"
 
 export const insertRecipe = async (newRecipe: recipe) => {
     try {

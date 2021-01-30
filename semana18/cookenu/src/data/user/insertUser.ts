@@ -1,5 +1,5 @@
-import { user } from "../types";
-import { connection } from "./connection/connection"
+import { user } from "../../types";
+import { connection } from "../connection/connection"
 
 
 

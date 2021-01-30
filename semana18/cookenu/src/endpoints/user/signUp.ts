@@ -1,10 +1,10 @@
 import { Request, Response } from "express"
-import { insertUser } from "../data/insertUser"
-import { generateToken } from "../services/authenticator"
-import { generateId } from "../services/idGenerator"
-import { generateHash } from "../services/hashManager";
-import { user } from "../types";
-import { verifyEmail } from "../services/validators";
+import { insertUser } from "../../data/user/insertUser"
+import { generateToken } from "../../services/authenticator"
+import { generateId } from "../../services/idGenerator"
+import { generateHash } from "../../services/hashManager";
+import { user } from "../../types";
+import { verifyEmail } from "../../services/validators";
 
 
 export const signUp = async (req: Request, res: Response) => {

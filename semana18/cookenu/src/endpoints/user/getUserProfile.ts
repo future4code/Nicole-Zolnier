@@ -1,6 +1,6 @@
 import { Request, Response } from "express"
-import { selectUserById } from "../data/selectUserById"
-import { getTokenData } from "../services/authenticator"
+import { selectUserById } from "../../data/user/selectUserById"
+import { getTokenData } from "../../services/authenticator"
 
 export const getUserProfile = async (req: Request, res: Response) => {
     const id: string = req.params.id as string

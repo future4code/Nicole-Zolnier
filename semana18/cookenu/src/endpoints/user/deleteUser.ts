@@ -1,7 +1,7 @@
 import { Request, Response } from "express"
-import { AuthenticationData, getTokenData } from "../services/authenticator"
-import { delUser } from "../data/delUser";
-import { selectUserById } from "../data/selectUserById";
+import { AuthenticationData, getTokenData } from "../../services/authenticator"
+import { delUser } from "../../data/user/delUser";
+import { selectUserById } from "../../data/user/selectUserById";
 
 export const deleteUser = async (req: Request, res: Response) => {
     const id: string = req.params.id as string

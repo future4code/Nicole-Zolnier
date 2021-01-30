@@ -1,8 +1,8 @@
 import { Request, Response } from "express"
-import { selectUserById } from "../data/selectUserById"
-import { insertFollow } from "../data/insertFollow"
-import { AuthenticationData, getTokenData } from "../services/authenticator"
-import { following } from "../types"
+import { selectUserById } from "../../data/user/selectUserById"
+import { insertFollow } from "../../data/user/insertFollow"
+import { AuthenticationData, getTokenData } from "../../services/authenticator"
+import { following } from "../../types"
 
 export const followUser = async (req: Request, res: Response) => {
     const userToFollowId = req.body.userToFollowId as string

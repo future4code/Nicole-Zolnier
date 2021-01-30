@@ -1,9 +1,9 @@
 import { Request, Response } from 'express'
-import { insertRecipe } from '../data/insertRecipe'
-import { AuthenticationData, getTokenData } from '../services/authenticator'
-import { generateId } from '../services/idGenerator'
-import { recipe } from '../types'
-import { selectUserById } from '../data/selectUserById'
+import { insertRecipe } from '../../data/recipe/insertRecipe'
+import { AuthenticationData, getTokenData } from '../../services/authenticator'
+import { generateId } from '../../services/idGenerator'
+import { recipe } from '../../types'
+import { selectUserById } from '../../data/user/selectUserById'
 import dayjs from 'dayjs'
 
 

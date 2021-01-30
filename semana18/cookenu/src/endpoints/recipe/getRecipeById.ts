@@ -1,8 +1,8 @@
 import dayjs from "dayjs"
 import { Request, Response } from "express"
-import { selectRecipeById } from "../data/selectRecipeById"
-import { selectUserById } from "../data/selectUserById"
-import { getTokenData } from "../services/authenticator"
+import { selectRecipeById } from "../../data/recipe/selectRecipeById"
+import { selectUserById } from "../../data/user/selectUserById"
+import { getTokenData } from "../../services/authenticator"
 
 export const getRecipeById = async (req: Request, res: Response) => {
     const id: string = req.params.id as string

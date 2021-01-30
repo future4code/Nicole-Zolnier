@@ -1,5 +1,5 @@
-import { following } from "../types";
-import { connection } from "./connection/connection"
+import { following } from "../../types";
+import { connection } from "../connection/connection"
 
 export const insertFollow = async (newFollowing: following) => {
     try {

@@ -1,11 +1,12 @@
-import { connection } from "./connection/connection"
+import { connection } from "../connection/connection"
 
-export const selectAllUsers = async(): Promise<any> => {
+export const selectUserById = async(id: string): Promise<any> => {
     try {
         const result = await connection('Users')
       .select("*")
+      .where({ id })
 
-    return result
+    return result[0]
     } catch (error) {
         throw new Error(error.message || error.sqlMessage);
     }

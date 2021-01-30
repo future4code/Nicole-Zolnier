@@ -1,4 +1,4 @@
-import { connection } from "./connection/connection"
+import { connection } from "../connection/connection"
 
 export const selectUserByEmail = async(email: string): Promise<any> => {
     try {

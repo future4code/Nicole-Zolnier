@@ -1,8 +1,8 @@
 import { Request, Response } from "express"
-import { selectUserById } from "../data/selectUserById"
-import { delFollow } from "../data/delFollow"
-import { AuthenticationData, getTokenData } from "../services/authenticator"
-import { following } from "../types"
+import { selectUserById } from "../../data/user/selectUserById"
+import { delFollow } from "../../data/user/delFollow"
+import { AuthenticationData, getTokenData } from "../../services/authenticator"
+import { following } from "../../types"
 
 export const unfollowUser = async (req: Request, res: Response) => {
     const userToUnfollowId = req.body.userToUnfollowId as string

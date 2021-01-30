@@ -1,7 +1,7 @@
 import { Request, Response } from "express"
-import { getTokenData } from "../services/authenticator"
-import { selectAllRecipes } from "../data/selectAllRecipes"
-import { recipe } from "../types"
+import { getTokenData } from "../../services/authenticator"
+import { selectAllRecipes } from "../../data/recipe/selectAllRecipes"
+import { recipe } from "../../types"
 
 export const getAllRecipes = async (req: Request, res: Response) => {
     try {

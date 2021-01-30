@@ -1,4 +1,4 @@
-import { connection } from "./connection/connection"
+import { connection } from "../connection/connection"
 
 export const updatePassword = async (email: number, password: string) => {
     try {

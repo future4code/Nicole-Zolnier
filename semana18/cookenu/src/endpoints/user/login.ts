@@ -1,8 +1,8 @@
 import { Request, Response } from "express"
-import { selectUserByEmail } from "../data/selectUserByEmail"
-import { generateToken } from "../services/authenticator"
-import { compareHash } from "../services/hashManager"
-import { verifyEmail } from "../services/validators"
+import { selectUserByEmail } from "../../data/user/selectUserByEmail"
+import { generateToken } from "../../services/authenticator"
+import { compareHash } from "../../services/hashManager"
+import { verifyEmail } from "../../services/validators"
 
 
 export const login = async (req: Request, res: Response) => {
