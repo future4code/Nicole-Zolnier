@@ -6,7 +6,7 @@ export const delUser = async (id: string) => {
             .where('follower_id', id)
             .delete()
             await connection('Following')
-            .where('following_id', id)
+            .where('followed_id', id)
             .delete()
         await connection('Recipes')
             .where('creator_id', id)

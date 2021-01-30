@@ -6,6 +6,11 @@ export type user = {
     role: ROLE
 }
 
+export type following = {
+    follower_id: string,
+    followed_id: string
+}
+
 export type recipe = {
     id: string,
     title: string,

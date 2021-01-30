@@ -1,14 +1,14 @@
 import { Request, Response } from "express"
 import { selectUserById } from "../data/selectUserById"
-import { insertFollow } from "../data/insertFollow"
+import { delFollow } from "../data/delFollow"
 import { AuthenticationData, getTokenData } from "../services/authenticator"
 import { following } from "../types"
 
-export const followUser = async (req: Request, res: Response) => {
-    const userToFollowId = req.body.userToFollowId as string
+export const unfollowUser = async (req: Request, res: Response) => {
+    const userToUnfollowId = req.body.userToUnfollowId as string
 
     try {
-        if (!userToFollowId) {
+        if (!userToUnfollowId) {
             res.statusCode = 422
             throw new Error('Missing params')
         }
@@ -22,7 +22,7 @@ export const followUser = async (req: Request, res: Response) => {
         }
              
         const followerData = await selectUserById(tokenData.id)
-        const userToFollowData = await selectUserById(userToFollowId)
+        const userToFollowData = await selectUserById(userToUnfollowId)
 
         if(!followerData || !userToFollowData){
             res.statusCode = 404
@@ -30,12 +30,12 @@ export const followUser = async (req: Request, res: Response) => {
         } else {
             const newFollow: following = {
                 follower_id: tokenData.id,
-                followed_id: userToFollowId
+                followed_id: userToUnfollowId
             }
 
-            await insertFollow(newFollow)
+            await delFollow(newFollow)
             res.status(201).send({
-                message: "User followed!"
+                message: "User unfollowed!"
             })
         }
         

@@ -3,7 +3,13 @@ import { selectUserById } from "../data/selectUserById"
 import { getTokenData } from "../services/authenticator"
 
 export const getUserProfile = async (req: Request, res: Response) => {
+    const id: string = req.params.id as string
     try {
+        if (!id) {
+            res.statusCode = 422
+            throw new Error('Missing params')
+        }
+
         const token = req.headers.authorization as string
 
         getTokenData(token)
@@ -13,8 +19,7 @@ export const getUserProfile = async (req: Request, res: Response) => {
             throw new Error('Invalid token')
         }
 
-        const id: string = req.params.id as string
-
+        
         const queryData = await selectUserById(id)
 
         if (!queryData) {

@@ -1,10 +1,10 @@
-import { recipe } from "../types";
+import { following } from "../types";
 import { connection } from "./connection/connection"
 
-export const insertRecipe = async (newRecipe: recipe) => {
+export const insertFollow = async (newFollowing: following) => {
     try {
-      await connection(('Recipes'))
-        .insert(newRecipe)
+      await connection(('Following'))
+        .insert(newFollowing)
     } catch (error) {
       throw new Error(error.message || error.sqlMessage);
     }
