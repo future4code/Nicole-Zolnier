@@ -66,6 +66,60 @@ npm start
     "password": "foraelon"
 }
 ```
+## **POST** Follow User
+
+**Path:** `/user/follow`
+
+**Headers**
+```
+authorization: "token de autenticação"
+```
+
+**Body:**
+
+```json
+{
+    "userToFollowId": "7d49a150-6b37-4cb7-a648-616a5f14b78e"
+}
+```
+
+## **POST** Unfollow User
+
+**Path:** `/user/unfollow`
+
+**Headers**
+```
+authorization: "token de autenticação"
+```
+
+**Body:**
+
+```json
+{
+    "userToUnfollowId": "7d49a150-6b37-4cb7-a648-616a5f14b78e"
+}
+```
+
+
+## **POST** Reset Password
+
+**Path:** `/user/password/reset`
+
+**Body:**
+
+```json
+{
+    "email": "lady@g.com"
+}
+```
+**Body de Resposta:**
+
+```json
+{
+    "message": "Password updated. Please check your email"
+}
+```
+
 
 ## **GET** All Users
 **Path:** `/users/all`

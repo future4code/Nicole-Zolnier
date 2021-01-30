@@ -17,6 +17,7 @@ import { getAllRecipes } from './endpoints/getAllRecipes'
 import { deleteUser } from './endpoints/deleteUser'
 import { followUser } from './endpoints/followUser'
 import { unfollowUser } from './endpoints/unfollowUser'
+import { resetPassword } from './endpoints/resetPassword'
 
 const app: Express = express()
 app.use(express.json())
@@ -27,6 +28,7 @@ app.get('/recipe/all', getAllRecipes)
 
 app.post('/user/signup', signUp)
 app.post('/user/login', login)
+app.post('/user/password/reset', resetPassword)
 app.post('/user/follow', followUser)
 app.post('/user/unfollow', unfollowUser)
 app.get('/user/profile', getOwnProfile)

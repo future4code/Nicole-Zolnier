@@ -23,3 +23,11 @@ export enum ROLE {
     NORMAL = 'NORMAL',
     ADMIN = 'ADMIN'
 }
+
+export type mailTemplate = {
+    from: string,
+    to: string,
+    subject: string,
+    text: string,
+    html: string
+}
