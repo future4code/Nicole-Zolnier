@@ -8,7 +8,7 @@ import { verifyEmail } from '../services/validators'
 
 
 export const signUp = async (req: Request, res: Response) => {
-    const { name, email, password } = req.body
+    const { name, email, password, role } = req.body
     try {
         const id: string = generateId()
 
@@ -36,12 +36,13 @@ export const signUp = async (req: Request, res: Response) => {
             id: id,
             name: name,
             email: email,
-            password: passwordHash
+            password: passwordHash,
+            role: role || "NORMAL"
         }
 
         await insertUser(newUser);
 
-        const token = generateToken(id)
+        const token = generateToken(id, newUser.role)
 
         res.status(201).send({
             token,

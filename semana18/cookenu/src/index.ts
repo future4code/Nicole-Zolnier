@@ -14,6 +14,7 @@ import { createRecipe } from './endpoints/createRecipe'
 import { getRecipeById } from './endpoints/getRecipeById'
 import { getAllUsers } from './endpoints/getAllUsers'
 import { getAllRecipes } from './endpoints/getAllRecipes'
+import { deleteUser } from './endpoints/deleteUser'
 
 const app: Express = express()
 app.use(express.json())
@@ -24,6 +25,7 @@ app.get('/recipe/all', getAllRecipes)
 app.post('/user/signup', signUp)
 app.post('/user/login', login)
 app.get('/user/profile', getOwnProfile)
+app.delete('/user/:id', deleteUser)
 app.get('/user/:id', getUserProfile)
 
 app.post('/recipe/create', createRecipe)

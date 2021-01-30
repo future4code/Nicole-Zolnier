@@ -148,6 +148,25 @@ authorization: "token de autenticação"
     }
 }
 ```
+
+## **DELETE** User (precisa ser administrador!)
+**Path:** `/user/:id`
+
+**Headers**
+
+```
+authorization: "token de autenticação"
+```
+
+**Path Param**: id do user
+
+**Body de Resposta:**
+
+```json
+{
+    "message": "User deleted"
+}
+```
 ----------------
 ## Recipe Endpoints
 

@@ -43,7 +43,7 @@ export const login = async (req: Request, res: Response) => {
 
 
 
-        const token = generateToken(user.id);
+        const token = generateToken(user.id, user.role);
 
         res.status(200).send({
             token,

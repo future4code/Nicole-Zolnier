@@ -1,9 +1,13 @@
 // Libraries
 import * as jwt from 'jsonwebtoken'
+import { ROLE } from '../types'
 
-export const generateToken = (id: string): string => {
+export const generateToken = (id: string, role: string): string => {
     const token: string = jwt.sign(
-        { id },
+        {
+            id: id,
+            role: role
+          },
         process.env.JWT_KEY as string,
         { expiresIn: process.env.JWT_EXPIRE_TIME }
     )
@@ -18,5 +22,6 @@ export const getTokenData = (token:string): AuthenticationData => {
 }
 
 export type AuthenticationData = {
-    id: string
+    id: string,
+    role: ROLE
 }

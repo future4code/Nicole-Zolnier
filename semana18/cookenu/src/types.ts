@@ -2,7 +2,8 @@ export type user = {
     id: string,
     name: string,
     email: string,
-    password: string
+    password: string,
+    role: ROLE
 }
 
 export type recipe = {
@@ -11,4 +12,9 @@ export type recipe = {
     description: string,
     created_at: string,
     creator_id: string
+}
+
+export enum ROLE {
+    NORMAL = 'NORMAL',
+    ADMIN = 'ADMIN'
 }
