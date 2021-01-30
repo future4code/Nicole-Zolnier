@@ -1,15 +1,15 @@
-import SMTPTransport = require("nodemailer/lib/smtp-transport");
 import nodemailer from "nodemailer";
-import Mail = require("nodemailer/lib/mailer");
 import { mailTemplate } from "../types";
+import Mail = require("nodemailer/lib/mailer");
+import SMTPTransport = require("nodemailer/lib/smtp-transport");
 
-export const config: SMTPTransport.Options ={
+const config: SMTPTransport.Options = {
     host: "smtp.mailtrap.io",
     port: 2525,
     auth: {
-        user: "df3aefae660858",
-        pass: "451b91cc38b29a"
-    }
+        user: "d1fb6f8aa4b6cb",
+        pass: "fae3c5ea66a998"
+    },
 }
 
 let transporter: Mail = nodemailer.createTransport(config);
