@@ -5,11 +5,9 @@ export const getAllUsers = async (req: Request, res: Response) => {
     try {
         const token: string = req.headers.authorization as string
 
-        const users = getUsersBusiness(token)
+        const users = await getUsersBusiness(token)
         
-        res.status(200).send({
-            users: users
-        })
+        res.status(200).send({users: users})
 
     } catch (error) {
         res.status(400).send(error.message)

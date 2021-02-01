@@ -1,15 +1,12 @@
 import { selectAllUsers } from "../data/userDatabase"
+import { user } from "./entities/user"
 import { getTokenData } from "./services/authenticator"
 
 export const getUsersBusiness = async (token: string): Promise<any> => {
     try {
         getTokenData(token)
 
-        if (!token || !getTokenData) {
-            throw new Error('Invalid token')
-        }
-
-        const users = await selectAllUsers()
+        const users: user[] = await selectAllUsers() 
 
         return users
 
