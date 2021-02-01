@@ -23,7 +23,7 @@ export const selectUserByEmail = async (email: string): Promise<user> => {
    }
 }
 
-export const selectAllUsers = async (id: string): Promise<any> => {
+export const selectAllUsers = async (): Promise<any> => {
    try {
       return await connection('users_aula54')
          .select('*')
