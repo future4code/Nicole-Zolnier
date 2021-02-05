@@ -1,8 +1,9 @@
-import { connection } from "./data/connection"
+import BaseDatabase from "./data/baseDatabase"
 
-async function createTables(){
+class Setup extends BaseDatabase {
+   public async createTables(){
    try {
-      await connection.raw(`
+      await BaseDatabase.connection.raw(`
          CREATE TABLE labook_users(
             id VARCHAR(255) PRIMARY KEY,
             name VARCHAR(255) NOT NULL,
@@ -11,7 +12,7 @@ async function createTables(){
          )
       `)
 
-      await connection.raw(`
+      await BaseDatabase.connection.raw(`
          CREATE TABLE labook_posts(
             id VARCHAR(255) PRIMARY KEY,
             photo VARCHAR(255) NOT NULL,
@@ -28,5 +29,6 @@ async function createTables(){
       console.log(error)
    }
 }
+}
 
-createTables()
+new Setup().createTables()

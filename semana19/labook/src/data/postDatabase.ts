@@ -1,22 +1,28 @@
-import { connection } from "./connection";
+import BaseDatabase from "./baseDatabase";
 
-export const insertPost = async (post: any) => {
+class PostDatabase extends BaseDatabase {
+  private static tableName: string = 'labook_posts'
+
+  public async insertPost(post: any) {
     try {
-      await connection('labook_posts')
+      await BaseDatabase.connection(PostDatabase.tableName)
         .insert(post)
     } catch (error) {
       throw new Error(error.sqlMessage);
     }
-}
+  }
 
-export const selectPostById = async (id: string) => {
+  public async selectPostById(id: string) {
     try {
-        const result = await connection('labook_posts')
-         .select("*")
-         .where({ id })
+      const result = await BaseDatabase.connection(PostDatabase.tableName)
+        .select("*")
+        .where({ id })
 
-        return result[0]
-      } catch (error) {
-        throw new Error(error.sqlMessage);
-      }
+      return result[0]
+    } catch (error) {
+      throw new Error(error.sqlMessage);
+    }
+  }
 }
+
+export default new PostDatabase()
