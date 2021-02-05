@@ -46,7 +46,7 @@ class PostBusiness {
                 photo: queryResult.photo,
                 description: queryResult.description,
                 type: queryResult.type,
-                createdAt: queryResult.created_at,
+                createdAt: dayjs(queryResult.created_at).format('DD/MM/YYYY'),
                 authorId: queryResult.author_id,
             }
 
