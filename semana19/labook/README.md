@@ -65,6 +65,8 @@ authorization: "token de autenticação"
    "type": "normal"
 }
 ```
+
+**O post é criado na hora então não precisa passar horário (pfvr não passa que ele não vai ver ok?)**
    
 ## 4. **GET** Post By Id
 
@@ -78,12 +80,12 @@ authorization: "token de autenticação"
 {
     "message": "Success!",
     "post": {
-        "id": "8b680f9a-ae2a-43d5-8a20-88c82dbabaa5",
-        "photo": "https://images.theconversation.com/files/319375/original/file-20200309-118956-1cqvm6j.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=900.0&fit=crop",
-        "description": "Stay safe!",
+        "id": "d8fd59e9-8839-46fa-b1ca-114b22b418c5",
+        "photo": "https://static.wikia.nocookie.net/disney/images/5/5a/Monsters-inc-disneyscreencaps.com-9782.jpg/revision/latest/top-crop/width/360/height/450?cb=20200609162910",
+        "description": "Mike Wazoski!",
         "type": "normal",
-        "createdAt": "2021-02-05T16:31:08.000Z",
-        "authorId": "659b457a-35c8-4e23-a89b-a17b04ab6d1d"
+        "createdAt": "05/02/2021",
+        "authorId": "8b25700a-2ef6-408f-94ad-a6909dfa284e"
     }
 }
 ```
