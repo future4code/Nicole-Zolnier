@@ -15,12 +15,11 @@ export type post = {
     photo: string,
     description: string,
     type: POST_TYPES,
-    created_at: Date,
-    author_id: string
+    createdAt: Date,
+    authorId: string
 }
 
 export type signupInputDTO = {
-    id: string,
     name: string,
     email: string,
     password: string

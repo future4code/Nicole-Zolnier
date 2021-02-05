@@ -1,13 +1,9 @@
 import { Request, Response } from "express"
 import { businessCreatePost, businessGetPostById } from "../business/postBusiness"
-
-import { selectPostById } from "../data/postDatabase"
 import { postInputDTO } from "../entities/types"
 
 export const createPost = async (req: Request, res: Response) => {
    try {
-      let message = "Success!"
-
       const { photo, description, type } = req.body
 
       const token: string = req.headers.authorization as string
@@ -16,7 +12,7 @@ export const createPost = async (req: Request, res: Response) => {
 
       await businessCreatePost(postData)
 
-      res.status(201).send({ message })
+      res.status(201).send({ message: "Success!" })
 
    } catch (error) {
       let message = error.sqlMessage || error.message
@@ -28,13 +24,11 @@ export const createPost = async (req: Request, res: Response) => {
 
 export const getPostById = async (req: Request, res: Response) => {
    try {
+      const id = req.params.id
 
-      const { id } = req.params
+      const post = await businessGetPostById(id)
 
-      const {message, post} = await businessGetPostById(id)
-   
-
-      res.status(200).send({ message, post })
+      res.status(200).send({ message: "Success!", post })
 
    } catch (error) {
       let message = error.sqlMessage || error.message

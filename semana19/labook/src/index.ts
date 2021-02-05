@@ -13,7 +13,7 @@ app.use(express.json())
 app.use(cors())
 
 /**************************** ENDPOINTS ******************************/
-app.use('user', userRouter)
+app.use('/user', userRouter)
 app.use('/post', postRouter)
 
 /**************************** SERVER INIT ******************************/

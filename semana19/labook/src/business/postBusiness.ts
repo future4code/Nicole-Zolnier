@@ -1,4 +1,4 @@
-import { postInputDTO } from "../entities/types"
+import { post, postInputDTO } from "../entities/types"
 import { generateId } from "../services/idGenerator"
 import { getTokenData, AuthenticationData } from "../services/authenticator"
 import { insertPost, selectPostById } from "../data/postDatabase"
@@ -37,7 +37,7 @@ export const businessGetPostById = async (id: string) => {
             throw new Error(message)
         }
 
-        const post: any = {
+        const post: post = {
             id: queryResult.id,
             photo: queryResult.photo,
             description: queryResult.description,
@@ -46,7 +46,7 @@ export const businessGetPostById = async (id: string) => {
             authorId: queryResult.author_id,
         }
 
-        return {message, post}
+        return post
     } catch (error) {
         throw new Error(error.message);
     }

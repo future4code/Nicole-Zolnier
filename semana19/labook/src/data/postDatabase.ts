@@ -11,9 +11,11 @@ export const insertPost = async (post: any) => {
 
 export const selectPostById = async (id: string) => {
     try {
-        await connection('labook_posts')
+        const result = await connection('labook_posts')
          .select("*")
          .where({ id })
+
+        return result[0]
       } catch (error) {
         throw new Error(error.sqlMessage);
       }
