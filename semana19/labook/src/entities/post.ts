@@ -11,8 +11,9 @@ export class Post {
         private photo:string,
         private description:string,
         type:string,
-        private author_id:string,
-        private created_at?:number
+        private created_at: string,
+        private author_id:string
+        
     ) {
         if (type === POST_TYPES.NORMAL) {
             this.type = POST_TYPES.NORMAL
@@ -27,6 +28,6 @@ export class Post {
     public getPhoto = ():string => this.photo
     public getDescription = ():string => this.description
     public getType = ():string => this.type
-    public getCreatedAt = ():number | undefined => this.created_at
+    public getCreatedAt = ():string => this.created_at
     public getAuthorId = ():string => this.author_id   
 }

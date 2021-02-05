@@ -1,6 +1,6 @@
 import { Request, Response } from "express"
 import userBusiness from "../business/userBusiness"
-import { signupInputDTO } from "../entities/types"
+import { signupInputDTO, loginInputDTO } from "../model/user"
 
 class UserController {
    public async signup(req: Request, res: Response) {
@@ -28,7 +28,12 @@ class UserController {
 
          const { email, password } = req.body
 
-         const token = await userBusiness.businessLogin(email, password)
+         const data: loginInputDTO = {
+            email, 
+            password
+         }
+
+         const token = await userBusiness.businessLogin(data)
 
          res.status(200).send({ message: "Sucess!", token })
 

@@ -1,5 +1,6 @@
 import userDatabase from "../data/userDatabase"
-import { signupInputDTO, user } from "../entities/types"
+import { loginInputDTO, signupInputDTO } from "../model/user"
+import { User } from "../entities/user"
 import { CustomError } from "../error/CustomError"
 import authenticator from "../services/authenticator"
 import hashManager from "../services/hashManager"
@@ -17,12 +18,13 @@ class UserBusiness {
 
             const cypherPassword = await hashManager.hash(input.password)
 
-            const newUser: user = {
-                id: id,
-                name: input.name,
-                email: input.email,
-                password: cypherPassword,
-            }
+            const newUser: User = new User(
+                id,
+                input.name,
+                input.email,
+                cypherPassword
+            )
+
 
             await userDatabase.insertUser(newUser)
 
@@ -36,35 +38,30 @@ class UserBusiness {
 
 
 
-    public async businessLogin(email: string, password: string) {
+    public async businessLogin(input: loginInputDTO) {
         try {
 
-            if (!email || !password) {
+            if (!input.email || !input.password) {
                 throw new CustomError(400, '"email" and "password" must be provided')
             }
 
-            const queryResult: any = await userDatabase.selectUserByEmail(email)
+            const queryResult:User | null = await userDatabase.selectUserByEmail(input.email)
 
             if (!queryResult) {
                 throw new CustomError(404, "Invalid credentials")
             }
 
-            const user: user = {
-                id: queryResult.id,
-                name: queryResult.name,
-                email: queryResult.email,
-                password: queryResult.password
-            }
+            const password: string = queryResult.getPassword()
+            
 
-            const passwordIsCorrect: boolean = await hashManager.compare(password, user.password)
+            const passwordIsCorrect: boolean = await hashManager.compare(input.password, password)
 
             if (!passwordIsCorrect) {
                 throw new CustomError(404, "Invalid credentials")
             }
 
-            const token: string = authenticator.generateToken({
-                id: user.id
-            })
+            const id: string = queryResult.getId()
+            const token: string = authenticator.generateToken({id})
 
             return token
 

@@ -1,5 +1,5 @@
 import { Request, Response } from "express"
-import { postInputDTO } from "../entities/types"
+import { postInputDTO } from "../model/post"
 import postBusiness from "../business/postBusiness"
 
 class PostController {

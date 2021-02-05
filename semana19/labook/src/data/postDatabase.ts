@@ -1,12 +1,20 @@
+import { Post } from "../entities/post";
 import BaseDatabase from "./baseDatabase";
 
 class PostDatabase extends BaseDatabase {
   private static tableName: string = 'labook_posts'
 
-  public async insertPost(post: any) {
+  public async insertPost(post: Post) {
     try {
       await BaseDatabase.connection(PostDatabase.tableName)
-        .insert(post)
+        .insert({
+          id: post.getId(),
+          photo: post.getPhoto(),
+          description: post.getDescription(),
+          type: post.getType(),
+          created_at: post.getCreatedAt(),
+          author_id: post.getAuthorId()
+      })
     } catch (error) {
       throw new Error(error.sqlMessage);
     }
@@ -18,7 +26,14 @@ class PostDatabase extends BaseDatabase {
         .select("*")
         .where({ id })
 
-      return result[0]
+        return new Post(
+          result[0].id,
+          result[0].photo,
+          result[0].description,
+          result[0].type,
+          result[0].created_at,
+          result[0].author_id
+        )
     } catch (error) {
       throw new Error(error.sqlMessage);
     }
