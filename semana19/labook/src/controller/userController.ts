@@ -19,7 +19,7 @@ class UserController {
             .send({ message: "User created!", token })
 
       } catch (error) {
-         res.status(400).send(error.message)
+         res.status(error.statusCode).send(error.sqlMessage || error.message)
       }
    }
 
@@ -38,10 +38,7 @@ class UserController {
          res.status(200).send({ message: "Sucess!", token })
 
       } catch (error) {
-         let message = error.sqlMessage || error.message
-         res.statusCode = 400
-
-         res.send({ message })
+         res.status(error.statusCode).send(error.sqlMessage || error.message)
       }
    }
 }

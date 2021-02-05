@@ -29,7 +29,7 @@ class PostBusiness {
             await postDatabase.insertPost(newPost)
 
         } catch (error) {
-            throw new CustomError(400, error.sqlMessage || error.message)
+            throw new CustomError(error.statusCode, error.sqlMessage || error.message)
         }
     }
 
@@ -52,7 +52,7 @@ class PostBusiness {
 
             return post
         } catch (error) {
-            throw new Error(error.message);
+            throw new CustomError(error.statusCode, error.sqlMessage || error.message)
         }
     }
 }

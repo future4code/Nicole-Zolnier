@@ -16,10 +16,7 @@ class PostController {
          res.status(201).send({ message: "Success!" })
    
       } catch (error) {
-         let message = error.sqlMessage || error.message
-         res.statusCode = 400
-   
-         res.send({ message })
+         res.status(error.statusCode).send(error.sqlMessage || error.message)
       }
    } 
    
@@ -33,10 +30,7 @@ class PostController {
          res.status(200).send({ message: "Success!", post })
    
       } catch (error) {
-         let message = error.sqlMessage || error.message
-         res.statusCode = 400
-   
-         res.send({ message })
+         res.status(error.statusCode).send(error.sqlMessage || error.message)
       }
 
    }

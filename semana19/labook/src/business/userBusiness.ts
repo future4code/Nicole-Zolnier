@@ -32,7 +32,7 @@ class UserBusiness {
 
             return token
         } catch (error) {
-            throw new CustomError(400, error.sqlMessage || error.message)
+            throw new CustomError(error.statusCode, error.sqlMessage || error.message)
         }
     }
 
@@ -66,7 +66,7 @@ class UserBusiness {
             return token
 
         } catch (error) {
-            throw new CustomError(400, error.sqlMessage || error.message)
+            throw new CustomError(error.statusCode, error.sqlMessage || error.message)
         }
     }
 }
