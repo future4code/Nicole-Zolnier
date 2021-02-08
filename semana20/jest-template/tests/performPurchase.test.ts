@@ -1,28 +1,5 @@
-# Exercícios de Testes
+import { performPurchase, User } from "../src/performPurchase"
 
-## 1
-a)
-````
-export interface User {
-	name: string
-	balance: number
-}
-````
-b)
-````
-export const performPurchase = (user: User, value: number): User | undefined => {
-	if(user.balance >= value) {
-		return {
-			...user,
-			balance: user.balance - value		
-		}
-	}
-	return undefined
-}
-````
-
-## 2
-````
 describe("Perform purchase", () => {
     test("Testing balance greater than value", () => {
         const user: User = {
@@ -63,50 +40,3 @@ describe("Perform purchase", () => {
         expect(result).toEqual(undefined)
     })
 })
-````
-## 3
-b)
-````
-````
-c)
-
-## 4
-a)
-````
-````
-b)
-````
-````
-c)
-````
-````
-d)
-````
-````
-
-## 5
-a)
-````
-````
-b)
-````
-````
-c)
-````
-````
-d)
-````
-````
-
-## 6
-a)
-````
-````
-b)
-````
-````
-
-## 7
-a)
-````
-````
