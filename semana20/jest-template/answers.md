@@ -67,36 +67,70 @@ describe("Perform purchase", () => {
 ## 3
 b)
 ````
+export const verifyAge = (casino:Casino, users:User[]):Result => {
+    const allowedBr:string[] = []
+    const unallowedBr:string[] = []
+    const allowedUs:string[] = []
+    const unallowedUs:string[] = []
+
+    if (casino.location === LOCATION.BRAZIL) {
+        users.forEach(user => {
+            if (user.nationality === NATIONALITY.BRAZILIAN) {
+                if(user.age >= 18){
+                    allowedBr.push(user.name)
+                } else {
+                    unallowedBr.push(user.name)
+                }
+            } else if (user.nationality === NATIONALITY.AMERICAN) {
+                if(user.age >= 18){
+                    allowedUs.push(user.name)
+                } else {
+                    unallowedUs.push(user.name)
+                }
+            }
+        })
+    }
+
+    if (casino.location === LOCATION.EUA) {
+        users.forEach(user => {
+            if (user.nationality === NATIONALITY.BRAZILIAN) {
+                if(user.age >= 21){
+                    allowedBr.push(user.name)
+                } else {
+                    unallowedBr.push(user.name)
+                }
+            } else if (user.nationality === NATIONALITY.AMERICAN) {
+                if(user.age >= 21){
+                    allowedUs.push(user.name)
+                } else {
+                    unallowedUs.push(user.name)
+                }
+            }
+        })
+    }
+
+    return {
+        brazilians: {
+            allowed: allowedBr,
+            unallowed: unallowedBr
+        },
+        americans: {
+            allowed: allowedUs,
+            unallowed: unallowedUs
+        }
+    }
+}
 ````
-c)
+c) Acho que é muita coisa pra analisar, então foi necessario pensar em todos casos possíveis e dai é meio dificil :(
 
 ## 4
-a)
-````
-````
-b)
-````
-````
-c)
-````
-````
-d)
 ````
 ````
 
 ## 5
-a)
 ````
 ````
-b)
-````
-````
-c)
-````
-````
-d)
-````
-````
+
 
 ## 6
 a)
