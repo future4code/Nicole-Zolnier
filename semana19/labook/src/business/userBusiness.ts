@@ -1,10 +1,10 @@
 import userDatabase from "../data/userDatabase"
-import { loginInputDTO, signupInputDTO } from "../model/user"
-import { User } from "../entities/user"
-import { CustomError } from "../error/CustomError"
-import authenticator from "../services/authenticator"
-import hashManager from "../services/hashManager"
-import idGenerator from "../services/idGenerator"
+import { loginInputDTO, signupInputDTO } from "../data/model/user"
+import { User } from "./entities/user"
+import { CustomError } from "./error/CustomError"
+import authenticator from "./services/authenticator"
+import hashManager from "./services/hashManager"
+import idGenerator from "./services/idGenerator"
 
 
 class UserBusiness {

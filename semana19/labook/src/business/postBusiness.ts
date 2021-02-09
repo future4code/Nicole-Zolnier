@@ -1,10 +1,10 @@
-import { postInputDTO } from "../model/post"
-import idGenerator from "../services/idGenerator"
-import authenticator, { AuthenticationData } from "../services/authenticator"
+import { postInputDTO } from "../data/model/post"
+import idGenerator from "./services/idGenerator"
+import authenticator, { AuthenticationData } from "./services/authenticator"
 import postDatabase from "../data/postDatabase"
-import { CustomError } from "../error/CustomError"
-import { Post } from "../entities/post"
-import { postModel } from "../model/post"
+import { CustomError } from "./error/CustomError"
+import { Post } from "./entities/post"
+import { postModel } from "../data/model/post"
 import dayjs from "dayjs"
 
 class PostBusiness {

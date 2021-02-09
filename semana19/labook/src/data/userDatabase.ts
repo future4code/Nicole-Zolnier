@@ -1,4 +1,4 @@
-import { User } from "../entities/user";
+import { User } from "../business/entities/user";
 import BaseDatabase from "./baseDatabase";
 
 class UserDatabase extends BaseDatabase {

@@ -3,8 +3,8 @@
 import express, { Express } from "express"
 import cors from "cors"
 import { AddressInfo } from 'net'
-import { userRouter } from "./routes/userRouter"
-import { postRouter } from "./routes/postRouter"
+import { userRouter } from "./controller/routes/userRouter"
+import { postRouter } from "./controller/routes/postRouter"
 
 /**************************** CONFIG ******************************/
 

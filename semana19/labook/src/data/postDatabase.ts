@@ -1,4 +1,4 @@
-import { Post } from "../entities/post";
+import { Post } from "../business/entities/post";
 import BaseDatabase from "./baseDatabase";
 
 class PostDatabase extends BaseDatabase {
