@@ -1,10 +1,10 @@
-const findMissingNumber = (arr: number[], n: number = arr.length) => {
+export const findMissingNumber = (arr: number[], n: number = arr.length) => {
     let total = ((n + 1) * (n + 2)) / 2
         for (let i = 0; i < n; i++){
             total -= arr[i]
-            return total
-        }
             
+        }
+        return total 
 }
 
 console.log(findMissingNumber([1,2,3,5,6,7]))
