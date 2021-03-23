@@ -1,6 +1,6 @@
 import { findMissingNumber } from '../src/missingNumber'
 
-describe("Testing findMissingNumber", () => {
+describe("Testing missingNumber", () => {
     it("Should return 42", () => {
         const numberArray: number[] = []
 
