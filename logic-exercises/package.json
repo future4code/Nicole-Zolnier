@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "ex1": "tsc && node ./build/missingNumber.js",
+    "ex1": "tsc && node ./build/src/missingNumber.js",
+    "ex3": "tsc && node ./build/src/checkBrackets.js",
     "test": "node ./node_modules/jest/bin/jest.js"
   },
   "keywords": [],
