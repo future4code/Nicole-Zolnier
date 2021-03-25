@@ -1,4 +1,4 @@
-const checkBrackets = (str: string) => {
+export const checkBrackets = (str: string) => {
     const stack = [];
 
   for (let char of str) {
