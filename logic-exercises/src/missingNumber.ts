@@ -7,7 +7,6 @@ export const findMissingNumber = (arr: number[], n: number = arr.length) => {
         return total 
 }
 
-console.log(findMissingNumber([1,2,3,5,6,7]))
 
 // original equation would be (n(n+1))/2
 // but since there is one missing we add this one to both items
