@@ -9,6 +9,7 @@
     "ex3": "tsc && node ./build/src/checkBrackets.js",
     "ex4": "tsc && node ./build/src/longestCommonPrefix.js",
     "ex5": "tsc && node ./build/src/houseRobber.js",
+    "ex6": "tsc && node ./build/src/lonelyNumber.js",
     "test": "node ./node_modules/jest/bin/jest.js"
   },
   "keywords": [],
