@@ -12,6 +12,7 @@
     "ex6": "tsc && node ./build/src/lonelyNumber.js",
     "ex7": "tsc && node ./build/src/isAnagram.js",
     "ex8": "tsc && node ./build/src/twoSum.js",
+    "ex9": "tsc && node ./build/src/countNegatives.js",
     "test": "node ./node_modules/jest/bin/jest.js"
   },
   "keywords": [],
